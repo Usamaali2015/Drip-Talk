@@ -1,0 +1,528 @@
+{
+  "language": "en",
+  "@language": { "description": "The current language" },
+  "appName": "Drip Talk",
+  "@appName": { "description": "App name" },
+  "ok": "OK",
+  "@ok": { "description": "OK button text" },
+  "loadingSubmit": "Creating Account...",
+  "didntReceiveCode": "Didn't receive code? ",
+  "resend": "Resend Code",
+  "orText": "OR",
+  "verifyCode": "Verify Code",
+  "continueText": "Continue",
+  "orContinueWith": "OR Continue With",
+  "cancel": "Cancel",
+  "retry": "Retry",
+  "submit": "Submit",
+  "next": "Next",
+  "back": "Back",
+  "skip": "Skip",
+  "enterOtp": "Enter otp",
+  "resetPassword": "Reset Password",
+  "youHaveSignedUpSuccessfully": "You have Signed up successfully",
+  "loginSuccess": "Login Successfully ",
+  "congratulations": "Congratulations! You have successfully signed in to your account.",
+  "resetPasswordDes": "Your new password must be different from the previous one.",
+  "newPassword": "New Password",
+  "confirmNewPassword": "Confirm New Password",
+  "minimum8Characters": "Minimum 8 characters in length",
+  "atLeastOneNumber": "At least one special character (e.g., ! @)",
+  "welcome": "Welcome to Drip Talk",
+  "loading": "Loading experience...",
+  "getStarted": "Get Started",
+  "login": "Log In",
+  "loginDes": "Login to dripTalk",
+  "signup": "Sign Up",
+  "logout": "Logout",
+  "email": "Email",
+  "password": "Password",
+  "confirmPassword": "Confirm Password",
+  "forgotPassword": "Forgot Password?",
+  "forgotPasswordSubtitle": "Enter your email and we’ll send you a reset link to recover your DripTalk account.",
+  "sendResetLink": "Send Reset Link",
+  "rememberPassword": "Remember your password?",
+  "loginSubtitle": "Login to continue",
+  "signupSubtitle": "Create Your DripTalk Account",
+  "createAccountSubtitle": "Join the future of AI-powered fashion",
+  "alreadyHaveAccount": "Already Have An Account?",
+  "dontHaveAccount": "Don’t Have An Account?",
+  "name": "Name",
+  "checkYourEmail": "Check Your Email",
+  "resettingYourPassword": "Enter the 4-digit code sent to your email to continue resetting your password.",
+  "phone": "Phone",
+  "somethingWentWrong": "Something went wrong",
+  "noInternet": "No internet connection",
+  "invalidEmail": "Invalid email address",
+  "invalidPassword": "Invalid password",
+  "passwordsDoNotMatch": "Passwords do not match",
+  "loadingPleaseWait": "Please wait...",
+  "success": "Success",
+  "error": "Error",
+  "secureReliable": "Secure • Fast • Reliable",
+  "dashboard": "Dashboard",
+  "splashTitle": "Discover Conversations with Drip Talk AI Powered Talk at Your Fingertips",
+  "onboardingWelcome": "ai-powered personal styling,tailored for you",
+  "onboardingMatch": "Find Your Perfect Conversation Match with Drip Talk’s Personalized AI!",
+  "continueWithGoogle": "Continue with Google",
+  "continueWithApple": "Continue with Apple",
+  "enterYourEmail": "Enter your email:",
+  "enterYourName": "Enter your full name:",
+  "enterYourPassword": "Enter your password:",
+  "confirmYourPassword": "Confirm your password:",
+  "rememberMe": "Remember me",
+  "enterEmail": "Enter your email address",
+  "enterPassword": "Enter your password",
+  "loginDescription": "Sign in to continue your fashion journey",
+  "signupDescription": "Join Drip Talk and unlock AI-powered conversations tailored just for you.",
+  "featureOneTitle": "Instant Conversations",
+  "featureOneDescription": "Personalized outfit recommendations based on your style, body type, and mood powered by AI.",
+  "featureTwoTitle": "Discover the Latest Fashion Trends and Styles",
+  "featureTwoDescription": "Explore trending outfits, streetwear looks, and curated fashion collections powered by AI.",
+  "featureThreeTitle": "AI-Powered Fashion Advice and Styling Tips",
+  "featureThreeDescription": "Chat with DripTalk AI for instant fashion advice, styling tips, and drip checks.",
+  "continueWithFacebook": "Continue with Facebook",
+  "passwordResetSuccess": "Password Reset Successfully",
+  "youCanNowLogin": "Your password has been updated. You can now log in to DripTalk with your new password.",
+  "createNewPassword": "Create New Password",
+  "createNewPasswordSubtitle": "Set a strong password to protect your account.",
+  "profile": "Profile",
+  "editProfile": "Edit Profile",
+  "memberSince": "Member since {year}",
+  "shopping": "SHOPPING",
+  "myOrder": "My Order",
+  "trackOrder": "Track Order",
+  "savedItems": "Saved Items",
+  "myFavorites": "My Favorites",
+  "wishlistSubtitle": "Your saved drip picks",
+  "@wishlistSubtitle": {
+    "description": "Subtitle shown at the top of the saved items screen"
+  },
+  "wishlistTrending": "Trending",
+  "@wishlistTrending": {
+    "description": "Default sort chip label for the saved items screen"
+  },
+  "wishlistUnableToLoad": "Unable to load saved items",
+  "@wishlistUnableToLoad": {
+    "description": "Error title shown when the saved items request fails"
+  },
+  "wishlistEmptyTitle": "No saved items yet",
+  "@wishlistEmptyTitle": {
+    "description": "Title shown when the wishlist is empty"
+  },
+  "wishlistEmptySubtitle": "Tap Save on any product to keep it here.",
+  "@wishlistEmptySubtitle": {
+    "description": "Supporting text shown when the wishlist is empty"
+  },
+  "paymentsAndAddress": "PAYMENTS & ADDRESS",
+  "saveAddress": "Save Address",
+  "paymentMethods": "Payment Methods",
+  "settings": "SETTINGS",
+  "notifications": "Notifications",
+  "privacyPolicy": "Privacy Policy",
+  "security": "Security",
+  "changePassword": "Change Password",
+  "changeLanguage": "Change Language",
+  "deleteAccount": "Delete Account",
+  "deleteAccountSheetTitle": "Delete Account",
+  "@deleteAccountSheetTitle": {
+    "description": "Title shown in the delete account confirmation sheet"
+  },
+  "deleteAccountSheetSubtitle": "We'll miss you. This decision can't be undone.",
+  "@deleteAccountSheetSubtitle": {
+    "description": "Subtitle shown in the delete account confirmation sheet"
+  },
+  "deleteAccountWarningMessage": "All your data, order history, saved items, and preferences will be permanently removed from DripTalk.",
+  "@deleteAccountWarningMessage": {
+    "description": "Warning text shown in the delete account sheet"
+  },
+  "deleteAccountEmailLabel": "Enter your email:",
+  "@deleteAccountEmailLabel": {
+    "description": "Label shown above the delete account email field"
+  },
+  "deleteAccountEmailHint": "Enter your email address",
+  "@deleteAccountEmailHint": {
+    "description": "Hint shown inside the delete account email field"
+  },
+  "deleteAccountPasswordLabel": "Enter your password:",
+  "@deleteAccountPasswordLabel": {
+    "description": "Label shown above the delete account password field"
+  },
+  "deleteAccountPasswordHint": "Enter your password",
+  "@deleteAccountPasswordHint": {
+    "description": "Hint shown inside the delete account password field"
+  },
+  "deleteAccountAcknowledgement": "I understand that this action is permanent and all my data will be deleted.",
+  "@deleteAccountAcknowledgement": {
+    "description": "Acknowledgement text shown in the delete account sheet"
+  },
+  "deleteAccountAcknowledgementRequired": "Please confirm that you understand this permanent action.",
+  "@deleteAccountAcknowledgementRequired": {
+    "description": "Validation message shown when the delete account acknowledgement is not checked"
+  },
+  "deleteAccountConfirmAction": "Delete",
+  "@deleteAccountConfirmAction": {
+    "description": "Primary destructive action label in the delete account sheet"
+  },
+  "deleteAccountEmailRequired": "Email is required",
+  "@deleteAccountEmailRequired": {
+    "description": "Validation message for the delete account email field"
+  },
+  "deleteAccountPasswordRequired": "Password is required",
+  "@deleteAccountPasswordRequired": {
+    "description": "Validation message for the delete account password field"
+  },
+  "support": "SUPPORT",
+  "helpCenter": "Help Center",
+  "contactSupport": "Contact Support",
+  "faqs": "FAQ's",
+  "returnPolicy": "Return Policy",
+  "termsAndConditions": "Terms & Conditions",
+  "shopAiCuratedCollections": "AI Curated Collections",
+  "@shopAiCuratedCollections": {
+    "description": "Shop section title for curated collections"
+  },
+  "shopSeeAll": "See All",
+  "@shopSeeAll": { "description": "Shop action label for viewing all collections" },
+  "shopCollectionStreetwearEssentials": "Streetwear Essentials",
+  "@shopCollectionStreetwearEssentials": {
+    "description": "Title for the streetwear curated collection"
+  },
+  "shopCollectionCasualEveryday": "Casual Everyday",
+  "@shopCollectionCasualEveryday": {
+    "description": "Title for the casual curated collection"
+  },
+  "shopCollectionPartyNightDrip": "Party Night Drip",
+  "@shopCollectionPartyNightDrip": {
+    "description": "Title for the party curated collection"
+  },
+  "shopCollectionItems": "{count} Items",
+  "@shopCollectionItems": {
+    "description": "Label for the number of items in a curated collection",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "shopAiStyleProfileText": "AI found these outfits for your style profile",
+  "@shopAiStyleProfileText": {
+    "description": "Promotional text on the AI shopping banner"
+  },
+  "shopAskAiShoppingAdvice": "Ask AI for Shopping Advice",
+  "@shopAskAiShoppingAdvice": {
+    "description": "CTA label on the AI shopping banner"
+  },
+  "shopUnableToLoadProducts": "Unable to load products",
+  "@shopUnableToLoadProducts": {
+    "description": "Error message shown when shop products fail to load"
+  },
+  "shopUnableToLoadCollections": "Unable to load collections",
+  "@shopUnableToLoadCollections": {
+    "description": "Error message shown when AI curated collections fail to load"
+  },
+  "shopSearchCollectionsHint": "Search curated collections",
+  "@shopSearchCollectionsHint": {
+    "description": "Hint text for searching curated collections on the see all screen"
+  },
+  "shopSearchCollectionProductsHint": "Search fashion...",
+  "@shopSearchCollectionProductsHint": {
+    "description": "Hint text for searching products inside a curated collection"
+  },
+  "shopNoProductsFound": "No products found",
+  "@shopNoProductsFound": {
+    "description": "Message shown when the current shop filter returns no products"
+  },
+  "shopNoProductsInCollection": "No products available in this collection",
+  "@shopNoProductsInCollection": {
+    "description": "Message shown when a curated collection has no products"
+  },
+  "shopNoCuratedCollections": "No curated collections available",
+  "@shopNoCuratedCollections": {
+    "description": "Message shown when the AI curated collections API returns no items"
+  },
+  "shopNoFeaturedCollections": "No featured collections available",
+  "@shopNoFeaturedCollections": {
+    "description": "Message shown in the shop curated section when there are no featured collections"
+  },
+  "shopNoCollectionResults": "No collections match your search",
+  "@shopNoCollectionResults": {
+    "description": "Message shown when curated collection search returns no visible results"
+  },
+  "shopUnableToLoadCollectionDetails": "Unable to load collection details",
+  "@shopUnableToLoadCollectionDetails": {
+    "description": "Error message shown when a curated collection details request fails"
+  },
+  "shopDripTalkPicksTitle": "DripTalk Picks",
+  "@shopDripTalkPicksTitle": {
+    "description": "Header title shown on the curated collection details screen"
+  },
+  "shopAddToCart": "Add To Cart",
+  "@shopAddToCart": { "description": "Label for the add to cart button in product cards" },
+  "shopSave": "SAVE",
+  "@shopSave": { "description": "Label for the save button in product cards" },
+  "shopCategoryAll": "All",
+  "@shopCategoryAll": {
+    "description": "Label for the all categories filter option in the shop"
+  },
+  "shopFilterTitle": "Filters",
+  "@shopFilterTitle": {
+    "description": "Title shown in the shop filters bottom sheet"
+  },
+  "shopFilterPriceRange": "Price Range",
+  "@shopFilterPriceRange": {
+    "description": "Heading for the price range section in the shop filter sheet"
+  },
+  "shopFilterMinPriceHint": "Min $",
+  "@shopFilterMinPriceHint": {
+    "description": "Hint for the minimum price field in the shop filter sheet"
+  },
+  "shopFilterMaxPriceHint": "Max $",
+  "@shopFilterMaxPriceHint": {
+    "description": "Hint for the maximum price field in the shop filter sheet"
+  },
+  "shopFilterTo": "To",
+  "@shopFilterTo": {
+    "description": "Connector text between min and max price in the shop filter sheet"
+  },
+  "shopFilterCategories": "Categories",
+  "@shopFilterCategories": {
+    "description": "Heading for the categories filter section in the shop filter sheet"
+  },
+  "shopFilterSizes": "Sizes",
+  "@shopFilterSizes": {
+    "description": "Heading for the size filter section in the shop filter sheet"
+  },
+  "shopFilterBrands": "Brands",
+  "@shopFilterBrands": {
+    "description": "Heading for the brand filter section in the shop filter sheet"
+  },
+  "shopFilterSortBy": "Sort By",
+  "@shopFilterSortBy": {
+    "description": "Heading for the sort filter section in the shop filter sheet"
+  },
+  "shopFilterGender": "Gender",
+  "@shopFilterGender": {
+    "description": "Heading for the gender filter section in the shop filter sheet"
+  },
+  "shopFilterApply": "Apply Filter",
+  "@shopFilterApply": {
+    "description": "Primary action button label in the shop filter sheet"
+  },
+  "shopFilterReset": "Reset",
+  "@shopFilterReset": {
+    "description": "Secondary reset button label in the shop filter sheet"
+  },
+  "shopFilterNoOptions": "No options available",
+  "@shopFilterNoOptions": {
+    "description": "Fallback label shown when a filter section has no options"
+  },
+  "shopFilterSortDefault": "Default",
+  "@shopFilterSortDefault": {
+    "description": "Default sort option label in the shop filter sheet"
+  },
+  "shopFilterSortPriceLowToHigh": "Price low to high",
+  "@shopFilterSortPriceLowToHigh": {
+    "description": "Sort option label for ascending price in the shop filter sheet"
+  },
+  "shopFilterSortPriceHighToLow": "Price high to low",
+  "@shopFilterSortPriceHighToLow": {
+    "description": "Sort option label for descending price in the shop filter sheet"
+  },
+  "shopFilterSortNameAToZ": "Name A to Z",
+  "@shopFilterSortNameAToZ": {
+    "description": "Sort option label for name ascending in the shop filter sheet"
+  },
+  "shopFilterSortNameZToA": "Name Z to A",
+  "@shopFilterSortNameZToA": {
+    "description": "Sort option label for name descending in the shop filter sheet"
+  },
+  "shopFilterGenderMale": "Male",
+  "@shopFilterGenderMale": {
+    "description": "Male gender option label in the shop filter sheet"
+  },
+  "shopFilterGenderFemale": "Female",
+  "@shopFilterGenderFemale": {
+    "description": "Female gender option label in the shop filter sheet"
+  },
+  "productDetailsTitle": "Product Details",
+  "@productDetailsTitle": {
+    "description": "Title shown in the product details app bar"
+  },
+  "productChooseColor": "Choose Color",
+  "@productChooseColor": {
+    "description": "Heading for the product color selector"
+  },
+  "productSelectSize": "Select Size",
+  "@productSelectSize": {
+    "description": "Heading for the product size selector"
+  },
+  "productSizeGuide": "Size Guide",
+  "@productSizeGuide": {
+    "description": "Action label for opening the product size guide"
+  },
+  "productSizeGuideSubtitle": "Find your perfect fit",
+  "@productSizeGuideSubtitle": {
+    "description": "Subtitle shown below the size guide title in the sheet"
+  },
+  "productSizeGuideAiBadge": "AI-Powered Fit",
+  "@productSizeGuideAiBadge": {
+    "description": "Badge title shown on the AI fit card in the size guide sheet"
+  },
+  "productSizeGuideHeroTitle": "Find your perfect size in seconds",
+  "@productSizeGuideHeroTitle": {
+    "description": "Hero title shown in the size guide sheet"
+  },
+  "productSizeGuideHeroDescription": "Based on 50,000+ measurements, we recommend the ideal fit for your style.",
+  "@productSizeGuideHeroDescription": {
+    "description": "Supporting text shown in the size guide sheet hero card"
+  },
+  "productSizeGuideChest": "Chest",
+  "@productSizeGuideChest": {
+    "description": "Label for the chest measurement in the product size guide"
+  },
+  "productSizeGuideWaist": "Waist",
+  "@productSizeGuideWaist": {
+    "description": "Label for the waist measurement in the product size guide"
+  },
+  "productSizeGuideLength": "Length",
+  "@productSizeGuideLength": {
+    "description": "Label for the length measurement in the product size guide"
+  },
+  "productBodyMeasurements": "BODY MEASUREMENTS",
+  "@productBodyMeasurements": {
+    "description": "Title for the body measurements block in the size guide sheet"
+  },
+  "productMeasurementsReference": "In inches • for reference only",
+  "@productMeasurementsReference": {
+    "description": "Footnote shown under the body measurements title in the size guide sheet"
+  },
+  "productSaveSizeSelection": "Save",
+  "@productSaveSizeSelection": {
+    "description": "Save button label in the size guide sheet"
+  },
+  "productReviewsCount": "({count} Reviews)",
+  "@productReviewsCount": {
+    "description": "Review count shown in the product rating row",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "productBuyNow": "Buy Now",
+  "@productBuyNow": {
+    "description": "Label for the buy now action on the product screen"
+  },
+  "productOutOfStock": "Out of Stock",
+  "@productOutOfStock": {
+    "description": "Status label shown when a product is out of stock"
+  },
+  "productInStock": "In Stock",
+  "@productInStock": {
+    "description": "Status label shown when a product is in stock"
+  },
+  "productYouMightAlsoLike": "You Might Also Like",
+  "@productYouMightAlsoLike": {
+    "description": "Heading for the recommended section on the product screen"
+  },
+  "productUnableToLoad": "Unable to load product details",
+  "@productUnableToLoad": {
+    "description": "Error message shown when product details fail to load"
+  },
+  "productDiscountPercentage": "{percentage}% OFF",
+  "@productDiscountPercentage": {
+    "description": "Discount label shown on the product details card",
+    "placeholders": {
+      "percentage": {
+        "type": "int"
+      }
+    }
+  },
+  "cartTitle": "My Cart",
+  "@cartTitle": {
+    "description": "Title shown on the cart screen"
+  },
+  "cartItemsCount": "{count} Items",
+  "@cartItemsCount": {
+    "description": "Label for the number of items shown in the cart header",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cartSize": "Size",
+  "@cartSize": {
+    "description": "Label for selected size in a cart item"
+  },
+  "cartColor": "Color",
+  "@cartColor": {
+    "description": "Label for selected color in a cart item"
+  },
+  "cartOrderSummary": "Order Summary",
+  "@cartOrderSummary": {
+    "description": "Heading for the order summary card on the cart screen"
+  },
+  "cartSubtotal": "Subtotal",
+  "@cartSubtotal": {
+    "description": "Label for cart subtotal"
+  },
+  "cartShipping": "Shipping",
+  "@cartShipping": {
+    "description": "Label for cart shipping amount"
+  },
+  "cartDiscount": "Discount",
+  "@cartDiscount": {
+    "description": "Label for cart discount amount"
+  },
+  "cartTax": "Tax",
+  "@cartTax": {
+    "description": "Label for cart tax amount"
+  },
+  "cartTotal": "Total",
+  "@cartTotal": {
+    "description": "Label for the final total amount in the cart"
+  },
+  "cartPromoCodeHint": "Enter promo code",
+  "@cartPromoCodeHint": {
+    "description": "Hint text for the promo code field in the cart summary"
+  },
+  "cartApply": "Apply",
+  "@cartApply": {
+    "description": "Button label for applying a promo code in the cart"
+  },
+  "cartCheckoutTotal": "Checkout • {total}",
+  "@cartCheckoutTotal": {
+    "description": "Checkout button label showing the cart total",
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "cartEmptyTitle": "Your cart is empty",
+  "@cartEmptyTitle": {
+    "description": "Title shown when the cart has no items"
+  },
+  "cartEmptySubtitle": "Add products from the shop to see them here.",
+  "@cartEmptySubtitle": {
+    "description": "Supporting text shown when the cart is empty"
+  },
+  "cartContinueShopping": "Continue Shopping",
+  "@cartContinueShopping": {
+    "description": "Action button label for navigating back to the shop from an empty cart state"
+  },
+  "cartUnableToLoad": "Unable to load cart",
+  "@cartUnableToLoad": {
+    "description": "Error title shown when the cart request fails"
+  },
+  "cartPromoUnavailable": "Promo codes are not available yet",
+  "@cartPromoUnavailable": {
+    "description": "Informational message shown when promo code functionality is unavailable"
+  },
+  "cartVariantUnavailable": "This product variant is unavailable",
+  "@cartVariantUnavailable": {
+    "description": "Error message shown when add-to-cart is attempted without a valid product variant"
+  }
+}

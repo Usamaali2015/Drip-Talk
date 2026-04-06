@@ -1,0 +1,528 @@
+{
+  "language": "ar",
+  "@language": { "description": "اللغة الحالية" },
+  "appName": "Drip Talk",
+  "@appName": { "description": "اسم التطبيق" },
+  "ok": "موافق",
+  "@ok": { "description": "نص زر موافق" },
+  "loadingSubmit": "جاري إنشاء الحساب...",
+  "didntReceiveCode": "لم تستلم الرمز؟ ",
+  "resend": "إعادة إرسال الرمز",
+  "orText": "أو",
+  "verifyCode": "تحقق من الرمز",
+  "continueText": "متابعة",
+  "orContinueWith": "أو المتابعة باستخدام",
+  "cancel": "إلغاء",
+  "retry": "إعادة المحاولة",
+  "submit": "إرسال",
+  "next": "التالي",
+  "back": "رجوع",
+  "skip": "تخطي",
+  "enterOtp": "أدخل رمز التحقق",
+  "resetPassword": "إعادة تعيين كلمة المرور",
+  "youHaveSignedUpSuccessfully": "تم إنشاء الحساب بنجاح",
+  "loginSuccess": "تم تسجيل الدخول بنجاح",
+  "congratulations": "تهانينا! لقد نجحت في تسجيل الدخول إلى حسابك.",
+  "resetPasswordDes": "يجب أن تكون كلمة المرور الجديدة مختلفة عن السابقة.",
+  "newPassword": "كلمة المرور الجديدة",
+  "confirmNewPassword": "تأكيد كلمة المرور الجديدة",
+  "minimum8Characters": "8 أحرف كحد أدنى",
+  "atLeastOneNumber": "رمز خاص واحد على الأقل (مثال: ! @)",
+  "welcome": "مرحبًا بك في Drip Talk",
+  "loading": "جارِ تحميل التجربة...",
+  "getStarted": "ابدأ الآن",
+  "login": "تسجيل الدخول",
+  "loginDes": "تسجيل الدخول إلى Drip Talk",
+  "signup": "إنشاء حساب",
+  "logout": "تسجيل الخروج",
+  "email": "البريد الإلكتروني",
+  "password": "كلمة المرور",
+  "confirmPassword": "تأكيد كلمة المرور",
+  "forgotPassword": "هل نسيت كلمة المرور؟",
+  "forgotPasswordSubtitle": "أدخل بريدك الإلكتروني وسنرسل لك رابط إعادة تعيين كلمة المرور لاسترداد حسابك.",
+  "sendResetLink": "إرسال رابط إعادة التعيين",
+  "rememberPassword": "تتذكر كلمة مرورك؟",
+  "loginSubtitle": "تسجيل الدخول للمتابعة",
+  "signupSubtitle": "أنشئ حسابك في Drip Talk",
+  "createAccountSubtitle": "انضم إلى مستقبل الموضة المدعوم بالذكاء الاصطناعي",
+  "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
+  "dontHaveAccount": "لا تملك حسابًا؟",
+  "name": "الاسم",
+  "checkYourEmail": "تحقق من بريدك الإلكتروني",
+  "resettingYourPassword": "أدخل الرمز المكون من 4 أرقام المرسل إلى بريدك لمتابعة إعادة تعيين كلمة المرور.",
+  "phone": "الهاتف",
+  "somethingWentWrong": "حدث خطأ ما",
+  "noInternet": "لا يوجد اتصال بالإنترنت",
+  "invalidEmail": "عنوان بريد إلكتروني غير صالح",
+  "invalidPassword": "كلمة المرور غير صالحة",
+  "passwordsDoNotMatch": "كلمات المرور غير متطابقة",
+  "loadingPleaseWait": "الرجاء الانتظار...",
+  "success": "نجاح",
+  "error": "خطأ",
+  "secureReliable": "آمن • سريع • موثوق",
+  "dashboard": "لوحة التحكم",
+  "splashTitle": "اكتشف المحادثات مع Drip Talk – ذكاء اصطناعي بين يديك",
+  "onboardingWelcome": "تنسيق أزياء شخصي مدعوم بالذكاء الاصطناعي، مصمم خصيصًا لك",
+  "onboardingMatch": "اعثر على مطابقة المحادثة المثالية مع الذكاء الاصطناعي من Drip Talk!",
+  "continueWithGoogle": "المتابعة باستخدام Google",
+  "continueWithApple": "المتابعة باستخدام Apple",
+  "enterYourEmail": "أدخل بريدك الإلكتروني:",
+  "enterYourName": "أدخل اسمك الكامل:",
+  "enterYourPassword": "أدخل كلمة المرور:",
+  "confirmYourPassword": "تأكيد كلمة المرور:",
+  "rememberMe": "تذكرني",
+  "enterEmail": "أدخل عنوان البريد الإلكتروني",
+  "enterPassword": "أدخل كلمة المرور",
+  "loginDescription": "سجّل الدخول لمواصلة رحلتك في عالم الموضة",
+  "signupDescription": "انضم إلى Drip Talk وافتح عالم المحادثات المصممة خصيصًا لك.",
+  "featureOneTitle": "محادثات فورية",
+  "featureOneDescription": "توصيات أزياء مخصصة بناءً على أسلوبك ونوع جسمك وحالتك المزاجية.",
+  "featureTwoTitle": "اكتشف أحدث صيحات الموضة والأنماط",
+  "featureTwoDescription": "استكشف الأزياء الرائجة وإطلالات الشوارع ومجموعات الموضة المنسقة.",
+  "featureThreeTitle": "نصائح أزياء مدعومة بالذكاء الاصطناعي",
+  "featureThreeDescription": "دردش مع Drip Talk AI للحصول على نصائح فورية في الموضة.",
+  "continueWithFacebook": "المتابعة باستخدام Facebook",
+  "passwordResetSuccess": "تم إعادة تعيين كلمة المرور بنجاح",
+  "youCanNowLogin": "تم تحديث كلمة المرور الخاصة بك. يمكنك الآن تسجيل الدخول إلى Drip Talk بكلمة المرور الجديدة.",
+  "createNewPassword": "إنشاء كلمة مرور جديدة",
+  "createNewPasswordSubtitle": "قم بتعيين كلمة مرور قوية لحماية حسابك.",
+  "profile": "الملف الشخصي",
+  "editProfile": "تعديل الملف الشخصي",
+  "memberSince": "عضو منذ {year}",
+  "shopping": "التسوق",
+  "myOrder": "طلباتي",
+  "trackOrder": "تتبع الطلب",
+  "savedItems": "العناصر المحفوظة",
+  "myFavorites": "المفضلة",
+  "wishlistSubtitle": "اختياراتك المحفوظة من Drip Talk",
+  "@wishlistSubtitle": {
+    "description": "العنوان الفرعي أعلى شاشة العناصر المحفوظة"
+  },
+  "wishlistTrending": "الأكثر رواجًا",
+  "@wishlistTrending": {
+    "description": "نص فرز الاتجاه الافتراضي في شاشة العناصر المحفوظة"
+  },
+  "wishlistUnableToLoad": "تعذر تحميل العناصر المحفوظة",
+  "@wishlistUnableToLoad": {
+    "description": "عنوان الخطأ عند فشل تحميل العناصر المحفوظة"
+  },
+  "wishlistEmptyTitle": "لا توجد عناصر محفوظة بعد",
+  "@wishlistEmptyTitle": {
+    "description": "عنوان يظهر عندما تكون العناصر المحفوظة فارغة"
+  },
+  "wishlistEmptySubtitle": "اضغط حفظ على أي منتج للاحتفاظ به هنا.",
+  "@wishlistEmptySubtitle": {
+    "description": "نص توضيحي يظهر عندما تكون العناصر المحفوظة فارغة"
+  },
+  "paymentsAndAddress": "الدفع والعناوين",
+  "saveAddress": "حفظ العنوان",
+  "paymentMethods": "طرق الدفع",
+  "settings": "الإعدادات",
+  "notifications": "الإشعارات",
+  "privacyPolicy": "سياسة الخصوصية",
+  "security": "الأمان",
+  "changePassword": "تغيير كلمة المرور",
+  "changeLanguage": "تغيير اللغة",
+  "deleteAccount": "حذف الحساب",
+  "deleteAccountSheetTitle": "حذف الحساب",
+  "@deleteAccountSheetTitle": {
+    "description": "عنوان يظهر في نافذة تأكيد حذف الحساب"
+  },
+  "deleteAccountSheetSubtitle": "سنفتقدك. لا يمكن التراجع عن هذا القرار.",
+  "@deleteAccountSheetSubtitle": {
+    "description": "وصف يظهر في نافذة تأكيد حذف الحساب"
+  },
+  "deleteAccountWarningMessage": "سيتم حذف جميع بياناتك وسجل الطلبات والعناصر المحفوظة والتفضيلات نهائيًا من DripTalk.",
+  "@deleteAccountWarningMessage": {
+    "description": "نص التحذير في نافذة حذف الحساب"
+  },
+  "deleteAccountEmailLabel": "أدخل بريدك الإلكتروني:",
+  "@deleteAccountEmailLabel": {
+    "description": "العنوان الظاهر فوق حقل البريد الإلكتروني في نافذة حذف الحساب"
+  },
+  "deleteAccountEmailHint": "أدخل عنوان بريدك الإلكتروني",
+  "@deleteAccountEmailHint": {
+    "description": "النص الإرشادي داخل حقل البريد الإلكتروني في نافذة حذف الحساب"
+  },
+  "deleteAccountPasswordLabel": "أدخل كلمة المرور:",
+  "@deleteAccountPasswordLabel": {
+    "description": "العنوان الظاهر فوق حقل كلمة المرور في نافذة حذف الحساب"
+  },
+  "deleteAccountPasswordHint": "أدخل كلمة المرور",
+  "@deleteAccountPasswordHint": {
+    "description": "النص الإرشادي داخل حقل كلمة المرور في نافذة حذف الحساب"
+  },
+  "deleteAccountAcknowledgement": "أفهم أن هذا الإجراء نهائي وسيتم حذف جميع بياناتي.",
+  "@deleteAccountAcknowledgement": {
+    "description": "نص التأكيد الظاهر في نافذة حذف الحساب"
+  },
+  "deleteAccountAcknowledgementRequired": "يرجى تأكيد أنك تفهم أن هذا الإجراء نهائي.",
+  "@deleteAccountAcknowledgementRequired": {
+    "description": "رسالة التحقق عند عدم تحديد تأكيد حذف الحساب"
+  },
+  "deleteAccountConfirmAction": "حذف",
+  "@deleteAccountConfirmAction": {
+    "description": "نص زر الإجراء الرئيسي في نافذة حذف الحساب"
+  },
+  "deleteAccountEmailRequired": "البريد الإلكتروني مطلوب",
+  "@deleteAccountEmailRequired": {
+    "description": "رسالة التحقق لحقل البريد الإلكتروني في حذف الحساب"
+  },
+  "deleteAccountPasswordRequired": "كلمة المرور مطلوبة",
+  "@deleteAccountPasswordRequired": {
+    "description": "رسالة التحقق لحقل كلمة المرور في حذف الحساب"
+  },
+  "support": "الدعم",
+  "helpCenter": "مركز المساعدة",
+  "contactSupport": "اتصل بالدعم",
+  "faqs": "الأسئلة الشائعة",
+  "returnPolicy": "سياسة الإرجاع",
+  "termsAndConditions": "الشروط والأحكام",
+  "shopAiCuratedCollections": "مجموعات مختارة بالذكاء الاصطناعي",
+  "@shopAiCuratedCollections": {
+    "description": "عنوان قسم المجموعات المختارة في المتجر"
+  },
+  "shopSeeAll": "عرض الكل",
+  "@shopSeeAll": { "description": "نص إجراء عرض كل المجموعات" },
+  "shopCollectionStreetwearEssentials": "أساسيات أزياء الشارع",
+  "@shopCollectionStreetwearEssentials": {
+    "description": "عنوان مجموعة أزياء الشارع المختارة"
+  },
+  "shopCollectionCasualEveryday": "إطلالات يومية كاجوال",
+  "@shopCollectionCasualEveryday": {
+    "description": "عنوان مجموعة الإطلالات اليومية المختارة"
+  },
+  "shopCollectionPartyNightDrip": "إطلالة سهرة لافتة",
+  "@shopCollectionPartyNightDrip": {
+    "description": "عنوان مجموعة إطلالات السهرة المختارة"
+  },
+  "shopCollectionItems": "{count} قطعة",
+  "@shopCollectionItems": {
+    "description": "نص عدد العناصر داخل المجموعة المختارة",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "shopAiStyleProfileText": "الذكاء الاصطناعي وجد هذه الإطلالات المناسبة لذوقك",
+  "@shopAiStyleProfileText": {
+    "description": "النص الترويجي في بانر التسوق بالذكاء الاصطناعي"
+  },
+  "shopAskAiShoppingAdvice": "اطلب نصيحة تسوق من الذكاء الاصطناعي",
+  "@shopAskAiShoppingAdvice": {
+    "description": "نص زر الدعوة إلى الإجراء في بانر التسوق"
+  },
+  "shopUnableToLoadProducts": "تعذر تحميل المنتجات",
+  "@shopUnableToLoadProducts": {
+    "description": "رسالة خطأ عند فشل تحميل منتجات المتجر"
+  },
+  "shopUnableToLoadCollections": "تعذر تحميل المجموعات",
+  "@shopUnableToLoadCollections": {
+    "description": "رسالة خطأ عند فشل تحميل المجموعات المختارة بالذكاء الاصطناعي"
+  },
+  "shopSearchCollectionsHint": "ابحث في المجموعات المختارة",
+  "@shopSearchCollectionsHint": {
+    "description": "النص التلميحي للبحث في المجموعات المختارة في شاشة عرض الكل"
+  },
+  "shopSearchCollectionProductsHint": "ابحث عن الأزياء...",
+  "@shopSearchCollectionProductsHint": {
+    "description": "النص التلميحي للبحث عن المنتجات داخل المجموعة المختارة"
+  },
+  "shopNoProductsFound": "لم يتم العثور على منتجات",
+  "@shopNoProductsFound": {
+    "description": "رسالة تظهر عند عدم وجود منتجات للفلتر الحالي"
+  },
+  "shopNoProductsInCollection": "لا توجد منتجات متاحة في هذه المجموعة",
+  "@shopNoProductsInCollection": {
+    "description": "رسالة تظهر عندما لا تحتوي المجموعة المختارة على منتجات"
+  },
+  "shopNoCuratedCollections": "لا توجد مجموعات مختارة متاحة",
+  "@shopNoCuratedCollections": {
+    "description": "رسالة تظهر عند عدم وجود عناصر في واجهة برمجة تطبيقات المجموعات المختارة"
+  },
+  "shopNoFeaturedCollections": "لا توجد مجموعات مميزة متاحة",
+  "@shopNoFeaturedCollections": {
+    "description": "رسالة تظهر في قسم المجموعات المختارة في المتجر عند عدم وجود مجموعات مميزة"
+  },
+  "shopNoCollectionResults": "لا توجد مجموعات تطابق بحثك",
+  "@shopNoCollectionResults": {
+    "description": "رسالة تظهر عندما لا يُظهر بحث المجموعات المختارة أي نتائج مرئية"
+  },
+  "shopUnableToLoadCollectionDetails": "تعذر تحميل تفاصيل المجموعة",
+  "@shopUnableToLoadCollectionDetails": {
+    "description": "رسالة خطأ عند فشل تحميل تفاصيل المجموعة المختارة"
+  },
+  "shopDripTalkPicksTitle": "اختيارات DripTalk",
+  "@shopDripTalkPicksTitle": {
+    "description": "عنوان الرأس في شاشة تفاصيل المجموعة المختارة"
+  },
+  "shopAddToCart": "أضف إلى السلة",
+  "@shopAddToCart": { "description": "نص زر الإضافة إلى السلة في بطاقة المنتج" },
+  "shopSave": "حفظ",
+  "@shopSave": { "description": "نص زر الحفظ في بطاقة المنتج" },
+  "shopCategoryAll": "الكل",
+  "@shopCategoryAll": {
+    "description": "اسم خيار كل الفئات في فلتر المتجر"
+  },
+  "shopFilterTitle": "الفلاتر",
+  "@shopFilterTitle": {
+    "description": "عنوان النافذة السفلية لفلاتر المتجر"
+  },
+  "shopFilterPriceRange": "نطاق السعر",
+  "@shopFilterPriceRange": {
+    "description": "عنوان قسم نطاق السعر في نافذة فلاتر المتجر"
+  },
+  "shopFilterMinPriceHint": "أقل سعر $",
+  "@shopFilterMinPriceHint": {
+    "description": "تلميح حقل أقل سعر في نافذة فلاتر المتجر"
+  },
+  "shopFilterMaxPriceHint": "أعلى سعر $",
+  "@shopFilterMaxPriceHint": {
+    "description": "تلميح حقل أعلى سعر في نافذة فلاتر المتجر"
+  },
+  "shopFilterTo": "إلى",
+  "@shopFilterTo": {
+    "description": "نص الربط بين أقل سعر وأعلى سعر في نافذة فلاتر المتجر"
+  },
+  "shopFilterCategories": "الفئات",
+  "@shopFilterCategories": {
+    "description": "عنوان قسم الفئات في نافذة فلاتر المتجر"
+  },
+  "shopFilterSizes": "المقاسات",
+  "@shopFilterSizes": {
+    "description": "عنوان قسم المقاسات في نافذة فلاتر المتجر"
+  },
+  "shopFilterBrands": "العلامات التجارية",
+  "@shopFilterBrands": {
+    "description": "عنوان قسم العلامات التجارية في نافذة فلاتر المتجر"
+  },
+  "shopFilterSortBy": "الترتيب حسب",
+  "@shopFilterSortBy": {
+    "description": "عنوان قسم الترتيب في نافذة فلاتر المتجر"
+  },
+  "shopFilterGender": "النوع",
+  "@shopFilterGender": {
+    "description": "عنوان قسم النوع في نافذة فلاتر المتجر"
+  },
+  "shopFilterApply": "تطبيق الفلتر",
+  "@shopFilterApply": {
+    "description": "نص زر تطبيق الفلتر في نافذة فلاتر المتجر"
+  },
+  "shopFilterReset": "إعادة تعيين",
+  "@shopFilterReset": {
+    "description": "نص زر إعادة التعيين في نافذة فلاتر المتجر"
+  },
+  "shopFilterNoOptions": "لا توجد خيارات متاحة",
+  "@shopFilterNoOptions": {
+    "description": "نص احتياطي يظهر عندما لا تتوفر خيارات داخل قسم الفلاتر"
+  },
+  "shopFilterSortDefault": "الافتراضي",
+  "@shopFilterSortDefault": {
+    "description": "خيار الترتيب الافتراضي في نافذة فلاتر المتجر"
+  },
+  "shopFilterSortPriceLowToHigh": "السعر من الأقل إلى الأعلى",
+  "@shopFilterSortPriceLowToHigh": {
+    "description": "خيار ترتيب السعر تصاعديًا في نافذة فلاتر المتجر"
+  },
+  "shopFilterSortPriceHighToLow": "السعر من الأعلى إلى الأقل",
+  "@shopFilterSortPriceHighToLow": {
+    "description": "خيار ترتيب السعر تنازليًا في نافذة فلاتر المتجر"
+  },
+  "shopFilterSortNameAToZ": "الاسم من أ إلى ي",
+  "@shopFilterSortNameAToZ": {
+    "description": "خيار ترتيب الاسم تصاعديًا في نافذة فلاتر المتجر"
+  },
+  "shopFilterSortNameZToA": "الاسم من ي إلى أ",
+  "@shopFilterSortNameZToA": {
+    "description": "خيار ترتيب الاسم تنازليًا في نافذة فلاتر المتجر"
+  },
+  "shopFilterGenderMale": "رجالي",
+  "@shopFilterGenderMale": {
+    "description": "خيار النوع الرجالي في نافذة فلاتر المتجر"
+  },
+  "shopFilterGenderFemale": "نسائي",
+  "@shopFilterGenderFemale": {
+    "description": "خيار النوع النسائي في نافذة فلاتر المتجر"
+  },
+  "productDetailsTitle": "تفاصيل المنتج",
+  "@productDetailsTitle": {
+    "description": "عنوان شريط التطبيق في شاشة تفاصيل المنتج"
+  },
+  "productChooseColor": "اختر اللون",
+  "@productChooseColor": {
+    "description": "عنوان محدد ألوان المنتج"
+  },
+  "productSelectSize": "اختر المقاس",
+  "@productSelectSize": {
+    "description": "عنوان محدد مقاسات المنتج"
+  },
+  "productSizeGuide": "دليل المقاسات",
+  "@productSizeGuide": {
+    "description": "نص إجراء فتح دليل مقاسات المنتج"
+  },
+  "productSizeGuideSubtitle": "اعثر على المقاس المناسب لك",
+  "@productSizeGuideSubtitle": {
+    "description": "النص الفرعي أسفل عنوان دليل المقاسات في النافذة"
+  },
+  "productSizeGuideAiBadge": "مقاس مدعوم بالذكاء الاصطناعي",
+  "@productSizeGuideAiBadge": {
+    "description": "عنوان الشارة داخل بطاقة المقاس الذكية في دليل المقاسات"
+  },
+  "productSizeGuideHeroTitle": "اعثر على مقاسك المثالي خلال ثوانٍ",
+  "@productSizeGuideHeroTitle": {
+    "description": "العنوان الرئيسي في نافذة دليل المقاسات"
+  },
+  "productSizeGuideHeroDescription": "استنادًا إلى أكثر من 50,000 قياس، نوصي بالمقاس الأنسب لأسلوبك.",
+  "@productSizeGuideHeroDescription": {
+    "description": "النص التوضيحي في بطاقة دليل المقاسات"
+  },
+  "productSizeGuideChest": "الصدر",
+  "@productSizeGuideChest": {
+    "description": "تسمية قياس الصدر في دليل المقاسات"
+  },
+  "productSizeGuideWaist": "الخصر",
+  "@productSizeGuideWaist": {
+    "description": "تسمية قياس الخصر في دليل المقاسات"
+  },
+  "productSizeGuideLength": "الطول",
+  "@productSizeGuideLength": {
+    "description": "تسمية قياس الطول في دليل المقاسات"
+  },
+  "productBodyMeasurements": "قياسات الجسم",
+  "@productBodyMeasurements": {
+    "description": "عنوان قسم قياسات الجسم في نافذة دليل المقاسات"
+  },
+  "productMeasurementsReference": "بالبوصة • للمرجعية فقط",
+  "@productMeasurementsReference": {
+    "description": "النص الفرعي أسفل عنوان قياسات الجسم في دليل المقاسات"
+  },
+  "productSaveSizeSelection": "حفظ",
+  "@productSaveSizeSelection": {
+    "description": "نص زر الحفظ في نافذة دليل المقاسات"
+  },
+  "productReviewsCount": "({count} مراجعة)",
+  "@productReviewsCount": {
+    "description": "عدد المراجعات الظاهر في صف تقييم المنتج",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "productBuyNow": "اشتر الآن",
+  "@productBuyNow": {
+    "description": "نص زر الشراء الآن في شاشة المنتج"
+  },
+  "productOutOfStock": "غير متوفر",
+  "@productOutOfStock": {
+    "description": "حالة المنتج عند نفاد المخزون"
+  },
+  "productInStock": "متوفر",
+  "@productInStock": {
+    "description": "حالة المنتج عند توفر المخزون"
+  },
+  "productYouMightAlsoLike": "قد يعجبك أيضًا",
+  "@productYouMightAlsoLike": {
+    "description": "عنوان قسم المنتجات المقترحة في شاشة المنتج"
+  },
+  "productUnableToLoad": "تعذر تحميل تفاصيل المنتج",
+  "@productUnableToLoad": {
+    "description": "رسالة خطأ تظهر عند فشل تحميل تفاصيل المنتج"
+  },
+  "productDiscountPercentage": "خصم {percentage}%",
+  "@productDiscountPercentage": {
+    "description": "تسمية الخصم في بطاقة تفاصيل المنتج",
+    "placeholders": {
+      "percentage": {
+        "type": "int"
+      }
+    }
+  },
+  "cartTitle": "سلتي",
+  "@cartTitle": {
+    "description": "عنوان شاشة السلة"
+  },
+  "cartItemsCount": "{count} عنصر",
+  "@cartItemsCount": {
+    "description": "عدد العناصر الظاهر في رأس شاشة السلة",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cartSize": "المقاس",
+  "@cartSize": {
+    "description": "تسمية المقاس داخل عنصر السلة"
+  },
+  "cartColor": "اللون",
+  "@cartColor": {
+    "description": "تسمية اللون داخل عنصر السلة"
+  },
+  "cartOrderSummary": "ملخص الطلب",
+  "@cartOrderSummary": {
+    "description": "عنوان بطاقة ملخص الطلب في شاشة السلة"
+  },
+  "cartSubtotal": "المجموع الفرعي",
+  "@cartSubtotal": {
+    "description": "تسمية المجموع الفرعي في السلة"
+  },
+  "cartShipping": "الشحن",
+  "@cartShipping": {
+    "description": "تسمية مبلغ الشحن في السلة"
+  },
+  "cartDiscount": "الخصم",
+  "@cartDiscount": {
+    "description": "تسمية مبلغ الخصم في السلة"
+  },
+  "cartTax": "الضريبة",
+  "@cartTax": {
+    "description": "تسمية مبلغ الضريبة في السلة"
+  },
+  "cartTotal": "الإجمالي",
+  "@cartTotal": {
+    "description": "تسمية المبلغ الإجمالي النهائي في السلة"
+  },
+  "cartPromoCodeHint": "أدخل رمز الخصم",
+  "@cartPromoCodeHint": {
+    "description": "النص التلميحي لحقل رمز الخصم في ملخص السلة"
+  },
+  "cartApply": "تطبيق",
+  "@cartApply": {
+    "description": "نص زر تطبيق رمز الخصم في السلة"
+  },
+  "cartCheckoutTotal": "الدفع • {total}",
+  "@cartCheckoutTotal": {
+    "description": "نص زر الدفع مع إجمالي السلة",
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "cartEmptyTitle": "سلتك فارغة",
+  "@cartEmptyTitle": {
+    "description": "عنوان يظهر عندما تكون السلة فارغة"
+  },
+  "cartEmptySubtitle": "أضف منتجات من المتجر لتظهر هنا.",
+  "@cartEmptySubtitle": {
+    "description": "نص توضيحي يظهر عندما تكون السلة فارغة"
+  },
+  "cartContinueShopping": "متابعة التسوق",
+  "@cartContinueShopping": {
+    "description": "نص زر العودة إلى المتجر من حالة السلة الفارغة"
+  },
+  "cartUnableToLoad": "تعذر تحميل السلة",
+  "@cartUnableToLoad": {
+    "description": "عنوان الخطأ عند فشل تحميل السلة"
+  },
+  "cartPromoUnavailable": "رموز الخصم غير متاحة حاليًا",
+  "@cartPromoUnavailable": {
+    "description": "رسالة معلومات عند عدم توفر وظيفة رموز الخصم"
+  },
+  "cartVariantUnavailable": "هذا النوع من المنتج غير متاح",
+  "@cartVariantUnavailable": {
+    "description": "رسالة خطأ عند محاولة الإضافة إلى السلة بدون نوع منتج صالح"
+  }
+}
