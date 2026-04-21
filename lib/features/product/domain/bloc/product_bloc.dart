@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:drip_talk/core/utils/app_utils/app_localization_utils.dart';
 import 'package:drip_talk/features/product/data/models/product_details_model.dart';
 import 'package:drip_talk/features/product/data/repository/product_preferences_repository.dart';
 import 'package:drip_talk/features/product/data/repository/product_repository.dart';
@@ -32,12 +33,14 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
 
     emit(
       state.copyWith(
-        status: ProductStatus.loading,
+        status: event.showLoader || state.product == null
+            ? ProductStatus.loading
+            : state.status,
         productId: event.productId,
-        currentIndex: 0,
-        clearProduct: true,
-        clearSelectedSize: true,
-        clearSelectedColor: true,
+        currentIndex: event.showLoader ? 0 : state.currentIndex,
+        clearProduct: event.showLoader,
+        clearSelectedSize: event.showLoader,
+        clearSelectedColor: event.showLoader,
         clearErrorMessage: true,
       ),
     );
@@ -56,8 +59,15 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       if (product == null || product.id == null) {
         emit(
           state.copyWith(
-            status: ProductStatus.failure,
-            errorMessage: response.message ?? 'Unable to load product details',
+            status: event.showLoader || state.product == null
+                ? ProductStatus.failure
+                : ProductStatus.success,
+            errorMessage:
+                response.message ??
+                localizedString(
+                  fallback: 'Unable to load product details',
+                  select: (l10n) => l10n.productUnableToLoad,
+                ),
           ),
         );
         return;
@@ -94,7 +104,9 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
 
       emit(
         state.copyWith(
-          status: ProductStatus.failure,
+          status: event.showLoader || state.product == null
+              ? ProductStatus.failure
+              : ProductStatus.success,
           errorMessage: _resolveErrorMessage(error),
         ),
       );
@@ -105,8 +117,13 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
 
       emit(
         state.copyWith(
-          status: ProductStatus.failure,
-          errorMessage: 'Unable to load product details',
+          status: event.showLoader || state.product == null
+              ? ProductStatus.failure
+              : ProductStatus.success,
+          errorMessage: localizedString(
+            fallback: 'Unable to load product details',
+            select: (l10n) => l10n.productUnableToLoad,
+          ),
         ),
       );
     }
@@ -191,12 +208,11 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     );
   }
 
-  int? _resolveSelectedSizeId(
-    ProductDetailsData? product,
-    int? savedSizeId,
-  ) {
-    final availableSizes = product?.availableSizes ?? const <ProductAvailableSize>[];
-    final hasSavedSize = savedSizeId != null &&
+  int? _resolveSelectedSizeId(ProductDetailsData? product, int? savedSizeId) {
+    final availableSizes =
+        product?.availableSizes ?? const <ProductAvailableSize>[];
+    final hasSavedSize =
+        savedSizeId != null &&
         availableSizes.any((size) => size.id == savedSizeId);
     if (hasSavedSize) {
       return savedSizeId;
@@ -264,9 +280,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
         sizeMatch = variant;
       }
 
-      if (colorMatch == null &&
-          colorId != null &&
-          variant.colorId == colorId) {
+      if (colorMatch == null && colorId != null && variant.colorId == colorId) {
         colorMatch = variant;
       }
     }
@@ -290,7 +304,10 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
         return message;
       }
     }
-    return 'Unable to load product details';
+    return localizedString(
+      fallback: 'Unable to load product details',
+      select: (l10n) => l10n.productUnableToLoad,
+    );
   }
 
   @override

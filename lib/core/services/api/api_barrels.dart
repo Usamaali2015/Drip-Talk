@@ -1,5 +1,7 @@
 export 'package:dio/dio.dart';
 export 'api_constants.dart';
+export 'api_error_resolver.dart';
+export 'api_exceptions.dart';
 export 'dio_interceptors.dart';
 export 'network_interceptors.dart';
 export 'retry_interceptor.dart';

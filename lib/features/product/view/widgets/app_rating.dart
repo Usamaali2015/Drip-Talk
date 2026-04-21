@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:drip_talk/l10n/app_localizations.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class AppRatingBar extends StatelessWidget {
   final String? rating;
@@ -35,7 +33,7 @@ class AppRatingBar extends StatelessWidget {
             } else {
               icon = Icons.star_border;
             }
-            return Icon(icon, color: Colors.amber, size: iconSize);
+            return Icon(icon, color: AppColors.materialAmber, size: iconSize);
           }),
         ),
         const AppGap(AppSizes.s8, axis: Axis.horizontal),
@@ -48,7 +46,7 @@ class AppRatingBar extends StatelessWidget {
         AppText(
           text: l10n.productReviewsCount(reviewCount),
           variant: AppTextVariant.ts12,
-          textColor: AppColors.white.withValues(alpha: 0.5),
+          textColor: AppColors.pureWhite.withValues(alpha: 0.5),
         ),
       ],
     );

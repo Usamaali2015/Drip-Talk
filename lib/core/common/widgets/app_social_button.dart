@@ -37,11 +37,8 @@ class SocialAuthButton extends StatelessWidget {
       child: OutlinedButton(
         onPressed: onPressed,
         style: OutlinedButton.styleFrom(
-          backgroundColor: backgroundColor ?? Colors.transparent,
-          side: BorderSide(
-            color: AppColors.secondary,
-            width: 1.5,
-          ),
+          backgroundColor: backgroundColor ?? AppColors.transparent,
+          side: BorderSide(color: AppColors.secondary, width: 1.5),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius ?? AppRadius.r12),
           ),
@@ -63,7 +60,8 @@ class SocialAuthButton extends StatelessWidget {
               text: isGoogle
                   ? AppLocalizations.of(context)!.continueWithGoogle
                   : AppLocalizations.of(context)!.continueWithApple,
-              style: AppTextStyles.ts14(context,
+              style: AppTextStyles.ts14(
+                context,
                 color: Theme.of(context).colorScheme.onSecondaryContainer,
                 fontWeight: FontWeight.w500,
               ),

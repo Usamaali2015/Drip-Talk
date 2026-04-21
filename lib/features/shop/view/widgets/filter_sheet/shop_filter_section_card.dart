@@ -1,10 +1,6 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/constants/app_text_styles.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:flutter/material.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class ShopFilterSectionCard extends StatelessWidget {
   const ShopFilterSectionCard({
@@ -33,13 +29,13 @@ class ShopFilterSectionCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Material(
-            color: Colors.transparent,
+            color: AppColors.transparent,
             child: InkWell(
               onTap: onToggle,
               borderRadius: BorderRadius.circular(AppRadius.r16),
               child: Container(
                 decoration: BoxDecoration(
-                  color: AppColors.white,
+                  color: AppColors.pureWhite,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(AppRadius.r12),
                     topRight: Radius.circular(AppRadius.r12),
@@ -59,7 +55,7 @@ class ShopFilterSectionCard extends StatelessWidget {
                           text: title,
                           style: AppTextStyles.ts14(
                             context,
-                            color: AppColors.black,
+                            color: AppColors.pureBlack,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -70,7 +66,7 @@ class ShopFilterSectionCard extends StatelessWidget {
                           duration: const Duration(milliseconds: 200),
                           child: const Icon(
                             Icons.keyboard_arrow_up_rounded,
-                            color: AppColors.black,
+                            color: AppColors.pureBlack,
                           ),
                         ),
                     ],
@@ -97,7 +93,7 @@ class ShopFilterSectionCard extends StatelessWidget {
                     Divider(
                       height: 1,
                       thickness: 1,
-                      color: AppColors.white.withValues(alpha: 0.08),
+                      color: AppColors.pureWhite.withValues(alpha: 0.08),
                     ),
                     const AppGap(AppSizes.s12, axis: Axis.vertical),
                     child,

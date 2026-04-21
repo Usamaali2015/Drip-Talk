@@ -34,7 +34,9 @@ class AiCuratedData {
     final source = _asMap(json);
 
     return AiCuratedData(
-      items: _asListOfMaps(source?['items']).map(AiCuratedItem.fromJson).toList(),
+      items: _asListOfMaps(
+        source?['items'],
+      ).map(AiCuratedItem.fromJson).toList(),
       pagination: AiCuratedPagination.fromJson(_asMap(source?['pagination'])),
     );
   }

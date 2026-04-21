@@ -54,7 +54,11 @@ class InternetConnectivity {
         type: ToastType.error,
       );
     } else {
-      ToastUtils.show(context, 'Back online', type: ToastType.success);
+      ToastUtils.show(
+        context,
+        AppLocalizations.of(context)!.backOnline,
+        type: ToastType.success,
+      );
     }
   }
 

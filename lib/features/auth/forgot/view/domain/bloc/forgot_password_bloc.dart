@@ -1,3 +1,5 @@
+import 'package:drip_talk/core/services/api/api_error_resolver.dart';
+import 'package:drip_talk/core/utils/app_utils/app_localization_utils.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:drip_talk/features/auth/auth_repository/auth_repository.dart';
 import 'package:drip_talk/features/auth/forgot/view/domain/bloc/forgot_password_event.dart';
@@ -14,7 +16,17 @@ class ForgotPasswordBloc
         await _repository.sendForgotPasswordOtp(event.email);
         emit(ForgotPasswordSuccess());
       } catch (e) {
-        emit(ForgotPasswordError(e.toString()));
+        emit(
+          ForgotPasswordError(
+            resolveApiErrorMessage(
+              e,
+              fallback: localizedString(
+                fallback: 'Unable to send OTP',
+                select: (l10n) => l10n.forgotPasswordOtpSendFailed,
+              ),
+            ),
+          ),
+        );
       }
     });
   }

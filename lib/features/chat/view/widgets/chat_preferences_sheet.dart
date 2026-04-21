@@ -1,12 +1,8 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/widgets/app_asset_image.dart';
-import 'package:drip_talk/core/common/widgets/app_button.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:drip_talk/features/chat/data/models/ai_chat_request_model.dart';
+import 'package:drip_talk/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class ChatPreferencesSheet extends StatefulWidget {
   const ChatPreferencesSheet({super.key, required this.initialPreferences});
@@ -21,7 +17,7 @@ class ChatPreferencesSheet extends StatefulWidget {
       context: context,
       isScrollControlled: true,
       useSafeArea: true,
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppColors.transparent,
       builder: (_) =>
           ChatPreferencesSheet(initialPreferences: initialPreferences),
     );
@@ -57,6 +53,7 @@ class _ChatPreferencesSheetState extends State<ChatPreferencesSheet> {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return AnimatedSize(
       duration: const Duration(milliseconds: 220),
@@ -92,7 +89,7 @@ class _ChatPreferencesSheetState extends State<ChatPreferencesSheet> {
                         width: AppSizes.s56,
                         height: AppSizes.s4,
                         decoration: BoxDecoration(
-                          color: Colors.white.withValues(alpha: 0.28),
+                          color: AppColors.pureWhite.withValues(alpha: 0.28),
                           borderRadius: BorderRadius.circular(
                             AppRadius.circular,
                           ),
@@ -100,34 +97,35 @@ class _ChatPreferencesSheetState extends State<ChatPreferencesSheet> {
                       ),
                     ),
                     const AppGap(AppSizes.s20),
-                    _Header(stepIndex: _stepIndex),
+                    _Header(stepIndex: _stepIndex, l10n: l10n),
                     const AppGap(AppSizes.s18),
                     AnimatedSwitcher(
                       duration: const Duration(milliseconds: 220),
                       child: switch (_stepIndex) {
                         0 => _SelectionStep(
                           key: const ValueKey<int>(0),
-                          options: _genderOptions,
+                          options: _buildGenderOptions(l10n),
                           selectedValue: _selectedGender,
                           onSelected: (value) =>
                               setState(() => _selectedGender = value),
                         ),
                         1 => _SelectionStep(
                           key: const ValueKey<int>(1),
-                          options: _occasionOptions,
+                          options: _buildOccasionOptions(l10n),
                           selectedValue: _selectedOccasion,
                           onSelected: (value) =>
                               setState(() => _selectedOccasion = value),
                         ),
                         2 => _SelectionStep(
                           key: const ValueKey<int>(2),
-                          options: _seasonOptions,
+                          options: _buildSeasonOptions(l10n),
                           selectedValue: _selectedSeason,
                           onSelected: (value) =>
                               setState(() => _selectedSeason = value),
                         ),
                         _ => _BudgetStep(
                           key: const ValueKey<int>(3),
+                          l10n: l10n,
                           budget: _budget,
                           minBudget: _minBudget,
                           maxBudget: _maxBudget,
@@ -137,6 +135,7 @@ class _ChatPreferencesSheetState extends State<ChatPreferencesSheet> {
                     ),
                     const AppGap(AppSizes.s16),
                     _FooterActions(
+                      l10n: l10n,
                       stepIndex: _stepIndex,
                       canContinue: _canContinueCurrentStep,
                       onSkip: _handleSkip,
@@ -204,26 +203,27 @@ class _ChatPreferencesSheetState extends State<ChatPreferencesSheet> {
 }
 
 class _Header extends StatelessWidget {
-  const _Header({required this.stepIndex});
+  const _Header({required this.stepIndex, required this.l10n});
 
   final int stepIndex;
+  final AppLocalizations l10n;
 
   @override
   Widget build(BuildContext context) {
     final title = switch (stepIndex) {
-      0 => "What's your gender?",
-      1 => "What's the occasion?",
-      2 => 'Current season?',
-      _ => 'Your budget range?',
+      0 => l10n.chatPreferencesGenderQuestion,
+      1 => l10n.chatPreferencesOccasionQuestion,
+      2 => l10n.chatPreferencesSeasonQuestion,
+      _ => l10n.chatPreferencesBudgetQuestion,
     };
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AppText(
-          text: 'STEP ${stepIndex + 1} OF 4',
+          text: l10n.chatPreferencesStepCounter(stepIndex + 1, 4),
           variant: AppTextVariant.ts14,
-          textColor: Colors.white.withValues(alpha: 0.85),
+          textColor: AppColors.pureWhite.withValues(alpha: 0.85),
           fontWeight: FontWeight.w500,
         ),
         const AppGap(AppSizes.s6),
@@ -244,7 +244,7 @@ class _Header extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: index <= stepIndex
                       ? AppColors.secondary
-                      : Colors.white.withValues(alpha: 0.18),
+                      : AppColors.pureWhite.withValues(alpha: 0.18),
                   borderRadius: BorderRadius.circular(AppRadius.circular),
                 ),
               ),
@@ -252,7 +252,7 @@ class _Header extends StatelessWidget {
           ),
         ),
         const AppGap(AppSizes.s12),
-        Divider(color: Colors.white.withValues(alpha: 0.08), height: 1),
+        Divider(color: AppColors.pureWhite.withValues(alpha: 0.08), height: 1),
       ],
     );
   }
@@ -326,7 +326,7 @@ class _SelectionStep extends StatelessWidget {
                     text: option.label,
                     textAlign: TextAlign.center,
                     variant: AppTextVariant.ts16,
-                    textColor: Colors.white,
+                    textColor: AppColors.pureWhite,
                     fontWeight: FontWeight.w700,
                     maxLines: 2,
                   ),
@@ -340,17 +340,19 @@ class _SelectionStep extends StatelessWidget {
   }
 }
 
-const Color _unselectedTileColor = Color(0xFF473966);
+const Color _unselectedTileColor = AppColors.chatPreferenceTileBackground;
 
 class _BudgetStep extends StatelessWidget {
   const _BudgetStep({
     super.key,
+    required this.l10n,
     required this.budget,
     required this.minBudget,
     required this.maxBudget,
     required this.onChanged,
   });
 
+  final AppLocalizations l10n;
   final double budget;
   final int minBudget;
   final int maxBudget;
@@ -366,13 +368,13 @@ class _BudgetStep extends StatelessWidget {
           Row(
             children: [
               AppText(
-                text: 'Min: \$$minBudget',
+                text: l10n.chatPreferencesBudgetMin(minBudget),
                 variant: AppTextVariant.ts12,
-                textColor: Colors.white.withValues(alpha: 0.72),
+                textColor: AppColors.pureWhite.withValues(alpha: 0.72),
               ),
               const Spacer(),
               AppText(
-                text: '\$${budget.round()}',
+                text: l10n.chatPreferencesBudgetValue(budget.round()),
                 variant: AppTextVariant.ts24,
                 textColor: AppColors.secondary,
                 fontWeight: FontWeight.w800,
@@ -383,9 +385,9 @@ class _BudgetStep extends StatelessWidget {
           SliderTheme(
             data: SliderTheme.of(context).copyWith(
               trackHeight: AppSizes.s6,
-              activeTrackColor: Colors.white.withValues(alpha: 0.22),
-              inactiveTrackColor: Colors.white.withValues(alpha: 0.12),
-              thumbColor: Colors.white,
+              activeTrackColor: AppColors.pureWhite.withValues(alpha: 0.22),
+              inactiveTrackColor: AppColors.pureWhite.withValues(alpha: 0.12),
+              thumbColor: AppColors.pureWhite,
               thumbShape: const RoundSliderThumbShape(
                 enabledThumbRadius: AppSizes.s10,
               ),
@@ -401,9 +403,9 @@ class _BudgetStep extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: AppText(
-              text: 'Max: \$$maxBudget',
+              text: l10n.chatPreferencesBudgetMax(maxBudget),
               variant: AppTextVariant.ts12,
-              textColor: Colors.white.withValues(alpha: 0.72),
+              textColor: AppColors.pureWhite.withValues(alpha: 0.72),
             ),
           ),
         ],
@@ -414,6 +416,7 @@ class _BudgetStep extends StatelessWidget {
 
 class _FooterActions extends StatelessWidget {
   const _FooterActions({
+    required this.l10n,
     required this.stepIndex,
     required this.canContinue,
     required this.onSkip,
@@ -421,6 +424,7 @@ class _FooterActions extends StatelessWidget {
     required this.onSubmit,
   });
 
+  final AppLocalizations l10n;
   final int stepIndex;
   final bool canContinue;
   final VoidCallback onSkip;
@@ -431,7 +435,7 @@ class _FooterActions extends StatelessWidget {
   Widget build(BuildContext context) {
     if (stepIndex == 3) {
       return AppButton(
-        text: 'Find my style',
+        text: l10n.chatFindMyStyle,
         onPressed: onSubmit,
         gradientColors: const [AppColors.secondary, AppColors.primary],
         borderRadius: AppRadius.r16,
@@ -442,11 +446,11 @@ class _FooterActions extends StatelessWidget {
       children: [
         Expanded(
           child: AppButton(
-            text: 'Skip',
+            text: l10n.skip,
             onPressed: onSkip,
             backgroundColor: AppColors.transparent,
             borderColor: AppColors.secondary.withValues(alpha: 0.45),
-            textColor: Colors.white.withValues(alpha: 0.88),
+            textColor: AppColors.pureWhite.withValues(alpha: 0.88),
             borderRadius: AppRadius.r16,
           ),
         ),
@@ -456,7 +460,7 @@ class _FooterActions extends StatelessWidget {
           child: Opacity(
             opacity: canContinue ? 1 : 0.55,
             child: AppButton(
-              text: 'Continue',
+              text: l10n.continueText,
               onPressed: canContinue ? onContinue : null,
               gradientColors: const [AppColors.secondary, AppColors.primary],
               borderRadius: AppRadius.r16,
@@ -480,81 +484,87 @@ class _PreferenceOption {
   final String iconPath;
 }
 
-const List<_PreferenceOption> _genderOptions = <_PreferenceOption>[
-  _PreferenceOption(
-    label: 'Male',
-    value: 'male',
-    iconPath: 'assets/icons/male.svg',
-  ),
-  _PreferenceOption(
-    label: 'Female',
-    value: 'female',
-    iconPath: 'assets/icons/female.svg',
-  ),
-  _PreferenceOption(
-    label: 'Non-binary',
-    value: 'non_binary',
-    iconPath: 'assets/icons/nonbinary.svg',
-  ),
-  _PreferenceOption(
-    label: 'Prefer not to say',
-    value: 'prefer_not_to_say',
-    iconPath: 'assets/icons/stars.svg',
-  ),
-];
+List<_PreferenceOption> _buildGenderOptions(AppLocalizations l10n) {
+  return <_PreferenceOption>[
+    _PreferenceOption(
+      label: l10n.chatGenderMale,
+      value: 'male',
+      iconPath: 'assets/icons/male.svg',
+    ),
+    _PreferenceOption(
+      label: l10n.chatGenderFemale,
+      value: 'female',
+      iconPath: 'assets/icons/female.svg',
+    ),
+    _PreferenceOption(
+      label: l10n.chatGenderNonBinary,
+      value: 'non_binary',
+      iconPath: 'assets/icons/nonbinary.svg',
+    ),
+    _PreferenceOption(
+      label: l10n.chatGenderPreferNotSay,
+      value: 'prefer_not_to_say',
+      iconPath: 'assets/icons/stars.svg',
+    ),
+  ];
+}
 
-const List<_PreferenceOption> _occasionOptions = <_PreferenceOption>[
-  _PreferenceOption(
-    label: 'Office / Work',
-    value: 'office',
-    iconPath: 'assets/icons/briefcase.svg',
-  ),
-  _PreferenceOption(
-    label: 'Party / Night Out',
-    value: 'party',
-    iconPath: 'assets/icons/partypoper.svg',
-  ),
-  _PreferenceOption(
-    label: 'Casual Day',
-    value: 'casual',
-    iconPath: 'assets/icons/hanger.svg',
-  ),
-  _PreferenceOption(
-    label: 'Sports / Active',
-    value: 'sports',
-    iconPath: 'assets/icons/fast.svg',
-  ),
-  _PreferenceOption(
-    label: 'Wedding / Formal',
-    value: 'wedding',
-    iconPath: 'assets/icons/wedding.svg',
-  ),
-  _PreferenceOption(
-    label: 'Date Night',
-    value: 'date_night',
-    iconPath: 'assets/icons/fav.svg',
-  ),
-];
+List<_PreferenceOption> _buildOccasionOptions(AppLocalizations l10n) {
+  return <_PreferenceOption>[
+    _PreferenceOption(
+      label: l10n.chatOccasionOffice,
+      value: 'office',
+      iconPath: 'assets/icons/briefcase.svg',
+    ),
+    _PreferenceOption(
+      label: l10n.chatOccasionParty,
+      value: 'party',
+      iconPath: 'assets/icons/partypoper.svg',
+    ),
+    _PreferenceOption(
+      label: l10n.chatOccasionCasual,
+      value: 'casual',
+      iconPath: 'assets/icons/hanger.svg',
+    ),
+    _PreferenceOption(
+      label: l10n.chatOccasionSports,
+      value: 'sports',
+      iconPath: 'assets/icons/fast.svg',
+    ),
+    _PreferenceOption(
+      label: l10n.chatOccasionWedding,
+      value: 'wedding',
+      iconPath: 'assets/icons/wedding.svg',
+    ),
+    _PreferenceOption(
+      label: l10n.chatOccasionDateNight,
+      value: 'date_night',
+      iconPath: 'assets/icons/fav.svg',
+    ),
+  ];
+}
 
-const List<_PreferenceOption> _seasonOptions = <_PreferenceOption>[
-  _PreferenceOption(
-    label: 'Spring',
-    value: 'spring',
-    iconPath: 'assets/icons/lotus.svg',
-  ),
-  _PreferenceOption(
-    label: 'Summer',
-    value: 'summer',
-    iconPath: 'assets/icons/sun.svg',
-  ),
-  _PreferenceOption(
-    label: 'Autumn',
-    value: 'autumn',
-    iconPath: 'assets/icons/leaf.svg',
-  ),
-  _PreferenceOption(
-    label: 'Winter',
-    value: 'winter',
-    iconPath: 'assets/icons/snowfalk.svg',
-  ),
-];
+List<_PreferenceOption> _buildSeasonOptions(AppLocalizations l10n) {
+  return <_PreferenceOption>[
+    _PreferenceOption(
+      label: l10n.chatSeasonSpring,
+      value: 'spring',
+      iconPath: 'assets/icons/lotus.svg',
+    ),
+    _PreferenceOption(
+      label: l10n.chatSeasonSummer,
+      value: 'summer',
+      iconPath: 'assets/icons/sun.svg',
+    ),
+    _PreferenceOption(
+      label: l10n.chatSeasonAutumn,
+      value: 'autumn',
+      iconPath: 'assets/icons/leaf.svg',
+    ),
+    _PreferenceOption(
+      label: l10n.chatSeasonWinter,
+      value: 'winter',
+      iconPath: 'assets/icons/snowfalk.svg',
+    ),
+  ];
+}

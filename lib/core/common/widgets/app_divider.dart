@@ -74,8 +74,9 @@ class AppDivider extends StatelessWidget {
             AppText(
               text: text!,
 
-              style: AppTextStyles.ts14(context,
-                color:textColor ?? scheme.onSecondaryContainer,
+              style: AppTextStyles.ts14(
+                context,
+                color: textColor ?? scheme.onSecondaryContainer,
               ),
             ),
             const AppGap(AppSizes.s8, axis: Axis.horizontal),

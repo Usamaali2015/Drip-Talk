@@ -1,15 +1,12 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/widgets/app_cached_network_image.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:drip_talk/core/utils/app_utils/toast_utils.dart';
 import 'package:drip_talk/core/utils/routes/app_routes.dart';
 import 'package:drip_talk/features/chat/data/ai_response_chat_model.dart';
+import 'package:drip_talk/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class ChatAiRecommendationCard extends StatelessWidget {
   const ChatAiRecommendationCard({super.key, required this.item});
@@ -18,6 +15,7 @@ class ChatAiRecommendationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final subtitle = _firstNonEmpty([item.reason, item.merchant, item.source]);
     final tags = <String>[
       if (item.source?.trim().isNotEmpty == true) item.source!.trim(),
@@ -27,13 +25,13 @@ class ChatAiRecommendationCard extends StatelessWidget {
 
     return _ChatRecommendationCardLayout(
       imageUrl: item.imageUrl,
-      title: item.title ?? 'AI recommendation',
-      subtitle: subtitle ?? 'External product recommendation',
+      title: item.title ?? l10n.chatAiRecommendationFallbackTitle,
+      subtitle: subtitle ?? l10n.chatAiRecommendationFallbackSubtitle,
       priceLabel: item.priceLabel,
       tags: tags,
-      outlineLabel: 'Browser',
-      filledLabel: 'Shop',
-      accentLabel: 'AI Pick',
+      outlineLabel: l10n.chatBrowserAction,
+      filledLabel: l10n.chatShopAction,
+      accentLabel: l10n.chatAiPick,
       onOutlineTap: () => _openExternalItem(context, item),
       onFilledTap: () => _openExternalItem(context, item),
     );
@@ -49,7 +47,7 @@ class ChatAiRecommendationCard extends StatelessWidget {
     if (uri == null) {
       ToastUtils.show(
         context,
-        'This product link is unavailable.',
+        AppLocalizations.of(context)!.chatProductLinkUnavailable,
         type: ToastType.error,
       );
       return;
@@ -69,7 +67,7 @@ class ChatAiRecommendationCard extends StatelessWidget {
     if (!fallbackLaunched && context.mounted) {
       ToastUtils.show(
         context,
-        'Could not open this product right now.',
+        AppLocalizations.of(context)!.chatProductOpenFailed,
         type: ToastType.error,
       );
     }
@@ -83,22 +81,23 @@ class ChatCatalogRecommendationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final tags = <String>[
       if (item.category?.name?.trim().isNotEmpty == true)
         item.category!.name!.trim(),
-      if (item.freeDelivery == true) 'Free delivery',
-      if (item.isFeatured == true) 'Featured',
+      if (item.freeDelivery == true) l10n.chatFreeDelivery,
+      if (item.isFeatured == true) l10n.chatFeatured,
     ];
 
     return _ChatRecommendationCardLayout(
       imageUrl: item.thumbnail,
-      title: item.title ?? 'Catalog product',
-      subtitle: item.category?.name ?? 'Shop this from the catalog',
+      title: item.title ?? l10n.chatCatalogProductFallbackTitle,
+      subtitle: item.category?.name ?? l10n.chatCatalogProductFallbackSubtitle,
       priceLabel: item.priceLabel,
       tags: tags,
-      outlineLabel: 'Catalog',
-      filledLabel: 'Shop',
-      accentLabel: 'Catalog',
+      outlineLabel: l10n.chatCatalogAction,
+      filledLabel: l10n.chatShopAction,
+      accentLabel: l10n.chatCatalogAction,
       onOutlineTap: () => _openCatalogItem(context),
       onFilledTap: () => _openCatalogItem(context),
     );
@@ -109,7 +108,7 @@ class ChatCatalogRecommendationCard extends StatelessWidget {
     if (productId == null) {
       ToastUtils.show(
         context,
-        'This catalog product is unavailable right now.',
+        AppLocalizations.of(context)!.chatCatalogProductUnavailable,
         type: ToastType.error,
       );
       return;
@@ -158,7 +157,7 @@ class _ChatRecommendationCardLayout extends StatelessWidget {
         border: Border.all(color: AppColors.secondary.withValues(alpha: 0.55)),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.2),
+            color: AppColors.pureBlack.withValues(alpha: 0.2),
             blurRadius: 24,
             offset: const Offset(0, 10),
           ),
@@ -193,7 +192,7 @@ class _ChatRecommendationCardLayout extends StatelessWidget {
                 AppText(
                   text: subtitle,
                   variant: AppTextVariant.ts12,
-                  textColor: Colors.white,
+                  textColor: AppColors.pureWhite,
                   fontWeight: FontWeight.w400,
                   maxLines: 1000,
                 ),
@@ -289,7 +288,7 @@ class _TagChip extends StatelessWidget {
       child: AppText(
         text: label,
         variant: AppTextVariant.ts10,
-        textColor: Colors.white,
+        textColor: AppColors.pureWhite,
         maxLines: 1,
       ),
     );
@@ -318,7 +317,7 @@ class _CardButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.transparent,
+      color: AppColors.transparent,
       child: InkWell(
         borderRadius: BorderRadius.circular(AppRadius.r12),
         onTap: onTap,
@@ -334,13 +333,13 @@ class _CardButton extends StatelessWidget {
                     colors: [AppColors.secondary, AppColors.primary],
                   )
                 : null,
-            color: isFilled ? null : Colors.transparent,
+            color: isFilled ? null : AppColors.transparent,
           ),
           child: Center(
             child: AppText(
               text: label,
               variant: AppTextVariant.ts12,
-              textColor: Colors.white,
+              textColor: AppColors.pureWhite,
               fontWeight: FontWeight.w700,
             ),
           ),

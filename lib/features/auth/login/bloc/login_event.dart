@@ -9,24 +9,19 @@ class LoginSubmitted extends LoginEvent {
   final String email;
   final String password;
 
-  LoginSubmitted({
-    required this.email,
-    required this.password,
-  });
+  LoginSubmitted({required this.email, required this.password});
 
   @override
   List<Object?> get props => [email, password];
 }
+
 class LogoutRequested extends LoginEvent {}
 
 class DeleteAccountRequested extends LoginEvent {
   final String email;
   final String password;
 
-  DeleteAccountRequested({
-    required this.email,
-    required this.password,
-  });
+  DeleteAccountRequested({required this.email, required this.password});
 
   @override
   List<Object?> get props => [email, password];

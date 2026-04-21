@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 
-
 class AppPickerUtils {
   static final ImagePicker _imagePicker = ImagePicker();
 
@@ -29,6 +28,4 @@ class AppPickerUtils {
       return [];
     }
   }
-
-
 }

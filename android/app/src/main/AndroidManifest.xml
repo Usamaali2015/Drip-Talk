@@ -13,6 +13,8 @@
     <!-- Internet access (API calls, uploads, analytics, etc.) -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     <!-- Camera permission -->
     <uses-permission android:name="android.permission.CAMERA" />
 

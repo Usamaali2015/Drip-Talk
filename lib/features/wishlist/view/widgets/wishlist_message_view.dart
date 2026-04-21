@@ -1,11 +1,6 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_padding.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/constants/app_text_styles.dart';
-import 'package:drip_talk/core/common/widgets/app_button.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:flutter/material.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class WishlistMessageView extends StatelessWidget {
   const WishlistMessageView({
@@ -42,7 +37,7 @@ class WishlistMessageView extends StatelessWidget {
             decoration: BoxDecoration(
               color: AppColors.lightBg.withValues(alpha: 0.88),
               borderRadius: BorderRadius.circular(AppRadius.r24),
-              border: Border.all(color: Colors.white12),
+              border: Border.all(color: AppColors.pureWhite12),
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -52,7 +47,7 @@ class WishlistMessageView extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: AppTextStyles.ts18(
                     context,
-                    color: AppColors.white,
+                    color: AppColors.pureWhite,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -62,7 +57,7 @@ class WishlistMessageView extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: AppTextStyles.ts14(
                     context,
-                    color: AppColors.white.withValues(alpha: 0.72),
+                    color: AppColors.pureWhite.withValues(alpha: 0.72),
                     fontWeight: FontWeight.w400,
                   ),
                 ),
@@ -73,7 +68,10 @@ class WishlistMessageView extends StatelessWidget {
                   height: AppSizes.s48,
                   fontSize: AppSizes.s14,
                   fontWeight: FontWeight.w700,
-                  gradientColors: const [AppColors.secondary, AppColors.primary],
+                  gradientColors: const [
+                    AppColors.secondary,
+                    AppColors.primary,
+                  ],
                   borderRadius: AppRadius.circular,
                 ),
               ],

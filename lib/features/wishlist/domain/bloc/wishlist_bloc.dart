@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:drip_talk/core/utils/app_utils/app_localization_utils.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:drip_talk/features/wishlist/data/models/wishlist_model.dart';
 import 'package:drip_talk/features/wishlist/data/repository/wishlist_repository.dart';
@@ -207,7 +208,10 @@ class WishlistBloc extends Bloc<WishlistEvent, WishlistState> {
       status: state.hasLoaded ? WishlistStatus.success : state.status,
       items: nextItems,
       knownSavedProductIds: nextKnownSavedIds,
-      pendingProductIds: _appendPending(state.pendingProductIds, event.productId),
+      pendingProductIds: _appendPending(
+        state.pendingProductIds,
+        event.productId,
+      ),
       totalItems: optimisticTotalItems,
       hasLoaded: state.hasLoaded || nextItems.isNotEmpty,
       clearErrorMessage: true,
@@ -217,7 +221,9 @@ class WishlistBloc extends Bloc<WishlistEvent, WishlistState> {
     emit(optimisticState);
 
     try {
-      final response = await _repository.toggleWishlist(productId: event.productId);
+      final response = await _repository.toggleWishlist(
+        productId: event.productId,
+      );
       final settledState = optimisticState.copyWith(
         pendingProductIds: _removePending(
           optimisticState.pendingProductIds,
@@ -313,11 +319,20 @@ class WishlistBloc extends Bloc<WishlistEvent, WishlistState> {
         }
       }
 
-      return error.message ?? 'Unable to update saved items';
+      return error.message ??
+          localizedString(
+            fallback: 'Unable to update saved items',
+            select: (l10n) => l10n.wishlistUpdateFailed,
+          );
     }
 
     final message = error.toString().trim();
-    return message.isEmpty ? 'Unable to update saved items' : message;
+    return message.isEmpty
+        ? localizedString(
+            fallback: 'Unable to update saved items',
+            select: (l10n) => l10n.wishlistUpdateFailed,
+          )
+        : message;
   }
 
   @override

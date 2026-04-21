@@ -1,12 +1,17 @@
-import 'package:drip_talk/features/splash/view/responsive_view/splash_barrels.dart';
+import 'package:flutter/material.dart';
+
 import '../../utils/responsive/responsive_text.dart';
 
 class AppTextStyles {
   AppTextStyles._();
 
-  static const String fontFamilyPrimary = Assets.fontsRedHatDisplayRegular;
-  static const String fontFamilyArabic = Assets.fontsTajawal;
+  static const String fontFamilyPrimary = 'RedHatDisplay';
+  static const String fontFamilyArabic = 'Tajawal';
   static const List<String> fontFamilyFallback = [fontFamilyArabic];
+
+  static bool _isArabic(BuildContext context) {
+    return Localizations.localeOf(context).languageCode == 'ar';
+  }
 
   static TextStyle _base(
     BuildContext context,
@@ -16,14 +21,16 @@ class AppTextStyles {
     String? customFontFamily,
     TextDecoration? decoration,
   }) {
-    String effectiveFamily = customFontFamily ?? fontFamilyPrimary;
+    final arabic = _isArabic(context);
+    final String effectiveFamily =
+        customFontFamily ?? (arabic ? fontFamilyArabic : fontFamilyPrimary);
 
     return TextStyle(
       fontSize: ResponsiveFont.scale(context, baseSize),
       fontWeight: weight,
       color: color,
       fontFamily: effectiveFamily,
-      fontFamilyFallback: fontFamilyFallback,
+      fontFamilyFallback: arabic ? null : fontFamilyFallback,
       decoration: decoration,
     );
   }

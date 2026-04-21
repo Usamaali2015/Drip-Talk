@@ -45,7 +45,7 @@ class AppDialog extends StatelessWidget {
         side: BorderSide(color: AppColors.primary, width: 1.5),
       ),
       elevation: 0,
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppColors.transparent,
       child: _buildDialogContent(context),
     );
   }
@@ -54,11 +54,11 @@ class AppDialog extends StatelessWidget {
     return Container(
       padding: AppPadding.allLarge,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.pureWhite,
         borderRadius: BorderRadius.circular(AppRadius.r28),
         boxShadow: const [
           BoxShadow(
-            color: Colors.black26,
+            color: AppColors.pureBlack26,
             blurRadius: 10,
             offset: Offset(0, 10),
           ),
@@ -71,10 +71,16 @@ class AppDialog extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
-                color: (iconColor ?? Colors.blue).withValues(alpha: 0.1),
+                color: (iconColor ?? AppColors.materialBlue).withValues(
+                  alpha: 0.1,
+                ),
                 shape: BoxShape.circle,
               ),
-              child: Icon(icon, size: 40, color: iconColor ?? Colors.blue),
+              child: Icon(
+                icon,
+                size: 40,
+                color: iconColor ?? AppColors.materialBlue,
+              ),
             ),
             const AppGap(AppSizes.s20),
           ] else ...[
@@ -102,7 +108,7 @@ class AppDialog extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: AppTextStyles.ts14(
                   context,
-                  color: AppColors.black,
+                  color: AppColors.pureBlack,
                   fontWeight: FontWeight.w300,
                 ),
                 maxLines: 3,

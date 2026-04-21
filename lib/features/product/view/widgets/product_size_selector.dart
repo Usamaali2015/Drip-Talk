@@ -1,8 +1,3 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:drip_talk/features/product/data/models/product_details_model.dart';
 import 'package:drip_talk/features/product/domain/bloc/product_bloc.dart';
 import 'package:drip_talk/features/product/domain/bloc/product_event.dart';
@@ -10,6 +5,8 @@ import 'package:drip_talk/features/product/view/widgets/product_size_guide_sheet
 import 'package:drip_talk/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class ProductSizeSelector extends StatelessWidget {
   const ProductSizeSelector({
@@ -51,7 +48,7 @@ class ProductSizeSelector extends StatelessWidget {
                 variant: AppTextVariant.ts12,
                 textColor: hasSizeGuide
                     ? AppColors.secondary
-                    : Colors.white38,
+                    : AppColors.pureWhite38,
                 textDecoration: TextDecoration.underline,
               ),
             ),
@@ -69,8 +66,8 @@ class ProductSizeSelector extends StatelessWidget {
               onTap: sizeId == null
                   ? null
                   : () => context.read<ProductBloc>().add(
-                        SelectProductSize(sizeId),
-                      ),
+                      SelectProductSize(sizeId),
+                    ),
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 200),
                 width: AppSizes.s55,

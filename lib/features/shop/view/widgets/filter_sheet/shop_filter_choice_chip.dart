@@ -1,9 +1,6 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/constants/app_text_styles.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:flutter/material.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class ShopFilterChoiceChip extends StatelessWidget {
   const ShopFilterChoiceChip({
@@ -20,7 +17,7 @@ class ShopFilterChoiceChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.transparent,
+      color: AppColors.transparent,
       child: InkWell(
         borderRadius: BorderRadius.circular(AppRadius.r12),
         onTap: onTap,
@@ -38,7 +35,7 @@ class ShopFilterChoiceChip extends StatelessWidget {
             border: Border.all(
               color: isSelected
                   ? AppColors.secondary.withValues(alpha: 0.18)
-                  : Colors.transparent,
+                  : AppColors.transparent,
             ),
           ),
           child: Padding(
@@ -48,7 +45,7 @@ class ShopFilterChoiceChip extends StatelessWidget {
               textAlign: TextAlign.center,
               style: AppTextStyles.ts12(
                 context,
-                color: AppColors.white,
+                color: AppColors.pureWhite,
                 fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
               ),
             ),

@@ -49,8 +49,34 @@ class AuthRepository {
     return AuthResponseModel.fromResponse(response.data);
   }
 
+  Future<AuthResponseModel> verifyTwoFactor({
+    required String twoFactorToken,
+    required String code,
+  }) async {
+    final response = await _apiService.post(
+      ApiEndpoints.verifyTwoFactor,
+      data: {'two_factor_token': twoFactorToken, 'code': code},
+    );
+
+    return AuthResponseModel.fromResponse(response.data);
+  }
+
   Future<AuthResponseModel> logout() async {
     final response = await _apiService.post(ApiEndpoints.logout);
+
+    return AuthResponseModel.fromResponse(response.data);
+  }
+
+  Future<AuthResponseModel> refreshAccessToken({
+    required String refreshToken,
+    CancelToken? cancelToken,
+  }) async {
+    final response = await _apiService.post(
+      ApiEndpoints.refreshToken,
+      data: {'refresh_token': refreshToken},
+      options: Options(extra: {'skipAuthRefresh': true}),
+      cancelToken: cancelToken,
+    );
 
     return AuthResponseModel.fromResponse(response.data);
   }

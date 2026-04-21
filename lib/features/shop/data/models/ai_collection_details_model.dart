@@ -33,10 +33,7 @@ class AiCollectionDetailsModel {
 }
 
 class AiCollectionDetailsData {
-  const AiCollectionDetailsData({
-    this.outfit,
-    this.products,
-  });
+  const AiCollectionDetailsData({this.outfit, this.products});
 
   factory AiCollectionDetailsData.fromJson(Map<String, dynamic>? json) {
     final source = _asMap(json);
@@ -66,10 +63,7 @@ class AiCollectionDetailsData {
       products?.items ?? const <AiCollectionProductItem>[];
 
   Map<String, dynamic> toJson() {
-    return {
-      'outfit': outfit?.toJson(),
-      'products': products?.toJson(),
-    };
+    return {'outfit': outfit?.toJson(), 'products': products?.toJson()};
   }
 }
 
@@ -234,7 +228,9 @@ class AiCollectionProductItem {
       thumbnail: _asString(source?['thumbnail']),
       isFeatured: _asBool(source?['is_featured']),
       freeDelivery: _asBool(source?['free_delivery']),
-      category: AiCollectionProductCategory.fromJson(_asMap(source?['category'])),
+      category: AiCollectionProductCategory.fromJson(
+        _asMap(source?['category']),
+      ),
     );
   }
 

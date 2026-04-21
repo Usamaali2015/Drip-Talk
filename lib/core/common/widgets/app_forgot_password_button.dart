@@ -28,7 +28,7 @@ class AppForgotPasswordButton extends StatelessWidget {
             AppLocalizations.of(context)!.forgotPassword,
             style: AppTextStyles.ts12(
               context,
-              color:AppColors.red,
+              color: AppColors.red,
               fontWeight: FontWeight.w600,
             ),
           ),

@@ -1,9 +1,3 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/constants/app_text_styles.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:drip_talk/core/utils/routes/app_routes.dart';
 import 'package:drip_talk/features/cart/view/widgets/cart_action_button.dart';
 import 'package:drip_talk/features/shop/data/models/ai_curated_model.dart';
@@ -15,7 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shimmer/shimmer.dart';
+import 'ai_curated_collection_loading_widgets.dart';
 import 'ai_curated_collection_tile.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class AiCuratedCollectionsBrowser extends StatelessWidget {
   const AiCuratedCollectionsBrowser({
@@ -43,59 +40,80 @@ class AiCuratedCollectionsBrowser extends StatelessWidget {
           previous.isCollectionsRefreshing != current.isCollectionsRefreshing,
       builder: (context, state) {
         final l10n = AppLocalizations.of(context)!;
+        return LayoutBuilder(
+          builder: (context, constraints) {
+            final width = constraints.maxWidth;
+            final horizontalPadding = width >= 960
+                ? 32.0
+                : width >= 720
+                ? 24.0
+                : 16.0;
+            final gridColumns = width >= 1040
+                ? 4
+                : width >= 720
+                ? 3
+                : 2;
+            final gridAspectRatio = gridColumns >= 4
+                ? 0.92
+                : gridColumns == 3
+                ? 0.88
+                : 0.8;
 
-        return SingleChildScrollView(
-          physics: const BouncingScrollPhysics(
-            parent: AlwaysScrollableScrollPhysics(),
-          ),
-          padding: const EdgeInsets.fromLTRB(
-            AppSizes.s16,
-            AppSizes.s16,
-            AppSizes.s16,
-            AppSizes.s120,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
+            return SingleChildScrollView(
+              physics: const BouncingScrollPhysics(
+                parent: AlwaysScrollableScrollPhysics(),
+              ),
+              padding: EdgeInsets.fromLTRB(
+                horizontalPadding,
+                AppSizes.s16,
+                horizontalPadding,
+                AppSizes.s120,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Expanded(
-                    child: _CuratedCollectionsSearchField(
-                      controller: searchController,
-                      hintText: searchHintText,
-                      onChanged: onSearchChanged,
+                  Row(
+                    children: [
+                      Expanded(
+                        child: _CuratedCollectionsSearchField(
+                          controller: searchController,
+                          hintText: searchHintText,
+                          onChanged: onSearchChanged,
+                        ),
+                      ),
+                      const AppGap(AppSizes.s12, axis: Axis.horizontal),
+                      CartActionButton(
+                        onTap: () => context.pushNamed(AppRoutes.cart),
+                      ),
+                    ],
+                  ),
+                  const AppGap(AppSizes.s20, axis: Axis.vertical),
+                  AppText(
+                    text: l10n.shopAiCuratedCollections,
+                    style: AppTextStyles.ts18(
+                      context,
+                      color: AppColors.pureWhite,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
-                  const AppGap(AppSizes.s12, axis: Axis.horizontal),
-                  CartActionButton(
-                    onTap: () => context.pushNamed(AppRoutes.cart),
+                  const AppGap(AppSizes.s20, axis: Axis.vertical),
+                  AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 220),
+                    switchInCurve: Curves.easeOutCubic,
+                    switchOutCurve: Curves.easeInCubic,
+                    child: _buildCollectionsContent(
+                      context,
+                      state,
+                      l10n,
+                      searchQuery,
+                      gridColumns,
+                      gridAspectRatio,
+                    ),
                   ),
                 ],
               ),
-              const AppGap(AppSizes.s20, axis: Axis.vertical),
-
-              AppText(
-                text: l10n.shopAiCuratedCollections,
-                style: AppTextStyles.ts18(
-                  context,
-                  color: AppColors.white,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              const AppGap(AppSizes.s20, axis: Axis.vertical),
-              AnimatedSwitcher(
-                duration: const Duration(milliseconds: 220),
-                switchInCurve: Curves.easeOutCubic,
-                switchOutCurve: Curves.easeInCubic,
-                child: _buildCollectionsContent(
-                  context,
-                  state,
-                  l10n,
-                  searchQuery,
-                ),
-              ),
-            ],
-          ),
+            );
+          },
         );
       },
     );
@@ -106,10 +124,14 @@ class AiCuratedCollectionsBrowser extends StatelessWidget {
     ShopState state,
     AppLocalizations l10n,
     String searchQuery,
+    int gridColumns,
+    double gridAspectRatio,
   ) {
     if (state.isCollectionsInitialLoading || state.isCollectionsRefreshing) {
-      return const _CollectionsGridShimmer(
+      return _CollectionsGridShimmer(
         key: ValueKey('collections-shimmer'),
+        columns: gridColumns,
+        aspectRatio: gridAspectRatio,
       );
     }
 
@@ -153,6 +175,8 @@ class AiCuratedCollectionsBrowser extends StatelessWidget {
       collections: visibleCollections,
       itemsLabelBuilder: l10n.shopCollectionItems,
       fallbackTitle: l10n.shopAiCuratedCollections,
+      columns: gridColumns,
+      aspectRatio: gridAspectRatio,
     );
   }
 }
@@ -182,7 +206,7 @@ class _CuratedCollectionsSearchField extends StatelessWidget {
         onChanged: onChanged,
         style: AppTextStyles.ts14(
           context,
-          color: AppColors.white,
+          color: AppColors.pureWhite,
           fontWeight: FontWeight.w500,
         ),
         cursorColor: AppColors.cyan,
@@ -190,11 +214,14 @@ class _CuratedCollectionsSearchField extends StatelessWidget {
           hintText: hintText,
           hintStyle: AppTextStyles.ts12(
             context,
-            color: AppColors.white.withValues(alpha: 0.56),
+            color: AppColors.pureWhite.withValues(alpha: 0.56),
             fontWeight: FontWeight.w400,
           ),
           border: InputBorder.none,
-          prefixIcon: const Icon(Icons.search_rounded, color: AppColors.white),
+          prefixIcon: const Icon(
+            Icons.search_rounded,
+            color: AppColors.pureWhite,
+          ),
           suffixIcon: controller.text.trim().isEmpty
               ? null
               : IconButton(
@@ -204,7 +231,7 @@ class _CuratedCollectionsSearchField extends StatelessWidget {
                   },
                   icon: Icon(
                     Icons.close_rounded,
-                    color: AppColors.white.withValues(alpha: 0.72),
+                    color: AppColors.pureWhite.withValues(alpha: 0.72),
                   ),
                 ),
           contentPadding: const EdgeInsets.symmetric(
@@ -223,11 +250,15 @@ class _CollectionsGrid extends StatelessWidget {
     required this.collections,
     required this.itemsLabelBuilder,
     required this.fallbackTitle,
+    required this.columns,
+    required this.aspectRatio,
   });
 
   final List<AiCuratedItem> collections;
   final String Function(int) itemsLabelBuilder;
   final String fallbackTitle;
+  final int columns;
+  final double aspectRatio;
 
   @override
   Widget build(BuildContext context) {
@@ -235,11 +266,11 @@ class _CollectionsGrid extends StatelessWidget {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: collections.length,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: columns,
         mainAxisSpacing: AppSizes.s14,
         crossAxisSpacing: AppSizes.s12,
-        childAspectRatio: 0.8,
+        childAspectRatio: aspectRatio,
       ),
       itemBuilder: (context, index) {
         final collection = collections[index];
@@ -268,30 +299,32 @@ class _CollectionsGrid extends StatelessWidget {
 }
 
 class _CollectionsGridShimmer extends StatelessWidget {
-  const _CollectionsGridShimmer({super.key});
+  const _CollectionsGridShimmer({
+    super.key,
+    required this.columns,
+    required this.aspectRatio,
+  });
+
+  final int columns;
+  final double aspectRatio;
 
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: AppColors.primary.withValues(alpha: 0.12),
-      highlightColor: AppColors.secondary.withValues(alpha: 0.18),
-      child: GridView.builder(
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        itemCount: 6,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          mainAxisSpacing: AppSizes.s14,
-          crossAxisSpacing: AppSizes.s12,
-          childAspectRatio: 0.7,
-        ),
+      baseColor: AppColors.shimmerBase,
+      highlightColor: AppColors.shimmerHighlight,
+        child: GridView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: columns * 2,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: columns,
+            mainAxisSpacing: AppSizes.s14,
+            crossAxisSpacing: AppSizes.s12,
+            childAspectRatio: aspectRatio,
+          ),
         itemBuilder: (context, index) {
-          return Container(
-            decoration: BoxDecoration(
-              color: AppColors.lightBg,
-              borderRadius: BorderRadius.circular(AppRadius.r24),
-            ),
-          );
+          return const AiCuratedCollectionGridSkeletonCard();
         },
       ),
     );
@@ -320,7 +353,7 @@ class _CollectionsMessageState extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.darkBg.withValues(alpha: 0.8),
         borderRadius: BorderRadius.circular(AppRadius.r24),
-        border: Border.all(color: Colors.white10),
+        border: Border.all(color: AppColors.pureWhite10),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -328,7 +361,7 @@ class _CollectionsMessageState extends StatelessWidget {
           Icon(
             icon,
             size: AppSizes.s40,
-            color: AppColors.white.withValues(alpha: 0.76),
+            color: AppColors.pureWhite.withValues(alpha: 0.76),
           ),
           const AppGap(AppSizes.s12, axis: Axis.vertical),
           AppText(
@@ -336,7 +369,7 @@ class _CollectionsMessageState extends StatelessWidget {
             textAlign: TextAlign.center,
             style: AppTextStyles.ts14(
               context,
-              color: AppColors.white.withValues(alpha: 0.78),
+              color: AppColors.pureWhite.withValues(alpha: 0.78),
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -346,7 +379,7 @@ class _CollectionsMessageState extends StatelessWidget {
               onPressed: onAction,
               style: FilledButton.styleFrom(
                 backgroundColor: AppColors.secondary,
-                foregroundColor: AppColors.white,
+                foregroundColor: AppColors.pureWhite,
                 padding: const EdgeInsets.symmetric(
                   horizontal: AppSizes.s18,
                   vertical: AppSizes.s12,

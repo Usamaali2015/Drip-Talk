@@ -1,10 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/widgets/app_button.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:drip_talk/core/services/get_it/service_locator.dart';
 import 'package:drip_talk/core/utils/app_utils/toast_utils.dart';
 import 'package:drip_talk/features/cart/data/models/cart_model.dart';
@@ -19,6 +13,9 @@ import 'package:drip_talk/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
+part '../widgets/product_add_to_cart_flow_widgets.dart';
 
 Future<void> addCurrentProductToCart(
   BuildContext context, {
@@ -27,6 +24,11 @@ Future<void> addCurrentProductToCart(
 }) async {
   final product = state.product;
   if (product == null) {
+    return;
+  }
+
+  if (state.isOutOfStock) {
+    _showError(context, l10n.productOutOfStock);
     return;
   }
 
@@ -66,7 +68,7 @@ Future<void> quickAddCatalogProductToCart(
     isScrollControlled: true,
     useSafeArea: true,
     useRootNavigator: true,
-    backgroundColor: Colors.transparent,
+    backgroundColor: AppColors.transparent,
     builder: (_) => _ProductQuickAddSheet(productId: productId, l10n: l10n),
   );
 }
@@ -273,9 +275,7 @@ class _ProductQuickAddSheetState extends State<_ProductQuickAddSheet> {
   @override
   Widget build(BuildContext context) {
     if (_isLoading) {
-      return _QuickAddStateSheet(
-        child: const _QuickAddSheetShimmer(),
-      );
+      return _QuickAddStateSheet(child: const _QuickAddSheetShimmer());
     }
 
     final product = _product;
@@ -287,7 +287,7 @@ class _ProductQuickAddSheetState extends State<_ProductQuickAddSheet> {
             AppText(
               text: _errorMessage ?? widget.l10n.productUnableToLoad,
               variant: AppTextVariant.ts16,
-              textColor: AppColors.white,
+              textColor: AppColors.pureWhite,
               textAlign: TextAlign.center,
               maxLines: 3,
             ),
@@ -296,7 +296,7 @@ class _ProductQuickAddSheetState extends State<_ProductQuickAddSheet> {
               text: widget.l10n.retry,
               height: 50,
               borderRadius: 24,
-              gradientColors: const [AppColors.secondary, Color(0xFFFF1E87)],
+              gradientColors: const [AppColors.secondary, AppColors.hotPink],
               onPressed: _loadProduct,
             ),
           ],
@@ -417,181 +417,5 @@ class _ProductQuickAddSheetState extends State<_ProductQuickAddSheet> {
     );
 
     return true;
-  }
-}
-
-class _QuickAddStateSheet extends StatelessWidget {
-  const _QuickAddStateSheet({required this.child});
-
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return FractionallySizedBox(
-      heightFactor: 0.92,
-      child: Container(
-        decoration: BoxDecoration(
-          color: const Color(0xFF2B1B55),
-          borderRadius: const BorderRadius.vertical(top: Radius.circular(36)),
-          border: Border(top: BorderSide(width: 4, color: AppColors.secondary)),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(24, 18, 24, 24),
-          child: Column(
-            children: [
-              Center(
-                child: Container(
-                  width: 56,
-                  height: 5,
-                  margin: const EdgeInsets.only(bottom: 22),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.18),
-                    borderRadius: BorderRadius.circular(AppRadius.circular),
-                  ),
-                ),
-              ),
-              Row(
-                children: [
-                  GestureDetector(
-                    onTap: () => Navigator.of(context).pop(),
-                    child: Container(
-                      width: 44,
-                      height: 44,
-                      decoration: BoxDecoration(
-                        color: Colors.white.withValues(alpha: 0.04),
-                        borderRadius: BorderRadius.circular(14),
-                        border: Border.all(color: AppColors.secondary),
-                      ),
-                      child: const Icon(
-                        Icons.arrow_back_rounded,
-                        color: AppColors.white,
-                        size: 20,
-                      ),
-                    ),
-                  ),
-                  const AppGap(AppSizes.s14, axis: Axis.horizontal),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        AppText(
-                          text: AppLocalizations.of(context)!.productSizeGuide,
-                          variant: AppTextVariant.ts18,
-                          textColor: AppColors.white,
-                          fontWeight: FontWeight.w700,
-                        ),
-                        const AppGap(2),
-                        AppText(
-                          text: AppLocalizations.of(
-                            context,
-                          )!.productSizeGuideSubtitle,
-                          variant: AppTextVariant.ts14,
-                          textColor: Colors.white70,
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              Expanded(child: Center(child: child)),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _QuickAddSheetShimmer extends StatelessWidget {
-  const _QuickAddSheetShimmer();
-
-  @override
-  Widget build(BuildContext context) {
-    return Shimmer.fromColors(
-      baseColor: Colors.white.withValues(alpha: 0.08),
-      highlightColor: Colors.white.withValues(alpha: 0.18),
-      child: SingleChildScrollView(
-        physics: const NeverScrollableScrollPhysics(),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const AppGap(AppSizes.s24),
-            _QuickAddSkeletonBox(
-              height: 148,
-              borderRadius: 22,
-              width: double.infinity,
-            ),
-            const AppGap(AppSizes.s24),
-            const _QuickAddSkeletonLine(width: 120, height: 20),
-            const AppGap(AppSizes.s16),
-            Wrap(
-              spacing: AppSizes.s12,
-              runSpacing: AppSizes.s12,
-              children: List.generate(
-                5,
-                (_) => const _QuickAddSkeletonBox(
-                  width: 64,
-                  height: 46,
-                  borderRadius: AppRadius.circular,
-                ),
-              ),
-            ),
-            const AppGap(AppSizes.s20),
-            _QuickAddSkeletonBox(
-              height: 214,
-              borderRadius: 24,
-              width: double.infinity,
-            ),
-            const AppGap(AppSizes.s24),
-            _QuickAddSkeletonBox(
-              height: 54,
-              borderRadius: 28,
-              width: double.infinity,
-            ),
-            const AppGap(AppSizes.s24),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _QuickAddSkeletonBox extends StatelessWidget {
-  const _QuickAddSkeletonBox({
-    required this.height,
-    required this.borderRadius,
-    this.width = double.infinity,
-  });
-
-  final double width;
-  final double height;
-  final double borderRadius;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(borderRadius),
-      ),
-    );
-  }
-}
-
-class _QuickAddSkeletonLine extends StatelessWidget {
-  const _QuickAddSkeletonLine({required this.width, required this.height});
-
-  final double width;
-  final double height;
-
-  @override
-  Widget build(BuildContext context) {
-    return _QuickAddSkeletonBox(
-      width: width,
-      height: height,
-      borderRadius: AppRadius.r12,
-    );
   }
 }

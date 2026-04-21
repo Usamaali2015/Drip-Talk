@@ -1,11 +1,8 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/constants/app_text_styles.dart';
-import 'package:drip_talk/core/common/widgets/app_cached_network_image.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:flutter/material.dart';
+
+import 'ai_curated_collection_loading_widgets.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class AiCuratedCollectionHeroCard extends StatelessWidget {
   const AiCuratedCollectionHeroCard({
@@ -55,7 +52,7 @@ class AiCuratedCollectionHeroCard extends StatelessWidget {
                 AppCachedNetworkImage(
                   imageUrl: imageUrl!.trim(),
                   fit: BoxFit.cover,
-                  placeholder: const ColoredBox(color: AppColors.lightBg),
+                  placeholder: const AiCuratedCollectionImagePlaceholder(),
                 ),
               DecoratedBox(
                 decoration: BoxDecoration(
@@ -63,9 +60,9 @@ class AiCuratedCollectionHeroCard extends StatelessWidget {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      Colors.black.withValues(alpha: 0.4),
-                      Colors.black.withValues(alpha: 0.5),
-                      Colors.black.withValues(alpha: 0.8),
+                      AppColors.pureBlack.withValues(alpha: 0.4),
+                      AppColors.pureBlack.withValues(alpha: 0.5),
+                      AppColors.pureBlack.withValues(alpha: 0.8),
                     ],
                   ),
                 ),
@@ -91,7 +88,7 @@ class AiCuratedCollectionHeroCard extends StatelessWidget {
                       maxLines: 3,
                       style: AppTextStyles.ts12(
                         context,
-                        color: AppColors.white,
+                        color: AppColors.pureWhite,
                         fontWeight: FontWeight.w400,
                       ),
                     ),

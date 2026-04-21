@@ -20,7 +20,8 @@ class HomeState extends Equatable {
   }) {
     return HomeState(
       status: status ?? this.status,
-      selectedCategoryIndex: selectedCategoryIndex ?? this.selectedCategoryIndex,
+      selectedCategoryIndex:
+          selectedCategoryIndex ?? this.selectedCategoryIndex,
       gridData: gridData ?? this.gridData,
     );
   }

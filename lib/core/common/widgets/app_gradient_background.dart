@@ -1,6 +1,7 @@
 import 'package:drip_talk/core/common/constants/app_sizes.dart';
 import 'package:drip_talk/generated/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:drip_talk/core/common/constants/app_colors.dart';
 
 class CustomScaffold extends StatelessWidget {
   final Widget child;
@@ -21,7 +22,7 @@ class CustomScaffold extends StatelessWidget {
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppColors.transparent,
       appBar: appBar,
       bottomNavigationBar: showBottomNav ? bottomNav : null,
       body: Container(

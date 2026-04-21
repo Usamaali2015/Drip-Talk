@@ -1,9 +1,3 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/constants/app_text_styles.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:drip_talk/core/utils/routes/app_routes.dart';
 import 'package:drip_talk/features/shop/data/models/ai_curated_model.dart';
 import 'package:drip_talk/features/shop/domain/shop_bloc.dart';
@@ -14,11 +8,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shimmer/shimmer.dart';
 
+import 'ai_curated_collection_loading_widgets.dart';
 import 'ai_promo_banner.dart';
 import 'collection_card.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class ShopAiCuratedSection extends StatelessWidget {
-  const ShopAiCuratedSection({super.key});
+  const ShopAiCuratedSection({
+    super.key,
+    required this.horizontalPadding,
+  });
+
+  final double horizontalPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class ShopAiCuratedSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppSizes.s16),
+          padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -36,12 +38,12 @@ class ShopAiCuratedSection extends StatelessWidget {
                 text: l10n.shopAiCuratedCollections,
                 style: AppTextStyles.ts18(
                   context,
-                  color: AppColors.white,
+                  color: AppColors.pureWhite,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Material(
-                color: Colors.transparent,
+                color: AppColors.transparent,
                 child: InkWell(
                   borderRadius: BorderRadius.circular(AppSizes.s24),
                   onTap: () {
@@ -56,7 +58,7 @@ class ShopAiCuratedSection extends StatelessWidget {
                       text: l10n.shopSeeAll,
                       style: AppTextStyles.ts12(
                         context,
-                        color: Colors.pinkAccent,
+                        color: AppColors.materialPinkAccent,
                         fontWeight: FontWeight.w600,
                         decoration: TextDecoration.underline,
                       ),
@@ -78,7 +80,10 @@ class ShopAiCuratedSection extends StatelessWidget {
                 .toList();
 
             if (featuredCollections.isNotEmpty) {
-              return _CollectionsList(collections: featuredCollections);
+              return _CollectionsList(
+                collections: featuredCollections,
+                horizontalPadding: horizontalPadding,
+              );
             }
 
             if (state.collectionsStatus == ShopCollectionsStatus.failure) {
@@ -89,12 +94,12 @@ class ShopAiCuratedSection extends StatelessWidget {
               return _SectionMessage(message: l10n.shopNoFeaturedCollections);
             }
 
-            return const _CollectionsShimmer();
+            return _CollectionsShimmer(horizontalPadding: horizontalPadding);
           },
         ),
         const AppGap(AppSizes.s24, axis: Axis.vertical),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppSizes.s16),
+          padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
           child: AiPromoBanner(
             onTap: () {
               context.pushNamed(AppRoutes.chat);
@@ -108,9 +113,13 @@ class ShopAiCuratedSection extends StatelessWidget {
 }
 
 class _CollectionsList extends StatelessWidget {
-  const _CollectionsList({required this.collections});
+  const _CollectionsList({
+    required this.collections,
+    required this.horizontalPadding,
+  });
 
   final List<AiCuratedItem> collections;
+  final double horizontalPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -120,7 +129,7 @@ class _CollectionsList extends StatelessWidget {
       height: AppSizes.s200,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.symmetric(horizontal: AppSizes.s16),
+        padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
         scrollDirection: Axis.horizontal,
         itemCount: collections.length,
         itemBuilder: (context, index) {
@@ -164,7 +173,7 @@ class _SectionMessage extends StatelessWidget {
             textAlign: TextAlign.center,
             style: AppTextStyles.ts14(
               context,
-              color: AppColors.white.withValues(alpha: 0.7),
+              color: AppColors.pureWhite.withValues(alpha: 0.7),
             ),
           ),
         ),
@@ -174,29 +183,24 @@ class _SectionMessage extends StatelessWidget {
 }
 
 class _CollectionsShimmer extends StatelessWidget {
-  const _CollectionsShimmer();
+  const _CollectionsShimmer({required this.horizontalPadding});
+
+  final double horizontalPadding;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: AppSizes.s200,
       child: Shimmer.fromColors(
-        baseColor: AppColors.primary.withValues(alpha: 0.12),
-        highlightColor: AppColors.secondary.withValues(alpha: 0.18),
+        baseColor: AppColors.shimmerBase,
+        highlightColor: AppColors.shimmerHighlight,
         child: ListView.builder(
           physics: const NeverScrollableScrollPhysics(),
-          padding: const EdgeInsets.symmetric(horizontal: AppSizes.s16),
+          padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
           scrollDirection: Axis.horizontal,
           itemCount: 3,
           itemBuilder: (context, index) {
-            return Container(
-              width: AppSizes.s150,
-              margin: const EdgeInsets.only(right: AppSizes.s12),
-              decoration: BoxDecoration(
-                color: AppColors.lightBg,
-                borderRadius: BorderRadius.circular(AppRadius.r12),
-              ),
-            );
+            return const AiCuratedCollectionListSkeletonCard();
           },
         ),
       ),

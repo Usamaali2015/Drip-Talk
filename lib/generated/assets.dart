@@ -60,6 +60,12 @@ class Assets {
   static const String imagesOnboarding2 = 'assets/images/onboarding2.png';
   static const String imagesOnboarding3 = 'assets/images/onboarding3.png';
   static const String productImage = 'assets/images/product_image.jpeg';
+  static const String filterPink = "assets/icons/filter_pink.svg";
   static const String deleteAccountIcon =
       'assets/icons/Delete Account Icon.svg';
+  static const String orderTracking = 'assets/icons/order_tracking.svg';
+  static const String shipping = 'assets/icons/shipping.svg';
+  static const String accountProfile = 'assets/icons/account_profile.svg';
+  static const String aiChat = 'assets/icons/ai_chat.svg';
+  static const String contactSupport = 'assets/icons/contact_support.svg';
 }

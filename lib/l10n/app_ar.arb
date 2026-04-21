@@ -13,6 +13,10 @@
   "continueText": "متابعة",
   "orContinueWith": "أو المتابعة باستخدام",
   "cancel": "إلغاء",
+  "loginTwoFactorTitle": "تحقق من المصادقة الثنائية",
+  "loginTwoFactorScreenTitle": "أدخل الرمز المكون من 6 أرقام",
+  "loginTwoFactorScreenSubtitle": "افتح تطبيق المصادقة وأدخل رمز التحقق لإكمال تسجيل الدخول.",
+  "loginTwoFactorAction": "تحقق وسجّل الدخول",
   "retry": "إعادة المحاولة",
   "submit": "إرسال",
   "next": "التالي",
@@ -32,6 +36,7 @@
   "loading": "جارِ تحميل التجربة...",
   "getStarted": "ابدأ الآن",
   "login": "تسجيل الدخول",
+  "loggingIn": "جارِ تسجيل الدخول...",
   "loginDes": "تسجيل الدخول إلى Drip Talk",
   "signup": "إنشاء حساب",
   "logout": "تسجيل الخروج",
@@ -41,6 +46,9 @@
   "forgotPassword": "هل نسيت كلمة المرور؟",
   "forgotPasswordSubtitle": "أدخل بريدك الإلكتروني وسنرسل لك رابط إعادة تعيين كلمة المرور لاسترداد حسابك.",
   "sendResetLink": "إرسال رابط إعادة التعيين",
+  "sendVerificationCode": "إرسال رمز التحقق",
+  "changePasswordVerificationSubtitle": "سنرسل رمز تحقق إلى بريدك الإلكتروني قبل تحديث كلمة المرور.",
+  "changePasswordVerificationSentDescription": "أدخل الرمز المرسل إلى بريدك الإلكتروني للمتابعة في تغيير كلمة المرور.",
   "rememberPassword": "تتذكر كلمة مرورك؟",
   "loginSubtitle": "تسجيل الدخول للمتابعة",
   "signupSubtitle": "أنشئ حسابك في Drip Talk",
@@ -50,6 +58,30 @@
   "name": "الاسم",
   "checkYourEmail": "تحقق من بريدك الإلكتروني",
   "resettingYourPassword": "أدخل الرمز المكون من 4 أرقام المرسل إلى بريدك لمتابعة إعادة تعيين كلمة المرور.",
+  "otpDescriptionSignup": "أدخل الرمز المرسل إلى بريدك الإلكتروني لتأكيد حسابك والمتابعة.",
+  "@otpDescriptionSignup": {
+    "description": "الوصف الظاهر في شاشة رمز التحقق عند تأكيد حساب جديد"
+  },
+  "otpDescriptionForgotPassword": "أدخل الرمز المرسل إلى بريدك الإلكتروني لمتابعة إعادة تعيين كلمة المرور.",
+  "@otpDescriptionForgotPassword": {
+    "description": "الوصف الظاهر في شاشة رمز التحقق لميزة نسيان كلمة المرور"
+  },
+  "otpDescriptionTwoFactor": "أدخل الرمز المرسل إلى بريدك الإلكتروني لإكمال تسجيل الدخول بأمان.",
+  "@otpDescriptionTwoFactor": {
+    "description": "الوصف الظاهر في شاشة رمز التحقق عند طلب المصادقة الثنائية أثناء تسجيل الدخول"
+  },
+  "otpVerifying": "جارٍ التحقق...",
+  "@otpVerifying": {
+    "description": "نص التحميل الظاهر على زر التحقق أثناء فحص رمز التحقق"
+  },
+  "otpVerifiedSuccess": "تم التحقق من الرمز بنجاح",
+  "@otpVerifiedSuccess": {
+    "description": "رسالة نجاح تظهر بعد التحقق من رمز التحقق"
+  },
+  "otpResentSuccess": "تمت إعادة إرسال الرمز بنجاح",
+  "@otpResentSuccess": {
+    "description": "رسالة نجاح تظهر بعد إعادة إرسال رمز التحقق"
+  },
   "phone": "الهاتف",
   "somethingWentWrong": "حدث خطأ ما",
   "noInternet": "لا يوجد اتصال بالإنترنت",
@@ -84,16 +116,225 @@
   "continueWithFacebook": "المتابعة باستخدام Facebook",
   "passwordResetSuccess": "تم إعادة تعيين كلمة المرور بنجاح",
   "youCanNowLogin": "تم تحديث كلمة المرور الخاصة بك. يمكنك الآن تسجيل الدخول إلى Drip Talk بكلمة المرور الجديدة.",
+  "changePasswordProfileSuccessDescription": "تم تحديث كلمة المرور الخاصة بك بنجاح.",
   "createNewPassword": "إنشاء كلمة مرور جديدة",
   "createNewPasswordSubtitle": "قم بتعيين كلمة مرور قوية لحماية حسابك.",
+  "changePasswordScreenTitle": "غيّر كلمة المرور",
+  "changePasswordScreenSubtitle": "حافظ على أمان حسابك من خلال تحديث كلمة المرور بانتظام.",
+  "changePasswordNewPasswordHint": "أنشئ كلمة مرور جديدة قوية",
+  "changePasswordConfirmPasswordHint": "أعد إدخال كلمة المرور الجديدة",
+  "changePasswordRequirementsTitle": "يجب أن تحتوي كلمة المرور على:",
+  "changePasswordRuleMinLength": "8 أحرف على الأقل",
+  "changePasswordRuleUppercase": "حرف كبير واحد",
+  "changePasswordRuleNumberOrSymbol": "رقم واحد أو رمز",
+  "changePasswordRuleSpecialCharacter": "تتضمن رمزًا خاصًا (مثل @ أو # أو $)",
+  "changePasswordUpdateAction": "تحديث كلمة المرور",
+  "changePasswordPasswordRequired": "أدخل كلمة المرور الجديدة",
+  "changePasswordConfirmationRequired": "أكد كلمة المرور الجديدة",
+  "changePasswordRequirementsMessage": "كلمة المرور لا تستوفي الشروط المطلوبة",
+  "changePasswordSessionExpired": "انتهت جلسة إعادة تعيين كلمة المرور. يرجى طلب رمز جديد.",
   "profile": "الملف الشخصي",
   "editProfile": "تعديل الملف الشخصي",
+  "editProfileScreenTitle": "تعديل الملف الشخصي",
+  "@editProfileScreenTitle": {
+    "description": "عنوان شاشة تعديل الملف الشخصي"
+  },
+  "editProfileScreenSubtitle": "إدارة معلومات حسابك",
+  "@editProfileScreenSubtitle": {
+    "description": "العنوان الفرعي في شاشة تعديل الملف الشخصي"
+  },
+  "editProfileUploadPhotoLabel": "قم برفع صورة شخصية واضحة",
+  "@editProfileUploadPhotoLabel": {
+    "description": "النص التوضيحي أسفل منتقي الصورة في شاشة تعديل الملف الشخصي"
+  },
+  "editProfilePersonalInformation": "المعلومات الشخصية",
+  "@editProfilePersonalInformation": {
+    "description": "عنوان قسم المعلومات الشخصية في شاشة تعديل الملف الشخصي"
+  },
+  "editProfileFullNameLabel": "أدخل اسمك الكامل",
+  "@editProfileFullNameLabel": {
+    "description": "النص الظاهر فوق حقل الاسم الكامل في شاشة تعديل الملف الشخصي"
+  },
+  "editProfileFullNameHint": "أدخل اسمك الكامل",
+  "@editProfileFullNameHint": {
+    "description": "النص الإرشادي داخل حقل الاسم الكامل في شاشة تعديل الملف الشخصي"
+  },
+  "editProfileUsernameLabel": "اسم المستخدم",
+  "@editProfileUsernameLabel": {
+    "description": "النص الظاهر فوق حقل اسم المستخدم في شاشة تعديل الملف الشخصي"
+  },
+  "editProfileUsernameHint": "اسم المستخدم",
+  "@editProfileUsernameHint": {
+    "description": "النص الإرشادي داخل حقل اسم المستخدم في شاشة تعديل الملف الشخصي"
+  },
+  "editProfileUsernameNote": "سيكون هذا مرئيًا للمستخدمين الآخرين",
+  "@editProfileUsernameNote": {
+    "description": "النص المساعد أسفل حقل اسم المستخدم في شاشة تعديل الملف الشخصي"
+  },
+  "editProfilePhoneLabel": "رقم الهاتف",
+  "@editProfilePhoneLabel": {
+    "description": "النص الظاهر فوق حقل الهاتف في شاشة تعديل الملف الشخصي"
+  },
+  "editProfilePhoneHint": "أدخل رقم هاتفك",
+  "@editProfilePhoneHint": {
+    "description": "النص الإرشادي داخل حقل الهاتف في شاشة تعديل الملف الشخصي"
+  },
+  "editProfileDateOfBirthLabel": "تاريخ الميلاد",
+  "@editProfileDateOfBirthLabel": {
+    "description": "النص الظاهر فوق حقل تاريخ الميلاد في شاشة تعديل الملف الشخصي"
+  },
+  "editProfileDateOfBirthHint": "اختر تاريخ الميلاد",
+  "@editProfileDateOfBirthHint": {
+    "description": "النص الإرشادي داخل حقل تاريخ الميلاد في شاشة تعديل الملف الشخصي"
+  },
+  "editProfileGenderLabel": "الجنس",
+  "@editProfileGenderLabel": {
+    "description": "النص الظاهر فوق حقل الجنس في شاشة تعديل الملف الشخصي"
+  },
+  "editProfileGenderHint": "اختر الجنس",
+  "@editProfileGenderHint": {
+    "description": "النص الإرشادي داخل حقل الجنس في شاشة تعديل الملف الشخصي"
+  },
+  "editProfileGenderSheetTitle": "اختر الجنس",
+  "@editProfileGenderSheetTitle": {
+    "description": "عنوان نافذة اختيار الجنس في شاشة تعديل الملف الشخصي"
+  },
+  "editProfileDefaultAddressTitle": "العنوان الافتراضي",
+  "@editProfileDefaultAddressTitle": {
+    "description": "عنوان قسم العنوان الافتراضي في شاشة تعديل الملف الشخصي"
+  },
+  "editProfileAddressStreet": "الشارع",
+  "@editProfileAddressStreet": {
+    "description": "عنوان صف الشارع في بطاقة العنوان الافتراضي"
+  },
+  "editProfileAddressState": "الولاية",
+  "@editProfileAddressState": {
+    "description": "عنوان صف الولاية في بطاقة العنوان الافتراضي"
+  },
+  "editProfileAddressCountry": "الدولة",
+  "@editProfileAddressCountry": {
+    "description": "عنوان صف الدولة في بطاقة العنوان الافتراضي"
+  },
+  "editProfileNoDefaultAddress": "لا يوجد عنوان افتراضي",
+  "@editProfileNoDefaultAddress": {
+    "description": "نص بديل يظهر عند عدم وجود عنوان افتراضي في شاشة تعديل الملف الشخصي"
+  },
+  "editProfileFieldNotSet": "غير محدد",
+  "@editProfileFieldNotSet": {
+    "description": "نص بديل يظهر عند غياب قيمة في شاشة تعديل الملف الشخصي"
+  },
+  "editProfileManageAddresses": "إدارة العناوين",
+  "@editProfileManageAddresses": {
+    "description": "نص الزر أسفل بطاقة العنوان الافتراضي في شاشة تعديل الملف الشخصي"
+  },
+  "editProfileInterestsTitle": "الأسلوب والاهتمامات",
+  "@editProfileInterestsTitle": {
+    "description": "عنوان قسم الاهتمامات في شاشة تعديل الملف الشخصي"
+  },
+  "editProfileEditInterestsAction": "تعديل الأسلوب والاهتمامات",
+  "@editProfileEditInterestsAction": {
+    "description": "نص الزر لفتح إعداد الملف الشخصي لتعديل الاهتمامات"
+  },
+  "editProfileTwoFactorTitle": "المصادقة الثنائية",
+  "@editProfileTwoFactorTitle": {
+    "description": "نص مفتاح المصادقة الثنائية في قسم الأمان"
+  },
+  "editProfileBiometricTitle": "تسجيل الدخول البيومتري",
+  "@editProfileBiometricTitle": {
+    "description": "نص مفتاح تسجيل الدخول البيومتري في قسم الأمان"
+  },
+  "twoFactorSetupTitle": "إعداد المصادقة الثنائية",
+  "@twoFactorSetupTitle": {
+    "description": "عنوان يظهر في نافذة إعداد رمز QR للمصادقة الثنائية"
+  },
+  "twoFactorSetupSubtitle": "امسح رمز QR باستخدام تطبيق المصادقة",
+  "@twoFactorSetupSubtitle": {
+    "description": "وصف يظهر في نافذة إعداد رمز QR للمصادقة الثنائية"
+  },
+  "twoFactorManualKeyLabel": "أو أدخل هذا المفتاح يدويًا",
+  "@twoFactorManualKeyLabel": {
+    "description": "نص يظهر أعلى المفتاح السري اليدوي في نافذة إعداد المصادقة الثنائية"
+  },
+  "twoFactorNextVerifyAction": "التالي: تحقق من الرمز",
+  "@twoFactorNextVerifyAction": {
+    "description": "نص الزر الرئيسي في نافذة إعداد المصادقة الثنائية"
+  },
+  "twoFactorVerifyTitle": "أدخل الرمز المكون من 6 أرقام",
+  "@twoFactorVerifyTitle": {
+    "description": "العنوان الظاهر في نافذة التحقق من المصادقة الثنائية"
+  },
+  "twoFactorVerifySubtitle": "افتح تطبيق المصادقة وأدخل الرمز الظاهر للتطبيق الآمن.",
+  "@twoFactorVerifySubtitle": {
+    "description": "الوصف الظاهر في نافذة التحقق من المصادقة الثنائية"
+  },
+  "twoFactorVerifyAction": "تحقق وقم بالتفعيل",
+  "@twoFactorVerifyAction": {
+    "description": "نص زر التحقق والتفعيل في نافذة المصادقة الثنائية"
+  },
+  "twoFactorDidNotGetCode": "لم تحصل على رمز؟ ",
+  "@twoFactorDidNotGetCode": {
+    "description": "النص السابق لرابط إعادة مسح رمز QR في نافذة التحقق من المصادقة الثنائية"
+  },
+  "twoFactorRescanQr": "إعادة مسح QR",
+  "@twoFactorRescanQr": {
+    "description": "نص إجراء إعادة مسح رمز QR أثناء التحقق من المصادقة الثنائية"
+  },
+  "editProfileResetAction": "إعادة تعيين",
+  "@editProfileResetAction": {
+    "description": "نص الإجراء في بطاقة تغيير كلمة المرور داخل قسم الأمان"
+  },
+  "editProfileSaveAction": "حفظ",
+  "@editProfileSaveAction": {
+    "description": "نص زر الحفظ الرئيسي في شاشة تعديل الملف الشخصي"
+  },
+  "editProfileNameRequired": "يرجى إدخال اسمك الكامل",
+  "@editProfileNameRequired": {
+    "description": "رسالة التحقق عند ترك حقل الاسم الكامل فارغًا في شاشة تعديل الملف الشخصي"
+  },
+  "editProfilePhoneInvalid": "يرجى إدخال رقم هاتف صالح",
+  "@editProfilePhoneInvalid": {
+    "description": "رسالة التحقق عند إدخال رقم هاتف قصير جدًا في شاشة تعديل الملف الشخصي"
+  },
+  "editProfileLoadFailed": "تعذر تحميل الملف الشخصي",
+  "@editProfileLoadFailed": {
+    "description": "عنوان يظهر عند فشل تحميل بيانات الملف الشخصي في شاشة التعديل"
+  },
+  "editProfileSavedSuccess": "تم تحديث الملف الشخصي بنجاح",
+  "@editProfileSavedSuccess": {
+    "description": "رسالة تنبيه عند نجاح تحديث الملف الشخصي"
+  },
+  "editProfileSaveFailed": "تعذر تحديث الملف الشخصي",
+  "@editProfileSaveFailed": {
+    "description": "رسالة تنبيه عند فشل تحديث الملف الشخصي"
+  },
+  "editProfilePhotoSourceTitle": "اختر مصدر الصورة",
+  "@editProfilePhotoSourceTitle": {
+    "description": "عنوان نافذة اختيار مصدر الصورة في شاشة تعديل الملف الشخصي"
+  },
+  "imagePickerSingleHint": "اختر صورة من المعرض أو التقط صورة جديدة.",
+  "imagePickerMultipleHint": "اختر صورًا من المعرض أو التقط صورة جديدة.",
+  "imagePickerGalleryCaptionSingle": "اختر صورة موجودة",
+  "imagePickerGalleryCaptionMultiple": "حدد صورة واحدة أو عدة صور",
+  "imagePickerCameraCaption": "التقط صورة جديدة فورًا",
+  "editProfilePhotoCameraAction": "الكاميرا",
+  "@editProfilePhotoCameraAction": {
+    "description": "نص إجراء الكاميرا في نافذة اختيار مصدر الصورة"
+  },
+  "editProfilePhotoGalleryAction": "المعرض",
+  "@editProfilePhotoGalleryAction": {
+    "description": "نص إجراء المعرض في نافذة اختيار مصدر الصورة"
+  },
+  "editProfileChangePasswordUnavailable": "تغيير كلمة المرور غير متاح حاليًا.",
+  "@editProfileChangePasswordUnavailable": {
+    "description": "رسالة تنبيه عند الضغط على تغيير كلمة المرور قبل تنفيذ الميزة"
+  },
   "memberSince": "عضو منذ {year}",
   "shopping": "التسوق",
   "myOrder": "طلباتي",
   "trackOrder": "تتبع الطلب",
   "savedItems": "العناصر المحفوظة",
   "myFavorites": "المفضلة",
+  "myReviews": "تقييماتي",
   "wishlistSubtitle": "اختياراتك المحفوظة من Drip Talk",
   "@wishlistSubtitle": {
     "description": "العنوان الفرعي أعلى شاشة العناصر المحفوظة"
@@ -116,7 +357,267 @@
   },
   "paymentsAndAddress": "الدفع والعناوين",
   "saveAddress": "حفظ العنوان",
+  "addAddressTitle": "إضافة العناوين",
+  "@addAddressTitle": {
+    "description": "عنوان شاشة إضافة العنوان"
+  },
+  "addAddressSubtitle": "إدارة مواقع التوصيل",
+  "@addAddressSubtitle": {
+    "description": "العنوان الفرعي في شاشة إضافة العنوان"
+  },
+  "addAddressSectionTitle": "إضافة عنوان جديد",
+  "@addAddressSectionTitle": {
+    "description": "عنوان القسم فوق نموذج العنوان"
+  },
+  "addAddressFullNameLabel": "أدخل اسمك",
+  "@addAddressFullNameLabel": {
+    "description": "النص الظاهر فوق حقل الاسم الكامل في شاشة إضافة العنوان"
+  },
+  "addAddressFullNameHint": "أدخل اسمك",
+  "@addAddressFullNameHint": {
+    "description": "النص الإرشادي داخل حقل الاسم الكامل في شاشة إضافة العنوان"
+  },
+  "addAddressPhoneLabel": "أدخل رقمك",
+  "@addAddressPhoneLabel": {
+    "description": "النص الظاهر فوق حقل الهاتف في شاشة إضافة العنوان"
+  },
+  "addAddressPhoneHint": "أدخل رقمك",
+  "@addAddressPhoneHint": {
+    "description": "النص الإرشادي داخل حقل الهاتف في شاشة إضافة العنوان"
+  },
+  "addAddressLineLabel": "سطر العنوان",
+  "@addAddressLineLabel": {
+    "description": "النص الظاهر فوق حقل سطر العنوان في شاشة إضافة العنوان"
+  },
+  "addAddressLineHint": "عنوان الشارع، رقم المنزل",
+  "@addAddressLineHint": {
+    "description": "النص الإرشادي داخل حقل سطر العنوان في شاشة إضافة العنوان"
+  },
+  "addAddressCityLabel": "المدينة",
+  "@addAddressCityLabel": {
+    "description": "النص الظاهر فوق حقل المدينة في شاشة إضافة العنوان"
+  },
+  "addAddressCityHint": "أدخل مدينتك",
+  "@addAddressCityHint": {
+    "description": "النص الإرشادي داخل حقل المدينة في شاشة إضافة العنوان"
+  },
+  "addAddressPostalLabel": "الرمز البريدي",
+  "@addAddressPostalLabel": {
+    "description": "النص الظاهر فوق حقل الرمز البريدي في شاشة إضافة العنوان"
+  },
+  "addAddressPostalHint": "أدخل الرمز البريدي",
+  "@addAddressPostalHint": {
+    "description": "النص الإرشادي داخل حقل الرمز البريدي في شاشة إضافة العنوان"
+  },
+  "addAddressStateLabel": "الولاية / المقاطعة",
+  "@addAddressStateLabel": {
+    "description": "النص الظاهر فوق حقل الولاية أو المقاطعة في شاشة إضافة العنوان"
+  },
+  "addAddressStateHint": "أدخل الولاية أو المقاطعة",
+  "@addAddressStateHint": {
+    "description": "النص الإرشادي داخل حقل الولاية أو المقاطعة في شاشة إضافة العنوان"
+  },
+  "addAddressLabelTitle": "تصنيف العنوان",
+  "@addAddressLabelTitle": {
+    "description": "عنوان قسم تصنيف العنوان في شاشة إضافة العنوان"
+  },
+  "addAddressLabelHome": "المنزل",
+  "@addAddressLabelHome": {
+    "description": "خيار المنزل في تصنيف العنوان"
+  },
+  "addAddressLabelWork": "العمل",
+  "@addAddressLabelWork": {
+    "description": "خيار العمل في تصنيف العنوان"
+  },
+  "addAddressLabelOther": "أخرى",
+  "@addAddressLabelOther": {
+    "description": "خيار أخرى في تصنيف العنوان"
+  },
+  "addAddressDefaultTitle": "تعيين كعنوان افتراضي",
+  "@addAddressDefaultTitle": {
+    "description": "النص الظاهر بجانب مفتاح العنوان الافتراضي في شاشة إضافة العنوان"
+  },
+  "addAddressInfoNote": "يتم حفظ معلومات عنوانك بشكل آمن وتُستخدم فقط لتوصيل الطلبات.",
+  "@addAddressInfoNote": {
+    "description": "ملاحظة توضيحية أسفل مفتاح العنوان الافتراضي في شاشة إضافة العنوان"
+  },
+  "addAddressSaveButton": "حفظ العنوان",
+  "@addAddressSaveButton": {
+    "description": "نص الزر الرئيسي في شاشة إضافة العنوان"
+  },
+  "editAddressTitle": "تعديل العنوان",
+  "@editAddressTitle": {
+    "description": "عنوان شاشة تعديل العنوان"
+  },
+  "editAddressSectionTitle": "تحديث العنوان",
+  "@editAddressSectionTitle": {
+    "description": "عنوان القسم فوق نموذج تعديل العنوان"
+  },
+  "updateAddressSaveButton": "تحديث العنوان",
+  "@updateAddressSaveButton": {
+    "description": "نص الزر الرئيسي في شاشة تعديل العنوان"
+  },
+  "addAddressRequiredName": "يرجى إدخال اسمك الكامل",
+  "@addAddressRequiredName": {
+    "description": "رسالة تحقق عند عدم إدخال الاسم الكامل في شاشة إضافة العنوان"
+  },
+  "addAddressRequiredPhone": "يرجى إدخال رقم هاتفك",
+  "@addAddressRequiredPhone": {
+    "description": "رسالة تحقق عند عدم إدخال رقم الهاتف في شاشة إضافة العنوان"
+  },
+  "addAddressRequiredAddressLine": "يرجى إدخال عنوان الشارع",
+  "@addAddressRequiredAddressLine": {
+    "description": "رسالة تحقق عند عدم إدخال سطر العنوان في شاشة إضافة العنوان"
+  },
+  "addAddressRequiredCity": "يرجى إدخال المدينة",
+  "@addAddressRequiredCity": {
+    "description": "رسالة تحقق عند عدم إدخال المدينة في شاشة إضافة العنوان"
+  },
+  "addAddressRequiredPostal": "يرجى إدخال الرمز البريدي",
+  "@addAddressRequiredPostal": {
+    "description": "رسالة تحقق عند عدم إدخال الرمز البريدي في شاشة إضافة العنوان"
+  },
+  "addAddressRequiredState": "يرجى إدخال الولاية أو المقاطعة",
+  "@addAddressRequiredState": {
+    "description": "رسالة تحقق عند عدم إدخال الولاية أو المقاطعة في شاشة إضافة العنوان"
+  },
+  "addAddressInvalidPhone": "يرجى إدخال رقم هاتف صالح",
+  "@addAddressInvalidPhone": {
+    "description": "رسالة تحقق عند إدخال رقم هاتف قصير جدًا في شاشة إضافة العنوان"
+  },
+  "addAddressValidationError": "يرجى إكمال الحقول المطلوبة",
+  "@addAddressValidationError": {
+    "description": "رسالة تنبيه عند وجود أخطاء تحقق في نموذج العنوان"
+  },
+  "addAddressSavedSuccess": "تم حفظ العنوان بنجاح",
+  "@addAddressSavedSuccess": {
+    "description": "رسالة تنبيه عند حفظ العنوان بنجاح"
+  },
+  "addAddressSaveFailed": "تعذر حفظ العنوان",
+  "@addAddressSaveFailed": {
+    "description": "رسالة تنبيه عند فشل حفظ العنوان"
+  },
+  "updateAddressSavedSuccess": "تم تحديث العنوان بنجاح",
+  "@updateAddressSavedSuccess": {
+    "description": "رسالة تنبيه عند تحديث العنوان بنجاح"
+  },
+  "updateAddressSaveFailed": "تعذر تحديث العنوان",
+  "@updateAddressSaveFailed": {
+    "description": "رسالة تنبيه عند فشل تحديث العنوان"
+  },
+  "myAddressesTitle": "عناويني",
+  "@myAddressesTitle": {
+    "description": "عنوان شاشة قائمة العناوين"
+  },
+  "myAddressesAddNewButton": "إضافة عنوان جديد",
+  "@myAddressesAddNewButton": {
+    "description": "نص زر الإجراء الرئيسي في شاشة العناوين"
+  },
+  "myAddressesDefaultBadge": "افتراضي",
+  "@myAddressesDefaultBadge": {
+    "description": "شارة تظهر على العنوان الافتراضي المحفوظ"
+  },
+  "myAddressesEditAction": "تعديل",
+  "@myAddressesEditAction": {
+    "description": "نص زر التعديل داخل بطاقة العنوان المحفوظ"
+  },
+  "myAddressesDeleteAction": "حذف",
+  "@myAddressesDeleteAction": {
+    "description": "نص زر الحذف داخل بطاقة العنوان المحفوظ"
+  },
+  "myAddressesDeletingAction": "جارٍ الحذف...",
+  "@myAddressesDeletingAction": {
+    "description": "نص زر الحذف أثناء تنفيذ حذف العنوان"
+  },
+  "myAddressesEmptyTitle": "لا توجد عناوين محفوظة بعد",
+  "@myAddressesEmptyTitle": {
+    "description": "عنوان يظهر عندما لا يملك المستخدم عناوين محفوظة"
+  },
+  "myAddressesEmptySubtitle": "أضف عنوان توصيل لتسريع عملية الدفع.",
+  "@myAddressesEmptySubtitle": {
+    "description": "نص توضيحي يظهر عندما لا يملك المستخدم عناوين محفوظة"
+  },
+  "myAddressesLoadFailed": "تعذر تحميل العناوين",
+  "@myAddressesLoadFailed": {
+    "description": "عنوان يظهر عند فشل تحميل شاشة العناوين"
+  },
+  "myAddressesEditUnavailable": "تعديل العنوان غير متاح حاليًا.",
+  "@myAddressesEditUnavailable": {
+    "description": "رسالة تنبيه عند الضغط على تعديل قبل تنفيذ الميزة"
+  },
+  "myAddressesDeleteUnavailable": "حذف العنوان غير متاح حاليًا.",
+  "@myAddressesDeleteUnavailable": {
+    "description": "رسالة تنبيه عند الضغط على حذف قبل تنفيذ الميزة"
+  },
+  "deleteAddressSheetTitle": "حذف العنوان",
+  "@deleteAddressSheetTitle": {
+    "description": "عنوان نافذة تأكيد حذف العنوان"
+  },
+  "deleteAddressSheetSubtitle": "هل أنت متأكد أنك تريد إزالة هذا العنوان المحفوظ؟",
+  "@deleteAddressSheetSubtitle": {
+    "description": "العنوان الفرعي في نافذة تأكيد حذف العنوان"
+  },
+  "deleteAddressSheetWarning": "سيتم إزالة هذا العنوان من مواقع التوصيل الخاصة بك.",
+  "@deleteAddressSheetWarning": {
+    "description": "نص التحذير في نافذة تأكيد حذف العنوان"
+  },
+  "deleteAddressConfirmAction": "حذف العنوان",
+  "@deleteAddressConfirmAction": {
+    "description": "نص زر الإجراء الرئيسي في نافذة حذف العنوان"
+  },
   "paymentMethods": "طرق الدفع",
+  "paymentMethodsEncryptedSecure": "مشفّر وآمن",
+  "@paymentMethodsEncryptedSecure": {
+    "description": "العنوان الفرعي الظاهر أسفل عنوان شاشة طرق الدفع"
+  },
+  "paymentMethodsDigitalWalletsHeading": "المحافظ الرقمية",
+  "@paymentMethodsDigitalWalletsHeading": {
+    "description": "عنوان القسم الظاهر أعلى خيارات المحافظ الرقمية"
+  },
+  "paymentMethodsSupportedSectionTitle": "طرق الدفع المدعومة",
+  "@paymentMethodsSupportedSectionTitle": {
+    "description": "عنوان القسم الظاهر أعلى قائمة طرق الدفع المدعومة"
+  },
+  "paymentMethodsRecommendedBadge": "موصى به",
+  "@paymentMethodsRecommendedBadge": {
+    "description": "الشارة الظاهرة على بطاقة طريقة الدفع الموصى بها"
+  },
+  "paymentMethodsIosAndMacBadge": "iOS و Mac",
+  "@paymentMethodsIosAndMacBadge": {
+    "description": "الشارة الظاهرة على بطاقة Apple Pay"
+  },
+  "paymentMethodsGooglePayDescription": "دفع سريع وآمن باستخدام حساب Google الخاص بك. يدعم البطاقات والحسابات البنكية والمكافآت.",
+  "@paymentMethodsGooglePayDescription": {
+    "description": "الوصف الظاهر على بطاقة Google Pay"
+  },
+  "paymentMethodsApplePayDescription": "ادفع فورًا باستخدام Face ID أو Touch ID. يعمل مع Apple Card وبطاقات الخصم والائتمان داخل Wallet.",
+  "@paymentMethodsApplePayDescription": {
+    "description": "الوصف الظاهر على بطاقة Apple Pay"
+  },
+  "paymentMethodsGooglePayAction": "ادفع عبر Google Pay",
+  "@paymentMethodsGooglePayAction": {
+    "description": "النص الأساسي لزر بطاقة Google Pay"
+  },
+  "paymentMethodsApplePayAction": "ادفع عبر Apple Pay",
+  "@paymentMethodsApplePayAction": {
+    "description": "النص الأساسي لزر بطاقة Apple Pay"
+  },
+  "paymentMethodsCreditDebit": "ائتمان/خصم",
+  "@paymentMethodsCreditDebit": {
+    "description": "التسمية الظاهرة لخيار بطاقات الائتمان والخصم"
+  },
+  "paymentMethodsLoadFailed": "تعذر تحميل طرق الدفع.",
+  "@paymentMethodsLoadFailed": {
+    "description": "الرسالة الظاهرة عند فشل تحميل شاشة طرق الدفع"
+  },
+  "paymentMethodsEmptyState": "لا توجد طرق دفع متاحة حالياً.",
+  "@paymentMethodsEmptyState": {
+    "description": "الرسالة الظاهرة عند عدم وجود طرق دفع لعرضها"
+  },
+  "paymentMethodsNoSupportedOptions": "ستظهر طرق الدفع المدعومة هنا.",
+  "@paymentMethodsNoSupportedOptions": {
+    "description": "الرسالة الظاهرة عند عدم وجود طرق دفع مدعومة للعرض"
+  },
   "settings": "الإعدادات",
   "notifications": "الإشعارات",
   "privacyPolicy": "سياسة الخصوصية",
@@ -175,6 +676,38 @@
   "support": "الدعم",
   "helpCenter": "مركز المساعدة",
   "contactSupport": "اتصل بالدعم",
+  "contactSupportSubtitle": "فريقنا هنا لمساعدتك على مدار الساعة.",
+  "contactSupportQuickContactOptions": "خيارات التواصل السريع",
+  "contactSupportEmailSupport": "الدعم عبر البريد الإلكتروني",
+  "contactSupportEmailResponseTime": "الرد خلال 24 ساعة",
+  "contactSupportPhoneSupport": "الدعم عبر الهاتف",
+  "contactSupportPhoneAvailability": "متاح من 9 صباحًا إلى 6 مساءً (الاثنين - الجمعة)",
+  "contactSupportSubmitARequest": "إرسال طلب",
+  "contactSupportNameLabel": "أدخل اسمك",
+  "contactSupportNameHint": "أدخل اسمك",
+  "contactSupportEmailLabel": "البريد الإلكتروني",
+  "contactSupportEmailHint": "dianne@email.com",
+  "contactSupportOrderIdLabel": "رقم الطلب",
+  "contactSupportOrderIdHint": "#DT20231215",
+  "contactSupportIssueTypeLabel": "نوع المشكلة",
+  "contactSupportMessageLabel": "الرسالة",
+  "contactSupportMessageHint": "طلبي لم يصل بعد وقد مرّت 5 أيام. هل يمكنكم مساعدتي في تتبعه؟",
+  "contactSupportSubmitAction": "إرسال الطلب",
+  "contactSupportSubmitSuccess": "تم إرسال طلب الدعم بنجاح.",
+  "contactSupportSubmitFailed": "تعذر إرسال طلب الدعم.",
+  "contactSupportNameRequired": "الاسم مطلوب.",
+  "contactSupportNameTooShort": "يجب أن يتكون الاسم من حرفين على الأقل.",
+  "contactSupportEmailRequired": "البريد الإلكتروني مطلوب.",
+  "contactSupportEmailInvalid": "أدخل بريدًا إلكترونيًا صالحًا.",
+  "contactSupportMessageRequired": "الرسالة مطلوبة.",
+  "contactSupportEmailLaunchFailed": "تعذر فتح تطبيق البريد الإلكتروني. تواصل معنا عبر usamaali1458@gmail.com.",
+  "contactSupportPhoneLaunchFailed": "تعذر فتح تطبيق الهاتف. اتصل بنا على 03186202230.",
+  "contactSupportIssueTypeOrderIssue": "مشكلة في الطلب",
+  "contactSupportIssueTypePaymentIssue": "مشكلة في الدفع",
+  "contactSupportIssueTypeShippingDelay": "تأخر الشحن",
+  "contactSupportIssueTypeReturnRefund": "إرجاع واسترداد",
+  "contactSupportIssueTypeAccountIssue": "مشكلة في الحساب",
+  "contactSupportIssueTypeOther": "أخرى",
   "faqs": "الأسئلة الشائعة",
   "returnPolicy": "سياسة الإرجاع",
   "termsAndConditions": "الشروط والأحكام",
@@ -524,5 +1057,381 @@
   "cartVariantUnavailable": "هذا النوع من المنتج غير متاح",
   "@cartVariantUnavailable": {
     "description": "رسالة خطأ عند محاولة الإضافة إلى السلة بدون نوع منتج صالح"
-  }
+  },
+  "chatAppBarTitle": "DripTalk AI",
+  "chatTypeMessageFirst": "اكتب رسالة أولاً!",
+  "chatTypeMessageOrAttachImageFirst": "اكتب رسالة أو أرفق صورة واحدة على الأقل أولاً!",
+  "chatAttachImages": "إرفاق صور",
+  "chatSendMessage": "إرسال الرسالة",
+  "chatSearchHint": "ابحث عن الأزياء...",
+  "chatLoadingPreviousChat": "جاري تحميل محادثتك السابقة...",
+  "chatSessionChoiceTitle": "اختر محادثتك",
+  "chatSessionStartTitle": "ابدأ محادثتك",
+  "chatSessionChoiceDescription": "تابع محادثة التنسيق السابقة أو ابدأ جلسة جديدة.",
+  "chatSessionStartDescription": "لم يتم العثور على جلسة محفوظة. ابدأ محادثة تنسيق جديدة.",
+  "chatContinueOldChat": "متابعة المحادثة السابقة",
+  "chatStartNewChat": "بدء محادثة جديدة",
+  "chatIntroTitle": "مرحبًا! أنا منسق الأزياء الذكي الخاص بك",
+  "chatIntroMessage": "يمكنني مساعدتك في توصيات الإطلالات، ونصائح التنسيق، واستشارات الموضة، والمزيد. جرّب أن تسألني أي شيء عن الموضة!",
+  "chatAiPicks": "اختيارات الذكاء الاصطناعي",
+  "chatCatalogMatches": "مطابقات الكتالوج",
+  "chatAiRecommendationFallbackTitle": "توصية بالذكاء الاصطناعي",
+  "chatAiRecommendationFallbackSubtitle": "توصية بمنتج خارجي",
+  "chatBrowserAction": "المتصفح",
+  "chatShopAction": "تسوّق",
+  "chatAiPick": "اختيار AI",
+  "chatProductLinkUnavailable": "رابط هذا المنتج غير متوفر.",
+  "chatProductOpenFailed": "تعذر فتح هذا المنتج الآن.",
+  "chatFreeDelivery": "توصيل مجاني",
+  "chatFeatured": "مميز",
+  "chatCatalogProductFallbackTitle": "منتج من الكتالوج",
+  "chatCatalogProductFallbackSubtitle": "تسوّق هذا المنتج من الكتالوج",
+  "chatCatalogAction": "الكتالوج",
+  "chatCatalogProductUnavailable": "هذا المنتج من الكتالوج غير متوفر الآن.",
+  "chatHistoryFallbackMessage": "إليك توصيتك السابقة.",
+  "chatAssistantSummaryAiAndCatalog": "وجدت {aiCount} من اختيارات الذكاء الاصطناعي و{catalogCount} من مطابقات الكتالوج لهذه الإطلالة.",
+  "chatAssistantSummaryAiOnly": "وجدت {aiCount} من المنتجات المختارة بالذكاء الاصطناعي ويمكنك تسوقها مباشرة.",
+  "chatAssistantSummaryCatalogOnly": "وجدت {catalogCount} من مطابقات الكتالوج لهذا الطلب.",
+  "chatAssistantSummaryGeneric": "حللت طلبك وجهزت لك بعض التوصيات.",
+  "chatGenericErrorMessage": "تعذر تحميل التوصيات الآن. حاول مرة أخرى.",
+  "chatPreferencesGenderQuestion": "ما هو جنسك؟",
+  "chatPreferencesOccasionQuestion": "ما هي المناسبة؟",
+  "chatPreferencesSeasonQuestion": "ما هو الموسم الحالي؟",
+  "chatPreferencesBudgetQuestion": "ما هي ميزانيتك؟",
+  "chatPreferencesStepCounter": "الخطوة {current} من {total}",
+  "chatPreferencesBudgetMin": "الحد الأدنى: ${amount}",
+  "chatPreferencesBudgetValue": "${amount}",
+  "chatPreferencesBudgetMax": "الحد الأقصى: ${amount}",
+  "chatFindMyStyle": "اعثر على ستايلي",
+  "chatGenderMale": "ذكر",
+  "chatGenderFemale": "أنثى",
+  "chatGenderNonBinary": "غير ثنائي",
+  "chatGenderPreferNotSay": "أفضل عدم الإفصاح",
+  "chatOccasionOffice": "المكتب / العمل",
+  "chatOccasionParty": "حفلة / سهرة",
+  "chatOccasionCasual": "يوم كاجوال",
+  "chatOccasionSports": "رياضة / نشاط",
+  "chatOccasionWedding": "زفاف / رسمي",
+  "chatOccasionDateNight": "موعد مسائي",
+  "chatSeasonSpring": "الربيع",
+  "chatSeasonSummer": "الصيف",
+  "chatSeasonAutumn": "الخريف",
+  "chatSeasonWinter": "الشتاء",
+  "requestCanceled": "تم إلغاء الطلب",
+  "sessionExpiredLoginAgain": "انتهت جلستك. يرجى تسجيل الدخول مرة أخرى.",
+  "deleteAction": "حذف",
+  "editAction": "تعديل",
+  "productFallbackLabel": "المنتج",
+  "helpCenterSubtitle": "اعثر على إجابات للأسئلة الشائعة",
+  "helpCenterBrowseByCategory": "تصفح حسب الفئة",
+  "helpCenterPopularQuestions": "الأسئلة الشائعة",
+  "helpCenterCategoryOrderTracking": "الطلبات والتتبع",
+  "helpCenterCategoryShippingDelivery": "الشحن والتوصيل",
+  "helpCenterCategoryAccountProfile": "الحساب والملف الشخصي",
+  "helpCenterCategoryAiStylingAssistance": "مساعدة تنسيق بالذكاء الاصطناعي",
+  "helpCenterQuestionTrackOrder": "كيف يمكنني تتبع طلبي؟",
+  "helpCenterAnswerTrackOrder": "يمكنك تتبع طلبك من قسم 'طلباتي' داخل ملفك الشخصي. التحديثات اللحظية متاحة على مدار الساعة.",
+  "helpCenterQuestionDeliveryTime": "كم يستغرق التوصيل؟",
+  "helpCenterAnswerDeliveryTime": "يستغرق التوصيل العادي عادةً من 3 إلى 5 أيام عمل، بينما يصل الشحن السريع خلال يوم إلى يومي عمل.",
+  "helpCenterQuestionDeliveryAddress": "هل يمكنني تغيير عنوان التوصيل؟",
+  "helpCenterAnswerDeliveryAddress": "نعم، يمكنك تحديث عنوان التوصيل قبل شحن الطلب من قسم 'طلباتي'.",
+  "helpCenterQuestionAiStyling": "ما هو تنسيق DripTalk بالذكاء الاصطناعي؟",
+  "helpCenterAnswerAiStyling": "يوفر لك تنسيق DripTalk بالذكاء الاصطناعي اقتراحات أزياء ونصائح تنسيق وإرشادات موضة مخصصة حسب تفضيلاتك.",
+  "helpCenterQuestionReturns": "كيف تعمل عمليات الإرجاع؟",
+  "helpCenterAnswerReturns": "يمكنك طلب الإرجاع من تفاصيل الطلب. يمكن إرجاع المنتجات المؤهلة خلال مدة الإرجاع المسموح بها.",
+  "helpCenterLoadFailed": "تعذر تحميل مركز المساعدة.",
+  "helpCenterNoCategories": "لا توجد فئات مساعدة متاحة حاليًا.",
+  "helpCenterNoQuestions": "لا توجد أسئلة شائعة متاحة لهذه الفئة حاليًا.",
+  "privacyPolicyLoadFailed": "تعذر تحميل سياسة الخصوصية.",
+  "@privacyPolicyLoadFailed": {
+    "description": "الرسالة الظاهرة عند فشل تحميل شاشة سياسة الخصوصية"
+  },
+  "privacyPolicyNoSections": "تفاصيل سياسة الخصوصية غير متاحة حاليًا.",
+  "@privacyPolicyNoSections": {
+    "description": "الرسالة الظاهرة عند عدم وجود أقسام لعرضها في شاشة سياسة الخصوصية"
+  },
+  "privacyPolicyDefaultSubtitle": "يرجى مراجعة كيفية جمع بياناتك وحمايتها.",
+  "@privacyPolicyDefaultSubtitle": {
+    "description": "العنوان الفرعي الافتراضي الظاهر أسفل عنوان شاشة سياسة الخصوصية"
+  },
+  "returnPolicyLoadFailed": "تعذر تحميل سياسة الإرجاع.",
+  "returnPolicyNoSections": "تفاصيل سياسة الإرجاع غير متاحة حاليًا.",
+  "returnPolicyDefaultSubtitle": "إرشادات الإرجاع والمدة الزمنية",
+  "returnPolicyDefaultHeading": "نوفّر سياسة إرجاع لمدة 7 أيام للعناصر المؤهلة.",
+  "returnPolicyStartAction": "ابدأ طلب الإرجاع",
+  "termsAndConditionsLoadFailed": "تعذر تحميل الشروط والأحكام.",
+  "@termsAndConditionsLoadFailed": {
+    "description": "الرسالة الظاهرة عند فشل تحميل شاشة الشروط والأحكام"
+  },
+  "termsAndConditionsNoSections": "تفاصيل الشروط والأحكام غير متاحة حاليًا.",
+  "@termsAndConditionsNoSections": {
+    "description": "الرسالة الظاهرة عند عدم وجود أقسام لعرضها في شاشة الشروط والأحكام"
+  },
+  "termsAndConditionsDefaultSubtitle": "يرجى مراجعة الشروط بعناية",
+  "@termsAndConditionsDefaultSubtitle": {
+    "description": "العنوان الفرعي الافتراضي الظاهر أسفل عنوان شاشة الشروط والأحكام"
+  },
+  "reviewsDeleteTitle": "حذف التقييم",
+  "reviewsDeleteMessage": "هل أنت متأكد أنك تريد حذف هذا التقييم؟ لا يمكن التراجع عن هذا الإجراء.",
+  "reviewsWriteAction": "أضف تقييمًا",
+  "reviewsWriteTitle": "اكتب تقييمًا",
+  "reviewsEditTitle": "تعديل التقييم",
+  "reviewsRatingRequired": "يرجى اختيار تقييم",
+  "reviewsTextRequired": "يرجى كتابة تقييمك",
+  "reviewsInputHint": "اكتب تقييمك هنا...",
+  "reviewsSubmitAction": "إرسال التقييم",
+  "reviewsUpdateAction": "تحديث التقييم",
+  "reviewsDeliveredPrefix": "تم التوصيل",
+  "reviewsReviewedPrefix": "تمت المراجعة",
+  "reviewsPendingLabel": "قيد الانتظار",
+  "reviewsFallbackComment": "لم تتم إضافة تقييم بعد.",
+  "reviewsPromptComment": "أخبر الآخرين بما أعجبك أو ما يمكن تحسينه.",
+  "reviewsRecentlyLabel": "مؤخرًا",
+  "reviewsManageSubtitle": "إدارة تقييماتك وملاحظاتك",
+  "reviewsStatTotal": "الإجمالي",
+  "reviewsStatAverage": "المتوسط",
+  "reviewsStatPending": "قيد الانتظار",
+  "reviewsFilterAll": "الكل",
+  "reviewsFilterFiveStars": "5 نجوم",
+  "reviewsFilterFourStars": "4 نجوم",
+  "reviewsFilterPending": "قيد الانتظار",
+  "reviewsEmptyFilteredTitle": "لا توجد تقييمات تطابق هذا الفلتر",
+  "reviewsEmptyTitle": "لا توجد تقييمات بعد",
+  "reviewsEmptyFilteredSubtitle": "جرّب فلترًا آخر لرؤية المزيد من تقييماتك.",
+  "reviewsEmptySubtitle": "ستظهر تقييماتك المرسلة هنا.",
+  "reviewsShowAllAction": "عرض الكل",
+  "reviewsLoadFailed": "تعذر تحميل التقييمات.",
+  "reviewsUpdateSuccess": "تم تحديث التقييم بنجاح.",
+  "reviewsUpdateFailed": "تعذر تحديث التقييم.",
+  "reviewsDeleteSuccess": "تم حذف التقييم بنجاح.",
+  "reviewsDeleteFailed": "تعذر حذف التقييم.",
+  "reviewSubmittedSuccess": "تم إرسال التقييم بنجاح.",
+  "reviewSubmitFailed": "تعذر إرسال التقييم.",
+  "aiStyleInsightsTitle": "رؤى تنسيق بالذكاء الاصطناعي",
+  "aiStyleInsightsPerfectPairing": "تنسيق مثالي",
+  "aiStyleInsightsPerfectPairingDescription": "نسّق هذه القطعة مع بنطال واسع الساق وحذاء بسيط لإطلالة يومية أنيقة.",
+  "aiStyleInsightsStyleTip": "نصيحة تنسيق",
+  "aiStyleInsightsStyleTipDescription": "وازن الإطلالة بإكسسوارات بسيطة ودع القطعة الأساسية تبرز.",
+  "aiStyleInsightsTrendAlert": "تنبيه صيحات",
+  "aiStyleInsightsTrendAlertDescription": "هذه الإطلالة رائجة حاليًا في أزياء الشارع والأسلوب الكاجوال الراقي.",
+  "twoFactorTokenNotFound": "لم يتم العثور على رمز التحقق الخاص بالمصادقة الثنائية.",
+  "authTokenNotFound": "لم يتم العثور على رمز المصادقة.",
+  "logoutSuccessMessage": "تم تسجيل الخروج بنجاح.",
+  "deleteAccountSuccessMessage": "تم حذف الحساب بنجاح.",
+  "unexpectedErrorOccurred": "حدث خطأ غير متوقع",
+  "twoFactorEnterAuthenticatorCode": "أدخل الرمز المكوّن من 6 أرقام من تطبيق المصادقة.",
+  "twoFactorVerifiedSuccessMessage": "تم التحقق من المصادقة الثنائية بنجاح.",
+  "twoFactorVerificationFailed": "تعذر التحقق من المصادقة الثنائية.",
+  "biometricInitializeFailed": "فشل تهيئة المصادقة البيومترية.",
+  "biometricUnavailable": "المصادقة البيومترية غير متاحة على هذا الجهاز.",
+  "biometricAuthenticateReason": "قم بالمصادقة لتسجيل الدخول باستخدام البصمة أو الوجه.",
+  "biometricSignedInSuccess": "تم تسجيل الدخول باستخدام المصادقة البيومترية.",
+  "biometricSessionExpired": "انتهت جلسة المصادقة البيومترية. يرجى تسجيل الدخول مرة أخرى.",
+  "biometricAuthFailed": "فشلت المصادقة البيومترية.",
+  "biometricVerifyEmailFirst": "يرجى التحقق من بريدك الإلكتروني قبل تفعيل تسجيل الدخول البيومتري.",
+  "biometricRefreshSessionRequired": "حدّث جلستك قبل استخدام تسجيل الدخول البيومتري.",
+  "biometricTokenMissingManualLogin": "رمز المصادقة غير موجود. يرجى تسجيل الدخول يدويًا.",
+  "biometricNoSavedSession": "لم يتم العثور على جلسة محفوظة للمصادقة البيومترية.",
+  "editProfileLoadBeforeTwoFactorUpdate": "قم بتحميل ملفك الشخصي قبل تحديث المصادقة الثنائية.",
+  "editProfileTwoFactorEnabledSuccess": "تم تفعيل المصادقة الثنائية بنجاح.",
+  "editProfileTwoFactorDisabledSuccess": "تم إيقاف المصادقة الثنائية بنجاح.",
+  "editProfileLoadBeforeTwoFactorVerify": "قم بتحميل ملفك الشخصي قبل التحقق من المصادقة الثنائية.",
+  "editProfileBiometricDisabled": "تم تعطيل تسجيل الدخول البيومتري.",
+  "editProfileBiometricUnavailable": "تسجيل الدخول البيومتري غير متاح على هذا الجهاز.",
+  "editProfileBiometricReLogin": "سجّل الدخول مرة أخرى قبل تفعيل تسجيل الدخول البيومتري.",
+  "editProfileBiometricPasswordLoginRequired": "سجّل الدخول مرة واحدة بالبريد الإلكتروني وكلمة المرور قبل تفعيل تسجيل الدخول البيومتري.",
+  "editProfileBiometricEnabled": "تم تفعيل تسجيل الدخول البيومتري.",
+  "backOnline": "تم الاتصال مجددًا",
+  "searchCountryHint": "ابحث عن دولة",
+  "dashboardSearchHint": "ابحث...",
+  "navHome": "الرئيسية",
+  "navShop": "المتجر",
+  "navChat": "الدردشة",
+  "navProfile": "الملف الشخصي",
+  "navSearch": "بحث",
+  "navFavorites": "المفضلة",
+  "navSettings": "الإعدادات",
+  "homeCategoryAiPicks": "اختيارات الذكاء الاصطناعي",
+  "homeCategoryTrending": "الأكثر رواجًا",
+  "homeCategoryStreetwear": "أزياء الشارع",
+  "homeCategoryLuxury": "فاخر",
+  "homeCategoryCasual": "كاجوال",
+  "profileGuestName": "مستخدم DripTalk",
+  "profileGuestInitials": "DT",
+  "forgotPasswordOtpSendFailed": "تعذر إرسال رمز التحقق",
+  "resetPasswordFailed": "تعذر إعادة تعيين كلمة المرور",
+  "signupNetworkError": "خطأ في الشبكة",
+  "wishlistUpdateFailed": "تعذر تحديث العناصر المحفوظة",
+  "cartUpdateFailed": "تعذر تحديث السلة",
+  "profileSetupDialogTitle": "أنت جاهز بالكامل!",
+  "profileSetupDialogDescription": "تم تدريب منسق الأزياء الذكي الخاص بك وأصبح جاهزًا لمساعدتك في الظهور بأفضل إطلالة.",
+  "profileSetupDialogAction": "ابدأ الاستكشاف",
+  "profileSetupLoadFailedMessage": "تعذر تحميل ملفك الشخصي.",
+  "profileSetupSaveSuccessMessage": "اكتمل إعداد الملف الشخصي بنجاح.",
+  "profileSetupSaveFailedMessage": "تعذر حفظ ملفك الشخصي.",
+  "profileSetupNoOptionsAvailable": "لا توجد خيارات متاحة حاليًا.",
+  "profileSetupPreparing": "جارٍ تجهيز إعداد ملفك الشخصي...",
+  "profileSetupLoadFailureTitle": "تعذر تحميل الإعداد",
+  "profileSetupCompleteAction": "إكمال الإعداد",
+  "profileSetupHeaderTitle": "مرحبًا بك في DripTalk",
+  "profileSetupHeaderSubtitle": "دعنا نتعرف عليك أولاً",
+  "profileSetupStepBasicsLabel": "الأساسيات",
+  "profileSetupStepStyleLabel": "الأنماط",
+  "profileSetupStepBrandsLabel": "العلامات",
+  "profileSetupStepTrainingLabel": "تدريب الذكاء",
+  "profileSetupStepPhotosLabel": "الصور",
+  "profileSetupStepBasicsTitle": "أخبرنا عنك",
+  "profileSetupStepStyleTitle": "هوية أسلوبك",
+  "profileSetupStepBrandsTitle": "الألوان والعلامات",
+  "profileSetupStepTrainingTitle": "درّب منسقك الذكي",
+  "profileSetupStepPhotosTitle": "أرنا أسلوبك",
+  "profileSetupStepBasicsSubtitle": "لنبدأ بالأساسيات",
+  "profileSetupStepStyleSubtitle": "أخبرنا بما تحبه",
+  "profileSetupStepBrandsSubtitle": "اختر مفضلاتك",
+  "profileSetupStepTrainingSubtitle": "ساعدنا على فهم ذوقك",
+  "profileSetupStepPhotosSubtitle": "ارفع صور الإطلالات الملهمة",
+  "profileSetupPhoneLabel": "رقم الهاتف",
+  "profileSetupPhoneHint": "أدخل رقم هاتفك",
+  "profileSetupGenderLabel": "الجنس",
+  "profileSetupGenderHint": "اختر الجنس",
+  "profileSetupDateOfBirthLabel": "تاريخ الميلاد",
+  "profileSetupDateOfBirthHint": "01/01/2000",
+  "profileSetupCountryLabel": "الدولة",
+  "profileSetupCountryHint": "اختر الدولة",
+  "profileSetupCityLabel": "المدينة",
+  "profileSetupCityHint": "اختر المدينة",
+  "profileSetupBodyTypeLabel": "نوع الجسم",
+  "profileSetupBodyTypeHint": "اختر نوع الجسم",
+  "profileSetupSkinToneLabel": "لون البشرة",
+  "profileSetupSkinToneHint": "اختر لون البشرة",
+  "profileSetupPreferredStyleLabel": "الأسلوب المفضل",
+  "profileSetupBudgetMinLabel": "الحد الأدنى للميزانية",
+  "profileSetupBudgetMinHint": "5000",
+  "profileSetupBudgetMaxLabel": "الحد الأقصى للميزانية",
+  "profileSetupBudgetMaxHint": "15000",
+  "profileSetupBudgetCurrencySymbol": "$",
+  "profileSetupPreferredColorsLabel": "الألوان المفضلة",
+  "profileSetupPickColorsAction": "اختر الألوان",
+  "profileSetupPreferredBrandsLabel": "العلامات المفضلة",
+  "profileSetupHeightLabel": "الطول",
+  "profileSetupHeightHint": "5ft 7in",
+  "profileSetupWeightLabel": "الوزن",
+  "profileSetupWeightHint": "40kg",
+  "profileSetupStyleInspirationsLabel": "إلهامات الأسلوب",
+  "profileSetupStyleInspirationsHint": "Brad Pitt, Timothee Chalamet",
+  "profileSetupAvoidedStylesLabel": "الأنماط التي تتجنبها",
+  "profileSetupAvoidedStylesHint": "Neon, Oversized, Loud Prints",
+  "profileSetupReplacePhotosLabel": "استبدال صور المنسق الحالية بهذا الرفع",
+  "profileSetupMemoryTitle": "ذاكرة التخصيص",
+  "profileSetupMemoryDescription": "تساعد هذه التفاصيل المنسق على تعلم ذوقك مع الوقت",
+  "profileSetupChooseFiles": "اختر الملفات",
+  "profileSetupChooseFilesHint": "اضغط لاختيار الصور من الكاميرا أو المعرض",
+  "profileSetupStatusTitle": "حالة الملف الشخصي: مكتمل",
+  "profileSetupStatusSummary": "{savedCount} محفوظ / {wardrobeCount} عناصر خزانة",
+  "@profileSetupStatusSummary": {
+    "placeholders": {
+      "savedCount": {
+        "type": "int"
+      },
+      "wardrobeCount": {
+        "type": "int"
+      }
+    }
+  },
+  "profileSetupSelectGenderTitle": "اختر الجنس",
+  "profileSetupSelectCountryTitle": "اختر الدولة",
+  "profileSetupSelectCityTitle": "اختر المدينة",
+  "profileSetupSelectBodyTypeTitle": "اختر نوع الجسم",
+  "profileSetupSelectSkinToneTitle": "اختر لون البشرة",
+  "profileSetupSearchCountryHint": "ابحث عن دولة",
+  "profileSetupSearchCityHint": "ابحث عن مدينة",
+  "profileSetupSearchBrandHint": "ابحث عن علامة",
+  "profileSetupSearchNoResults": "لا توجد نتائج مطابقة.",
+  "profileSetupSelectCountryFirst": "اختر الدولة أولاً.",
+  "profileSetupSeeMoreAction": "عرض المزيد",
+  "profileSetupApplyAction": "تطبيق",
+  "profileSetupValidationPhone": "رقم الهاتف مطلوب.",
+  "profileSetupValidationGender": "اختر الجنس.",
+  "profileSetupValidationDateOfBirth": "اختر تاريخ ميلادك.",
+  "profileSetupValidationCountry": "اختر الدولة.",
+  "profileSetupValidationCity": "اختر المدينة.",
+  "profileSetupValidationBodyType": "اختر نوع الجسم.",
+  "profileSetupValidationSkinTone": "اختر لون البشرة.",
+  "profileSetupValidationStyle": "اختر أسلوبًا واحدًا على الأقل.",
+  "profileSetupValidationBudgetMin": "أدخل حدًا أدنى صالحًا للميزانية.",
+  "profileSetupValidationBudgetMax": "أدخل حدًا أقصى صالحًا للميزانية.",
+  "profileSetupValidationBudgetRange": "يجب أن يكون الحد الأقصى للميزانية أكبر من الحد الأدنى.",
+  "profileSetupValidationColor": "اختر لونًا واحدًا على الأقل.",
+  "profileSetupValidationBrand": "اختر علامة واحدة على الأقل.",
+  "profileSetupValidationHeight": "الطول مطلوب.",
+  "profileSetupValidationWeight": "الوزن مطلوب.",
+  "profileSetupValidationInspirations": "أضف مصادر إلهام لأسلوبك.",
+  "profileSetupValidationAvoidStyles": "أضف الأنماط التي تريد تجنبها.",
+  "profileSetupOptionGenderMale": "ذكر",
+  "profileSetupOptionGenderFemale": "أنثى",
+  "profileSetupOptionGenderNonBinary": "غير ثنائي",
+  "profileSetupOptionBodyTypeAthletic": "رياضي",
+  "profileSetupOptionBodyTypeSlim": "نحيف",
+  "profileSetupOptionBodyTypeRegular": "متوسط",
+  "profileSetupOptionBodyTypeCurvy": "منحني",
+  "profileSetupOptionBodyTypePlusSize": "مقاس كبير",
+  "profileSetupOptionSkinToneFair": "فاتح جدًا",
+  "profileSetupOptionSkinToneLight": "فاتح",
+  "profileSetupOptionSkinToneMedium": "متوسط",
+  "profileSetupOptionSkinToneOlive": "قمحي",
+  "profileSetupOptionSkinToneBrown": "بني",
+  "profileSetupOptionSkinToneDeep": "داكن",
+  "profileSetupOptionStyleFormal": "رسمي",
+  "profileSetupOptionStyleStreetwear": "أزياء الشارع",
+  "profileSetupOptionStyleCasual": "كاجوال",
+  "profileSetupOptionStyleLuxury": "فاخر",
+  "profileSetupOptionStyleVintage": "كلاسيكي",
+  "profileSetupOptionStyleSporty": "رياضي",
+  "profileSetupOptionStyleBohemian": "بوهيمي",
+  "profileSetupOptionStyleMinimalist": "بسيط",
+  "profileSetupOptionColorBlue": "أزرق",
+  "profileSetupOptionColorRed": "أحمر",
+  "profileSetupOptionColorBlack": "أسود",
+  "profileSetupOptionColorWhite": "أبيض",
+  "profileSetupOptionColorGreen": "أخضر",
+  "profileSetupOptionColorWine": "عنابي",
+  "profileSetupOptionColorNavy": "كحلي",
+  "profileSetupOptionColorBeige": "بيج",
+  "profileSetupOptionColorBrown": "بني",
+  "profileSetupOptionColorGray": "رمادي",
+  "profileSetupOptionColorPurple": "بنفسجي",
+  "profileSetupOptionBrandNike": "Nike",
+  "profileSetupOptionBrandGucci": "Gucci",
+  "profileSetupOptionBrandPuma": "Puma",
+  "profileSetupOptionBrandPrada": "Prada",
+  "profileSetupOptionBrandZara": "Zara",
+  "profileSetupOptionBrandAdidas": "Adidas",
+  "profileSetupOptionBrandLouisVuitton": "Louis Vuitton",
+  "profileSetupOptionBrandBalenciaga": "Balenciaga",
+  "profileSetupOptionBrandHm": "H&M",
+  "profileSetupOptionCountryPakistan": "باكستان",
+  "profileSetupOptionCountryUnitedStates": "الولايات المتحدة",
+  "profileSetupOptionCountryUnitedKingdom": "المملكة المتحدة",
+  "profileSetupOptionCountryUnitedArabEmirates": "الإمارات العربية المتحدة",
+  "profileSetupOptionCountryCanada": "كندا",
+  "profileSetupOptionCityLahore": "لاهور",
+  "profileSetupOptionCityKarachi": "كراتشي",
+  "profileSetupOptionCityIslamabad": "إسلام آباد",
+  "profileSetupOptionCityRawalpindi": "روالبندي",
+  "profileSetupOptionCityNewYork": "نيويورك",
+  "profileSetupOptionCityLosAngeles": "لوس أنجلوس",
+  "profileSetupOptionCityChicago": "شيكاغو",
+  "profileSetupOptionCityHouston": "هيوستن",
+  "profileSetupOptionCityLondon": "لندن",
+  "profileSetupOptionCityManchester": "مانشستر",
+  "profileSetupOptionCityBirmingham": "برمنغهام",
+  "profileSetupOptionCityLeeds": "ليدز",
+  "profileSetupOptionCityDubai": "دبي",
+  "profileSetupOptionCityAbuDhabi": "أبوظبي",
+  "profileSetupOptionCitySharjah": "الشارقة",
+  "profileSetupOptionCityAjman": "عجمان",
+  "profileSetupOptionCityToronto": "تورونتو",
+  "profileSetupOptionCityVancouver": "فانكوفر",
+  "profileSetupOptionCityMontreal": "مونتريال",
+  "profileSetupOptionCityCalgary": "كالغاري"
 }

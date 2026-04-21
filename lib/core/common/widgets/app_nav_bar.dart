@@ -54,7 +54,7 @@ class GlassBottomNav extends StatelessWidget {
                         size: AppSizes.s24,
                         color: navigationShell.currentIndex == item.index
                             ? colorScheme.onSurface
-                                    : colorScheme.onSurface.withValues(alpha: 0.45),
+                            : colorScheme.onSurface.withValues(alpha: 0.45),
                       ),
                     );
                   }).toList(),

@@ -184,11 +184,7 @@ class CartItem extends Equatable {
     return CartItem(
       id: _intValue(_firstPresent(json['id'], json['cart_item_id'])),
       productId: _intValue(
-        _firstPresent(
-          json['product_id'],
-          product.id,
-          variant.productId,
-        ),
+        _firstPresent(json['product_id'], product.id, variant.productId),
       ),
       productVariantId: _intValue(
         _firstPresent(
@@ -270,9 +266,7 @@ class CartItem extends Equatable {
         ),
       ),
       sku: _stringValue(_firstPresent(json['sku'], variant.sku)),
-      inStock: _boolValue(
-        _firstPresent(json['in_stock'], variant.inStock),
-      ),
+      inStock: _boolValue(_firstPresent(json['in_stock'], variant.inStock)),
       stockQuantity: _intValue(
         _firstPresent(json['stock_quantity'], variant.stockQuantity),
       ),
@@ -556,7 +550,9 @@ class CartVariant extends Equatable {
       price: _doubleValue(json['price']),
       salePrice: _doubleValue(json['sale_price']),
       finalPrice: _doubleValue(json['final_price']),
-      regularPrice: _doubleValue(_firstPresent(json['regular_price'], json['price'])),
+      regularPrice: _doubleValue(
+        _firstPresent(json['regular_price'], json['price']),
+      ),
       size: _stringValue(json['size']),
       sizeName: _stringValue(_mapValue(json['size'])?['name']),
       colorName: _stringValue(json['color_name']),
@@ -641,10 +637,7 @@ class CartVariant extends Equatable {
 }
 
 class CartVariantColor extends Equatable {
-  const CartVariantColor({
-    this.name,
-    this.hex,
-  });
+  const CartVariantColor({this.name, this.hex});
 
   factory CartVariantColor.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
@@ -663,10 +656,7 @@ class CartVariantColor extends Equatable {
   bool get isEmpty => name == null && hex == null;
 
   Map<String, dynamic> toJson() {
-    return {
-      'name': name,
-      'hex': hex,
-    };
+    return {'name': name, 'hex': hex};
   }
 
   @override

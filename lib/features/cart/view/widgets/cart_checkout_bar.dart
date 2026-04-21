@@ -1,9 +1,7 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/constants/app_text_styles.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:flutter/material.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
+import 'package:drip_talk/core/utils/responsive/responsive_extensions.dart';
 
 class CartCheckoutBar extends StatelessWidget {
   const CartCheckoutBar({
@@ -19,41 +17,62 @@ class CartCheckoutBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(
-        AppSizes.s24,
-        AppSizes.s12,
-        AppSizes.s24,
-        AppSizes.s16,
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: enabled ? onTap : null,
-          borderRadius: BorderRadius.circular(AppRadius.r24),
-          child: Ink(
-            height: AppSizes.s56,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(AppRadius.r24),
-              gradient: LinearGradient(
-                colors: enabled
-                    ? const [AppColors.secondary, AppColors.primary]
-                    : [
-                        AppColors.white.withValues(alpha: 0.16),
-                        AppColors.white.withValues(alpha: 0.12),
-                      ],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-              ),
-            ),
-            child: Center(
-              child: AppText(
-                text: label,
-                style: AppTextStyles.ts18(
-                  context,
-                  color: AppColors.white,
-                  fontWeight: FontWeight.w700,
-                ).copyWith(fontSize: 16),
+    final horizontalPadding = context.responsive(
+      16.0,
+      tablet: 24.0,
+      tabletLarge: 32.0,
+      desktop: 40.0,
+    );
+
+    return Align(
+      alignment: Alignment.topCenter,
+      heightFactor: 1.0,
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxWidth: context.responsive(
+            430.0,
+            tablet: 720.0,
+            tabletLarge: 840.0,
+            desktop: 920.0,
+          ),
+        ),
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(
+            horizontalPadding,
+            AppSizes.s12,
+            horizontalPadding,
+            AppSizes.s16,
+          ),
+          child: Material(
+            color: AppColors.transparent,
+            child: InkWell(
+              onTap: enabled ? onTap : null,
+              borderRadius: BorderRadius.circular(AppRadius.circular),
+              child: Ink(
+                height: AppSizes.s56,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(AppRadius.circular),
+                  gradient: LinearGradient(
+                    colors: enabled
+                        ? const [AppColors.secondary, AppColors.primary]
+                        : [
+                            AppColors.pureWhite.withValues(alpha: 0.16),
+                            AppColors.pureWhite.withValues(alpha: 0.12),
+                          ],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                  ),
+                ),
+                child: Center(
+                  child: AppText(
+                    text: label,
+                    style: AppTextStyles.ts18(
+                      context,
+                      color: AppColors.pureWhite,
+                      fontWeight: FontWeight.w700,
+                    ).copyWith(fontSize: 16),
+                  ),
+                ),
               ),
             ),
           ),

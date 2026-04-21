@@ -1,11 +1,3 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/constants/app_text_styles.dart';
-import 'package:drip_talk/core/common/widgets/app_asset_image.dart';
-import 'package:drip_talk/core/common/widgets/app_button.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
-import 'package:drip_talk/core/common/widgets/app_text_field.dart';
 import 'package:drip_talk/core/utils/app_utils/toast_utils.dart';
 import 'package:drip_talk/core/utils/routes/app_routes.dart';
 import 'package:drip_talk/features/auth/login/bloc/login_bloc.dart';
@@ -16,6 +8,8 @@ import 'package:drip_talk/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class DeleteAccountSheet extends StatefulWidget {
   const DeleteAccountSheet({super.key, required this.parentContext});
@@ -29,7 +23,7 @@ class DeleteAccountSheet extends StatefulWidget {
       isScrollControlled: true,
       useSafeArea: true,
       useRootNavigator: true,
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppColors.transparent,
       builder: (_) => BlocProvider.value(
         value: loginBloc,
         child: DeleteAccountSheet(parentContext: context),
@@ -196,7 +190,7 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
                                     maxLines: 3,
                                     style: AppTextStyles.ts14(
                                       context,
-                                      color: AppColors.white,
+                                      color: AppColors.pureWhite,
                                       fontWeight: FontWeight.w400,
                                     ),
                                   ),
@@ -228,7 +222,7 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
                                   maxLines: 3,
                                   style: AppTextStyles.ts10(
                                     context,
-                                    color: AppColors.white.withValues(
+                                    color: AppColors.pureWhite.withValues(
                                       alpha: 0.82,
                                     ),
                                     fontWeight: FontWeight.w500,
@@ -241,7 +235,7 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
                                 maxLines: 3,
                                 style: AppTextStyles.ts14(
                                   context,
-                                  color: AppColors.white,
+                                  color: AppColors.pureWhite,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -276,7 +270,7 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
                                 text: l10n.deleteAccountPasswordLabel,
                                 style: AppTextStyles.ts14(
                                   context,
-                                  color: AppColors.white,
+                                  color: AppColors.pureWhite,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -351,7 +345,7 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
                                         decoration: BoxDecoration(
                                           color: _isAcknowledged
                                               ? AppColors.secondary
-                                              : Colors.transparent,
+                                              : AppColors.transparent,
                                           borderRadius: BorderRadius.circular(
                                             AppRadius.r4,
                                           ),
@@ -363,7 +357,7 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
                                             ? const Icon(
                                                 Icons.check_rounded,
                                                 size: AppSizes.s12,
-                                                color: AppColors.white,
+                                                color: AppColors.pureWhite,
                                               )
                                             : null,
                                       ),
@@ -376,9 +370,8 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
                                           maxLines: 2,
                                           style: AppTextStyles.ts12(
                                             context,
-                                            color: AppColors.white.withValues(
-                                              alpha: 0.84,
-                                            ),
+                                            color: AppColors.pureWhite
+                                                .withValues(alpha: 0.84),
                                             fontWeight: FontWeight.w500,
                                           ),
                                         ),
@@ -410,7 +403,7 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
                                       height: AppSizes.s56,
                                       fontSize: AppSizes.s16,
                                       fontWeight: FontWeight.w700,
-                                      backgroundColor: Colors.transparent,
+                                      backgroundColor: AppColors.transparent,
                                       borderColor: AppColors.secondary,
                                       borderRadius: AppRadius.r16,
                                     ),
@@ -428,7 +421,7 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
                                       fontWeight: FontWeight.w800,
                                       gradientColors: const [
                                         AppColors.secondary,
-                                        Color(0xFFFF2D95),
+                                        AppColors.deleteAccent,
                                       ],
                                       borderRadius: AppRadius.r16,
                                     ),
@@ -462,9 +455,9 @@ class _DeleteAccountFieldTheme extends StatelessWidget {
     return Theme(
       data: theme.copyWith(
         colorScheme: theme.colorScheme.copyWith(
-          surface: AppColors.white,
+          surface: AppColors.pureWhite,
           onSurface: AppColors.darkBg,
-          onSurfaceVariant: AppColors.grey,
+          onSurfaceVariant: AppColors.materialGrey,
           error: AppColors.secondary,
         ),
       ),

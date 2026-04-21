@@ -1,14 +1,11 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/constants/app_text_styles.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
-import 'package:drip_talk/features/shop/data/models/shop_model.dart';
-import 'package:drip_talk/features/shop/domain/shop_filters.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
+import 'package:drip_talk/generated/assets.dart';
 import 'package:drip_talk/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:drip_talk/features/shop/data/models/shop_model.dart';
+import 'package:drip_talk/features/shop/domain/shop_filters.dart';
 import 'shop_filter_checkbox_option.dart';
 import 'shop_filter_choice_chip.dart';
 import 'shop_filter_section_card.dart';
@@ -132,6 +129,9 @@ class _ShopFilterBottomSheetState extends State<ShopFilterBottomSheet> {
         child: Container(
           decoration: const BoxDecoration(
             color: AppColors.darkBg2,
+            border: Border(
+              top: BorderSide(color: AppColors.secondary, width: 4),
+            ),
             borderRadius: BorderRadius.vertical(
               top: Radius.circular(AppRadius.r28),
             ),
@@ -140,42 +140,28 @@ class _ShopFilterBottomSheetState extends State<ShopFilterBottomSheet> {
             top: false,
             child: Column(
               children: [
+                _FilterSheetHeader(
+                  title: l10n.shopFilterTitle,
+                  onClose: () => Navigator.of(context).pop(),
+                ),
                 Expanded(
                   child: SingleChildScrollView(
                     physics: const BouncingScrollPhysics(),
                     padding: const EdgeInsets.fromLTRB(
                       AppSizes.s16,
-                      AppSizes.s20,
+                      0,
                       AppSizes.s16,
                       AppSizes.s24,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          children: [
-                            const Icon(
-                              Icons.tune_rounded,
-                              color: AppColors.secondary,
-                              size: AppSizes.s20,
-                            ),
-                            const AppGap(AppSizes.s8, axis: Axis.horizontal),
-                            AppText(
-                              text: l10n.shopFilterTitle,
-                              style: AppTextStyles.ts20(
-                                context,
-                                color: AppColors.secondary,
-                                fontWeight: FontWeight.w800,
-                              ),
-                            ),
-                          ],
-                        ),
                         const AppGap(AppSizes.s20, axis: Axis.vertical),
                         AppText(
                           text: l10n.shopFilterPriceRange,
                           style: AppTextStyles.ts14(
                             context,
-                            color: AppColors.white,
+                            color: AppColors.pureWhite,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
@@ -196,7 +182,7 @@ class _ShopFilterBottomSheetState extends State<ShopFilterBottomSheet> {
                                 text: l10n.shopFilterTo,
                                 style: AppTextStyles.ts12(
                                   context,
-                                  color: AppColors.white.withValues(
+                                  color: AppColors.pureWhite.withValues(
                                     alpha: 0.78,
                                   ),
                                   fontWeight: FontWeight.w600,
@@ -351,7 +337,7 @@ class _ShopFilterBottomSheetState extends State<ShopFilterBottomSheet> {
                                 text: l10n.shopFilterGender,
                                 style: AppTextStyles.ts14(
                                   context,
-                                  color: AppColors.white,
+                                  color: AppColors.pureWhite,
                                   fontWeight: FontWeight.w700,
                                 ),
                               ),
@@ -399,7 +385,7 @@ class _ShopFilterBottomSheetState extends State<ShopFilterBottomSheet> {
                     color: AppColors.lightBg,
                     border: Border(
                       top: BorderSide(
-                        color: AppColors.white.withValues(alpha: 0.08),
+                        color: AppColors.pureWhite.withValues(alpha: 0.08),
                       ),
                     ),
                   ),
@@ -501,6 +487,76 @@ class _ShopFilterBottomSheetState extends State<ShopFilterBottomSheet> {
   }
 }
 
+class _FilterSheetHeader extends StatelessWidget {
+  const _FilterSheetHeader({required this.title, required this.onClose});
+
+  final String title;
+  final VoidCallback onClose;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.fromLTRB(
+        AppSizes.s16,
+        AppSizes.s16,
+        AppSizes.s16,
+        AppSizes.s14,
+      ),
+      decoration: BoxDecoration(
+        color: AppColors.darkBg2,
+        borderRadius: const BorderRadius.vertical(
+          top: Radius.circular(AppRadius.r28),
+        ),
+        border: Border(
+          bottom: BorderSide(
+            color: AppColors.pureWhite.withValues(alpha: 0.08),
+          ),
+        ),
+      ),
+      child: Row(
+        children: [
+          AppAssetImage(
+            assetPath: Assets.filterPink,
+            width: AppSizes.s24,
+            height: AppSizes.s24,
+          ),
+          const AppGap(AppSizes.s8, axis: Axis.horizontal),
+          Expanded(
+            child: AppText(
+              text: title,
+              style: AppTextStyles.ts20(
+                context,
+                color: AppColors.secondary,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+          ),
+          InkWell(
+            onTap: onClose,
+            borderRadius: BorderRadius.circular(AppRadius.circular),
+            child: Container(
+              width: AppSizes.s32,
+              height: AppSizes.s32,
+              decoration: BoxDecoration(
+                color: AppColors.lightBg.withValues(alpha: 0.88),
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: AppColors.pureWhite.withValues(alpha: 0.08),
+                ),
+              ),
+              child: const Icon(
+                Icons.close_rounded,
+                color: AppColors.pureWhite,
+                size: AppSizes.s18,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class _PriceField extends StatelessWidget {
   const _PriceField({required this.controller, required this.hintText});
 
@@ -520,7 +576,7 @@ class _PriceField extends StatelessWidget {
       ),
       decoration: InputDecoration(
         filled: true,
-        fillColor: Colors.white,
+        fillColor: AppColors.pureWhite,
         isDense: true,
         hintText: hintText,
         hintStyle: AppTextStyles.ts12(
@@ -562,7 +618,7 @@ class _CheckboxOptionsList extends StatelessWidget {
         text: emptyLabel,
         style: AppTextStyles.ts12(
           context,
-          color: AppColors.white.withValues(alpha: 0.56),
+          color: AppColors.pureWhite.withValues(alpha: 0.56),
           fontWeight: FontWeight.w500,
         ),
       );
@@ -586,7 +642,7 @@ class _CheckboxOptionsList extends StatelessWidget {
         separatorBuilder: (context, index) => Divider(
           height: 1,
           thickness: 1,
-          color: AppColors.white.withValues(alpha: 0.08),
+          color: AppColors.pureWhite.withValues(alpha: 0.08),
         ),
       ),
     );
@@ -632,7 +688,7 @@ class _BottomActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.transparent,
+      color: AppColors.transparent,
       child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(AppRadius.circular),
@@ -650,7 +706,7 @@ class _BottomActionButton extends StatelessWidget {
                     ],
                   )
                 : null,
-            color: isPrimary ? null : Colors.transparent,
+            color: isPrimary ? null : AppColors.transparent,
             border: Border.all(color: AppColors.secondary),
           ),
           alignment: Alignment.center,
@@ -658,7 +714,7 @@ class _BottomActionButton extends StatelessWidget {
             text: label,
             style: AppTextStyles.ts14(
               context,
-              color: AppColors.white,
+              color: AppColors.pureWhite,
               fontWeight: FontWeight.w700,
             ),
           ),

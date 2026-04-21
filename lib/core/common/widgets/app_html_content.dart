@@ -9,7 +9,7 @@ class AppHtmlContent extends StatefulWidget {
   const AppHtmlContent({
     super.key,
     required this.html,
-    this.textColor = AppColors.white,
+    this.textColor = AppColors.pureWhite,
     this.linkColor = AppColors.cyan,
     this.fadeColor = AppColors.lightBg,
     this.fontSize = 13,
@@ -135,18 +135,12 @@ class _AppHtmlContentState extends State<AppHtmlContent> {
   }
 
   Widget _buildHtml() {
-    return Html(
-      data: widget.html,
-      style: _buildStyles(),
-    );
+    return Html(data: widget.html, style: _buildStyles());
   }
 
   Map<String, Style> _buildStyles() {
     final styles = <String, Style>{
-      'html': Style(
-        margin: Margins.zero,
-        padding: HtmlPaddings.zero,
-      ),
+      'html': Style(margin: Margins.zero, padding: HtmlPaddings.zero),
       'body': Style(
         margin: Margins.zero,
         padding: HtmlPaddings.zero,
@@ -155,10 +149,7 @@ class _AppHtmlContentState extends State<AppHtmlContent> {
         fontWeight: widget.fontWeight,
         lineHeight: LineHeight.number(widget.lineHeight),
       ),
-      'p': Style(
-        margin: Margins.only(bottom: 10),
-        padding: HtmlPaddings.zero,
-      ),
+      'p': Style(margin: Margins.only(bottom: 10), padding: HtmlPaddings.zero),
       'ul': Style(
         margin: Margins.only(bottom: 10, left: 18),
         padding: HtmlPaddings.zero,
@@ -171,14 +162,8 @@ class _AppHtmlContentState extends State<AppHtmlContent> {
         color: widget.textColor,
         lineHeight: LineHeight.number(widget.lineHeight),
       ),
-      'strong': Style(
-        color: widget.textColor,
-        fontWeight: FontWeight.w700,
-      ),
-      'b': Style(
-        color: widget.textColor,
-        fontWeight: FontWeight.w700,
-      ),
+      'strong': Style(color: widget.textColor, fontWeight: FontWeight.w700),
+      'b': Style(color: widget.textColor, fontWeight: FontWeight.w700),
       'span': Style(color: widget.textColor),
       'div': Style(color: widget.textColor),
       'a': Style(

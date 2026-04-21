@@ -10,6 +10,4 @@ class DateFormatter {
   static String time(DateTime date) {
     return DateFormat('hh:mm a').format(date);
   }
-
-
 }

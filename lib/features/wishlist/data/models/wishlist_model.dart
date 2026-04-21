@@ -1,12 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class WishListModel {
-  const WishListModel({
-    this.status,
-    this.message,
-    this.data,
-    this.errors,
-  });
+  const WishListModel({this.status, this.message, this.data, this.errors});
 
   factory WishListModel.fromJson(Map<String, dynamic>? json) {
     return WishListModel(
@@ -33,10 +28,7 @@ class WishListModel {
 }
 
 class WishListData extends Equatable {
-  const WishListData({
-    this.items = const <WishListItem>[],
-    this.pagination,
-  });
+  const WishListData({this.items = const <WishListItem>[], this.pagination});
 
   factory WishListData.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
@@ -219,7 +211,15 @@ class WishListCategory extends Equatable {
   }
 
   @override
-  List<Object?> get props => [id, parentId, name, icon, image, isFeatured, status];
+  List<Object?> get props => [
+    id,
+    parentId,
+    name,
+    icon,
+    image,
+    isFeatured,
+    status,
+  ];
 }
 
 class WishListVariant extends Equatable {
@@ -336,12 +336,7 @@ class WishListVariant extends Equatable {
 }
 
 class WishListColorDetails extends Equatable {
-  const WishListColorDetails({
-    this.id,
-    this.name,
-    this.hexCode,
-    this.image,
-  });
+  const WishListColorDetails({this.id, this.name, this.hexCode, this.image});
 
   factory WishListColorDetails.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
@@ -559,7 +554,12 @@ bool? _boolValue(dynamic value) {
   return null;
 }
 
-dynamic _firstPresent(dynamic first, [dynamic second, dynamic third, dynamic fourth]) {
+dynamic _firstPresent(
+  dynamic first, [
+  dynamic second,
+  dynamic third,
+  dynamic fourth,
+]) {
   if (first != null) {
     return first;
   }

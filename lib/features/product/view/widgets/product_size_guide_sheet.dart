@@ -1,12 +1,8 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/widgets/app_button.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:drip_talk/features/product/data/models/product_details_model.dart';
 import 'package:drip_talk/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class ProductSizeGuideSheet extends StatefulWidget {
   const ProductSizeGuideSheet({
@@ -42,7 +38,7 @@ class ProductSizeGuideSheet extends StatefulWidget {
       context: context,
       isScrollControlled: true,
       useSafeArea: true,
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppColors.transparent,
       builder: (_) => ProductSizeGuideSheet(
         sizes: sizes,
         sizeGuide: sizeGuide,
@@ -73,7 +69,7 @@ class _ProductSizeGuideSheetState extends State<ProductSizeGuideSheet> {
       height: 54,
       isLoading: _isSubmitting,
       borderRadius: 28,
-      gradientColors: const [AppColors.secondary, Color(0xFFFF1E87)],
+      gradientColors: const [AppColors.secondary, AppColors.hotPink],
       onPressed: !canSubmit || _isSubmitting
           ? null
           : () => _handlePrimaryAction(context),
@@ -83,7 +79,7 @@ class _ProductSizeGuideSheetState extends State<ProductSizeGuideSheet> {
       heightFactor: widget.heightFactor,
       child: Container(
         decoration: BoxDecoration(
-          color: const Color(0xFF2B1B55),
+          color: AppColors.productSheetBackground,
           borderRadius: const BorderRadius.vertical(top: Radius.circular(36)),
           border: Border(top: BorderSide(width: 4, color: AppColors.secondary)),
         ),
@@ -104,7 +100,7 @@ class _ProductSizeGuideSheetState extends State<ProductSizeGuideSheet> {
                           height: 5,
                           margin: const EdgeInsets.only(bottom: 22),
                           decoration: BoxDecoration(
-                            color: Colors.white.withValues(alpha: 0.18),
+                            color: AppColors.pureWhite.withValues(alpha: 0.18),
                             borderRadius: BorderRadius.circular(
                               AppRadius.circular,
                             ),
@@ -125,14 +121,14 @@ class _ProductSizeGuideSheetState extends State<ProductSizeGuideSheet> {
                                 AppText(
                                   text: l10n.productSizeGuide,
                                   variant: AppTextVariant.ts18,
-                                  textColor: AppColors.white,
+                                  textColor: AppColors.pureWhite,
                                   fontWeight: FontWeight.w700,
                                 ),
                                 const AppGap(2),
                                 AppText(
                                   text: l10n.productSizeGuideSubtitle,
                                   variant: AppTextVariant.ts14,
-                                  textColor: Colors.white70,
+                                  textColor: AppColors.pureWhite70,
                                 ),
                               ],
                             ),
@@ -144,12 +140,14 @@ class _ProductSizeGuideSheetState extends State<ProductSizeGuideSheet> {
                         width: double.infinity,
                         padding: const EdgeInsets.all(18),
                         decoration: BoxDecoration(
-                          color: Colors.white.withValues(alpha: 0.03),
+                          color: AppColors.pureWhite.withValues(alpha: 0.03),
                           borderRadius: BorderRadius.circular(22),
                           border: Border.all(color: AppColors.secondary),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withValues(alpha: 0.16),
+                              color: AppColors.pureBlack.withValues(
+                                alpha: 0.16,
+                              ),
                               blurRadius: 18,
                               offset: const Offset(0, 10),
                             ),
@@ -172,7 +170,7 @@ class _ProductSizeGuideSheetState extends State<ProductSizeGuideSheet> {
                               child: AppText(
                                 text: l10n.productSizeGuideAiBadge,
                                 variant: AppTextVariant.ts10,
-                                textColor: AppColors.white,
+                                textColor: AppColors.pureWhite,
                                 fontWeight: FontWeight.w700,
                                 maxLines: 4,
                               ),
@@ -181,7 +179,7 @@ class _ProductSizeGuideSheetState extends State<ProductSizeGuideSheet> {
                             AppText(
                               text: l10n.productSizeGuideHeroTitle,
                               variant: AppTextVariant.ts20,
-                              textColor: AppColors.white,
+                              textColor: AppColors.pureWhite,
                               fontWeight: FontWeight.w800,
                               maxLines: 4,
                             ),
@@ -189,7 +187,7 @@ class _ProductSizeGuideSheetState extends State<ProductSizeGuideSheet> {
                             AppText(
                               text: l10n.productSizeGuideHeroDescription,
                               variant: AppTextVariant.ts14,
-                              textColor: Colors.white70,
+                              textColor: AppColors.pureWhite70,
                               maxLines: 4,
                             ),
                           ],
@@ -199,7 +197,7 @@ class _ProductSizeGuideSheetState extends State<ProductSizeGuideSheet> {
                       AppText(
                         text: l10n.productSelectSize,
                         variant: AppTextVariant.ts18,
-                        textColor: AppColors.white,
+                        textColor: AppColors.pureWhite,
                         fontWeight: FontWeight.w700,
                       ),
                       const AppGap(AppSizes.s16),
@@ -228,11 +226,13 @@ class _ProductSizeGuideSheetState extends State<ProductSizeGuideSheet> {
                                     ? const LinearGradient(
                                         colors: [
                                           AppColors.secondary,
-                                          Color(0xFFFF1E87),
+                                          AppColors.hotPink,
                                         ],
                                       )
                                     : null,
-                                color: isSelected ? null : Colors.transparent,
+                                color: isSelected
+                                    ? null
+                                    : AppColors.transparent,
                                 borderRadius: BorderRadius.circular(
                                   AppRadius.circular,
                                 ),
@@ -245,7 +245,7 @@ class _ProductSizeGuideSheetState extends State<ProductSizeGuideSheet> {
                                 text: size.name ?? '--',
                                 variant: AppTextVariant.ts16,
                                 textAlign: TextAlign.center,
-                                textColor: AppColors.white,
+                                textColor: AppColors.pureWhite,
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
@@ -257,7 +257,7 @@ class _ProductSizeGuideSheetState extends State<ProductSizeGuideSheet> {
                         width: AppSizes.fitWidth,
                         padding: const EdgeInsets.all(20),
                         decoration: BoxDecoration(
-                          color: Colors.white.withValues(alpha: 0.03),
+                          color: AppColors.pureWhite.withValues(alpha: 0.03),
                           borderRadius: BorderRadius.circular(24),
                           border: Border.all(
                             color: AppColors.secondary.withValues(alpha: 0.9),
@@ -277,7 +277,7 @@ class _ProductSizeGuideSheetState extends State<ProductSizeGuideSheet> {
                                   ),
                                   child: const Icon(
                                     Icons.straighten_rounded,
-                                    color: Colors.white,
+                                    color: AppColors.pureWhite,
                                     size: 18,
                                   ),
                                 ),
@@ -293,14 +293,14 @@ class _ProductSizeGuideSheetState extends State<ProductSizeGuideSheet> {
                                       AppText(
                                         text: l10n.productBodyMeasurements,
                                         variant: AppTextVariant.ts16,
-                                        textColor: AppColors.white,
+                                        textColor: AppColors.pureWhite,
                                         fontWeight: FontWeight.w800,
                                       ),
                                       const AppGap(2),
                                       AppText(
                                         text: l10n.productMeasurementsReference,
                                         variant: AppTextVariant.ts12,
-                                        textColor: Colors.white70,
+                                        textColor: AppColors.pureWhite70,
                                       ),
                                     ],
                                   ),
@@ -423,7 +423,9 @@ class _MeasurementRow extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
         border: Border(
-          bottom: BorderSide(color: Colors.white.withValues(alpha: 0.12)),
+          bottom: BorderSide(
+            color: AppColors.pureWhite.withValues(alpha: 0.12),
+          ),
         ),
       ),
       child: Row(
@@ -432,7 +434,7 @@ class _MeasurementRow extends StatelessWidget {
             child: AppText(
               text: label,
               variant: AppTextVariant.ts16,
-              textColor: Colors.white70,
+              textColor: AppColors.pureWhite70,
               fontWeight: FontWeight.w700,
             ),
           ),
@@ -462,11 +464,11 @@ class _SheetIconButton extends StatelessWidget {
         width: 44,
         height: 44,
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.04),
+          color: AppColors.pureWhite.withValues(alpha: 0.04),
           borderRadius: BorderRadius.circular(14),
           border: Border.all(color: AppColors.secondary),
         ),
-        child: Icon(icon, color: AppColors.white, size: 20),
+        child: Icon(icon, color: AppColors.pureWhite, size: 20),
       ),
     );
   }

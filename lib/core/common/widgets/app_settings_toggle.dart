@@ -19,10 +19,7 @@ class SegmentedToggleButton<T> extends StatelessWidget {
     return SegmentedButton<T>(
       segments: List.generate(
         values.length,
-            (i) => ButtonSegment<T>(
-          value: values[i],
-          label: Text(labels[i]),
-        ),
+        (i) => ButtonSegment<T>(value: values[i], label: Text(labels[i])),
       ),
       selected: {selected},
       onSelectionChanged: (value) => onChanged(value.first),
@@ -32,9 +29,7 @@ class SegmentedToggleButton<T> extends StatelessWidget {
           EdgeInsets.symmetric(horizontal: 20, vertical: 14),
         ),
         shape: WidgetStatePropertyAll(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(14),
-          ),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
         ),
       ),
     );

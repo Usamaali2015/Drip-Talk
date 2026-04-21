@@ -1,13 +1,16 @@
 import 'dart:convert';
+import 'dart:io';
 
+import 'package:drip_talk/features/chat/data/models/chat_attachment.dart';
 import 'package:equatable/equatable.dart';
 
 class AiChatRequestModel {
   const AiChatRequestModel({
     required this.message,
     required this.userPreferences,
-    this.provider = 'groq',
+    this.provider = 'openai',
     this.sessionId,
+    this.images = const <ChatAttachment>[],
   });
 
   factory AiChatRequestModel.fromRawJson(String value) =>
@@ -15,9 +18,12 @@ class AiChatRequestModel {
 
   factory AiChatRequestModel.fromJson(Map<String, dynamic> json) {
     return AiChatRequestModel(
-      provider: json['provider']?.toString() ?? 'groq',
+      provider: json['provider']?.toString() ?? 'openai',
       message: json['message']?.toString() ?? '',
       sessionId: _asInt(json['session_id']),
+      images: ChatAttachment.listFromDynamic(
+        json['images'] ?? json['attachments'],
+      ),
       userPreferences: AiChatUserPreferences.fromJson(
         json['user_preferences'] as Map<String, dynamic>? ?? const {},
       ),
@@ -27,15 +33,39 @@ class AiChatRequestModel {
   final String provider;
   final String message;
   final int? sessionId;
+  final List<ChatAttachment> images;
   final AiChatUserPreferences userPreferences;
+
+  bool get hasImages => images.isNotEmpty;
+
+  List<File> get imageFiles =>
+      images.map((image) => image.file).whereType<File>().toList();
 
   Map<String, dynamic> toJson() {
     return {
       'provider': provider,
       'message': message,
       if (sessionId != null) 'session_id': sessionId,
+      if (images.isNotEmpty)
+        'images': images.map((image) => image.toJson()).toList(),
       'user_preferences': userPreferences.toJson(),
     };
+  }
+
+  Map<String, dynamic> toMultipartFields() {
+    final fields = <String, dynamic>{
+      'provider': provider,
+      'message': message,
+      if (sessionId != null) 'session_id': sessionId,
+    };
+
+    userPreferences.toJson().forEach((key, value) {
+      if (value != null) {
+        fields['user_preferences[$key]'] = value;
+      }
+    });
+
+    return fields;
   }
 
   String toRawJson() => json.encode(toJson());

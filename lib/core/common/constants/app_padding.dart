@@ -34,7 +34,6 @@ class AppPadding {
     horizontal: 80.0,
   );
 
-
   /// Vertical padding
   static const EdgeInsets verticalSmall = EdgeInsets.symmetric(vertical: 8.0);
   static const EdgeInsets verticalMedium = EdgeInsets.symmetric(vertical: 16.0);

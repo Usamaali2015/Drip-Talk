@@ -1,11 +1,6 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/constants/app_text_styles.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_gradient_border.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:flutter/material.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class CartPageHeader extends StatelessWidget {
   const CartPageHeader({
@@ -42,7 +37,7 @@ class CartPageHeader extends StatelessWidget {
             textAlign: TextAlign.center,
             style: AppTextStyles.ts18(
               context,
-              color: AppColors.white,
+              color: AppColors.pureWhite,
               fontWeight: FontWeight.w700,
             ),
           ),
@@ -65,7 +60,7 @@ class CartPageHeader extends StatelessWidget {
             text: itemsLabel,
             style: AppTextStyles.ts14(
               context,
-              color: AppColors.white,
+              color: AppColors.pureWhite,
               fontWeight: FontWeight.w700,
             ),
           ),

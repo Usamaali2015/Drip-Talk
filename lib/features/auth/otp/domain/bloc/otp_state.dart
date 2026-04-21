@@ -4,6 +4,8 @@ class OtpState extends Equatable {
   final bool isLoading;
   final bool isSuccess;
   final bool isResendSuccess;
+  final bool hasAuthenticatedSession;
+  final bool shouldCollectProfile;
   final String? errorMessage;
   final String? resetToken;
   final int timerCount;
@@ -13,6 +15,8 @@ class OtpState extends Equatable {
     this.isLoading = false,
     this.isSuccess = false,
     this.isResendSuccess = false,
+    this.hasAuthenticatedSession = false,
+    this.shouldCollectProfile = false,
     this.errorMessage,
     this.resetToken,
     this.timerCount = 60,
@@ -23,15 +27,20 @@ class OtpState extends Equatable {
     bool? isLoading,
     bool? isSuccess,
     bool? isResendSuccess,
+    bool? hasAuthenticatedSession,
+    bool? shouldCollectProfile,
     String? errorMessage,
     String? resetToken,
     int? timerCount,
     bool? canResend,
   }) {
     return OtpState(
-      isLoading: isLoading ?? false,
-      isSuccess: isSuccess ?? false,
-      isResendSuccess: isResendSuccess ?? false,
+      isLoading: isLoading ?? this.isLoading,
+      isSuccess: isSuccess ?? this.isSuccess,
+      isResendSuccess: isResendSuccess ?? this.isResendSuccess,
+      hasAuthenticatedSession:
+          hasAuthenticatedSession ?? this.hasAuthenticatedSession,
+      shouldCollectProfile: shouldCollectProfile ?? this.shouldCollectProfile,
       errorMessage: errorMessage,
       resetToken: resetToken ?? this.resetToken,
       timerCount: timerCount ?? this.timerCount,
@@ -44,6 +53,8 @@ class OtpState extends Equatable {
     isLoading,
     isSuccess,
     isResendSuccess,
+    hasAuthenticatedSession,
+    shouldCollectProfile,
     errorMessage,
     resetToken,
     timerCount,

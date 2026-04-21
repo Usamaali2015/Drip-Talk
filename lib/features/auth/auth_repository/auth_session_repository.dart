@@ -19,6 +19,7 @@ class AuthSessionRepository {
 
     if (_isVerified(emailVerifiedAt)) {
       await _storage.delete(StorageKeys.pendingVerificationEmail);
+      await _clearPendingVerificationSessionData();
       return;
     }
 
@@ -30,15 +31,89 @@ class AuthSessionRepository {
 
   Future<void> saveAuthenticatedSession({
     required String token,
+    String? refreshToken,
     Map<String, dynamic>? user,
     required String? emailVerifiedAt,
   }) async {
     await _storage.saveAuthToken(token);
+    final normalizedRefreshToken = _normalize(refreshToken);
+    if (normalizedRefreshToken != null) {
+      await _storage.saveRefreshToken(normalizedRefreshToken);
+    }
     if (user != null) {
       await _storage.saveUser(user);
     }
     await _saveEmailVerifiedAt(emailVerifiedAt);
     await _storage.delete(StorageKeys.pendingVerificationEmail);
+    await _clearPendingVerificationSessionData();
+  }
+
+  Future<void> savePendingVerificationSession({
+    required String email,
+    required String? emailVerifiedAt,
+    String? token,
+    String? refreshToken,
+    Map<String, dynamic>? user,
+  }) async {
+    await persistEmailVerificationStatus(
+      email: email,
+      emailVerifiedAt: emailVerifiedAt,
+    );
+
+    final normalizedToken = _normalize(token);
+    if (normalizedToken == null) {
+      await _clearPendingVerificationSessionData();
+      return;
+    }
+
+    await _storage.writeString(
+      StorageKeys.pendingVerificationAuthToken,
+      normalizedToken,
+    );
+
+    final normalizedRefreshToken = _normalize(refreshToken);
+    if (normalizedRefreshToken == null) {
+      await _storage.delete(StorageKeys.pendingVerificationRefreshToken);
+    } else {
+      await _storage.writeString(
+        StorageKeys.pendingVerificationRefreshToken,
+        normalizedRefreshToken,
+      );
+    }
+
+    if (user == null) {
+      await _storage.delete(StorageKeys.pendingVerificationUser);
+    } else {
+      await _storage.writeJson(StorageKeys.pendingVerificationUser, user);
+    }
+  }
+
+  Future<bool> promotePendingVerificationSession({
+    String? emailVerifiedAt,
+    Map<String, dynamic>? user,
+  }) async {
+    final token = _normalize(
+      await _storage.readString(StorageKeys.pendingVerificationAuthToken),
+    );
+    if (token == null) {
+      return false;
+    }
+
+    final refreshToken = _normalize(
+      await _storage.readString(StorageKeys.pendingVerificationRefreshToken),
+    );
+    final pendingUser = await _storage.readJson(
+      StorageKeys.pendingVerificationUser,
+    );
+
+    await saveAuthenticatedSession(
+      token: token,
+      refreshToken: refreshToken,
+      user: user ?? pendingUser,
+      emailVerifiedAt: emailVerifiedAt,
+    );
+
+    return true;
   }
 
   Future<void> clearAuthenticatedSession() async {
@@ -52,11 +127,20 @@ class AuthSessionRepository {
     return _normalize(await _storage.readString(StorageKeys.authToken));
   }
 
+  Future<String?> getRefreshToken() async {
+    return _normalize(await _storage.getRefreshToken());
+  }
+
+  Future<Map<String, dynamic>?> getAuthenticatedUser() async {
+    return _storage.getUser();
+  }
+
   Future<void> markEmailVerified({String? emailVerifiedAt}) async {
     await _saveEmailVerifiedAt(
       _normalize(emailVerifiedAt) ?? DateTime.now().toUtc().toIso8601String(),
     );
     await _storage.delete(StorageKeys.pendingVerificationEmail);
+    await _clearPendingVerificationSessionData();
   }
 
   Future<String?> getPendingVerificationEmail() async {
@@ -77,6 +161,7 @@ class AuthSessionRepository {
   Future<void> clearPendingVerification() async {
     await _storage.delete(StorageKeys.pendingVerificationEmail);
     await _storage.delete(StorageKeys.emailVerifiedAt);
+    await _clearPendingVerificationSessionData();
   }
 
   bool _isVerified(String? emailVerifiedAt) {
@@ -91,6 +176,12 @@ class AuthSessionRepository {
     }
 
     await _storage.writeString(StorageKeys.emailVerifiedAt, normalizedValue);
+  }
+
+  Future<void> _clearPendingVerificationSessionData() async {
+    await _storage.delete(StorageKeys.pendingVerificationAuthToken);
+    await _storage.delete(StorageKeys.pendingVerificationRefreshToken);
+    await _storage.delete(StorageKeys.pendingVerificationUser);
   }
 
   String? _normalize(String? value) {

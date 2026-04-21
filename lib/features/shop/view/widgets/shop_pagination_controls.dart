@@ -1,9 +1,6 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_padding.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:flutter/material.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class ShopPaginationControls extends StatelessWidget {
   const ShopPaginationControls({
@@ -29,18 +26,19 @@ class ShopPaginationControls extends StatelessWidget {
 
     return LayoutBuilder(
       builder: (context, constraints) {
+        final isRTL = Directionality.of(context) == TextDirection.rtl;
         final paginationRow = Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             _PaginationArrowButton(
-              icon: Icons.chevron_left,
+              icon: isRTL ? Icons.chevron_right : Icons.chevron_left,
               enabled: currentPage > 1,
               onTap: () => onPageSelected(currentPage - 1),
             ),
             const AppGap(AppSizes.s8, axis: Axis.horizontal),
             ...pageItems.map(
               (item) => Padding(
-                padding: const EdgeInsets.only(right: AppSizes.s8),
+                padding: const EdgeInsetsDirectional.only(end: AppSizes.s8),
                 child: item.isEllipsis
                     ? const SizedBox(
                         width: AppSizes.s36,
@@ -48,7 +46,7 @@ class ShopPaginationControls extends StatelessWidget {
                           child: AppText(
                             text: '...',
                             variant: AppTextVariant.ts12,
-                            textColor: Colors.white54,
+                            textColor: AppColors.pureWhite54,
                           ),
                         ),
                       )
@@ -62,7 +60,7 @@ class ShopPaginationControls extends StatelessWidget {
               ),
             ),
             _PaginationArrowButton(
-              icon: Icons.chevron_right,
+              icon: isRTL ? Icons.chevron_left : Icons.chevron_right,
               enabled: currentPage < totalPages,
               onTap: () => onPageSelected(currentPage + 1),
             ),
@@ -132,7 +130,7 @@ class _PaginationArrowButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.transparent,
+      color: AppColors.transparent,
       child: InkWell(
         customBorder: const CircleBorder(),
         onTap: enabled ? onTap : null,
@@ -148,12 +146,12 @@ class _PaginationArrowButton extends StatelessWidget {
                 : AppColors.secondary.withValues(alpha: 0.6),
             shape: BoxShape.circle,
             border: Border.all(
-              color: enabled ? Colors.white24 : Colors.white12,
+              color: enabled ? AppColors.pureWhite24 : AppColors.pureWhite12,
             ),
           ),
           child: Icon(
             icon,
-            color: enabled ? AppColors.white : Colors.white24,
+            color: enabled ? AppColors.pureWhite : AppColors.pureWhite24,
             size: AppSizes.s24,
           ),
         ),
@@ -176,7 +174,7 @@ class _PaginationPageChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.transparent,
+      color: AppColors.transparent,
       child: InkWell(
         customBorder: const CircleBorder(),
         onTap: onTap,
@@ -195,7 +193,7 @@ class _PaginationPageChip extends StatelessWidget {
                 : null,
             color: isSelected ? null : AppColors.darkBg,
             border: Border.all(
-              color: isSelected ? Colors.transparent : Colors.white24,
+              color: isSelected ? AppColors.transparent : AppColors.pureWhite24,
             ),
             boxShadow: isSelected
                 ? [
@@ -209,7 +207,7 @@ class _PaginationPageChip extends StatelessWidget {
           child: AppText(
             text: '$page',
             variant: AppTextVariant.ts12,
-            textColor: Colors.white,
+            textColor: AppColors.pureWhite,
             fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
           ),
         ),
