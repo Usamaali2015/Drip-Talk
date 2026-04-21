@@ -1,13 +1,8 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/constants/app_text_styles.dart';
-import 'package:drip_talk/core/common/widgets/app_button.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:drip_talk/features/cart/data/models/cart_model.dart';
 import 'package:drip_talk/features/cart/view/widgets/cart_price_formatter.dart';
 import 'package:flutter/material.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class CartOrderSummaryCard extends StatelessWidget {
   const CartOrderSummaryCard({
@@ -90,20 +85,20 @@ class CartOrderSummaryCard extends StatelessWidget {
                 summary.shipping,
                 currency: summary.currency,
               ),
-              valueColor: AppColors.white,
+              valueColor: AppColors.pureWhite,
             ),
             const AppGap(AppSizes.s8, axis: Axis.vertical),
             _SummaryRow(
               label: discountLabel,
               value:
                   '-${formatCartPrice(summary.discount, currency: summary.currency)}',
-              valueColor: AppColors.green,
+              valueColor: AppColors.materialGreen,
             ),
             const AppGap(AppSizes.s8, axis: Axis.vertical),
             _SummaryRow(
               label: taxLabel,
               value: formatCartPrice(summary.tax, currency: summary.currency),
-              valueColor: AppColors.green,
+              valueColor: AppColors.materialGreen,
             ),
             const AppGap(AppSizes.s16, axis: Axis.vertical),
             Container(
@@ -111,7 +106,7 @@ class CartOrderSummaryCard extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border(
                   top: BorderSide(
-                    color: AppColors.white.withValues(alpha: 0.26),
+                    color: AppColors.pureWhite.withValues(alpha: 0.26),
                     width: 1,
                   ),
                 ),
@@ -125,7 +120,7 @@ class CartOrderSummaryCard extends StatelessWidget {
                   text: totalLabel,
                   style: AppTextStyles.ts18(
                     context,
-                    color: AppColors.white,
+                    color: AppColors.pureWhite,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -163,7 +158,7 @@ class CartOrderSummaryCard extends StatelessWidget {
                         controller: promoController,
                         style: AppTextStyles.ts14(
                           context,
-                          color: AppColors.white,
+                          color: AppColors.pureWhite,
                           fontWeight: FontWeight.w500,
                         ),
                         cursorColor: AppColors.cyan,
@@ -172,7 +167,9 @@ class CartOrderSummaryCard extends StatelessWidget {
                           hintText: promoHintText,
                           hintStyle: AppTextStyles.ts12(
                             context,
-                            color: AppColors.white.withValues(alpha: 0.5),
+                            color: AppColors.pureWhite.withValues(
+                              alpha: 0.5,
+                            ),
                             fontWeight: FontWeight.w400,
                           ),
                         ),
@@ -206,7 +203,7 @@ class _SummaryRow extends StatelessWidget {
   const _SummaryRow({
     required this.label,
     required this.value,
-    this.valueColor = AppColors.white,
+    this.valueColor = AppColors.pureWhite,
   });
 
   final String label;
@@ -222,7 +219,7 @@ class _SummaryRow extends StatelessWidget {
           text: label,
           style: AppTextStyles.ts14(
             context,
-            color: AppColors.white,
+            color: AppColors.pureWhite,
             fontWeight: FontWeight.w600,
           ),
         ),

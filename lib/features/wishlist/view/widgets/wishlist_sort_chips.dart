@@ -1,9 +1,7 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/constants/app_text_styles.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:drip_talk/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class WishlistSortChips extends StatelessWidget {
   const WishlistSortChips({
@@ -44,7 +42,8 @@ class WishlistSortChips extends StatelessWidget {
             onTap: () => onSortSelected(option.value),
           );
         },
-        separatorBuilder: (context, index) => const SizedBox(width: AppSizes.s12),
+        separatorBuilder: (context, index) =>
+            const SizedBox(width: AppSizes.s12),
         itemCount: options.length,
       ),
     );
@@ -65,13 +64,13 @@ class _WishlistSortChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.transparent,
+      color: AppColors.transparent,
       child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(AppSizes.s24),
         child: Ink(
           padding: const EdgeInsets.symmetric(
-            horizontal: AppSizes.s18,
+            horizontal: AppSizes.s10,
             vertical: AppSizes.s10,
           ),
           decoration: BoxDecoration(
@@ -84,8 +83,8 @@ class _WishlistSortChip extends StatelessWidget {
             borderRadius: BorderRadius.circular(AppSizes.s24),
             border: Border.all(
               color: isSelected
-                  ? Colors.transparent
-                  : Colors.white.withValues(alpha: 0.18),
+                  ? AppColors.transparent
+                  : AppColors.pureWhite.withValues(alpha: 0.18),
             ),
           ),
           child: Center(
@@ -94,8 +93,8 @@ class _WishlistSortChip extends StatelessWidget {
               style: AppTextStyles.ts12(
                 context,
                 color: isSelected
-                    ? AppColors.white
-                    : AppColors.white.withValues(alpha: 0.72),
+                    ? AppColors.pureWhite
+                    : AppColors.pureWhite.withValues(alpha: 0.72),
                 fontWeight: FontWeight.w600,
               ),
             ),

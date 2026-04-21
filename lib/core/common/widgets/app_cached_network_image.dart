@@ -23,8 +23,18 @@ class AppCachedNetworkImage extends StatelessWidget {
     this.errorWidget,
   });
 
+  int? _resolveCacheDimension(double? logicalSize, double devicePixelRatio) {
+    if (logicalSize == null || !logicalSize.isFinite || logicalSize <= 0) {
+      return null;
+    }
+
+    return (logicalSize * devicePixelRatio).round();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final devicePixelRatio = MediaQuery.of(context).devicePixelRatio;
+
     return ClipRRect(
       borderRadius: borderRadius ?? BorderRadius.zero,
       child: CachedNetworkImage(
@@ -32,6 +42,11 @@ class AppCachedNetworkImage extends StatelessWidget {
         width: width,
         height: height,
         fit: fit,
+        memCacheWidth: _resolveCacheDimension(width, devicePixelRatio),
+        memCacheHeight: _resolveCacheDimension(height, devicePixelRatio),
+        fadeInDuration: Duration.zero,
+        fadeOutDuration: Duration.zero,
+        filterQuality: FilterQuality.low,
         placeholder: (_, _) =>
             placeholder ??
             const Center(

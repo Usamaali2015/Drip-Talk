@@ -1,14 +1,11 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:drip_talk/features/product/data/models/product_details_model.dart';
 import 'package:drip_talk/features/product/domain/bloc/product_bloc.dart';
 import 'package:drip_talk/features/product/domain/bloc/product_event.dart';
 import 'package:drip_talk/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class ProductColorSelector extends StatelessWidget {
   const ProductColorSelector({
@@ -50,7 +47,7 @@ class ProductColorSelector extends StatelessWidget {
                 child: AppText(
                   text: selectedColorName,
                   variant: AppTextVariant.ts12,
-                  textColor: Colors.white70,
+                  textColor: AppColors.pureWhite70,
                   maxLines: 1,
                 ),
               ),
@@ -70,15 +67,17 @@ class ProductColorSelector extends StatelessWidget {
               onTap: colorId == null
                   ? null
                   : () => context.read<ProductBloc>().add(
-                        SelectProductColor(colorId),
-                      ),
+                      SelectProductColor(colorId),
+                    ),
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 200),
                 padding: const EdgeInsets.all(3),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: isSelected ? Colors.white : Colors.transparent,
+                    color: isSelected
+                        ? AppColors.pureWhite
+                        : AppColors.transparent,
                     width: 2,
                   ),
                   boxShadow: isSelected
@@ -98,7 +97,7 @@ class ProductColorSelector extends StatelessWidget {
                       ? const Icon(
                           Icons.check,
                           size: AppSizes.s18,
-                          color: Colors.white,
+                          color: AppColors.pureWhite,
                         )
                       : null,
                 ),
@@ -114,7 +113,7 @@ class ProductColorSelector extends StatelessWidget {
 Color _colorFromHex(String? hexCode) {
   final normalized = hexCode?.replaceAll('#', '').trim();
   if (normalized == null || normalized.isEmpty) {
-    return Colors.grey.shade700;
+    return AppColors.materialGrey700;
   }
 
   final buffer = StringBuffer();
@@ -125,7 +124,7 @@ Color _colorFromHex(String? hexCode) {
 
   final value = int.tryParse(buffer.toString(), radix: 16);
   if (value == null) {
-    return Colors.grey.shade700;
+    return AppColors.materialGrey700;
   }
 
   return Color(value);

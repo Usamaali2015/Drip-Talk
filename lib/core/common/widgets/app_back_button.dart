@@ -17,11 +17,11 @@ class AppBackButton extends StatelessWidget {
         width: AppSizes.s40,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: AppColors.white,
+          color: AppColors.pureWhite,
         ),
         child: Icon(
           Icons.arrow_back,
-          color: AppColors.black,
+          color: AppColors.pureBlack,
           size: AppSizes.s20,
         ),
       ),

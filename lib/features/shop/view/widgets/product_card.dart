@@ -1,14 +1,9 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_padding.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/widgets/app_cached_network_image.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:drip_talk/features/shop/data/models/shop_model.dart';
 import 'package:drip_talk/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class ProductCard extends StatelessWidget {
   final Items product;
@@ -34,85 +29,87 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
 
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(AppRadius.r24),
-      child: Container(
-        padding: const EdgeInsets.all(1),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(AppRadius.r15),
-          gradient: LinearGradient(
-            colors: [AppColors.transparent, AppColors.secondary],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
-        ),
+    return RepaintBoundary(
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(AppRadius.r24),
         child: Container(
-          width: AppSizes.s180,
+          padding: const EdgeInsets.all(1),
           decoration: BoxDecoration(
-            color: AppColors.lightBg,
             borderRadius: BorderRadius.circular(AppRadius.r15),
+            gradient: const LinearGradient(
+              colors: [AppColors.transparent, AppColors.secondary],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: ClipRRect(
-                  borderRadius: const BorderRadius.vertical(
-                    top: Radius.circular(AppRadius.r15),
-                  ),
-                  child: AppCachedNetworkImage(
-                    imageUrl: product.thumbnail ?? '',
-                    fit: BoxFit.cover,
-                    width: AppSizes.fitWidth,
-                    placeholder: const _ProductCardImagePlaceholder(),
+          child: Container(
+            width: AppSizes.s180,
+            decoration: BoxDecoration(
+              color: AppColors.lightBg,
+              borderRadius: BorderRadius.circular(AppRadius.r15),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(AppRadius.r15),
+                    ),
+                    child: AppCachedNetworkImage(
+                      imageUrl: product.thumbnail ?? '',
+                      fit: BoxFit.cover,
+                      width: AppSizes.fitWidth,
+                      placeholder: const _ProductCardImagePlaceholder(),
+                    ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: AppPadding.allExtraSmall,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    AppText(
-                      text: product.title ?? '',
-                      variant: AppTextVariant.ts12,
-                      textColor: AppColors.white,
-                      fontWeight: FontWeight.w600,
-                      maxLines: 1,
-                    ),
-                    const AppGap(AppSizes.s4),
-                    AppText(
-                      text: '${product.price} ${product.currency ?? ''}',
-                      variant: AppTextVariant.ts12,
-                      textColor: AppColors.cyan,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    const AppGap(AppSizes.s8),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: _ActionButton(
-                            icon: Icons.shopping_cart,
-                            label: l10n.shopAddToCart,
-                            isGradient: true,
-                            onTap: onAddToCartTap,
-                            isLoading: isAddingToCart,
+                Padding(
+                  padding: AppPadding.allExtraSmall,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AppText(
+                        text: product.title ?? '',
+                        variant: AppTextVariant.ts12,
+                        textColor: AppColors.pureWhite,
+                        fontWeight: FontWeight.w600,
+                        maxLines: 1,
+                      ),
+                      const AppGap(AppSizes.s4),
+                      AppText(
+                        text: '${product.price} ${product.currency ?? ''}',
+                        variant: AppTextVariant.ts12,
+                        textColor: AppColors.cyan,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      const AppGap(AppSizes.s8),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: _ActionButton(
+                              icon: Icons.shopping_cart,
+                              label: l10n.shopAddToCart,
+                              isGradient: true,
+                              onTap: onAddToCartTap,
+                              isLoading: isAddingToCart,
+                            ),
                           ),
-                        ),
-                        const AppGap(AppSizes.s6, axis: Axis.horizontal),
-                        _SaveButton(
-                          label: l10n.shopSave,
-                          isSaved: isSaved,
-                          isPending: isSavePending,
-                          onTap: onSaveTap,
-                        ),
-                      ],
-                    ),
-                  ],
+                          const AppGap(AppSizes.s6, axis: Axis.horizontal),
+                          _SaveButton(
+                            label: l10n.shopSave,
+                            isSaved: isSaved,
+                            isPending: isSavePending,
+                            onTap: onSaveTap,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -127,8 +124,8 @@ class _ProductCardImagePlaceholder extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox.expand(
       child: Shimmer.fromColors(
-        baseColor: Colors.grey.shade700,
-        highlightColor: Colors.grey.shade500,
+        baseColor: AppColors.shimmerBase,
+        highlightColor: AppColors.shimmerHighlight,
         child: Container(color: AppColors.lightBg),
       ),
     );
@@ -153,7 +150,7 @@ class _ActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.transparent,
+      color: AppColors.transparent,
       child: InkWell(
         onTap: isLoading ? null : onTap,
         borderRadius: BorderRadius.circular(AppRadius.circular),
@@ -165,11 +162,13 @@ class _ActionButton extends StatelessWidget {
                     colors: [AppColors.secondary, AppColors.primary],
                   )
                 : null,
-            color: isGradient ? null : Colors.transparent,
+            color: isGradient ? null : AppColors.transparent,
             borderRadius: BorderRadius.circular(AppRadius.circular),
             border: isGradient
                 ? null
-                : Border.all(color: AppColors.white.withValues(alpha: 0.14)),
+                : Border.all(
+                    color: AppColors.pureWhite.withValues(alpha: 0.14),
+                  ),
           ),
           child: Center(
             child: isLoading
@@ -178,18 +177,18 @@ class _ActionButton extends StatelessWidget {
                     height: AppSizes.s14,
                     child: CircularProgressIndicator(
                       strokeWidth: 2,
-                      color: Colors.white,
+                      color: AppColors.pureWhite,
                     ),
                   )
                 : Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(icon, color: Colors.white, size: 10),
+                      Icon(icon, color: AppColors.pureWhite, size: 10),
                       const AppGap(AppSizes.s4, axis: Axis.horizontal),
                       AppText(
                         text: label,
                         variant: AppTextVariant.ts8,
-                        textColor: Colors.white,
+                        textColor: AppColors.pureWhite,
                         fontWeight: FontWeight.w500,
                       ),
                     ],
@@ -219,7 +218,7 @@ class _SaveButton extends StatelessWidget {
     return Opacity(
       opacity: isPending ? 0.72 : 1,
       child: Material(
-        color: Colors.transparent,
+        color: AppColors.transparent,
         child: InkWell(
           onTap: isPending ? null : onTap,
           borderRadius: BorderRadius.circular(AppRadius.circular),
@@ -229,9 +228,11 @@ class _SaveButton extends StatelessWidget {
             decoration: BoxDecoration(
               color: isSaved
                   ? AppColors.secondary.withValues(alpha: 0.16)
-                  : Colors.transparent,
+                  : AppColors.transparent,
               border: Border.all(
-                color: Colors.pinkAccent.withValues(alpha: isSaved ? 0.8 : 0.3),
+                color: AppColors.materialPinkAccent.withValues(
+                  alpha: isSaved ? 0.8 : 0.3,
+                ),
               ),
               borderRadius: BorderRadius.circular(AppRadius.circular),
             ),
@@ -240,14 +241,14 @@ class _SaveButton extends StatelessWidget {
               children: [
                 Icon(
                   isSaved ? Icons.favorite : Icons.favorite_border,
-                  color: Colors.white,
+                  color: isSaved ? AppColors.red : AppColors.pureWhite,
                   size: 14,
                 ),
                 const AppGap(2, axis: Axis.horizontal),
                 AppText(
                   text: label,
                   variant: AppTextVariant.ts8,
-                  textColor: AppColors.white,
+                  textColor: AppColors.pureWhite,
                 ),
               ],
             ),

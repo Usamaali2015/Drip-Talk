@@ -1,18 +1,9 @@
 import 'dart:async';
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/constants/app_text_styles.dart';
-import 'package:drip_talk/core/common/widgets/app_gradient_background.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
-import 'package:drip_talk/features/shop/domain/shop_bloc.dart';
-import 'package:drip_talk/features/shop/domain/shop_event.dart';
-import 'package:drip_talk/features/shop/domain/shop_state.dart';
-import 'package:drip_talk/features/shop/view/widgets/ai_curated_collections_browser.dart';
-import 'package:drip_talk/features/shop/view/widgets/shop_pagination_controls.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
+import 'package:drip_talk/features/shop/barrels/shop_barrels.dart';
 import 'package:drip_talk/l10n/app_localizations.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
+
 
 class AiCuratedCollectionsView extends StatefulWidget {
   const AiCuratedCollectionsView({super.key});
@@ -74,30 +65,32 @@ class _AiCuratedCollectionsViewState extends State<AiCuratedCollectionsView> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
 
-    return CustomScaffold(
+    return AppResponsivePageLayout(
+      mobileMaxWidth: 430,
+      tabletMaxWidth: 720,
+      tabletLargeMaxWidth: 960,
+      desktopMaxWidth: 1180,
+      useSafeArea: false,
+      showHeaderDivider: false,
       showBottomNav: true,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: AppColors.transparent,
         surfaceTintColor: AppColors.transparent,
-        leading: IconButton(
-          onPressed: () {
-            context.pop();
-          },
-          icon: const Icon(
-            Icons.arrow_back_ios_new_rounded,
-            color: AppColors.white,
-            size: AppSizes.s20,
-          ),
-        ),
+     leading: Padding(
+       padding: AppPadding.allExtraSmall,
+       child:  AiCuratedBackButton(
+        onTap: () => context.pop(),
+       ),
+     ),   
         titleSpacing: 0,
         centerTitle: false,
         title: AppText(
           text: l10n.shopDripTalkPicksTitle,
           style: AppTextStyles.ts20(
             context,
-            color: AppColors.white,
+            color: AppColors.pureWhite,
             fontWeight: FontWeight.w700,
           ),
         ),
@@ -115,7 +108,7 @@ class _AiCuratedCollectionsViewState extends State<AiCuratedCollectionsView> {
             decoration: BoxDecoration(
               color: AppColors.darkBg.withValues(alpha: 0.94),
               border: const Border(
-                top: BorderSide(color: Colors.white12, width: 0.5),
+                top: BorderSide(color: AppColors.pureWhite12, width: 0.5),
               ),
             ),
             child: SafeArea(
@@ -140,7 +133,7 @@ class _AiCuratedCollectionsViewState extends State<AiCuratedCollectionsView> {
           );
         },
       ),
-      child: SafeArea(
+      pageBuilder: (context, _) => SafeArea(
         child: AiCuratedCollectionsBrowser(
           searchController: _searchController,
           searchQuery: _searchQuery,

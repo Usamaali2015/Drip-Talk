@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:drip_talk/core/utils/app_utils/app_localization_utils.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:drip_talk/features/cart/data/models/cart_model.dart';
 import 'package:drip_talk/features/cart/data/repository/cart_repository.dart';
@@ -368,11 +369,20 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         }
       }
 
-      return error.message ?? 'Unable to update cart';
+      return error.message ??
+          localizedString(
+            fallback: 'Unable to update cart',
+            select: (l10n) => l10n.cartUpdateFailed,
+          );
     }
 
     final message = error.toString().trim();
-    return message.isEmpty ? 'Unable to update cart' : message;
+    return message.isEmpty
+        ? localizedString(
+            fallback: 'Unable to update cart',
+            select: (l10n) => l10n.cartUpdateFailed,
+          )
+        : message;
   }
 
   @override

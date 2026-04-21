@@ -29,7 +29,7 @@ class AppAuthSwitchText extends StatelessWidget {
               leadingText,
               style: AppTextStyles.ts14(
                 context,
-                color:AppColors.white,
+                color: AppColors.pureWhite,
                 fontWeight: FontWeight.w500,
               ),
             ),

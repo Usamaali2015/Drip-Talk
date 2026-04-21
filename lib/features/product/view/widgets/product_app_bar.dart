@@ -1,14 +1,10 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_gradient_border.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:drip_talk/core/utils/routes/app_routes.dart';
 import 'package:drip_talk/features/cart/view/widgets/cart_action_button.dart';
 import 'package:drip_talk/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class ProductAppBar extends StatelessWidget implements PreferredSizeWidget {
   const ProductAppBar({super.key});
@@ -19,18 +15,19 @@ class ProductAppBar extends StatelessWidget implements PreferredSizeWidget {
 
     return AppBar(
       elevation: 0,
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppColors.transparent,
       centerTitle: true,
       leading: Padding(
-        padding: EdgeInsetsGeometry.only(left: AppSizes.s10, top: AppSizes.s10),
+        padding: const EdgeInsets.all(5.0),
         child: GradientBorder(
           onTap: () => context.pop(),
           enableShadow: false,
           backgroundColor: AppColors.lightBg,
           borderRadius: AppRadius.r12,
+          borderWidth: 1,
           colors: [AppColors.primary, AppColors.secondary],
           child: Icon(
-            Icons.arrow_back,
+              Icons.arrow_back,
             color: AppColors.surface,
             size: AppSizes.s20,
           ),
@@ -40,7 +37,7 @@ class ProductAppBar extends StatelessWidget implements PreferredSizeWidget {
         text: l10n.productDetailsTitle,
         variant: AppTextVariant.ts16,
         fontWeight: FontWeight.w900,
-        textColor: AppColors.white,
+        textColor: AppColors.pureWhite,
       ),
       actions: [
         CartActionButton(onTap: () => context.pushNamed(AppRoutes.cart)),

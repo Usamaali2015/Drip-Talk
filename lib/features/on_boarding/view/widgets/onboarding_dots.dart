@@ -1,6 +1,7 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-
-import 'widgets_barrels.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/features/on_boarding/barrels/on_boarding_barrels.dart';
 
 class OnboardingDots extends StatelessWidget {
   final int count;
@@ -27,7 +28,7 @@ class OnboardingDots extends StatelessWidget {
                         end: Alignment.bottomRight,
                       )
                     : null,
-                color: state.currentIndex != index ? AppColors.white : null,
+                color: state.currentIndex != index ? AppColors.pureWhite : null,
                 borderRadius: BorderRadius.circular(20),
               ),
             ),

@@ -1,10 +1,5 @@
 class ProductDetailsModel {
-  ProductDetailsModel({
-    this.status,
-    this.message,
-    this.data,
-    this.errors,
-  });
+  ProductDetailsModel({this.status, this.message, this.data, this.errors});
 
   factory ProductDetailsModel.fromJson(Map<String, dynamic>? json) {
     return ProductDetailsModel(
@@ -160,9 +155,7 @@ class ProductDetailsData {
       'stock': stock?.toJson(),
       'rating': rating?.toJson(),
       'available_sizes': availableSizes.map((item) => item.toJson()).toList(),
-      'available_colors': availableColors
-          .map((item) => item.toJson())
-          .toList(),
+      'available_colors': availableColors.map((item) => item.toJson()).toList(),
       'variants': variants.map((item) => item.toJson()).toList(),
       'selected_variant': selectedVariant?.toJson(),
       'reviews': reviews.map((item) => item.toJson()).toList(),
@@ -333,10 +326,7 @@ class ProductMedia {
 }
 
 class ProductGalleryImage {
-  const ProductGalleryImage({
-    this.image,
-    this.sortOrder,
-  });
+  const ProductGalleryImage({this.image, this.sortOrder});
 
   factory ProductGalleryImage.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
@@ -353,18 +343,12 @@ class ProductGalleryImage {
   final int? sortOrder;
 
   Map<String, dynamic> toJson() {
-    return {
-      'image': image,
-      'sort_order': sortOrder,
-    };
+    return {'image': image, 'sort_order': sortOrder};
   }
 }
 
 class ProductStock {
-  const ProductStock({
-    this.inStock,
-    this.quantity,
-  });
+  const ProductStock({this.inStock, this.quantity});
 
   factory ProductStock.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
@@ -381,18 +365,12 @@ class ProductStock {
   final int? quantity;
 
   Map<String, dynamic> toJson() {
-    return {
-      'in_stock': inStock,
-      'quantity': quantity,
-    };
+    return {'in_stock': inStock, 'quantity': quantity};
   }
 }
 
 class ProductRating {
-  const ProductRating({
-    this.average,
-    this.count,
-  });
+  const ProductRating({this.average, this.count});
 
   factory ProductRating.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
@@ -409,18 +387,12 @@ class ProductRating {
   final int? count;
 
   Map<String, dynamic> toJson() {
-    return {
-      'average': average,
-      'count': count,
-    };
+    return {'average': average, 'count': count};
   }
 }
 
 class ProductAvailableSize {
-  const ProductAvailableSize({
-    this.id,
-    this.name,
-  });
+  const ProductAvailableSize({this.id, this.name});
 
   factory ProductAvailableSize.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
@@ -437,19 +409,12 @@ class ProductAvailableSize {
   final String? name;
 
   Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'name': name,
-    };
+    return {'id': id, 'name': name};
   }
 }
 
 class ProductAvailableColor {
-  const ProductAvailableColor({
-    this.id,
-    this.name,
-    this.hexCode,
-  });
+  const ProductAvailableColor({this.id, this.name, this.hexCode});
 
   factory ProductAvailableColor.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
@@ -468,11 +433,7 @@ class ProductAvailableColor {
   final String? hexCode;
 
   Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'name': name,
-      'hex_code': hexCode,
-    };
+    return {'id': id, 'name': name, 'hex_code': hexCode};
   }
 }
 
@@ -564,12 +525,7 @@ class ProductVariant {
 }
 
 class ProductVariantColor {
-  const ProductVariantColor({
-    this.id,
-    this.name,
-    this.hexCode,
-    this.image,
-  });
+  const ProductVariantColor({this.id, this.name, this.hexCode, this.image});
 
   factory ProductVariantColor.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
@@ -590,12 +546,7 @@ class ProductVariantColor {
   final String? image;
 
   Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'name': name,
-      'hex_code': hexCode,
-      'image': image,
-    };
+    return {'id': id, 'name': name, 'hex_code': hexCode, 'image': image};
   }
 }
 
@@ -684,10 +635,7 @@ class ProductReview {
 }
 
 class ProductReviewUser {
-  const ProductReviewUser({
-    this.id,
-    this.name,
-  });
+  const ProductReviewUser({this.id, this.name});
 
   factory ProductReviewUser.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
@@ -704,10 +652,7 @@ class ProductReviewUser {
   final String? name;
 
   Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'name': name,
-    };
+    return {'id': id, 'name': name};
   }
 }
 

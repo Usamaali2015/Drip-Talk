@@ -1,4 +1,5 @@
 import 'utils_barrels.dart';
+import 'package:drip_talk/core/common/constants/app_colors.dart';
 
 class SystemUtils {
   SystemUtils._();
@@ -7,7 +8,7 @@ class SystemUtils {
     required Color statusBarColor,
     Brightness statusBarIconBrightness = Brightness.dark,
     Brightness statusBarBrightness = Brightness.light,
-    Color navigationBarColor = Colors.white,
+    Color navigationBarColor = AppColors.pureWhite,
     Brightness navigationBarIconBrightness = Brightness.light,
   }) {
     SystemChrome.setSystemUIOverlayStyle(

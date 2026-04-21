@@ -2,6 +2,7 @@ import 'package:drip_talk/core/common/constants/app_sizes.dart';
 import 'package:drip_talk/core/common/widgets/app_gap.dart';
 import 'package:flutter/material.dart';
 import 'package:drip_talk/core/common/constants/app_text_styles.dart';
+import 'package:drip_talk/core/common/constants/app_colors.dart';
 
 enum AppTextVariant {
   ts8,
@@ -202,7 +203,7 @@ class _AppTextState extends State<AppText> {
       fontStyle: widget.isItalic ? FontStyle.italic : baseStyle.fontStyle,
 
       color: widget.gradient != null
-          ? Colors.white
+          ? AppColors.pureWhite
           : (widget.textColor ?? baseStyle.color),
     );
 

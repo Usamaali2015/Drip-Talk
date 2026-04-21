@@ -1,13 +1,12 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/constants/app_text_styles.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_gradient_border.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
+import 'dart:math' as math;
+
 import 'package:drip_talk/features/chat/data/models/chat_message.dart';
+import 'package:drip_talk/features/chat/view/widgets/chat_attachment_thumbnail.dart';
 import 'package:drip_talk/features/chat/view/widgets/chat_recommendation_card.dart';
+import 'package:drip_talk/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class ChatBubble extends StatelessWidget {
   const ChatBubble({super.key, required this.message});
@@ -19,33 +18,40 @@ class ChatBubble extends StatelessWidget {
     final isBot = message.type == MessageType.bot;
     final hasRecommendations = message.hasRecommendations;
     final isIntroCard = message.isIntroCard;
+    final hasAttachments = message.hasAttachments;
+    final hasText = message.hasText;
 
-    return Align(
-      alignment: isBot ? Alignment.centerLeft : Alignment.centerRight,
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: AppSizes.s6),
-        constraints: BoxConstraints(
-          maxWidth:
-              MediaQuery.of(context).size.width *
-              (isIntroCard ? 0.92 : (isBot ? 0.88 : 0.75)),
-        ),
-        child: Column(
-          crossAxisAlignment: isBot
-              ? CrossAxisAlignment.start
-              : CrossAxisAlignment.end,
-          children: [
-            _MessageBubble(message: message),
-            if (hasRecommendations) ...[
-              const AppGap(AppSizes.s6),
-              ..._buildRecommendationSections(),
+    return RepaintBoundary(
+      child: Align(
+        alignment: isBot ? Alignment.centerLeft : Alignment.centerRight,
+        child: Container(
+          margin: const EdgeInsets.symmetric(vertical: AppSizes.s6),
+          constraints: BoxConstraints(
+            maxWidth:
+                MediaQuery.of(context).size.width *
+                (isIntroCard ? 0.92 : (isBot ? 0.88 : 0.75)),
+          ),
+          child: Column(
+            crossAxisAlignment: isBot
+                ? CrossAxisAlignment.start
+                : CrossAxisAlignment.end,
+            children: [
+              if (hasAttachments) _MessageAttachments(message: message),
+              if (hasAttachments && hasText) const AppGap(AppSizes.s6),
+              if (hasText) _MessageBubble(message: message),
+              if (hasRecommendations) ...[
+                const AppGap(AppSizes.s6),
+                ..._buildRecommendationSections(context),
+              ],
             ],
-          ],
+          ),
         ),
       ),
     );
   }
 
-  List<Widget> _buildRecommendationSections() {
+  List<Widget> _buildRecommendationSections(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final response = message.response;
     if (response == null) {
       return const <Widget>[];
@@ -55,7 +61,7 @@ class ChatBubble extends StatelessWidget {
 
     if (response.hasAiRecommendations) {
       sections.add(
-        const _SectionLabel(label: 'AI Picks', color: AppColors.secondary),
+        _SectionLabel(label: l10n.chatAiPicks, color: AppColors.secondary),
       );
       sections.addAll(
         response.aiRecommendedItems.map(
@@ -69,7 +75,7 @@ class ChatBubble extends StatelessWidget {
         sections.add(const AppGap(AppSizes.s6));
       }
       sections.add(
-        const _SectionLabel(label: 'Catalog Matches', color: AppColors.cyan),
+        _SectionLabel(label: l10n.chatCatalogMatches, color: AppColors.cyan),
       );
       sections.addAll(
         response.catalogRecommendationItems.map(
@@ -92,6 +98,7 @@ class _MessageBubble extends StatelessWidget {
     final isBot = message.type == MessageType.bot;
     final isError = message.isError;
     final isIntroCard = message.isIntroCard;
+    final resolvedText = _resolveMessageText(context);
 
     if (isIntroCard) {
       return _IntroMessageCard(message: message);
@@ -118,20 +125,72 @@ class _MessageBubble extends StatelessWidget {
         border: isBot
             ? Border.all(
                 color: isError
-                    ? Colors.redAccent.withValues(alpha: 0.5)
+                    ? AppColors.materialRedAccent.withValues(alpha: 0.5)
                     : AppColors.secondary.withValues(alpha: 0.5),
               )
             : null,
       ),
       child: AppText(
-        text: message.text,
+        text: resolvedText,
         style: AppTextStyles.ts14(
           context,
-          color: AppColors.white,
+          color: AppColors.pureWhite,
           fontWeight: FontWeight.w400,
         ),
         maxLines: 1000,
       ),
+    );
+  }
+
+  String _resolveMessageText(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final textKey = message.textKey;
+    if (textKey == null) {
+      return message.text;
+    }
+
+    switch (textKey) {
+      case ChatMessageTextKey.historyFallback:
+        return l10n.chatHistoryFallbackMessage;
+      case ChatMessageTextKey.assistantSummaryAiAndCatalog:
+        return l10n.chatAssistantSummaryAiAndCatalog(
+          message.aiCount ?? 0,
+          message.catalogCount ?? 0,
+        );
+      case ChatMessageTextKey.assistantSummaryAiOnly:
+        return l10n.chatAssistantSummaryAiOnly(message.aiCount ?? 0);
+      case ChatMessageTextKey.assistantSummaryCatalogOnly:
+        return l10n.chatAssistantSummaryCatalogOnly(message.catalogCount ?? 0);
+      case ChatMessageTextKey.assistantSummaryGeneric:
+        return l10n.chatAssistantSummaryGeneric;
+      case ChatMessageTextKey.genericError:
+        return l10n.chatGenericErrorMessage;
+    }
+  }
+}
+
+class _MessageAttachments extends StatelessWidget {
+  const _MessageAttachments({required this.message});
+
+  final ChatMessage message;
+
+  @override
+  Widget build(BuildContext context) {
+    final isBot = message.type == MessageType.bot;
+    final itemSize = message.attachments.length == 1
+        ? math.min(MediaQuery.of(context).size.width * 0.56, AppSizes.s220)
+        : AppSizes.s120;
+
+    return Wrap(
+      spacing: AppSizes.s8,
+      runSpacing: AppSizes.s8,
+      alignment: isBot ? WrapAlignment.start : WrapAlignment.end,
+      children: message.attachments
+          .map(
+            (attachment) =>
+                ChatAttachmentThumbnail(attachment: attachment, size: itemSize),
+          )
+          .toList(),
     );
   }
 }
@@ -143,9 +202,11 @@ class _IntroMessageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return GradientBorder(
       colors: const [AppColors.primary, AppColors.secondary, AppColors.cyan],
-      backgroundColor: const Color(0xFF2A2346),
+      backgroundColor: AppColors.chatBubbleBackground,
       borderRadius: AppRadius.r30,
       borderWidth: 1.2,
       enableShadow: false,
@@ -156,7 +217,7 @@ class _IntroMessageCard extends StatelessWidget {
       child: Column(
         children: [
           AppText(
-            text: message.title ?? '',
+            text: l10n.chatIntroTitle,
             textAlign: TextAlign.center,
             variant: AppTextVariant.ts20,
             textColor: AppColors.secondary,
@@ -165,11 +226,11 @@ class _IntroMessageCard extends StatelessWidget {
           ),
           const AppGap(AppSizes.s10),
           AppText(
-            text: message.text,
+            text: l10n.chatIntroMessage,
             textAlign: TextAlign.center,
             style: AppTextStyles.ts15(
               context,
-              color: AppColors.white,
+              color: AppColors.pureWhite,
               fontWeight: FontWeight.w400,
             ).copyWith(height: 1.45),
             maxLines: 6,
@@ -201,7 +262,7 @@ class _SectionLabel extends StatelessWidget {
           AppText(
             text: label,
             variant: AppTextVariant.ts12,
-            textColor: Colors.white.withValues(alpha: 0.82),
+            textColor: AppColors.pureWhite.withValues(alpha: 0.82),
             fontWeight: FontWeight.w700,
           ),
         ],

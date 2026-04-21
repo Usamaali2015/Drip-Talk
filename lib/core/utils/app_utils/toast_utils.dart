@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:drip_talk/core/utils/responsive/break_points.dart';
+import 'package:drip_talk/core/common/constants/app_colors.dart';
 
 import 'utils_barrels.dart';
 
@@ -8,21 +9,29 @@ enum ToastType { success, error, info }
 class ToastUtils {
   ToastUtils._();
 
+  static VoidCallback? _removeActiveToast;
+
   static void show(
-      BuildContext context,
-      String message, {
-        ToastType type = ToastType.success,
-        Duration? duration,
-        bool dismissOnTap = true,
-        double? bottomPadding,
-      }) {
-    final overlay = Overlay.of(context);
+    BuildContext context,
+    String message, {
+    ToastType type = ToastType.success,
+    Duration? duration,
+    bool dismissOnTap = true,
+    double? bottomPadding,
+  }) {
+    final overlay = Overlay.maybeOf(context, rootOverlay: true);
+    if (overlay == null) {
+      return;
+    }
     final colorScheme = Theme.of(context).colorScheme;
 
     duration ??= AppDurations.threeSeconds;
     bottomPadding ??= 90;
 
+    _removeActiveToast?.call();
+
     late OverlayEntry entry;
+    var isRemoved = false;
 
     final icon = switch (type) {
       ToastType.success => Icons.check_circle_rounded,
@@ -31,16 +40,34 @@ class ToastUtils {
     };
 
     final (iconColor, backgroundColor) = switch (type) {
-      ToastType.success => (Colors.green, Colors.green.withValues(alpha: 0.2)),
+      ToastType.success => (
+        AppColors.materialGreen,
+        AppColors.materialGreen.withValues(alpha: 0.2),
+      ),
       ToastType.error => (
-      colorScheme.error,
-      colorScheme.error.withValues(alpha: 0.2),
+        colorScheme.error,
+        colorScheme.error.withValues(alpha: 0.2),
       ),
       ToastType.info => (
-      colorScheme.primary,
-      colorScheme.primary.withValues(alpha: 0.2),
+        colorScheme.primary,
+        colorScheme.primary.withValues(alpha: 0.2),
       ),
     };
+
+    void removeEntry() {
+      if (isRemoved) {
+        return;
+      }
+
+      isRemoved = true;
+      if (identical(_removeActiveToast, removeEntry)) {
+        _removeActiveToast = null;
+      }
+
+      if (entry.mounted) {
+        entry.remove();
+      }
+    }
 
     entry = OverlayEntry(
       builder: (_) => _ToastWidget(
@@ -51,15 +78,15 @@ class ToastUtils {
         colorScheme: colorScheme,
         bottomPadding: bottomPadding!,
         dismissOnTap: dismissOnTap,
+        duration: duration!,
+        onDismissed: removeEntry,
       ),
     );
 
+    _removeActiveToast = removeEntry;
     overlay.insert(entry);
-
-    Future.delayed(duration, entry.remove);
   }
 }
-
 
 class _ToastWidget extends StatefulWidget {
   final String message;
@@ -69,6 +96,8 @@ class _ToastWidget extends StatefulWidget {
   final ColorScheme colorScheme;
   final double bottomPadding;
   final bool dismissOnTap;
+  final Duration duration;
+  final VoidCallback onDismissed;
 
   const _ToastWidget({
     required this.message,
@@ -78,6 +107,8 @@ class _ToastWidget extends StatefulWidget {
     required this.colorScheme,
     required this.bottomPadding,
     required this.dismissOnTap,
+    required this.duration,
+    required this.onDismissed,
   });
 
   @override
@@ -89,6 +120,8 @@ class _ToastWidgetState extends State<_ToastWidget>
   late final AnimationController _controller;
   late final Animation<Offset> _slide;
   late final Animation<double> _scale;
+  Timer? _dismissTimer;
+  bool _isDismissing = false;
 
   @override
   void initState() {
@@ -102,21 +135,39 @@ class _ToastWidgetState extends State<_ToastWidget>
     _slide = Tween(
       begin: const Offset(0, 0.5),
       end: Offset.zero,
-    ).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic),
-    );
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic));
 
-    _scale = Tween(begin: 0.95, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeOutBack),
-    );
+    _scale = Tween(
+      begin: 0.95,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
 
     _controller.forward();
+    _dismissTimer = Timer(widget.duration, _dismiss);
   }
 
   @override
   void dispose() {
+    _dismissTimer?.cancel();
     _controller.dispose();
     super.dispose();
+  }
+
+  Future<void> _dismiss() async {
+    if (_isDismissing) {
+      return;
+    }
+
+    _isDismissing = true;
+    _dismissTimer?.cancel();
+
+    if (_controller.status != AnimationStatus.dismissed) {
+      try {
+        await _controller.reverse();
+      } catch (_) {}
+    }
+
+    widget.onDismissed();
   }
 
   double _toastMaxWidth(double width) {
@@ -138,23 +189,21 @@ class _ToastWidgetState extends State<_ToastWidget>
       child: Align(
         alignment: Alignment.bottomCenter,
         child: ConstrainedBox(
-          constraints: BoxConstraints(
-            maxWidth: _toastMaxWidth(screenWidth),
-          ),
+          constraints: BoxConstraints(maxWidth: _toastMaxWidth(screenWidth)),
           child: GestureDetector(
-            onTap: widget.dismissOnTap ? _controller.reverse : null,
+            onTap: widget.dismissOnTap ? _dismiss : null,
             child: SlideTransition(
               position: _slide,
               child: ScaleTransition(
                 scale: _scale,
                 child: Material(
-                  color: Colors.transparent,
+                  color: AppColors.transparent,
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(18),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.1),
+                          color: AppColors.pureBlack.withValues(alpha: 0.1),
                           blurRadius: 30,
                           offset: const Offset(0, 8),
                           spreadRadius: -5,
@@ -174,8 +223,7 @@ class _ToastWidgetState extends State<_ToastWidget>
                             color: widget.backgroundColor,
                             borderRadius: BorderRadius.circular(18),
                             border: Border.all(
-                              color:
-                              widget.iconColor.withValues(alpha: 0.12),
+                              color: widget.iconColor.withValues(alpha: 0.12),
                             ),
                           ),
                           child: Row(
@@ -184,8 +232,9 @@ class _ToastWidgetState extends State<_ToastWidget>
                                 width: 32,
                                 height: 32,
                                 decoration: BoxDecoration(
-                                  color: widget.iconColor
-                                      .withValues(alpha: 0.2),
+                                  color: widget.iconColor.withValues(
+                                    alpha: 0.2,
+                                  ),
                                   shape: BoxShape.circle,
                                 ),
                                 child: Icon(
@@ -194,10 +243,7 @@ class _ToastWidgetState extends State<_ToastWidget>
                                   size: iconSize,
                                 ),
                               ),
-                              const AppGap(
-                                AppSizes.s16,
-                                axis: Axis.horizontal,
-                              ),
+                              const AppGap(AppSizes.s16, axis: Axis.horizontal),
                               Expanded(
                                 child: Text(
                                   widget.message,
@@ -205,7 +251,7 @@ class _ToastWidgetState extends State<_ToastWidget>
                                   overflow: TextOverflow.ellipsis,
                                   style: AppTextStyles.ts14(
                                     context,
-                                    color:widget.colorScheme.onSecondary,
+                                    color: widget.colorScheme.onSecondary,
                                   ).copyWith(fontWeight: FontWeight.w500),
                                 ),
                               ),
@@ -224,4 +270,3 @@ class _ToastWidgetState extends State<_ToastWidget>
     );
   }
 }
-

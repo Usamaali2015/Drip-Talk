@@ -74,10 +74,15 @@ class RecommendationData {
       messageId: _asInt(source?['message_id']),
       messageType: _asString(source?['message_type']),
       aiRecommended: _asList(
-        source?['ai_recommended'],
+        source?['ai_recommended'] ?? source?['recommendations'],
         AiRecommendedItem.fromJson,
       ),
-      catalogItems: _asList(source?['catalog_items'], CatalogItem.fromJson),
+      catalogItems: _asList(
+        source?['catalog_items'] ??
+            source?['products'] ??
+            source?['catalog_recommendations'],
+        CatalogItem.fromJson,
+      ),
       catalogSize: _asInt(source?['catalog_size']),
     );
   }

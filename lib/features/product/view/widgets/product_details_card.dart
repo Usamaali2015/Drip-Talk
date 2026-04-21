@@ -1,13 +1,9 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_padding.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_html_content.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
+import 'package:drip_talk/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 import 'app_rating.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class ProductDetailsCard extends StatelessWidget {
   final String? productName;
@@ -20,6 +16,9 @@ class ProductDetailsCard extends StatelessWidget {
   final String? productDescription;
   final String? availabilityLabel;
   final Color? availabilityColor;
+  final VoidCallback? onReviewPressed;
+  final bool isReviewActionLoading;
+  final String? reviewActionText;
 
   const ProductDetailsCard({
     super.key,
@@ -33,10 +32,14 @@ class ProductDetailsCard extends StatelessWidget {
     this.productOFFPercentage,
     this.availabilityLabel,
     this.availabilityColor,
+    this.onReviewPressed,
+    this.isReviewActionLoading = false,
+    this.reviewActionText,
   });
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final hasComparePrice =
         productOffPrice != null && productOffPrice!.trim().isNotEmpty;
     final hasDiscount =
@@ -78,7 +81,7 @@ class ProductDetailsCard extends StatelessWidget {
                       colors: [
                         AppColors.secondary,
                         AppColors.secondary,
-                        AppColors.white,
+                        AppColors.pureWhite,
                       ],
                     ),
                   ),
@@ -91,19 +94,19 @@ class ProductDetailsCard extends StatelessWidget {
                       vertical: AppSizes.s6,
                     ),
                     decoration: BoxDecoration(
-                      color: (availabilityColor ?? AppColors.green).withValues(
-                        alpha: 0.18,
-                      ),
+                      color: (availabilityColor ?? AppColors.materialGreen)
+                          .withValues(alpha: 0.18),
                       borderRadius: BorderRadius.circular(AppRadius.r12),
                       border: Border.all(
-                        color: availabilityColor ?? AppColors.green,
+                        color: availabilityColor ?? AppColors.materialGreen,
                       ),
                     ),
                     child: AppText(
                       text: availabilityLabel!,
                       variant: AppTextVariant.ts10,
                       fontWeight: FontWeight.w700,
-                      textColor: availabilityColor ?? AppColors.green,
+                      textColor:
+                          availabilityColor ?? AppColors.materialGreen,
                     ),
                   ),
               ],
@@ -112,7 +115,7 @@ class ProductDetailsCard extends StatelessWidget {
               AppText(
                 text: productType!,
                 variant: AppTextVariant.ts14,
-                textColor: AppColors.white.withValues(alpha: 0.6),
+                textColor: AppColors.pureWhite.withValues(alpha: 0.6),
               ),
               const AppGap(AppSizes.s8),
             ],
@@ -132,7 +135,7 @@ class ProductDetailsCard extends StatelessWidget {
                     text: productOffPrice!,
                     variant: AppTextVariant.ts14,
                     fontWeight: FontWeight.w500,
-                    textColor: AppColors.white.withValues(alpha: 0.5),
+                    textColor: AppColors.pureWhite.withValues(alpha: 0.5),
                     textDecoration: TextDecoration.lineThrough,
                   ),
                 if (hasDiscount)
@@ -149,7 +152,7 @@ class ProductDetailsCard extends StatelessWidget {
                       text: productOFFPercentage!,
                       variant: AppTextVariant.ts10,
                       fontWeight: FontWeight.bold,
-                      textColor: AppColors.white,
+                      textColor: AppColors.pureWhite,
                     ),
                   ),
               ],
@@ -163,6 +166,23 @@ class ProductDetailsCard extends StatelessWidget {
                 html: productDescription!,
                 enableReadMore: true,
                 collapsedHeight: 132,
+              ),
+            ],
+            if (onReviewPressed != null) ...[
+              const AppGap(AppSizes.s16),
+              AppButton(
+                text: reviewActionText ?? l10n.reviewsWriteAction,
+                onPressed: onReviewPressed,
+                isLoading: isReviewActionLoading,
+                height: AppSizes.s48,
+                borderRadius: AppRadius.r16,
+                gradientColors: const [AppColors.secondary, AppColors.primary],
+                fontSize: AppSizes.s14,
+                leadingIcon: const Icon(
+                  Icons.rate_review_outlined,
+                  color: AppColors.pureWhite,
+                  size: AppSizes.s18,
+                ),
               ),
             ],
           ],

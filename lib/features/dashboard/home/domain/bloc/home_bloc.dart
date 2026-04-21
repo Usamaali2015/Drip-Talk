@@ -1,6 +1,5 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:drip_talk/features/dashboard/home/domain/bloc/home_state.dart';
-
-import '../../../../on_boarding/view/on_boarding_barrels.dart';
 import 'home_event.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {

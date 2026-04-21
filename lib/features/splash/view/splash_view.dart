@@ -1,15 +1,12 @@
-import 'package:drip_talk/core/common/widgets/app_gradient_background.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 import 'package:drip_talk/core/services/get_it/service_locator.dart';
-import 'package:drip_talk/core/services/storage/secure_storage.dart';
-import 'package:drip_talk/core/utils/responsive/responsive_layout.dart';
 import 'package:drip_talk/core/utils/routes/app_routes.dart';
+import 'package:drip_talk/core/utils/routes/auth_guard.dart';
 import 'package:drip_talk/core/utils/routes/route_paths.dart';
-import 'package:drip_talk/features/auth/auth_repository/auth_session_repository.dart';
+import 'package:drip_talk/features/auth/barrels/auth_barrels.dart';
+import 'package:drip_talk/generated/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'responsive_view/desktop_splash_view.dart';
-import 'responsive_view/mobile_splash_view.dart';
-import 'responsive_view/tablet_splash_view.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -19,6 +16,8 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
+  static const Duration _minimumDisplayDuration = Duration(milliseconds: 350);
+
   @override
   void initState() {
     super.initState();
@@ -26,25 +25,40 @@ class _SplashViewState extends State<SplashView> {
   }
 
   Future<void> _handleNavigation() async {
-    await Future.delayed(const Duration(seconds: 3));
+    final stopwatch = Stopwatch()..start();
+
+    await restoreStartupAuthSession();
+    await AuthGuard.initialize();
     if (!mounted) return;
 
     final authSessionRepository = getIt<AuthSessionRepository>();
-    final pendingEmail = await authSessionRepository.getPendingVerificationEmail();
+    final sessionValues = await Future.wait<String?>([
+      authSessionRepository.getPendingVerificationEmail(),
+      authSessionRepository.getEmailVerifiedAt(),
+      authSessionRepository.getAuthToken(),
+    ]);
     if (!mounted) return;
 
-    if (pendingEmail != null &&
-        await authSessionRepository.hasPendingEmailVerification()) {
+    final pendingEmail = sessionValues[0];
+    final emailVerifiedAt = sessionValues[1];
+    final token = sessionValues[2];
+    final hasPendingEmailVerification =
+        pendingEmail != null && emailVerifiedAt == null;
+
+    final remainingDisplayDuration =
+        _minimumDisplayDuration - stopwatch.elapsed;
+    if (remainingDisplayDuration > Duration.zero) {
+      await Future.delayed(remainingDisplayDuration);
       if (!mounted) return;
+    }
+
+    if (hasPendingEmailVerification) {
       context.goNamed(
         AppRoutes.otp,
         queryParameters: {'email': pendingEmail, 'type': 'signup'},
       );
       return;
     }
-
-    final token = await SecureStorage.instance.getAuthToken();
-    if (!mounted) return;
 
     if (token != null && token.isNotEmpty) {
       context.go(RoutePaths.home);
@@ -55,13 +69,15 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
-      child: ResponsiveLayout(
-        mobile: const MobileSplashView(),
-        tablet: const TabletSplashView(),
-        tabletLarge: const TabletSplashView(),
-        desktop: const DesktopSplashView(),
-      ),
+    return AppResponsivePageLayout(
+      showHeaderDivider: false,
+      headerBuilder: (context, _) => const SizedBox.shrink(),
+      bodyBuilder: (context, _) {
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [AppAssetImage(assetPath: Assets.iconsLogo)],
+        );
+      },
     );
   }
 }

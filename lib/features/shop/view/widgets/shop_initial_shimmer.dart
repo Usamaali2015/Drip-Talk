@@ -1,52 +1,74 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_padding.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class ShopInitialShimmer extends StatelessWidget {
   const ShopInitialShimmer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Shimmer.fromColors(
-      baseColor: AppColors.primary.withValues(alpha: 0.1),
-      highlightColor: AppColors.secondary.withValues(alpha: 0.2),
-      child: SingleChildScrollView(
-        padding: AppPadding.allMedium,
-        child: Column(
-          children: [
-            Container(
-              height: AppSizes.s56,
-              width: AppSizes.fitWidth,
-              decoration: BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.circular(AppRadius.r12),
-              ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final width = constraints.maxWidth;
+        final horizontalPadding = width >= 940
+            ? 32.0
+            : width >= 720
+            ? 24.0
+            : 16.0;
+        final columns = width >= 1040
+            ? 4
+            : width >= 720
+            ? 3
+            : 2;
+
+        return Shimmer.fromColors(
+          baseColor: AppColors.shimmerBase,
+          highlightColor: AppColors.shimmerHighlight,
+          child: SingleChildScrollView(
+            padding: EdgeInsets.fromLTRB(
+              horizontalPadding,
+              horizontalPadding,
+              horizontalPadding,
+              AppSizes.s100,
             ),
-            const AppGap(AppSizes.s20),
-            GridView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: 4,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 16,
-                crossAxisSpacing: 16,
-                childAspectRatio: 0.6,
-              ),
-              itemBuilder: (_, _) => Container(
-                decoration: BoxDecoration(
-                  color: AppColors.black,
-                  borderRadius: BorderRadius.circular(AppRadius.r16),
+            child: Column(
+              children: [
+                Container(
+                  height: AppSizes.s56,
+                  width: AppSizes.fitWidth,
+                  decoration: BoxDecoration(
+                    color: AppColors.pureBlack,
+                    borderRadius: BorderRadius.circular(AppRadius.r12),
+                  ),
                 ),
-              ),
+                const AppGap(AppSizes.s20),
+                GridView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: columns * 2,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: columns,
+                    mainAxisSpacing: 16,
+                    crossAxisSpacing: 16,
+                    childAspectRatio: columns >= 4
+                        ? 0.78
+                        : columns == 3
+                        ? 0.72
+                        : 0.6,
+                  ),
+                  itemBuilder: (_, _) => Container(
+                    decoration: BoxDecoration(
+                      color: AppColors.pureBlack,
+                      borderRadius: BorderRadius.circular(AppRadius.r16),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }

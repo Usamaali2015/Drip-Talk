@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:drip_talk/core/common/constants/app_sizes.dart';
 import 'package:drip_talk/core/common/widgets/app_gap.dart';
+import 'package:drip_talk/l10n/app_localizations.dart';
+import 'package:drip_talk/core/common/constants/app_colors.dart';
 
 class DashboardSidebar extends StatelessWidget {
   final StatefulNavigationShell navigationShell;
@@ -18,6 +20,7 @@ class DashboardSidebar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context)!;
 
     return Container(
       width: AppSizes.s280,
@@ -34,28 +37,28 @@ class DashboardSidebar extends StatelessWidget {
           const AppGap(AppSizes.s40),
           _SidebarItem(
             icon: Icons.home_outlined,
-            label: 'Home',
+            label: l10n.navHome,
             index: 0,
             shell: navigationShell,
             onTap: _onTap,
           ),
           _SidebarItem(
             icon: Icons.search,
-            label: 'Search',
+            label: l10n.navSearch,
             index: 1,
             shell: navigationShell,
             onTap: _onTap,
           ),
           _SidebarItem(
             icon: Icons.favorite,
-            label: 'Favorites',
+            label: l10n.navFavorites,
             index: 2,
             shell: navigationShell,
             onTap: _onTap,
           ),
           _SidebarItem(
             icon: Icons.settings,
-            label: 'Settings',
+            label: l10n.navSettings,
             index: 3,
             shell: navigationShell,
             onTap: _onTap,
@@ -93,7 +96,7 @@ class _SidebarItem extends StatelessWidget {
         decoration: BoxDecoration(
           color: active
               ? colorScheme.primary.withValues(alpha: 0.08)
-              : Colors.transparent,
+              : AppColors.transparent,
         ),
         child: Row(
           children: [

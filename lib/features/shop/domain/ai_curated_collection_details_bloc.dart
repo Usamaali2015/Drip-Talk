@@ -1,12 +1,13 @@
 import 'package:dio/dio.dart';
+import 'package:drip_talk/core/utils/app_utils/app_localization_utils.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:drip_talk/features/shop/data/repository/shop_repository.dart';
 import 'package:drip_talk/features/shop/domain/ai_curated_collection_details_event.dart';
 import 'package:drip_talk/features/shop/domain/ai_curated_collection_details_state.dart';
 
-class AiCuratedCollectionDetailsBloc extends Bloc<
-    AiCuratedCollectionDetailsEvent,
-    AiCuratedCollectionDetailsState> {
+class AiCuratedCollectionDetailsBloc
+    extends
+        Bloc<AiCuratedCollectionDetailsEvent, AiCuratedCollectionDetailsState> {
   AiCuratedCollectionDetailsBloc(this._repository)
     : super(const AiCuratedCollectionDetailsState()) {
     on<LoadAiCuratedCollectionDetails>(_onLoadAiCuratedCollectionDetails);
@@ -128,7 +129,11 @@ class AiCuratedCollectionDetailsBloc extends Bloc<
           state.copyWith(
             status: AiCuratedCollectionDetailsStatus.failure,
             errorMessage:
-                response.message ?? 'Unable to load curated collection details',
+                response.message ??
+                localizedString(
+                  fallback: 'Unable to load curated collection details',
+                  select: (l10n) => l10n.shopUnableToLoadCollectionDetails,
+                ),
           ),
         );
         return;
@@ -139,7 +144,8 @@ class AiCuratedCollectionDetailsBloc extends Bloc<
           status: AiCuratedCollectionDetailsStatus.success,
           collectionId: collectionId,
           collection: collection,
-          currentPage: collection?.products?.pagination?.currentPage ?? nextPage,
+          currentPage:
+              collection?.products?.pagination?.currentPage ?? nextPage,
           totalPages: collection?.products?.pagination?.lastPage ?? 1,
           totalItems:
               collection?.products?.pagination?.total ??
@@ -177,7 +183,10 @@ class AiCuratedCollectionDetailsBloc extends Bloc<
               : AiCuratedCollectionDetailsStatus.success,
           currentPage: nextPage,
           isRefreshing: false,
-          errorMessage: 'Unable to load curated collection details',
+          errorMessage: localizedString(
+            fallback: 'Unable to load curated collection details',
+            select: (l10n) => l10n.shopUnableToLoadCollectionDetails,
+          ),
         ),
       );
     }
@@ -194,7 +203,10 @@ class AiCuratedCollectionDetailsBloc extends Bloc<
 
     return error.message?.trim().isNotEmpty == true
         ? error.message!.trim()
-        : 'Unable to load curated collection details';
+        : localizedString(
+            fallback: 'Unable to load curated collection details',
+            select: (l10n) => l10n.shopUnableToLoadCollectionDetails,
+          );
   }
 
   @override

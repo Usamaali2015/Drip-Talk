@@ -1,10 +1,9 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/constants/app_text_styles.dart';
-import 'package:drip_talk/core/common/widgets/app_cached_network_image.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:flutter/material.dart';
+import 'package:drip_talk/core/utils/responsive/responsive_extensions.dart';
+
+import 'ai_curated_collection_loading_widgets.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class CollectionCard extends StatelessWidget {
   final String title;
@@ -23,12 +22,23 @@ class CollectionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final hasImage = imageUrl != null && imageUrl!.trim().isNotEmpty;
+    final cardWidth = context.responsive(
+      150.0,
+      tablet: 180.0,
+      tabletLarge: 210.0,
+      desktop: 230.0,
+    );
+    final marginEnd = context.responsive(
+      AppSizes.s12.toDouble(),
+      tablet: 14.0,
+      desktop: 16.0,
+    );
 
     return Container(
-      width: AppSizes.s150,
-      margin: const EdgeInsets.only(right: AppSizes.s12),
+      width: cardWidth,
+      margin: EdgeInsets.only(right: marginEnd),
       child: Material(
-        color: Colors.transparent,
+        color: AppColors.transparent,
         child: InkWell(
           borderRadius: BorderRadius.circular(AppRadius.r12),
           onTap: onTap,
@@ -43,7 +53,7 @@ class CollectionCard extends StatelessWidget {
                     child: AppCachedNetworkImage(
                       imageUrl: imageUrl!.trim(),
                       fit: BoxFit.cover,
-                      placeholder: const ColoredBox(color: AppColors.lightBg),
+                      placeholder: const AiCuratedCollectionImagePlaceholder(),
                       errorWidget: const _CollectionCardFallback(),
                     ),
                   ),
@@ -54,8 +64,8 @@ class CollectionCard extends StatelessWidget {
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [
-                        Colors.transparent,
-                        Colors.black.withValues(alpha: 0.8),
+                        AppColors.transparent,
+                        AppColors.pureBlack.withValues(alpha: 0.8),
                       ],
                     ),
                   ),
@@ -68,7 +78,7 @@ class CollectionCard extends StatelessWidget {
                         maxLines: 2,
                         style: AppTextStyles.ts14(
                           context,
-                          color: AppColors.white,
+                          color: AppColors.pureWhite,
                           fontWeight: FontWeight.w600,
                           customFontFamily: AppTextStyles.fontFamilyPrimary,
                         ),
@@ -78,7 +88,7 @@ class CollectionCard extends StatelessWidget {
                         maxLines: 1,
                         style: AppTextStyles.ts10(
                           context,
-                          color: AppColors.white.withValues(alpha: 0.6),
+                          color: AppColors.pureWhite.withValues(alpha: 0.6),
                           customFontFamily: AppTextStyles.fontFamilyPrimary,
                         ),
                       ),
@@ -110,7 +120,7 @@ class _CollectionCardFallback extends StatelessWidget {
       child: Center(
         child: Icon(
           Icons.auto_awesome_rounded,
-          color: AppColors.white.withValues(alpha: 0.85),
+          color: AppColors.pureWhite.withValues(alpha: 0.85),
           size: AppSizes.s40,
         ),
       ),

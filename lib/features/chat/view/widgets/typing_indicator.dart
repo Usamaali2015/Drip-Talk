@@ -1,7 +1,5 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
 
 class TypingIndicator extends StatefulWidget {
   const TypingIndicator({super.key});
@@ -31,24 +29,28 @@ class _TypingIndicatorState extends State<TypingIndicator>
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: AppSizes.s8),
-        padding: const EdgeInsets.symmetric(
-          horizontal: AppSizes.s16,
-          vertical: AppSizes.s12,
-        ),
-        decoration: BoxDecoration(
-          color: AppColors.lightBg,
-          borderRadius: BorderRadius.circular(AppRadius.r16),
-          border: Border.all(color: AppColors.secondary.withValues(alpha: 0.5)),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: List<Widget>.generate(
-            3,
-            (index) => _TypingDot(controller: _controller, index: index),
+    return RepaintBoundary(
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: Container(
+          margin: const EdgeInsets.symmetric(vertical: AppSizes.s8),
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppSizes.s16,
+            vertical: AppSizes.s12,
+          ),
+          decoration: BoxDecoration(
+            color: AppColors.lightBg,
+            borderRadius: BorderRadius.circular(AppRadius.r16),
+            border: Border.all(
+              color: AppColors.secondary.withValues(alpha: 0.5),
+            ),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: List<Widget>.generate(
+              3,
+              (index) => _TypingDot(controller: _controller, index: index),
+            ),
           ),
         ),
       ),
@@ -94,7 +96,7 @@ class _TypingDot extends StatelessWidget {
           right: index == 2 ? 0 : AppSizes.s4,
         ),
         decoration: const BoxDecoration(
-          color: AppColors.white,
+          color: AppColors.pureWhite,
           shape: BoxShape.circle,
         ),
       ),

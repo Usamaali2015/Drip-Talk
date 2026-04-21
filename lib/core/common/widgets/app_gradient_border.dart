@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:drip_talk/core/common/constants/app_colors.dart';
 
 class GradientBorder extends StatelessWidget {
   final Widget child;
@@ -30,7 +31,7 @@ class GradientBorder extends StatelessWidget {
     this.borderRadius = 16,
     this.begin = Alignment.topLeft,
     this.end = Alignment.bottomRight,
-    this.backgroundColor = Colors.white,
+    this.backgroundColor = AppColors.pureWhite,
     this.shape = BoxShape.rectangle,
     this.padding = const EdgeInsets.all(12),
     this.enableShadow = true,
@@ -47,7 +48,7 @@ class GradientBorder extends StatelessWidget {
     final radius = BorderRadius.circular(borderRadius);
 
     return Material(
-      color: Colors.transparent,
+      color: AppColors.transparent,
       shape: shape == BoxShape.rectangle
           ? RoundedRectangleBorder(borderRadius: radius)
           : const CircleBorder(),

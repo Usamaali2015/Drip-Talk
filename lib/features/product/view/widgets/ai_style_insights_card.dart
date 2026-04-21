@@ -1,16 +1,15 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_padding.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
+import 'package:drip_talk/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class AIStyleInsightsCard extends StatelessWidget {
   const AIStyleInsightsCard({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Container(
       padding: EdgeInsets.all(1),
       decoration: BoxDecoration(
@@ -33,7 +32,7 @@ class AIStyleInsightsCard extends StatelessWidget {
                 const Icon(Icons.psychology, color: AppColors.cyan, size: 24),
                 const AppGap(AppSizes.s8, axis: Axis.horizontal),
                 AppText(
-                  text: "AI Style Insights",
+                  text: l10n.aiStyleInsightsTitle,
                   variant: AppTextVariant.ts18,
                   fontWeight: FontWeight.w700,
                   textColor: AppColors.cyan,
@@ -43,20 +42,20 @@ class AIStyleInsightsCard extends StatelessWidget {
             const AppGap(AppSizes.s16),
             _buildInsightRow(
               "🎯",
-              "Perfect Pairing:",
-              "Wear with black cargo pants and high-top sneakers",
+              l10n.aiStyleInsightsPerfectPairing,
+              l10n.aiStyleInsightsPerfectPairingDescription,
             ),
             const AppGap(AppSizes.s12),
             _buildInsightRow(
               "✨",
-              "Style Tip:",
-              "Roll up sleeves for a more casual look",
+              l10n.aiStyleInsightsStyleTip,
+              l10n.aiStyleInsightsStyleTipDescription,
             ),
             const AppGap(AppSizes.s12),
             _buildInsightRow(
               "📈",
-              "Trend Alert:",
-              "85% of your style matches this item",
+              l10n.aiStyleInsightsTrendAlert,
+              l10n.aiStyleInsightsTrendAlertDescription,
             ),
           ],
         ),
@@ -68,9 +67,9 @@ class AIStyleInsightsCard extends StatelessWidget {
     return Container(
       padding: AppPadding.allSmall,
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.05),
+        color: AppColors.pureWhite.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(AppRadius.r16),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
+        border: Border.all(color: AppColors.pureWhite.withValues(alpha: 0.1)),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,7 +80,7 @@ class AIStyleInsightsCard extends StatelessWidget {
             child: RichText(
               text: TextSpan(
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: AppColors.pureWhite,
                   fontSize: 13,
                   height: 1.4,
                 ),
@@ -93,7 +92,7 @@ class AIStyleInsightsCard extends StatelessWidget {
                   TextSpan(
                     text: description,
                     style: TextStyle(
-                      color: Colors.white.withValues(alpha: 0.8),
+                      color: AppColors.pureWhite.withValues(alpha: 0.8),
                     ),
                   ),
                 ],

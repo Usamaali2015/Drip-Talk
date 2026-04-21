@@ -42,6 +42,19 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cancel => 'إلغاء';
 
   @override
+  String get loginTwoFactorTitle => 'تحقق من المصادقة الثنائية';
+
+  @override
+  String get loginTwoFactorScreenTitle => 'أدخل الرمز المكون من 6 أرقام';
+
+  @override
+  String get loginTwoFactorScreenSubtitle =>
+      'افتح تطبيق المصادقة وأدخل رمز التحقق لإكمال تسجيل الدخول.';
+
+  @override
+  String get loginTwoFactorAction => 'تحقق وسجّل الدخول';
+
+  @override
   String get retry => 'إعادة المحاولة';
 
   @override
@@ -100,6 +113,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get login => 'تسجيل الدخول';
 
   @override
+  String get loggingIn => 'جارِ تسجيل الدخول...';
+
+  @override
   String get loginDes => 'تسجيل الدخول إلى Drip Talk';
 
   @override
@@ -126,6 +142,17 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get sendResetLink => 'إرسال رابط إعادة التعيين';
+
+  @override
+  String get sendVerificationCode => 'إرسال رمز التحقق';
+
+  @override
+  String get changePasswordVerificationSubtitle =>
+      'سنرسل رمز تحقق إلى بريدك الإلكتروني قبل تحديث كلمة المرور.';
+
+  @override
+  String get changePasswordVerificationSentDescription =>
+      'أدخل الرمز المرسل إلى بريدك الإلكتروني للمتابعة في تغيير كلمة المرور.';
 
   @override
   String get rememberPassword => 'تتذكر كلمة مرورك؟';
@@ -155,6 +182,27 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get resettingYourPassword =>
       'أدخل الرمز المكون من 4 أرقام المرسل إلى بريدك لمتابعة إعادة تعيين كلمة المرور.';
+
+  @override
+  String get otpDescriptionSignup =>
+      'أدخل الرمز المرسل إلى بريدك الإلكتروني لتأكيد حسابك والمتابعة.';
+
+  @override
+  String get otpDescriptionForgotPassword =>
+      'أدخل الرمز المرسل إلى بريدك الإلكتروني لمتابعة إعادة تعيين كلمة المرور.';
+
+  @override
+  String get otpDescriptionTwoFactor =>
+      'أدخل الرمز المرسل إلى بريدك الإلكتروني لإكمال تسجيل الدخول بأمان.';
+
+  @override
+  String get otpVerifying => 'جارٍ التحقق...';
+
+  @override
+  String get otpVerifiedSuccess => 'تم التحقق من الرمز بنجاح';
+
+  @override
+  String get otpResentSuccess => 'تمت إعادة إرسال الرمز بنجاح';
 
   @override
   String get phone => 'الهاتف';
@@ -267,6 +315,10 @@ class AppLocalizationsAr extends AppLocalizations {
       'تم تحديث كلمة المرور الخاصة بك. يمكنك الآن تسجيل الدخول إلى Drip Talk بكلمة المرور الجديدة.';
 
   @override
+  String get changePasswordProfileSuccessDescription =>
+      'تم تحديث كلمة المرور الخاصة بك بنجاح.';
+
+  @override
   String get createNewPassword => 'إنشاء كلمة مرور جديدة';
 
   @override
@@ -274,10 +326,217 @@ class AppLocalizationsAr extends AppLocalizations {
       'قم بتعيين كلمة مرور قوية لحماية حسابك.';
 
   @override
+  String get changePasswordScreenTitle => 'غيّر كلمة المرور';
+
+  @override
+  String get changePasswordScreenSubtitle =>
+      'حافظ على أمان حسابك من خلال تحديث كلمة المرور بانتظام.';
+
+  @override
+  String get changePasswordNewPasswordHint => 'أنشئ كلمة مرور جديدة قوية';
+
+  @override
+  String get changePasswordConfirmPasswordHint =>
+      'أعد إدخال كلمة المرور الجديدة';
+
+  @override
+  String get changePasswordRequirementsTitle => 'يجب أن تحتوي كلمة المرور على:';
+
+  @override
+  String get changePasswordRuleMinLength => '8 أحرف على الأقل';
+
+  @override
+  String get changePasswordRuleUppercase => 'حرف كبير واحد';
+
+  @override
+  String get changePasswordRuleNumberOrSymbol => 'رقم واحد أو رمز';
+
+  @override
+  String get changePasswordRuleSpecialCharacter =>
+      'تتضمن رمزًا خاصًا (مثل @ أو # أو \$)';
+
+  @override
+  String get changePasswordUpdateAction => 'تحديث كلمة المرور';
+
+  @override
+  String get changePasswordPasswordRequired => 'أدخل كلمة المرور الجديدة';
+
+  @override
+  String get changePasswordConfirmationRequired => 'أكد كلمة المرور الجديدة';
+
+  @override
+  String get changePasswordRequirementsMessage =>
+      'كلمة المرور لا تستوفي الشروط المطلوبة';
+
+  @override
+  String get changePasswordSessionExpired =>
+      'انتهت جلسة إعادة تعيين كلمة المرور. يرجى طلب رمز جديد.';
+
+  @override
   String get profile => 'الملف الشخصي';
 
   @override
   String get editProfile => 'تعديل الملف الشخصي';
+
+  @override
+  String get editProfileScreenTitle => 'تعديل الملف الشخصي';
+
+  @override
+  String get editProfileScreenSubtitle => 'إدارة معلومات حسابك';
+
+  @override
+  String get editProfileUploadPhotoLabel => 'قم برفع صورة شخصية واضحة';
+
+  @override
+  String get editProfilePersonalInformation => 'المعلومات الشخصية';
+
+  @override
+  String get editProfileFullNameLabel => 'أدخل اسمك الكامل';
+
+  @override
+  String get editProfileFullNameHint => 'أدخل اسمك الكامل';
+
+  @override
+  String get editProfileUsernameLabel => 'اسم المستخدم';
+
+  @override
+  String get editProfileUsernameHint => 'اسم المستخدم';
+
+  @override
+  String get editProfileUsernameNote => 'سيكون هذا مرئيًا للمستخدمين الآخرين';
+
+  @override
+  String get editProfilePhoneLabel => 'رقم الهاتف';
+
+  @override
+  String get editProfilePhoneHint => 'أدخل رقم هاتفك';
+
+  @override
+  String get editProfileDateOfBirthLabel => 'تاريخ الميلاد';
+
+  @override
+  String get editProfileDateOfBirthHint => 'اختر تاريخ الميلاد';
+
+  @override
+  String get editProfileGenderLabel => 'الجنس';
+
+  @override
+  String get editProfileGenderHint => 'اختر الجنس';
+
+  @override
+  String get editProfileGenderSheetTitle => 'اختر الجنس';
+
+  @override
+  String get editProfileDefaultAddressTitle => 'العنوان الافتراضي';
+
+  @override
+  String get editProfileAddressStreet => 'الشارع';
+
+  @override
+  String get editProfileAddressState => 'الولاية';
+
+  @override
+  String get editProfileAddressCountry => 'الدولة';
+
+  @override
+  String get editProfileNoDefaultAddress => 'لا يوجد عنوان افتراضي';
+
+  @override
+  String get editProfileFieldNotSet => 'غير محدد';
+
+  @override
+  String get editProfileManageAddresses => 'إدارة العناوين';
+
+  @override
+  String get editProfileInterestsTitle => 'الأسلوب والاهتمامات';
+
+  @override
+  String get editProfileEditInterestsAction => 'تعديل الأسلوب والاهتمامات';
+
+  @override
+  String get editProfileTwoFactorTitle => 'المصادقة الثنائية';
+
+  @override
+  String get editProfileBiometricTitle => 'تسجيل الدخول البيومتري';
+
+  @override
+  String get twoFactorSetupTitle => 'إعداد المصادقة الثنائية';
+
+  @override
+  String get twoFactorSetupSubtitle => 'امسح رمز QR باستخدام تطبيق المصادقة';
+
+  @override
+  String get twoFactorManualKeyLabel => 'أو أدخل هذا المفتاح يدويًا';
+
+  @override
+  String get twoFactorNextVerifyAction => 'التالي: تحقق من الرمز';
+
+  @override
+  String get twoFactorVerifyTitle => 'أدخل الرمز المكون من 6 أرقام';
+
+  @override
+  String get twoFactorVerifySubtitle =>
+      'افتح تطبيق المصادقة وأدخل الرمز الظاهر للتطبيق الآمن.';
+
+  @override
+  String get twoFactorVerifyAction => 'تحقق وقم بالتفعيل';
+
+  @override
+  String get twoFactorDidNotGetCode => 'لم تحصل على رمز؟ ';
+
+  @override
+  String get twoFactorRescanQr => 'إعادة مسح QR';
+
+  @override
+  String get editProfileResetAction => 'إعادة تعيين';
+
+  @override
+  String get editProfileSaveAction => 'حفظ';
+
+  @override
+  String get editProfileNameRequired => 'يرجى إدخال اسمك الكامل';
+
+  @override
+  String get editProfilePhoneInvalid => 'يرجى إدخال رقم هاتف صالح';
+
+  @override
+  String get editProfileLoadFailed => 'تعذر تحميل الملف الشخصي';
+
+  @override
+  String get editProfileSavedSuccess => 'تم تحديث الملف الشخصي بنجاح';
+
+  @override
+  String get editProfileSaveFailed => 'تعذر تحديث الملف الشخصي';
+
+  @override
+  String get editProfilePhotoSourceTitle => 'اختر مصدر الصورة';
+
+  @override
+  String get imagePickerSingleHint =>
+      'اختر صورة من المعرض أو التقط صورة جديدة.';
+
+  @override
+  String get imagePickerMultipleHint =>
+      'اختر صورًا من المعرض أو التقط صورة جديدة.';
+
+  @override
+  String get imagePickerGalleryCaptionSingle => 'اختر صورة موجودة';
+
+  @override
+  String get imagePickerGalleryCaptionMultiple => 'حدد صورة واحدة أو عدة صور';
+
+  @override
+  String get imagePickerCameraCaption => 'التقط صورة جديدة فورًا';
+
+  @override
+  String get editProfilePhotoCameraAction => 'الكاميرا';
+
+  @override
+  String get editProfilePhotoGalleryAction => 'المعرض';
+
+  @override
+  String get editProfileChangePasswordUnavailable =>
+      'تغيير كلمة المرور غير متاح حاليًا.';
 
   @override
   String memberSince(Object year) {
@@ -298,6 +557,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get myFavorites => 'المفضلة';
+
+  @override
+  String get myReviews => 'تقييماتي';
 
   @override
   String get wishlistSubtitle => 'اختياراتك المحفوظة من Drip Talk';
@@ -321,7 +583,208 @@ class AppLocalizationsAr extends AppLocalizations {
   String get saveAddress => 'حفظ العنوان';
 
   @override
+  String get addAddressTitle => 'إضافة العناوين';
+
+  @override
+  String get addAddressSubtitle => 'إدارة مواقع التوصيل';
+
+  @override
+  String get addAddressSectionTitle => 'إضافة عنوان جديد';
+
+  @override
+  String get addAddressFullNameLabel => 'أدخل اسمك';
+
+  @override
+  String get addAddressFullNameHint => 'أدخل اسمك';
+
+  @override
+  String get addAddressPhoneLabel => 'أدخل رقمك';
+
+  @override
+  String get addAddressPhoneHint => 'أدخل رقمك';
+
+  @override
+  String get addAddressLineLabel => 'سطر العنوان';
+
+  @override
+  String get addAddressLineHint => 'عنوان الشارع، رقم المنزل';
+
+  @override
+  String get addAddressCityLabel => 'المدينة';
+
+  @override
+  String get addAddressCityHint => 'أدخل مدينتك';
+
+  @override
+  String get addAddressPostalLabel => 'الرمز البريدي';
+
+  @override
+  String get addAddressPostalHint => 'أدخل الرمز البريدي';
+
+  @override
+  String get addAddressStateLabel => 'الولاية / المقاطعة';
+
+  @override
+  String get addAddressStateHint => 'أدخل الولاية أو المقاطعة';
+
+  @override
+  String get addAddressLabelTitle => 'تصنيف العنوان';
+
+  @override
+  String get addAddressLabelHome => 'المنزل';
+
+  @override
+  String get addAddressLabelWork => 'العمل';
+
+  @override
+  String get addAddressLabelOther => 'أخرى';
+
+  @override
+  String get addAddressDefaultTitle => 'تعيين كعنوان افتراضي';
+
+  @override
+  String get addAddressInfoNote =>
+      'يتم حفظ معلومات عنوانك بشكل آمن وتُستخدم فقط لتوصيل الطلبات.';
+
+  @override
+  String get addAddressSaveButton => 'حفظ العنوان';
+
+  @override
+  String get editAddressTitle => 'تعديل العنوان';
+
+  @override
+  String get editAddressSectionTitle => 'تحديث العنوان';
+
+  @override
+  String get updateAddressSaveButton => 'تحديث العنوان';
+
+  @override
+  String get addAddressRequiredName => 'يرجى إدخال اسمك الكامل';
+
+  @override
+  String get addAddressRequiredPhone => 'يرجى إدخال رقم هاتفك';
+
+  @override
+  String get addAddressRequiredAddressLine => 'يرجى إدخال عنوان الشارع';
+
+  @override
+  String get addAddressRequiredCity => 'يرجى إدخال المدينة';
+
+  @override
+  String get addAddressRequiredPostal => 'يرجى إدخال الرمز البريدي';
+
+  @override
+  String get addAddressRequiredState => 'يرجى إدخال الولاية أو المقاطعة';
+
+  @override
+  String get addAddressInvalidPhone => 'يرجى إدخال رقم هاتف صالح';
+
+  @override
+  String get addAddressValidationError => 'يرجى إكمال الحقول المطلوبة';
+
+  @override
+  String get addAddressSavedSuccess => 'تم حفظ العنوان بنجاح';
+
+  @override
+  String get addAddressSaveFailed => 'تعذر حفظ العنوان';
+
+  @override
+  String get updateAddressSavedSuccess => 'تم تحديث العنوان بنجاح';
+
+  @override
+  String get updateAddressSaveFailed => 'تعذر تحديث العنوان';
+
+  @override
+  String get myAddressesTitle => 'عناويني';
+
+  @override
+  String get myAddressesAddNewButton => 'إضافة عنوان جديد';
+
+  @override
+  String get myAddressesDefaultBadge => 'افتراضي';
+
+  @override
+  String get myAddressesEditAction => 'تعديل';
+
+  @override
+  String get myAddressesDeleteAction => 'حذف';
+
+  @override
+  String get myAddressesDeletingAction => 'جارٍ الحذف...';
+
+  @override
+  String get myAddressesEmptyTitle => 'لا توجد عناوين محفوظة بعد';
+
+  @override
+  String get myAddressesEmptySubtitle => 'أضف عنوان توصيل لتسريع عملية الدفع.';
+
+  @override
+  String get myAddressesLoadFailed => 'تعذر تحميل العناوين';
+
+  @override
+  String get myAddressesEditUnavailable => 'تعديل العنوان غير متاح حاليًا.';
+
+  @override
+  String get myAddressesDeleteUnavailable => 'حذف العنوان غير متاح حاليًا.';
+
+  @override
+  String get deleteAddressSheetTitle => 'حذف العنوان';
+
+  @override
+  String get deleteAddressSheetSubtitle =>
+      'هل أنت متأكد أنك تريد إزالة هذا العنوان المحفوظ؟';
+
+  @override
+  String get deleteAddressSheetWarning =>
+      'سيتم إزالة هذا العنوان من مواقع التوصيل الخاصة بك.';
+
+  @override
+  String get deleteAddressConfirmAction => 'حذف العنوان';
+
+  @override
   String get paymentMethods => 'طرق الدفع';
+
+  @override
+  String get paymentMethodsEncryptedSecure => 'مشفّر وآمن';
+
+  @override
+  String get paymentMethodsDigitalWalletsHeading => 'المحافظ الرقمية';
+
+  @override
+  String get paymentMethodsSupportedSectionTitle => 'طرق الدفع المدعومة';
+
+  @override
+  String get paymentMethodsRecommendedBadge => 'موصى به';
+
+  @override
+  String get paymentMethodsIosAndMacBadge => 'iOS و Mac';
+
+  @override
+  String get paymentMethodsGooglePayDescription =>
+      'دفع سريع وآمن باستخدام حساب Google الخاص بك. يدعم البطاقات والحسابات البنكية والمكافآت.';
+
+  @override
+  String get paymentMethodsApplePayDescription =>
+      'ادفع فورًا باستخدام Face ID أو Touch ID. يعمل مع Apple Card وبطاقات الخصم والائتمان داخل Wallet.';
+
+  @override
+  String get paymentMethodsGooglePayAction => 'ادفع عبر Google Pay';
+
+  @override
+  String get paymentMethodsApplePayAction => 'ادفع عبر Apple Pay';
+
+  @override
+  String get paymentMethodsCreditDebit => 'ائتمان/خصم';
+
+  @override
+  String get paymentMethodsLoadFailed => 'تعذر تحميل طرق الدفع.';
+
+  @override
+  String get paymentMethodsEmptyState => 'لا توجد طرق دفع متاحة حالياً.';
+
+  @override
+  String get paymentMethodsNoSupportedOptions =>
+      'ستظهر طرق الدفع المدعومة هنا.';
 
   @override
   String get settings => 'الإعدادات';
@@ -392,6 +855,107 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get contactSupport => 'اتصل بالدعم';
+
+  @override
+  String get contactSupportSubtitle => 'فريقنا هنا لمساعدتك على مدار الساعة.';
+
+  @override
+  String get contactSupportQuickContactOptions => 'خيارات التواصل السريع';
+
+  @override
+  String get contactSupportEmailSupport => 'الدعم عبر البريد الإلكتروني';
+
+  @override
+  String get contactSupportEmailResponseTime => 'الرد خلال 24 ساعة';
+
+  @override
+  String get contactSupportPhoneSupport => 'الدعم عبر الهاتف';
+
+  @override
+  String get contactSupportPhoneAvailability =>
+      'متاح من 9 صباحًا إلى 6 مساءً (الاثنين - الجمعة)';
+
+  @override
+  String get contactSupportSubmitARequest => 'إرسال طلب';
+
+  @override
+  String get contactSupportNameLabel => 'أدخل اسمك';
+
+  @override
+  String get contactSupportNameHint => 'أدخل اسمك';
+
+  @override
+  String get contactSupportEmailLabel => 'البريد الإلكتروني';
+
+  @override
+  String get contactSupportEmailHint => 'dianne@email.com';
+
+  @override
+  String get contactSupportOrderIdLabel => 'رقم الطلب';
+
+  @override
+  String get contactSupportOrderIdHint => '#DT20231215';
+
+  @override
+  String get contactSupportIssueTypeLabel => 'نوع المشكلة';
+
+  @override
+  String get contactSupportMessageLabel => 'الرسالة';
+
+  @override
+  String get contactSupportMessageHint =>
+      'طلبي لم يصل بعد وقد مرّت 5 أيام. هل يمكنكم مساعدتي في تتبعه؟';
+
+  @override
+  String get contactSupportSubmitAction => 'إرسال الطلب';
+
+  @override
+  String get contactSupportSubmitSuccess => 'تم إرسال طلب الدعم بنجاح.';
+
+  @override
+  String get contactSupportSubmitFailed => 'تعذر إرسال طلب الدعم.';
+
+  @override
+  String get contactSupportNameRequired => 'الاسم مطلوب.';
+
+  @override
+  String get contactSupportNameTooShort =>
+      'يجب أن يتكون الاسم من حرفين على الأقل.';
+
+  @override
+  String get contactSupportEmailRequired => 'البريد الإلكتروني مطلوب.';
+
+  @override
+  String get contactSupportEmailInvalid => 'أدخل بريدًا إلكترونيًا صالحًا.';
+
+  @override
+  String get contactSupportMessageRequired => 'الرسالة مطلوبة.';
+
+  @override
+  String get contactSupportEmailLaunchFailed =>
+      'تعذر فتح تطبيق البريد الإلكتروني. تواصل معنا عبر usamaali1458@gmail.com.';
+
+  @override
+  String get contactSupportPhoneLaunchFailed =>
+      'تعذر فتح تطبيق الهاتف. اتصل بنا على 03186202230.';
+
+  @override
+  String get contactSupportIssueTypeOrderIssue => 'مشكلة في الطلب';
+
+  @override
+  String get contactSupportIssueTypePaymentIssue => 'مشكلة في الدفع';
+
+  @override
+  String get contactSupportIssueTypeShippingDelay => 'تأخر الشحن';
+
+  @override
+  String get contactSupportIssueTypeReturnRefund => 'إرجاع واسترداد';
+
+  @override
+  String get contactSupportIssueTypeAccountIssue => 'مشكلة في الحساب';
+
+  @override
+  String get contactSupportIssueTypeOther => 'أخرى';
 
   @override
   String get faqs => 'الأسئلة الشائعة';
@@ -660,4 +1224,1120 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get cartVariantUnavailable => 'هذا النوع من المنتج غير متاح';
+
+  @override
+  String get chatAppBarTitle => 'DripTalk AI';
+
+  @override
+  String get chatTypeMessageFirst => 'اكتب رسالة أولاً!';
+
+  @override
+  String get chatTypeMessageOrAttachImageFirst =>
+      'اكتب رسالة أو أرفق صورة واحدة على الأقل أولاً!';
+
+  @override
+  String get chatAttachImages => 'إرفاق صور';
+
+  @override
+  String get chatSendMessage => 'إرسال الرسالة';
+
+  @override
+  String get chatSearchHint => 'ابحث عن الأزياء...';
+
+  @override
+  String get chatLoadingPreviousChat => 'جاري تحميل محادثتك السابقة...';
+
+  @override
+  String get chatSessionChoiceTitle => 'اختر محادثتك';
+
+  @override
+  String get chatSessionStartTitle => 'ابدأ محادثتك';
+
+  @override
+  String get chatSessionChoiceDescription =>
+      'تابع محادثة التنسيق السابقة أو ابدأ جلسة جديدة.';
+
+  @override
+  String get chatSessionStartDescription =>
+      'لم يتم العثور على جلسة محفوظة. ابدأ محادثة تنسيق جديدة.';
+
+  @override
+  String get chatContinueOldChat => 'متابعة المحادثة السابقة';
+
+  @override
+  String get chatStartNewChat => 'بدء محادثة جديدة';
+
+  @override
+  String get chatIntroTitle => 'مرحبًا! أنا منسق الأزياء الذكي الخاص بك';
+
+  @override
+  String get chatIntroMessage =>
+      'يمكنني مساعدتك في توصيات الإطلالات، ونصائح التنسيق، واستشارات الموضة، والمزيد. جرّب أن تسألني أي شيء عن الموضة!';
+
+  @override
+  String get chatAiPicks => 'اختيارات الذكاء الاصطناعي';
+
+  @override
+  String get chatCatalogMatches => 'مطابقات الكتالوج';
+
+  @override
+  String get chatAiRecommendationFallbackTitle => 'توصية بالذكاء الاصطناعي';
+
+  @override
+  String get chatAiRecommendationFallbackSubtitle => 'توصية بمنتج خارجي';
+
+  @override
+  String get chatBrowserAction => 'المتصفح';
+
+  @override
+  String get chatShopAction => 'تسوّق';
+
+  @override
+  String get chatAiPick => 'اختيار AI';
+
+  @override
+  String get chatProductLinkUnavailable => 'رابط هذا المنتج غير متوفر.';
+
+  @override
+  String get chatProductOpenFailed => 'تعذر فتح هذا المنتج الآن.';
+
+  @override
+  String get chatFreeDelivery => 'توصيل مجاني';
+
+  @override
+  String get chatFeatured => 'مميز';
+
+  @override
+  String get chatCatalogProductFallbackTitle => 'منتج من الكتالوج';
+
+  @override
+  String get chatCatalogProductFallbackSubtitle =>
+      'تسوّق هذا المنتج من الكتالوج';
+
+  @override
+  String get chatCatalogAction => 'الكتالوج';
+
+  @override
+  String get chatCatalogProductUnavailable =>
+      'هذا المنتج من الكتالوج غير متوفر الآن.';
+
+  @override
+  String get chatHistoryFallbackMessage => 'إليك توصيتك السابقة.';
+
+  @override
+  String chatAssistantSummaryAiAndCatalog(Object aiCount, Object catalogCount) {
+    return 'وجدت $aiCount من اختيارات الذكاء الاصطناعي و$catalogCount من مطابقات الكتالوج لهذه الإطلالة.';
+  }
+
+  @override
+  String chatAssistantSummaryAiOnly(Object aiCount) {
+    return 'وجدت $aiCount من المنتجات المختارة بالذكاء الاصطناعي ويمكنك تسوقها مباشرة.';
+  }
+
+  @override
+  String chatAssistantSummaryCatalogOnly(Object catalogCount) {
+    return 'وجدت $catalogCount من مطابقات الكتالوج لهذا الطلب.';
+  }
+
+  @override
+  String get chatAssistantSummaryGeneric => 'حللت طلبك وجهزت لك بعض التوصيات.';
+
+  @override
+  String get chatGenericErrorMessage =>
+      'تعذر تحميل التوصيات الآن. حاول مرة أخرى.';
+
+  @override
+  String get chatPreferencesGenderQuestion => 'ما هو جنسك؟';
+
+  @override
+  String get chatPreferencesOccasionQuestion => 'ما هي المناسبة؟';
+
+  @override
+  String get chatPreferencesSeasonQuestion => 'ما هو الموسم الحالي؟';
+
+  @override
+  String get chatPreferencesBudgetQuestion => 'ما هي ميزانيتك؟';
+
+  @override
+  String chatPreferencesStepCounter(Object current, Object total) {
+    return 'الخطوة $current من $total';
+  }
+
+  @override
+  String chatPreferencesBudgetMin(Object amount) {
+    return 'الحد الأدنى: \$$amount';
+  }
+
+  @override
+  String chatPreferencesBudgetValue(Object amount) {
+    return '\$$amount';
+  }
+
+  @override
+  String chatPreferencesBudgetMax(Object amount) {
+    return 'الحد الأقصى: \$$amount';
+  }
+
+  @override
+  String get chatFindMyStyle => 'اعثر على ستايلي';
+
+  @override
+  String get chatGenderMale => 'ذكر';
+
+  @override
+  String get chatGenderFemale => 'أنثى';
+
+  @override
+  String get chatGenderNonBinary => 'غير ثنائي';
+
+  @override
+  String get chatGenderPreferNotSay => 'أفضل عدم الإفصاح';
+
+  @override
+  String get chatOccasionOffice => 'المكتب / العمل';
+
+  @override
+  String get chatOccasionParty => 'حفلة / سهرة';
+
+  @override
+  String get chatOccasionCasual => 'يوم كاجوال';
+
+  @override
+  String get chatOccasionSports => 'رياضة / نشاط';
+
+  @override
+  String get chatOccasionWedding => 'زفاف / رسمي';
+
+  @override
+  String get chatOccasionDateNight => 'موعد مسائي';
+
+  @override
+  String get chatSeasonSpring => 'الربيع';
+
+  @override
+  String get chatSeasonSummer => 'الصيف';
+
+  @override
+  String get chatSeasonAutumn => 'الخريف';
+
+  @override
+  String get chatSeasonWinter => 'الشتاء';
+
+  @override
+  String get requestCanceled => 'تم إلغاء الطلب';
+
+  @override
+  String get sessionExpiredLoginAgain =>
+      'انتهت جلستك. يرجى تسجيل الدخول مرة أخرى.';
+
+  @override
+  String get deleteAction => 'حذف';
+
+  @override
+  String get editAction => 'تعديل';
+
+  @override
+  String get productFallbackLabel => 'المنتج';
+
+  @override
+  String get helpCenterSubtitle => 'اعثر على إجابات للأسئلة الشائعة';
+
+  @override
+  String get helpCenterBrowseByCategory => 'تصفح حسب الفئة';
+
+  @override
+  String get helpCenterPopularQuestions => 'الأسئلة الشائعة';
+
+  @override
+  String get helpCenterCategoryOrderTracking => 'الطلبات والتتبع';
+
+  @override
+  String get helpCenterCategoryShippingDelivery => 'الشحن والتوصيل';
+
+  @override
+  String get helpCenterCategoryAccountProfile => 'الحساب والملف الشخصي';
+
+  @override
+  String get helpCenterCategoryAiStylingAssistance =>
+      'مساعدة تنسيق بالذكاء الاصطناعي';
+
+  @override
+  String get helpCenterQuestionTrackOrder => 'كيف يمكنني تتبع طلبي؟';
+
+  @override
+  String get helpCenterAnswerTrackOrder =>
+      'يمكنك تتبع طلبك من قسم \'طلباتي\' داخل ملفك الشخصي. التحديثات اللحظية متاحة على مدار الساعة.';
+
+  @override
+  String get helpCenterQuestionDeliveryTime => 'كم يستغرق التوصيل؟';
+
+  @override
+  String get helpCenterAnswerDeliveryTime =>
+      'يستغرق التوصيل العادي عادةً من 3 إلى 5 أيام عمل، بينما يصل الشحن السريع خلال يوم إلى يومي عمل.';
+
+  @override
+  String get helpCenterQuestionDeliveryAddress =>
+      'هل يمكنني تغيير عنوان التوصيل؟';
+
+  @override
+  String get helpCenterAnswerDeliveryAddress =>
+      'نعم، يمكنك تحديث عنوان التوصيل قبل شحن الطلب من قسم \'طلباتي\'.';
+
+  @override
+  String get helpCenterQuestionAiStyling =>
+      'ما هو تنسيق DripTalk بالذكاء الاصطناعي؟';
+
+  @override
+  String get helpCenterAnswerAiStyling =>
+      'يوفر لك تنسيق DripTalk بالذكاء الاصطناعي اقتراحات أزياء ونصائح تنسيق وإرشادات موضة مخصصة حسب تفضيلاتك.';
+
+  @override
+  String get helpCenterQuestionReturns => 'كيف تعمل عمليات الإرجاع؟';
+
+  @override
+  String get helpCenterAnswerReturns =>
+      'يمكنك طلب الإرجاع من تفاصيل الطلب. يمكن إرجاع المنتجات المؤهلة خلال مدة الإرجاع المسموح بها.';
+
+  @override
+  String get helpCenterLoadFailed => 'تعذر تحميل مركز المساعدة.';
+
+  @override
+  String get helpCenterNoCategories => 'لا توجد فئات مساعدة متاحة حاليًا.';
+
+  @override
+  String get helpCenterNoQuestions =>
+      'لا توجد أسئلة شائعة متاحة لهذه الفئة حاليًا.';
+
+  @override
+  String get privacyPolicyLoadFailed => 'تعذر تحميل سياسة الخصوصية.';
+
+  @override
+  String get privacyPolicyNoSections =>
+      'تفاصيل سياسة الخصوصية غير متاحة حاليًا.';
+
+  @override
+  String get privacyPolicyDefaultSubtitle =>
+      'يرجى مراجعة كيفية جمع بياناتك وحمايتها.';
+
+  @override
+  String get returnPolicyLoadFailed => 'تعذر تحميل سياسة الإرجاع.';
+
+  @override
+  String get returnPolicyNoSections => 'تفاصيل سياسة الإرجاع غير متاحة حاليًا.';
+
+  @override
+  String get returnPolicyDefaultSubtitle => 'إرشادات الإرجاع والمدة الزمنية';
+
+  @override
+  String get returnPolicyDefaultHeading =>
+      'نوفّر سياسة إرجاع لمدة 7 أيام للعناصر المؤهلة.';
+
+  @override
+  String get returnPolicyStartAction => 'ابدأ طلب الإرجاع';
+
+  @override
+  String get termsAndConditionsLoadFailed => 'تعذر تحميل الشروط والأحكام.';
+
+  @override
+  String get termsAndConditionsNoSections =>
+      'تفاصيل الشروط والأحكام غير متاحة حاليًا.';
+
+  @override
+  String get termsAndConditionsDefaultSubtitle => 'يرجى مراجعة الشروط بعناية';
+
+  @override
+  String get reviewsDeleteTitle => 'حذف التقييم';
+
+  @override
+  String get reviewsDeleteMessage =>
+      'هل أنت متأكد أنك تريد حذف هذا التقييم؟ لا يمكن التراجع عن هذا الإجراء.';
+
+  @override
+  String get reviewsWriteAction => 'أضف تقييمًا';
+
+  @override
+  String get reviewsWriteTitle => 'اكتب تقييمًا';
+
+  @override
+  String get reviewsEditTitle => 'تعديل التقييم';
+
+  @override
+  String get reviewsRatingRequired => 'يرجى اختيار تقييم';
+
+  @override
+  String get reviewsTextRequired => 'يرجى كتابة تقييمك';
+
+  @override
+  String get reviewsInputHint => 'اكتب تقييمك هنا...';
+
+  @override
+  String get reviewsSubmitAction => 'إرسال التقييم';
+
+  @override
+  String get reviewsUpdateAction => 'تحديث التقييم';
+
+  @override
+  String get reviewsDeliveredPrefix => 'تم التوصيل';
+
+  @override
+  String get reviewsReviewedPrefix => 'تمت المراجعة';
+
+  @override
+  String get reviewsPendingLabel => 'قيد الانتظار';
+
+  @override
+  String get reviewsFallbackComment => 'لم تتم إضافة تقييم بعد.';
+
+  @override
+  String get reviewsPromptComment =>
+      'أخبر الآخرين بما أعجبك أو ما يمكن تحسينه.';
+
+  @override
+  String get reviewsRecentlyLabel => 'مؤخرًا';
+
+  @override
+  String get reviewsManageSubtitle => 'إدارة تقييماتك وملاحظاتك';
+
+  @override
+  String get reviewsStatTotal => 'الإجمالي';
+
+  @override
+  String get reviewsStatAverage => 'المتوسط';
+
+  @override
+  String get reviewsStatPending => 'قيد الانتظار';
+
+  @override
+  String get reviewsFilterAll => 'الكل';
+
+  @override
+  String get reviewsFilterFiveStars => '5 نجوم';
+
+  @override
+  String get reviewsFilterFourStars => '4 نجوم';
+
+  @override
+  String get reviewsFilterPending => 'قيد الانتظار';
+
+  @override
+  String get reviewsEmptyFilteredTitle => 'لا توجد تقييمات تطابق هذا الفلتر';
+
+  @override
+  String get reviewsEmptyTitle => 'لا توجد تقييمات بعد';
+
+  @override
+  String get reviewsEmptyFilteredSubtitle =>
+      'جرّب فلترًا آخر لرؤية المزيد من تقييماتك.';
+
+  @override
+  String get reviewsEmptySubtitle => 'ستظهر تقييماتك المرسلة هنا.';
+
+  @override
+  String get reviewsShowAllAction => 'عرض الكل';
+
+  @override
+  String get reviewsLoadFailed => 'تعذر تحميل التقييمات.';
+
+  @override
+  String get reviewsUpdateSuccess => 'تم تحديث التقييم بنجاح.';
+
+  @override
+  String get reviewsUpdateFailed => 'تعذر تحديث التقييم.';
+
+  @override
+  String get reviewsDeleteSuccess => 'تم حذف التقييم بنجاح.';
+
+  @override
+  String get reviewsDeleteFailed => 'تعذر حذف التقييم.';
+
+  @override
+  String get reviewSubmittedSuccess => 'تم إرسال التقييم بنجاح.';
+
+  @override
+  String get reviewSubmitFailed => 'تعذر إرسال التقييم.';
+
+  @override
+  String get aiStyleInsightsTitle => 'رؤى تنسيق بالذكاء الاصطناعي';
+
+  @override
+  String get aiStyleInsightsPerfectPairing => 'تنسيق مثالي';
+
+  @override
+  String get aiStyleInsightsPerfectPairingDescription =>
+      'نسّق هذه القطعة مع بنطال واسع الساق وحذاء بسيط لإطلالة يومية أنيقة.';
+
+  @override
+  String get aiStyleInsightsStyleTip => 'نصيحة تنسيق';
+
+  @override
+  String get aiStyleInsightsStyleTipDescription =>
+      'وازن الإطلالة بإكسسوارات بسيطة ودع القطعة الأساسية تبرز.';
+
+  @override
+  String get aiStyleInsightsTrendAlert => 'تنبيه صيحات';
+
+  @override
+  String get aiStyleInsightsTrendAlertDescription =>
+      'هذه الإطلالة رائجة حاليًا في أزياء الشارع والأسلوب الكاجوال الراقي.';
+
+  @override
+  String get twoFactorTokenNotFound =>
+      'لم يتم العثور على رمز التحقق الخاص بالمصادقة الثنائية.';
+
+  @override
+  String get authTokenNotFound => 'لم يتم العثور على رمز المصادقة.';
+
+  @override
+  String get logoutSuccessMessage => 'تم تسجيل الخروج بنجاح.';
+
+  @override
+  String get deleteAccountSuccessMessage => 'تم حذف الحساب بنجاح.';
+
+  @override
+  String get unexpectedErrorOccurred => 'حدث خطأ غير متوقع';
+
+  @override
+  String get twoFactorEnterAuthenticatorCode =>
+      'أدخل الرمز المكوّن من 6 أرقام من تطبيق المصادقة.';
+
+  @override
+  String get twoFactorVerifiedSuccessMessage =>
+      'تم التحقق من المصادقة الثنائية بنجاح.';
+
+  @override
+  String get twoFactorVerificationFailed => 'تعذر التحقق من المصادقة الثنائية.';
+
+  @override
+  String get biometricInitializeFailed => 'فشل تهيئة المصادقة البيومترية.';
+
+  @override
+  String get biometricUnavailable =>
+      'المصادقة البيومترية غير متاحة على هذا الجهاز.';
+
+  @override
+  String get biometricAuthenticateReason =>
+      'قم بالمصادقة لتسجيل الدخول باستخدام البصمة أو الوجه.';
+
+  @override
+  String get biometricSignedInSuccess =>
+      'تم تسجيل الدخول باستخدام المصادقة البيومترية.';
+
+  @override
+  String get biometricSessionExpired =>
+      'انتهت جلسة المصادقة البيومترية. يرجى تسجيل الدخول مرة أخرى.';
+
+  @override
+  String get biometricAuthFailed => 'فشلت المصادقة البيومترية.';
+
+  @override
+  String get biometricVerifyEmailFirst =>
+      'يرجى التحقق من بريدك الإلكتروني قبل تفعيل تسجيل الدخول البيومتري.';
+
+  @override
+  String get biometricRefreshSessionRequired =>
+      'حدّث جلستك قبل استخدام تسجيل الدخول البيومتري.';
+
+  @override
+  String get biometricTokenMissingManualLogin =>
+      'رمز المصادقة غير موجود. يرجى تسجيل الدخول يدويًا.';
+
+  @override
+  String get biometricNoSavedSession =>
+      'لم يتم العثور على جلسة محفوظة للمصادقة البيومترية.';
+
+  @override
+  String get editProfileLoadBeforeTwoFactorUpdate =>
+      'قم بتحميل ملفك الشخصي قبل تحديث المصادقة الثنائية.';
+
+  @override
+  String get editProfileTwoFactorEnabledSuccess =>
+      'تم تفعيل المصادقة الثنائية بنجاح.';
+
+  @override
+  String get editProfileTwoFactorDisabledSuccess =>
+      'تم إيقاف المصادقة الثنائية بنجاح.';
+
+  @override
+  String get editProfileLoadBeforeTwoFactorVerify =>
+      'قم بتحميل ملفك الشخصي قبل التحقق من المصادقة الثنائية.';
+
+  @override
+  String get editProfileBiometricDisabled => 'تم تعطيل تسجيل الدخول البيومتري.';
+
+  @override
+  String get editProfileBiometricUnavailable =>
+      'تسجيل الدخول البيومتري غير متاح على هذا الجهاز.';
+
+  @override
+  String get editProfileBiometricReLogin =>
+      'سجّل الدخول مرة أخرى قبل تفعيل تسجيل الدخول البيومتري.';
+
+  @override
+  String get editProfileBiometricPasswordLoginRequired =>
+      'سجّل الدخول مرة واحدة بالبريد الإلكتروني وكلمة المرور قبل تفعيل تسجيل الدخول البيومتري.';
+
+  @override
+  String get editProfileBiometricEnabled => 'تم تفعيل تسجيل الدخول البيومتري.';
+
+  @override
+  String get backOnline => 'تم الاتصال مجددًا';
+
+  @override
+  String get searchCountryHint => 'ابحث عن دولة';
+
+  @override
+  String get dashboardSearchHint => 'ابحث...';
+
+  @override
+  String get navHome => 'الرئيسية';
+
+  @override
+  String get navShop => 'المتجر';
+
+  @override
+  String get navChat => 'الدردشة';
+
+  @override
+  String get navProfile => 'الملف الشخصي';
+
+  @override
+  String get navSearch => 'بحث';
+
+  @override
+  String get navFavorites => 'المفضلة';
+
+  @override
+  String get navSettings => 'الإعدادات';
+
+  @override
+  String get homeCategoryAiPicks => 'اختيارات الذكاء الاصطناعي';
+
+  @override
+  String get homeCategoryTrending => 'الأكثر رواجًا';
+
+  @override
+  String get homeCategoryStreetwear => 'أزياء الشارع';
+
+  @override
+  String get homeCategoryLuxury => 'فاخر';
+
+  @override
+  String get homeCategoryCasual => 'كاجوال';
+
+  @override
+  String get profileGuestName => 'مستخدم DripTalk';
+
+  @override
+  String get profileGuestInitials => 'DT';
+
+  @override
+  String get forgotPasswordOtpSendFailed => 'تعذر إرسال رمز التحقق';
+
+  @override
+  String get resetPasswordFailed => 'تعذر إعادة تعيين كلمة المرور';
+
+  @override
+  String get signupNetworkError => 'خطأ في الشبكة';
+
+  @override
+  String get wishlistUpdateFailed => 'تعذر تحديث العناصر المحفوظة';
+
+  @override
+  String get cartUpdateFailed => 'تعذر تحديث السلة';
+
+  @override
+  String get profileSetupDialogTitle => 'أنت جاهز بالكامل!';
+
+  @override
+  String get profileSetupDialogDescription =>
+      'تم تدريب منسق الأزياء الذكي الخاص بك وأصبح جاهزًا لمساعدتك في الظهور بأفضل إطلالة.';
+
+  @override
+  String get profileSetupDialogAction => 'ابدأ الاستكشاف';
+
+  @override
+  String get profileSetupLoadFailedMessage => 'تعذر تحميل ملفك الشخصي.';
+
+  @override
+  String get profileSetupSaveSuccessMessage =>
+      'اكتمل إعداد الملف الشخصي بنجاح.';
+
+  @override
+  String get profileSetupSaveFailedMessage => 'تعذر حفظ ملفك الشخصي.';
+
+  @override
+  String get profileSetupNoOptionsAvailable => 'لا توجد خيارات متاحة حاليًا.';
+
+  @override
+  String get profileSetupPreparing => 'جارٍ تجهيز إعداد ملفك الشخصي...';
+
+  @override
+  String get profileSetupLoadFailureTitle => 'تعذر تحميل الإعداد';
+
+  @override
+  String get profileSetupCompleteAction => 'إكمال الإعداد';
+
+  @override
+  String get profileSetupHeaderTitle => 'مرحبًا بك في DripTalk';
+
+  @override
+  String get profileSetupHeaderSubtitle => 'دعنا نتعرف عليك أولاً';
+
+  @override
+  String get profileSetupStepBasicsLabel => 'الأساسيات';
+
+  @override
+  String get profileSetupStepStyleLabel => 'الأنماط';
+
+  @override
+  String get profileSetupStepBrandsLabel => 'العلامات';
+
+  @override
+  String get profileSetupStepTrainingLabel => 'تدريب الذكاء';
+
+  @override
+  String get profileSetupStepPhotosLabel => 'الصور';
+
+  @override
+  String get profileSetupStepBasicsTitle => 'أخبرنا عنك';
+
+  @override
+  String get profileSetupStepStyleTitle => 'هوية أسلوبك';
+
+  @override
+  String get profileSetupStepBrandsTitle => 'الألوان والعلامات';
+
+  @override
+  String get profileSetupStepTrainingTitle => 'درّب منسقك الذكي';
+
+  @override
+  String get profileSetupStepPhotosTitle => 'أرنا أسلوبك';
+
+  @override
+  String get profileSetupStepBasicsSubtitle => 'لنبدأ بالأساسيات';
+
+  @override
+  String get profileSetupStepStyleSubtitle => 'أخبرنا بما تحبه';
+
+  @override
+  String get profileSetupStepBrandsSubtitle => 'اختر مفضلاتك';
+
+  @override
+  String get profileSetupStepTrainingSubtitle => 'ساعدنا على فهم ذوقك';
+
+  @override
+  String get profileSetupStepPhotosSubtitle => 'ارفع صور الإطلالات الملهمة';
+
+  @override
+  String get profileSetupPhoneLabel => 'رقم الهاتف';
+
+  @override
+  String get profileSetupPhoneHint => 'أدخل رقم هاتفك';
+
+  @override
+  String get profileSetupGenderLabel => 'الجنس';
+
+  @override
+  String get profileSetupGenderHint => 'اختر الجنس';
+
+  @override
+  String get profileSetupDateOfBirthLabel => 'تاريخ الميلاد';
+
+  @override
+  String get profileSetupDateOfBirthHint => '01/01/2000';
+
+  @override
+  String get profileSetupCountryLabel => 'الدولة';
+
+  @override
+  String get profileSetupCountryHint => 'اختر الدولة';
+
+  @override
+  String get profileSetupCityLabel => 'المدينة';
+
+  @override
+  String get profileSetupCityHint => 'اختر المدينة';
+
+  @override
+  String get profileSetupBodyTypeLabel => 'نوع الجسم';
+
+  @override
+  String get profileSetupBodyTypeHint => 'اختر نوع الجسم';
+
+  @override
+  String get profileSetupSkinToneLabel => 'لون البشرة';
+
+  @override
+  String get profileSetupSkinToneHint => 'اختر لون البشرة';
+
+  @override
+  String get profileSetupPreferredStyleLabel => 'الأسلوب المفضل';
+
+  @override
+  String get profileSetupBudgetMinLabel => 'الحد الأدنى للميزانية';
+
+  @override
+  String get profileSetupBudgetMinHint => '5000';
+
+  @override
+  String get profileSetupBudgetMaxLabel => 'الحد الأقصى للميزانية';
+
+  @override
+  String get profileSetupBudgetMaxHint => '15000';
+
+  @override
+  String get profileSetupBudgetCurrencySymbol => '\$';
+
+  @override
+  String get profileSetupPreferredColorsLabel => 'الألوان المفضلة';
+
+  @override
+  String get profileSetupPickColorsAction => 'اختر الألوان';
+
+  @override
+  String get profileSetupPreferredBrandsLabel => 'العلامات المفضلة';
+
+  @override
+  String get profileSetupHeightLabel => 'الطول';
+
+  @override
+  String get profileSetupHeightHint => '5ft 7in';
+
+  @override
+  String get profileSetupWeightLabel => 'الوزن';
+
+  @override
+  String get profileSetupWeightHint => '40kg';
+
+  @override
+  String get profileSetupStyleInspirationsLabel => 'إلهامات الأسلوب';
+
+  @override
+  String get profileSetupStyleInspirationsHint =>
+      'Brad Pitt, Timothee Chalamet';
+
+  @override
+  String get profileSetupAvoidedStylesLabel => 'الأنماط التي تتجنبها';
+
+  @override
+  String get profileSetupAvoidedStylesHint => 'Neon, Oversized, Loud Prints';
+
+  @override
+  String get profileSetupReplacePhotosLabel =>
+      'استبدال صور المنسق الحالية بهذا الرفع';
+
+  @override
+  String get profileSetupMemoryTitle => 'ذاكرة التخصيص';
+
+  @override
+  String get profileSetupMemoryDescription =>
+      'تساعد هذه التفاصيل المنسق على تعلم ذوقك مع الوقت';
+
+  @override
+  String get profileSetupChooseFiles => 'اختر الملفات';
+
+  @override
+  String get profileSetupChooseFilesHint =>
+      'اضغط لاختيار الصور من الكاميرا أو المعرض';
+
+  @override
+  String get profileSetupStatusTitle => 'حالة الملف الشخصي: مكتمل';
+
+  @override
+  String profileSetupStatusSummary(int savedCount, int wardrobeCount) {
+    return '$savedCount محفوظ / $wardrobeCount عناصر خزانة';
+  }
+
+  @override
+  String get profileSetupSelectGenderTitle => 'اختر الجنس';
+
+  @override
+  String get profileSetupSelectCountryTitle => 'اختر الدولة';
+
+  @override
+  String get profileSetupSelectCityTitle => 'اختر المدينة';
+
+  @override
+  String get profileSetupSelectBodyTypeTitle => 'اختر نوع الجسم';
+
+  @override
+  String get profileSetupSelectSkinToneTitle => 'اختر لون البشرة';
+
+  @override
+  String get profileSetupSearchCountryHint => 'ابحث عن دولة';
+
+  @override
+  String get profileSetupSearchCityHint => 'ابحث عن مدينة';
+
+  @override
+  String get profileSetupSearchBrandHint => 'ابحث عن علامة';
+
+  @override
+  String get profileSetupSearchNoResults => 'لا توجد نتائج مطابقة.';
+
+  @override
+  String get profileSetupSelectCountryFirst => 'اختر الدولة أولاً.';
+
+  @override
+  String get profileSetupSeeMoreAction => 'عرض المزيد';
+
+  @override
+  String get profileSetupApplyAction => 'تطبيق';
+
+  @override
+  String get profileSetupValidationPhone => 'رقم الهاتف مطلوب.';
+
+  @override
+  String get profileSetupValidationGender => 'اختر الجنس.';
+
+  @override
+  String get profileSetupValidationDateOfBirth => 'اختر تاريخ ميلادك.';
+
+  @override
+  String get profileSetupValidationCountry => 'اختر الدولة.';
+
+  @override
+  String get profileSetupValidationCity => 'اختر المدينة.';
+
+  @override
+  String get profileSetupValidationBodyType => 'اختر نوع الجسم.';
+
+  @override
+  String get profileSetupValidationSkinTone => 'اختر لون البشرة.';
+
+  @override
+  String get profileSetupValidationStyle => 'اختر أسلوبًا واحدًا على الأقل.';
+
+  @override
+  String get profileSetupValidationBudgetMin =>
+      'أدخل حدًا أدنى صالحًا للميزانية.';
+
+  @override
+  String get profileSetupValidationBudgetMax =>
+      'أدخل حدًا أقصى صالحًا للميزانية.';
+
+  @override
+  String get profileSetupValidationBudgetRange =>
+      'يجب أن يكون الحد الأقصى للميزانية أكبر من الحد الأدنى.';
+
+  @override
+  String get profileSetupValidationColor => 'اختر لونًا واحدًا على الأقل.';
+
+  @override
+  String get profileSetupValidationBrand => 'اختر علامة واحدة على الأقل.';
+
+  @override
+  String get profileSetupValidationHeight => 'الطول مطلوب.';
+
+  @override
+  String get profileSetupValidationWeight => 'الوزن مطلوب.';
+
+  @override
+  String get profileSetupValidationInspirations => 'أضف مصادر إلهام لأسلوبك.';
+
+  @override
+  String get profileSetupValidationAvoidStyles =>
+      'أضف الأنماط التي تريد تجنبها.';
+
+  @override
+  String get profileSetupOptionGenderMale => 'ذكر';
+
+  @override
+  String get profileSetupOptionGenderFemale => 'أنثى';
+
+  @override
+  String get profileSetupOptionGenderNonBinary => 'غير ثنائي';
+
+  @override
+  String get profileSetupOptionBodyTypeAthletic => 'رياضي';
+
+  @override
+  String get profileSetupOptionBodyTypeSlim => 'نحيف';
+
+  @override
+  String get profileSetupOptionBodyTypeRegular => 'متوسط';
+
+  @override
+  String get profileSetupOptionBodyTypeCurvy => 'منحني';
+
+  @override
+  String get profileSetupOptionBodyTypePlusSize => 'مقاس كبير';
+
+  @override
+  String get profileSetupOptionSkinToneFair => 'فاتح جدًا';
+
+  @override
+  String get profileSetupOptionSkinToneLight => 'فاتح';
+
+  @override
+  String get profileSetupOptionSkinToneMedium => 'متوسط';
+
+  @override
+  String get profileSetupOptionSkinToneOlive => 'قمحي';
+
+  @override
+  String get profileSetupOptionSkinToneBrown => 'بني';
+
+  @override
+  String get profileSetupOptionSkinToneDeep => 'داكن';
+
+  @override
+  String get profileSetupOptionStyleFormal => 'رسمي';
+
+  @override
+  String get profileSetupOptionStyleStreetwear => 'أزياء الشارع';
+
+  @override
+  String get profileSetupOptionStyleCasual => 'كاجوال';
+
+  @override
+  String get profileSetupOptionStyleLuxury => 'فاخر';
+
+  @override
+  String get profileSetupOptionStyleVintage => 'كلاسيكي';
+
+  @override
+  String get profileSetupOptionStyleSporty => 'رياضي';
+
+  @override
+  String get profileSetupOptionStyleBohemian => 'بوهيمي';
+
+  @override
+  String get profileSetupOptionStyleMinimalist => 'بسيط';
+
+  @override
+  String get profileSetupOptionColorBlue => 'أزرق';
+
+  @override
+  String get profileSetupOptionColorRed => 'أحمر';
+
+  @override
+  String get profileSetupOptionColorBlack => 'أسود';
+
+  @override
+  String get profileSetupOptionColorWhite => 'أبيض';
+
+  @override
+  String get profileSetupOptionColorGreen => 'أخضر';
+
+  @override
+  String get profileSetupOptionColorWine => 'عنابي';
+
+  @override
+  String get profileSetupOptionColorNavy => 'كحلي';
+
+  @override
+  String get profileSetupOptionColorBeige => 'بيج';
+
+  @override
+  String get profileSetupOptionColorBrown => 'بني';
+
+  @override
+  String get profileSetupOptionColorGray => 'رمادي';
+
+  @override
+  String get profileSetupOptionColorPurple => 'بنفسجي';
+
+  @override
+  String get profileSetupOptionBrandNike => 'Nike';
+
+  @override
+  String get profileSetupOptionBrandGucci => 'Gucci';
+
+  @override
+  String get profileSetupOptionBrandPuma => 'Puma';
+
+  @override
+  String get profileSetupOptionBrandPrada => 'Prada';
+
+  @override
+  String get profileSetupOptionBrandZara => 'Zara';
+
+  @override
+  String get profileSetupOptionBrandAdidas => 'Adidas';
+
+  @override
+  String get profileSetupOptionBrandLouisVuitton => 'Louis Vuitton';
+
+  @override
+  String get profileSetupOptionBrandBalenciaga => 'Balenciaga';
+
+  @override
+  String get profileSetupOptionBrandHm => 'H&M';
+
+  @override
+  String get profileSetupOptionCountryPakistan => 'باكستان';
+
+  @override
+  String get profileSetupOptionCountryUnitedStates => 'الولايات المتحدة';
+
+  @override
+  String get profileSetupOptionCountryUnitedKingdom => 'المملكة المتحدة';
+
+  @override
+  String get profileSetupOptionCountryUnitedArabEmirates =>
+      'الإمارات العربية المتحدة';
+
+  @override
+  String get profileSetupOptionCountryCanada => 'كندا';
+
+  @override
+  String get profileSetupOptionCityLahore => 'لاهور';
+
+  @override
+  String get profileSetupOptionCityKarachi => 'كراتشي';
+
+  @override
+  String get profileSetupOptionCityIslamabad => 'إسلام آباد';
+
+  @override
+  String get profileSetupOptionCityRawalpindi => 'روالبندي';
+
+  @override
+  String get profileSetupOptionCityNewYork => 'نيويورك';
+
+  @override
+  String get profileSetupOptionCityLosAngeles => 'لوس أنجلوس';
+
+  @override
+  String get profileSetupOptionCityChicago => 'شيكاغو';
+
+  @override
+  String get profileSetupOptionCityHouston => 'هيوستن';
+
+  @override
+  String get profileSetupOptionCityLondon => 'لندن';
+
+  @override
+  String get profileSetupOptionCityManchester => 'مانشستر';
+
+  @override
+  String get profileSetupOptionCityBirmingham => 'برمنغهام';
+
+  @override
+  String get profileSetupOptionCityLeeds => 'ليدز';
+
+  @override
+  String get profileSetupOptionCityDubai => 'دبي';
+
+  @override
+  String get profileSetupOptionCityAbuDhabi => 'أبوظبي';
+
+  @override
+  String get profileSetupOptionCitySharjah => 'الشارقة';
+
+  @override
+  String get profileSetupOptionCityAjman => 'عجمان';
+
+  @override
+  String get profileSetupOptionCityToronto => 'تورونتو';
+
+  @override
+  String get profileSetupOptionCityVancouver => 'فانكوفر';
+
+  @override
+  String get profileSetupOptionCityMontreal => 'مونتريال';
+
+  @override
+  String get profileSetupOptionCityCalgary => 'كالغاري';
 }

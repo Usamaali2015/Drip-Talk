@@ -1,14 +1,16 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_padding.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
 
 class WishlistLoadingGrid extends StatelessWidget {
-  const WishlistLoadingGrid({super.key, this.itemCount = 6});
+  const WishlistLoadingGrid({
+    super.key,
+    this.itemCount = 6,
+    this.columns = 2,
+  });
 
   final int itemCount;
+  final int columns;
 
   @override
   Widget build(BuildContext context) {
@@ -19,16 +21,16 @@ class WishlistLoadingGrid extends StatelessWidget {
       slivers: [
         SliverPadding(
           padding: const EdgeInsets.fromLTRB(
-            AppSizes.s20,
+            0,
             AppSizes.s8,
-            AppSizes.s20,
+            0,
             AppSizes.s32,
           ),
           sliver: SliverGrid(
             delegate: SliverChildBuilderDelegate(
               (context, index) => Shimmer.fromColors(
-                baseColor: AppColors.primary.withValues(alpha: 0.12),
-                highlightColor: AppColors.secondary.withValues(alpha: 0.18),
+                baseColor: AppColors.shimmerBase,
+                highlightColor: AppColors.shimmerHighlight,
                 child: Container(
                   margin: AppPadding.horizontalExtraSmall,
                   decoration: BoxDecoration(
@@ -39,11 +41,15 @@ class WishlistLoadingGrid extends StatelessWidget {
               ),
               childCount: itemCount,
             ),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: columns,
               crossAxisSpacing: 0,
               mainAxisSpacing: AppSizes.s18,
-              childAspectRatio: 0.78,
+              childAspectRatio: columns >= 4
+                  ? 0.84
+                  : columns == 3
+                  ? 0.8
+                  : 0.78,
             ),
           ),
         ),

@@ -16,11 +16,9 @@ class ResponsiveFont {
       factor = 1.04;
     }
 
-
     if (dpr < 2) factor *= 0.95;
     if (dpr > 3) factor *= 1.05;
 
     return baseSize * factor;
   }
 }
-

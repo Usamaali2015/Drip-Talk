@@ -1,4 +1,6 @@
-import 'package:drip_talk/features/splash/view/responsive_view/splash_barrels.dart';
+import 'package:drip_talk/generated/assets.dart';
+import 'package:drip_talk/l10n/app_localizations.dart';
+import 'package:flutter/material.dart';
 
 class OnboardingContent {
   final String image;
@@ -17,6 +19,7 @@ class OnboardingContent {
       title: AppLocalizations.of(context)!.onboardingWelcome,
       description: AppLocalizations.of(context)!.featureOneDescription,
     ),
+
     // OnboardingContent(
     //   image: Assets.imagesOnboarding2,
     //   title: AppLocalizations.of(context)!.onboardingWelcome,
@@ -27,9 +30,8 @@ class OnboardingContent {
     //   title: AppLocalizations.of(context)!.onboardingWelcome,
     //   description: AppLocalizations.of(context)!.featureOneDescription,
     // ),
-
     OnboardingContent(
-      image:Assets.imagesOnboarding2,
+      image: Assets.imagesOnboarding2,
       title: AppLocalizations.of(context)!.featureTwoTitle,
       description: AppLocalizations.of(context)!.featureTwoDescription,
     ),

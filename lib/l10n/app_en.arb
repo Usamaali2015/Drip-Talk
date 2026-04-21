@@ -13,6 +13,10 @@
   "continueText": "Continue",
   "orContinueWith": "OR Continue With",
   "cancel": "Cancel",
+  "loginTwoFactorTitle": "Verify 2FA",
+  "loginTwoFactorScreenTitle": "Enter The 6-Digit Code",
+  "loginTwoFactorScreenSubtitle": "Open your authenticator app and enter the verification code to finish signing in.",
+  "loginTwoFactorAction": "Verify & Sign In",
   "retry": "Retry",
   "submit": "Submit",
   "next": "Next",
@@ -32,6 +36,7 @@
   "loading": "Loading experience...",
   "getStarted": "Get Started",
   "login": "Log In",
+  "loggingIn": "Logging In...",
   "loginDes": "Login to dripTalk",
   "signup": "Sign Up",
   "logout": "Logout",
@@ -41,6 +46,9 @@
   "forgotPassword": "Forgot Password?",
   "forgotPasswordSubtitle": "Enter your email and we’ll send you a reset link to recover your DripTalk account.",
   "sendResetLink": "Send Reset Link",
+  "sendVerificationCode": "Send Verification Code",
+  "changePasswordVerificationSubtitle": "We’ll send a verification code to your email before you update your password.",
+  "changePasswordVerificationSentDescription": "Enter the code sent to your email to continue changing your password.",
   "rememberPassword": "Remember your password?",
   "loginSubtitle": "Login to continue",
   "signupSubtitle": "Create Your DripTalk Account",
@@ -50,6 +58,30 @@
   "name": "Name",
   "checkYourEmail": "Check Your Email",
   "resettingYourPassword": "Enter the 4-digit code sent to your email to continue resetting your password.",
+  "otpDescriptionSignup": "Enter the code sent to your email to verify your account and continue.",
+  "@otpDescriptionSignup": {
+    "description": "Description shown on the OTP screen when verifying a new account signup"
+  },
+  "otpDescriptionForgotPassword": "Enter the code sent to your email to continue resetting your password.",
+  "@otpDescriptionForgotPassword": {
+    "description": "Description shown on the OTP screen for forgot password verification"
+  },
+  "otpDescriptionTwoFactor": "Enter the code sent to your email to complete your sign in securely.",
+  "@otpDescriptionTwoFactor": {
+    "description": "Description shown on the OTP screen when two-factor authentication is required during login"
+  },
+  "otpVerifying": "Verifying...",
+  "@otpVerifying": {
+    "description": "Loading label shown on the verify button while the OTP is being verified"
+  },
+  "otpVerifiedSuccess": "OTP verified successfully",
+  "@otpVerifiedSuccess": {
+    "description": "Success toast shown after OTP verification succeeds"
+  },
+  "otpResentSuccess": "OTP resent successfully",
+  "@otpResentSuccess": {
+    "description": "Success toast shown after resending an OTP code"
+  },
   "phone": "Phone",
   "somethingWentWrong": "Something went wrong",
   "noInternet": "No internet connection",
@@ -84,16 +116,225 @@
   "continueWithFacebook": "Continue with Facebook",
   "passwordResetSuccess": "Password Reset Successfully",
   "youCanNowLogin": "Your password has been updated. You can now log in to DripTalk with your new password.",
+  "changePasswordProfileSuccessDescription": "Your password has been updated successfully.",
   "createNewPassword": "Create New Password",
   "createNewPasswordSubtitle": "Set a strong password to protect your account.",
+  "changePasswordScreenTitle": "Change Your Password",
+  "changePasswordScreenSubtitle": "Keep your account secure by updating your password regularly.",
+  "changePasswordNewPasswordHint": "Create a strong new password",
+  "changePasswordConfirmPasswordHint": "Re-enter your new password",
+  "changePasswordRequirementsTitle": "Password Must Include:",
+  "changePasswordRuleMinLength": "At least 8 characters",
+  "changePasswordRuleUppercase": "One uppercase letter",
+  "changePasswordRuleNumberOrSymbol": "One number or symbol",
+  "changePasswordRuleSpecialCharacter": "Includes a special character (e.g. @, #, $)",
+  "changePasswordUpdateAction": "Update Password",
+  "changePasswordPasswordRequired": "Enter your new password",
+  "changePasswordConfirmationRequired": "Confirm your new password",
+  "changePasswordRequirementsMessage": "Password does not meet the required criteria",
+  "changePasswordSessionExpired": "Password reset session expired. Please request a new code.",
   "profile": "Profile",
   "editProfile": "Edit Profile",
+  "editProfileScreenTitle": "Edit Profile",
+  "@editProfileScreenTitle": {
+    "description": "Title shown on the edit profile screen"
+  },
+  "editProfileScreenSubtitle": "Manage your account information",
+  "@editProfileScreenSubtitle": {
+    "description": "Subtitle shown on the edit profile screen"
+  },
+  "editProfileUploadPhotoLabel": "UPLOAD A CLEAR PROFILE PHOTO",
+  "@editProfileUploadPhotoLabel": {
+    "description": "Helper text shown below the avatar picker on the edit profile screen"
+  },
+  "editProfilePersonalInformation": "PERSONAL INFORMATION",
+  "@editProfilePersonalInformation": {
+    "description": "Section title shown above the personal information form on the edit profile screen"
+  },
+  "editProfileFullNameLabel": "Enter your full name",
+  "@editProfileFullNameLabel": {
+    "description": "Label shown above the full name field on the edit profile screen"
+  },
+  "editProfileFullNameHint": "Enter your full name",
+  "@editProfileFullNameHint": {
+    "description": "Hint shown inside the full name field on the edit profile screen"
+  },
+  "editProfileUsernameLabel": "Username",
+  "@editProfileUsernameLabel": {
+    "description": "Label shown above the username field on the edit profile screen"
+  },
+  "editProfileUsernameHint": "Username",
+  "@editProfileUsernameHint": {
+    "description": "Hint shown inside the username field on the edit profile screen"
+  },
+  "editProfileUsernameNote": "This will be visible to other users",
+  "@editProfileUsernameNote": {
+    "description": "Supporting note shown below the username field on the edit profile screen"
+  },
+  "editProfilePhoneLabel": "Phone Number",
+  "@editProfilePhoneLabel": {
+    "description": "Label shown above the phone field on the edit profile screen"
+  },
+  "editProfilePhoneHint": "Enter your phone number",
+  "@editProfilePhoneHint": {
+    "description": "Hint shown inside the phone field on the edit profile screen"
+  },
+  "editProfileDateOfBirthLabel": "Date of Birth",
+  "@editProfileDateOfBirthLabel": {
+    "description": "Label shown above the date of birth field on the edit profile screen"
+  },
+  "editProfileDateOfBirthHint": "Select date of birth",
+  "@editProfileDateOfBirthHint": {
+    "description": "Hint shown inside the date of birth field on the edit profile screen"
+  },
+  "editProfileGenderLabel": "Gender",
+  "@editProfileGenderLabel": {
+    "description": "Label shown above the gender field on the edit profile screen"
+  },
+  "editProfileGenderHint": "Select gender",
+  "@editProfileGenderHint": {
+    "description": "Hint shown inside the gender field on the edit profile screen"
+  },
+  "editProfileGenderSheetTitle": "Select Gender",
+  "@editProfileGenderSheetTitle": {
+    "description": "Title shown in the gender picker sheet on the edit profile screen"
+  },
+  "editProfileDefaultAddressTitle": "DEFAULT ADDRESS",
+  "@editProfileDefaultAddressTitle": {
+    "description": "Section title shown above the default address card on the edit profile screen"
+  },
+  "editProfileAddressStreet": "Street",
+  "@editProfileAddressStreet": {
+    "description": "Street row label in the default address card on the edit profile screen"
+  },
+  "editProfileAddressState": "State",
+  "@editProfileAddressState": {
+    "description": "State row label in the default address card on the edit profile screen"
+  },
+  "editProfileAddressCountry": "Country",
+  "@editProfileAddressCountry": {
+    "description": "Country row label in the default address card on the edit profile screen"
+  },
+  "editProfileNoDefaultAddress": "No default address set",
+  "@editProfileNoDefaultAddress": {
+    "description": "Fallback text shown when there is no default address on the edit profile screen"
+  },
+  "editProfileFieldNotSet": "Not set",
+  "@editProfileFieldNotSet": {
+    "description": "Fallback label shown when a profile value is missing on the edit profile screen"
+  },
+  "editProfileManageAddresses": "Manage Addresses",
+  "@editProfileManageAddresses": {
+    "description": "Button label shown below the default address card on the edit profile screen"
+  },
+  "editProfileInterestsTitle": "Style & Interests",
+  "@editProfileInterestsTitle": {
+    "description": "Section title for the interests section on the edit profile screen"
+  },
+  "editProfileEditInterestsAction": "Edit Style & Interests",
+  "@editProfileEditInterestsAction": {
+    "description": "Button label to open the profile setup flow for editing interests"
+  },
+  "editProfileTwoFactorTitle": "Two-Factor Authentication",
+  "@editProfileTwoFactorTitle": {
+    "description": "Toggle label shown in the security section on the edit profile screen"
+  },
+  "editProfileBiometricTitle": "Biometric Login",
+  "@editProfileBiometricTitle": {
+    "description": "Toggle label shown in the security section on the edit profile screen"
+  },
+  "twoFactorSetupTitle": "SET UP 2FA",
+  "@twoFactorSetupTitle": {
+    "description": "Title shown on the QR setup sheet for two-factor authentication"
+  },
+  "twoFactorSetupSubtitle": "Scan the QR code with your authenticator app",
+  "@twoFactorSetupSubtitle": {
+    "description": "Subtitle shown on the QR setup sheet for two-factor authentication"
+  },
+  "twoFactorManualKeyLabel": "OR ENTER THIS KEY MANUALLY",
+  "@twoFactorManualKeyLabel": {
+    "description": "Label shown above the manual secret key on the two-factor setup sheet"
+  },
+  "twoFactorNextVerifyAction": "Next Verify Code",
+  "@twoFactorNextVerifyAction": {
+    "description": "Primary button label shown on the two-factor setup sheet"
+  },
+  "twoFactorVerifyTitle": "Enter The 6-Digit Code",
+  "@twoFactorVerifyTitle": {
+    "description": "Title shown on the two-factor verification sheet"
+  },
+  "twoFactorVerifySubtitle": "Open your authenticator app and enter the code shown for SecureApp.",
+  "@twoFactorVerifySubtitle": {
+    "description": "Subtitle shown on the two-factor verification sheet"
+  },
+  "twoFactorVerifyAction": "Verify & Enable",
+  "@twoFactorVerifyAction": {
+    "description": "Primary action label shown on the two-factor verification sheet"
+  },
+  "twoFactorDidNotGetCode": "Didn't get a code? ",
+  "@twoFactorDidNotGetCode": {
+    "description": "Prefix label shown below the two-factor verification button"
+  },
+  "twoFactorRescanQr": "Rescan QR",
+  "@twoFactorRescanQr": {
+    "description": "Action label to reopen the QR setup sheet during two-factor verification"
+  },
+  "editProfileResetAction": "Reset",
+  "@editProfileResetAction": {
+    "description": "Action label shown on the change password tile in the security section"
+  },
+  "editProfileSaveAction": "Save",
+  "@editProfileSaveAction": {
+    "description": "Primary save button label on the edit profile screen"
+  },
+  "editProfileNameRequired": "Please enter your full name",
+  "@editProfileNameRequired": {
+    "description": "Validation message shown when the full name field is empty on the edit profile screen"
+  },
+  "editProfilePhoneInvalid": "Please enter a valid phone number",
+  "@editProfilePhoneInvalid": {
+    "description": "Validation message shown when the phone number is too short on the edit profile screen"
+  },
+  "editProfileLoadFailed": "Unable to load profile",
+  "@editProfileLoadFailed": {
+    "description": "Title shown when the edit profile screen fails to load profile data"
+  },
+  "editProfileSavedSuccess": "Profile updated successfully",
+  "@editProfileSavedSuccess": {
+    "description": "Toast message shown when the profile update succeeds"
+  },
+  "editProfileSaveFailed": "Unable to update profile",
+  "@editProfileSaveFailed": {
+    "description": "Toast message shown when the profile update fails"
+  },
+  "editProfilePhotoSourceTitle": "Choose Photo Source",
+  "@editProfilePhotoSourceTitle": {
+    "description": "Title shown in the photo source sheet on the edit profile screen"
+  },
+  "imagePickerSingleHint": "Choose a photo from your gallery or take a new one.",
+  "imagePickerMultipleHint": "Choose photos from your gallery or take a new one.",
+  "imagePickerGalleryCaptionSingle": "Pick an existing photo",
+  "imagePickerGalleryCaptionMultiple": "Select one or more photos",
+  "imagePickerCameraCaption": "Capture a fresh photo instantly",
+  "editProfilePhotoCameraAction": "Camera",
+  "@editProfilePhotoCameraAction": {
+    "description": "Camera action label in the photo source sheet on the edit profile screen"
+  },
+  "editProfilePhotoGalleryAction": "Gallery",
+  "@editProfilePhotoGalleryAction": {
+    "description": "Gallery action label in the photo source sheet on the edit profile screen"
+  },
+  "editProfileChangePasswordUnavailable": "Change password is not available yet.",
+  "@editProfileChangePasswordUnavailable": {
+    "description": "Toast shown when the user taps the change password tile before the feature is implemented"
+  },
   "memberSince": "Member since {year}",
   "shopping": "SHOPPING",
   "myOrder": "My Order",
   "trackOrder": "Track Order",
   "savedItems": "Saved Items",
   "myFavorites": "My Favorites",
+  "myReviews": "My Reviews",
   "wishlistSubtitle": "Your saved drip picks",
   "@wishlistSubtitle": {
     "description": "Subtitle shown at the top of the saved items screen"
@@ -116,7 +357,267 @@
   },
   "paymentsAndAddress": "PAYMENTS & ADDRESS",
   "saveAddress": "Save Address",
+  "addAddressTitle": "Add Addresses",
+  "@addAddressTitle": {
+    "description": "Title shown on the add address screen"
+  },
+  "addAddressSubtitle": "Manage delivery locations",
+  "@addAddressSubtitle": {
+    "description": "Subtitle shown on the add address screen"
+  },
+  "addAddressSectionTitle": "Add New Address",
+  "@addAddressSectionTitle": {
+    "description": "Section heading shown above the address form"
+  },
+  "addAddressFullNameLabel": "Enter your name",
+  "@addAddressFullNameLabel": {
+    "description": "Label shown above the full name field on the add address screen"
+  },
+  "addAddressFullNameHint": "Enter your name",
+  "@addAddressFullNameHint": {
+    "description": "Hint shown inside the full name field on the add address screen"
+  },
+  "addAddressPhoneLabel": "Enter your number",
+  "@addAddressPhoneLabel": {
+    "description": "Label shown above the phone field on the add address screen"
+  },
+  "addAddressPhoneHint": "Enter your number",
+  "@addAddressPhoneHint": {
+    "description": "Hint shown inside the phone field on the add address screen"
+  },
+  "addAddressLineLabel": "Address Line",
+  "@addAddressLineLabel": {
+    "description": "Label shown above the address line field on the add address screen"
+  },
+  "addAddressLineHint": "Street address, house number",
+  "@addAddressLineHint": {
+    "description": "Hint shown inside the address line field on the add address screen"
+  },
+  "addAddressCityLabel": "City",
+  "@addAddressCityLabel": {
+    "description": "Label shown above the city field on the add address screen"
+  },
+  "addAddressCityHint": "Enter your city",
+  "@addAddressCityHint": {
+    "description": "Hint shown inside the city field on the add address screen"
+  },
+  "addAddressPostalLabel": "Postal",
+  "@addAddressPostalLabel": {
+    "description": "Label shown above the postal field on the add address screen"
+  },
+  "addAddressPostalHint": "Enter postal code",
+  "@addAddressPostalHint": {
+    "description": "Hint shown inside the postal field on the add address screen"
+  },
+  "addAddressStateLabel": "State / Province",
+  "@addAddressStateLabel": {
+    "description": "Label shown above the state or province field on the add address screen"
+  },
+  "addAddressStateHint": "Enter state or province",
+  "@addAddressStateHint": {
+    "description": "Hint shown inside the state or province field on the add address screen"
+  },
+  "addAddressLabelTitle": "Address Label",
+  "@addAddressLabelTitle": {
+    "description": "Title shown above the address label selector on the add address screen"
+  },
+  "addAddressLabelHome": "Home",
+  "@addAddressLabelHome": {
+    "description": "Home label option on the add address screen"
+  },
+  "addAddressLabelWork": "Work",
+  "@addAddressLabelWork": {
+    "description": "Work label option on the add address screen"
+  },
+  "addAddressLabelOther": "Other",
+  "@addAddressLabelOther": {
+    "description": "Other label option on the add address screen"
+  },
+  "addAddressDefaultTitle": "Set As Default Address",
+  "@addAddressDefaultTitle": {
+    "description": "Label shown beside the default address switch on the add address screen"
+  },
+  "addAddressInfoNote": "Your address information is securely stored and used only for order deliveries.",
+  "@addAddressInfoNote": {
+    "description": "Informational text shown below the default address switch on the add address screen"
+  },
+  "addAddressSaveButton": "Save Address",
+  "@addAddressSaveButton": {
+    "description": "Primary button label on the add address screen"
+  },
+  "editAddressTitle": "Edit Address",
+  "@editAddressTitle": {
+    "description": "Title shown on the edit address screen"
+  },
+  "editAddressSectionTitle": "Update Address",
+  "@editAddressSectionTitle": {
+    "description": "Section heading shown above the edit address form"
+  },
+  "updateAddressSaveButton": "Update Address",
+  "@updateAddressSaveButton": {
+    "description": "Primary button label on the edit address screen"
+  },
+  "addAddressRequiredName": "Please enter your full name",
+  "@addAddressRequiredName": {
+    "description": "Validation message shown when full name is missing on the add address screen"
+  },
+  "addAddressRequiredPhone": "Please enter your phone number",
+  "@addAddressRequiredPhone": {
+    "description": "Validation message shown when phone number is missing on the add address screen"
+  },
+  "addAddressRequiredAddressLine": "Please enter your street address",
+  "@addAddressRequiredAddressLine": {
+    "description": "Validation message shown when the address line is missing on the add address screen"
+  },
+  "addAddressRequiredCity": "Please enter your city",
+  "@addAddressRequiredCity": {
+    "description": "Validation message shown when city is missing on the add address screen"
+  },
+  "addAddressRequiredPostal": "Please enter your postal code",
+  "@addAddressRequiredPostal": {
+    "description": "Validation message shown when postal code is missing on the add address screen"
+  },
+  "addAddressRequiredState": "Please enter your state or province",
+  "@addAddressRequiredState": {
+    "description": "Validation message shown when state or province is missing on the add address screen"
+  },
+  "addAddressInvalidPhone": "Please enter a valid phone number",
+  "@addAddressInvalidPhone": {
+    "description": "Validation message shown when the phone number is too short on the add address screen"
+  },
+  "addAddressValidationError": "Please complete the required fields",
+  "@addAddressValidationError": {
+    "description": "Toast message shown when the address form has validation errors"
+  },
+  "addAddressSavedSuccess": "Address saved successfully",
+  "@addAddressSavedSuccess": {
+    "description": "Toast message shown when the address is saved successfully"
+  },
+  "addAddressSaveFailed": "Unable to save address",
+  "@addAddressSaveFailed": {
+    "description": "Toast message shown when saving the address fails"
+  },
+  "updateAddressSavedSuccess": "Address updated successfully",
+  "@updateAddressSavedSuccess": {
+    "description": "Toast message shown when the address is updated successfully"
+  },
+  "updateAddressSaveFailed": "Unable to update address",
+  "@updateAddressSaveFailed": {
+    "description": "Toast message shown when updating the address fails"
+  },
+  "myAddressesTitle": "My Addresses",
+  "@myAddressesTitle": {
+    "description": "Title shown on the my addresses listing screen"
+  },
+  "myAddressesAddNewButton": "Add New Address",
+  "@myAddressesAddNewButton": {
+    "description": "Primary action button label on the my addresses screen"
+  },
+  "myAddressesDefaultBadge": "Default",
+  "@myAddressesDefaultBadge": {
+    "description": "Badge label shown for the default saved address"
+  },
+  "myAddressesEditAction": "Edit",
+  "@myAddressesEditAction": {
+    "description": "Edit action label shown on a saved address card"
+  },
+  "myAddressesDeleteAction": "Delete",
+  "@myAddressesDeleteAction": {
+    "description": "Delete action label shown on a saved address card"
+  },
+  "myAddressesDeletingAction": "Deleting...",
+  "@myAddressesDeletingAction": {
+    "description": "Delete action label shown on a saved address card while deletion is in progress"
+  },
+  "myAddressesEmptyTitle": "No saved addresses yet",
+  "@myAddressesEmptyTitle": {
+    "description": "Title shown when the user has no saved addresses"
+  },
+  "myAddressesEmptySubtitle": "Add a delivery address to make checkout faster.",
+  "@myAddressesEmptySubtitle": {
+    "description": "Supporting text shown when the user has no saved addresses"
+  },
+  "myAddressesLoadFailed": "Unable to load addresses",
+  "@myAddressesLoadFailed": {
+    "description": "Title shown when the addresses screen fails to load"
+  },
+  "myAddressesEditUnavailable": "Address editing is not available yet.",
+  "@myAddressesEditUnavailable": {
+    "description": "Toast shown when the user taps edit on a saved address card before editing is implemented"
+  },
+  "myAddressesDeleteUnavailable": "Address deletion is not available yet.",
+  "@myAddressesDeleteUnavailable": {
+    "description": "Toast shown when the user taps delete on a saved address card before deletion is implemented"
+  },
+  "deleteAddressSheetTitle": "Delete Address",
+  "@deleteAddressSheetTitle": {
+    "description": "Title shown in the delete address confirmation sheet"
+  },
+  "deleteAddressSheetSubtitle": "Are you sure you want to remove this saved address?",
+  "@deleteAddressSheetSubtitle": {
+    "description": "Subtitle shown in the delete address confirmation sheet"
+  },
+  "deleteAddressSheetWarning": "This address will be removed from your delivery locations.",
+  "@deleteAddressSheetWarning": {
+    "description": "Warning text shown in the delete address confirmation sheet"
+  },
+  "deleteAddressConfirmAction": "Delete Address",
+  "@deleteAddressConfirmAction": {
+    "description": "Primary destructive action label in the delete address confirmation sheet"
+  },
   "paymentMethods": "Payment Methods",
+  "paymentMethodsEncryptedSecure": "Encrypted & Secure",
+  "@paymentMethodsEncryptedSecure": {
+    "description": "Subtitle shown below the payment methods page title"
+  },
+  "paymentMethodsDigitalWalletsHeading": "Digital Wallets",
+  "@paymentMethodsDigitalWalletsHeading": {
+    "description": "Section heading shown above the digital wallet payment options"
+  },
+  "paymentMethodsSupportedSectionTitle": "Supported Payment Methods",
+  "@paymentMethodsSupportedSectionTitle": {
+    "description": "Section heading shown above the supported payment methods list"
+  },
+  "paymentMethodsRecommendedBadge": "Recommended",
+  "@paymentMethodsRecommendedBadge": {
+    "description": "Badge shown on the recommended payment method card"
+  },
+  "paymentMethodsIosAndMacBadge": "iOS & Mac",
+  "@paymentMethodsIosAndMacBadge": {
+    "description": "Badge shown on the Apple Pay payment method card"
+  },
+  "paymentMethodsGooglePayDescription": "Fast, secure checkout using your Google Account. Supports cards, bank accounts & rewards.",
+  "@paymentMethodsGooglePayDescription": {
+    "description": "Description shown on the Google Pay payment method card"
+  },
+  "paymentMethodsApplePayDescription": "Pay instantly with Face ID or Touch ID. Works with Apple Card, debit & credit cards in Wallet.",
+  "@paymentMethodsApplePayDescription": {
+    "description": "Description shown on the Apple Pay payment method card"
+  },
+  "paymentMethodsGooglePayAction": "Pay With Google Pay",
+  "@paymentMethodsGooglePayAction": {
+    "description": "Primary action label shown on the Google Pay payment method card"
+  },
+  "paymentMethodsApplePayAction": "Pay With Apple Pay",
+  "@paymentMethodsApplePayAction": {
+    "description": "Primary action label shown on the Apple Pay payment method card"
+  },
+  "paymentMethodsCreditDebit": "Credit/Debit",
+  "@paymentMethodsCreditDebit": {
+    "description": "Label shown for the credit and debit card supported payment type"
+  },
+  "paymentMethodsLoadFailed": "Unable to load payment methods.",
+  "@paymentMethodsLoadFailed": {
+    "description": "Message shown when the payment methods screen fails to load"
+  },
+  "paymentMethodsEmptyState": "No payment methods are available right now.",
+  "@paymentMethodsEmptyState": {
+    "description": "Message shown when the payment methods screen has no methods to display"
+  },
+  "paymentMethodsNoSupportedOptions": "Supported payment methods will appear here.",
+  "@paymentMethodsNoSupportedOptions": {
+    "description": "Message shown when there are no supported payment methods to display"
+  },
   "settings": "SETTINGS",
   "notifications": "Notifications",
   "privacyPolicy": "Privacy Policy",
@@ -175,6 +676,38 @@
   "support": "SUPPORT",
   "helpCenter": "Help Center",
   "contactSupport": "Contact Support",
+  "contactSupportSubtitle": "Our team is here to help you 24/7.",
+  "contactSupportQuickContactOptions": "Quick Contact Options",
+  "contactSupportEmailSupport": "Email Support",
+  "contactSupportEmailResponseTime": "Response Within 24 Hours",
+  "contactSupportPhoneSupport": "Phone Support",
+  "contactSupportPhoneAvailability": "Available 9AM–6PM (Mon–Fri)",
+  "contactSupportSubmitARequest": "Submit A Request",
+  "contactSupportNameLabel": "Enter your name",
+  "contactSupportNameHint": "Enter your name",
+  "contactSupportEmailLabel": "Email Address",
+  "contactSupportEmailHint": "dianne@email.com",
+  "contactSupportOrderIdLabel": "Order ID",
+  "contactSupportOrderIdHint": "#DT20231215",
+  "contactSupportIssueTypeLabel": "Issue Type",
+  "contactSupportMessageLabel": "Message",
+  "contactSupportMessageHint": "My order hasn’t arrived yet and it’s been 5 days. Can you help me track it?",
+  "contactSupportSubmitAction": "Submit Request",
+  "contactSupportSubmitSuccess": "Your support request has been submitted successfully.",
+  "contactSupportSubmitFailed": "Unable to submit your support request.",
+  "contactSupportNameRequired": "Name is required.",
+  "contactSupportNameTooShort": "Name must be at least 2 characters.",
+  "contactSupportEmailRequired": "Email is required.",
+  "contactSupportEmailInvalid": "Enter a valid email address.",
+  "contactSupportMessageRequired": "Message is required.",
+  "contactSupportEmailLaunchFailed": "Unable to open the email app. Contact us at usamaali1458@gmail.com.",
+  "contactSupportPhoneLaunchFailed": "Unable to open the phone app. Call us at 03186202230.",
+  "contactSupportIssueTypeOrderIssue": "Order Issue",
+  "contactSupportIssueTypePaymentIssue": "Payment Issue",
+  "contactSupportIssueTypeShippingDelay": "Shipping Delay",
+  "contactSupportIssueTypeReturnRefund": "Return & Refund",
+  "contactSupportIssueTypeAccountIssue": "Account Issue",
+  "contactSupportIssueTypeOther": "Other",
   "faqs": "FAQ's",
   "returnPolicy": "Return Policy",
   "termsAndConditions": "Terms & Conditions",
@@ -524,5 +1057,381 @@
   "cartVariantUnavailable": "This product variant is unavailable",
   "@cartVariantUnavailable": {
     "description": "Error message shown when add-to-cart is attempted without a valid product variant"
-  }
+  },
+  "chatAppBarTitle": "DripTalk AI",
+  "chatTypeMessageFirst": "Type a message first!",
+  "chatTypeMessageOrAttachImageFirst": "Type a message or attach at least one image first!",
+  "chatAttachImages": "Attach images",
+  "chatSendMessage": "Send message",
+  "chatSearchHint": "Search fashion...",
+  "chatLoadingPreviousChat": "Loading your previous chat...",
+  "chatSessionChoiceTitle": "Choose Your Chat",
+  "chatSessionStartTitle": "Start Your Chat",
+  "chatSessionChoiceDescription": "Continue your last styling conversation or begin a fresh session.",
+  "chatSessionStartDescription": "No saved session was found. Start a new styling conversation.",
+  "chatContinueOldChat": "Continue Old Chat",
+  "chatStartNewChat": "Start New Chat",
+  "chatIntroTitle": "Hello! I'm Your AI Stylist",
+  "chatIntroMessage": "I can help you with outfit recommendations, styling tips, fashion advice, and more. Try asking me anything about fashion!",
+  "chatAiPicks": "AI Picks",
+  "chatCatalogMatches": "Catalog Matches",
+  "chatAiRecommendationFallbackTitle": "AI recommendation",
+  "chatAiRecommendationFallbackSubtitle": "External product recommendation",
+  "chatBrowserAction": "Browser",
+  "chatShopAction": "Shop",
+  "chatAiPick": "AI Pick",
+  "chatProductLinkUnavailable": "This product link is unavailable.",
+  "chatProductOpenFailed": "Could not open this product right now.",
+  "chatFreeDelivery": "Free delivery",
+  "chatFeatured": "Featured",
+  "chatCatalogProductFallbackTitle": "Catalog product",
+  "chatCatalogProductFallbackSubtitle": "Shop this from the catalog",
+  "chatCatalogAction": "Catalog",
+  "chatCatalogProductUnavailable": "This catalog product is unavailable right now.",
+  "chatHistoryFallbackMessage": "Here is your previous recommendation.",
+  "chatAssistantSummaryAiAndCatalog": "I found {aiCount} AI picks and {catalogCount} catalog matches for this look.",
+  "chatAssistantSummaryAiOnly": "I found {aiCount} AI-picked products you can shop right away.",
+  "chatAssistantSummaryCatalogOnly": "I found {catalogCount} catalog matches from the app for this request.",
+  "chatAssistantSummaryGeneric": "I analyzed your request and pulled together a few recommendations.",
+  "chatGenericErrorMessage": "I could not load recommendations right now. Please try again.",
+  "chatPreferencesGenderQuestion": "What's your gender?",
+  "chatPreferencesOccasionQuestion": "What's the occasion?",
+  "chatPreferencesSeasonQuestion": "Current season?",
+  "chatPreferencesBudgetQuestion": "Your budget range?",
+  "chatPreferencesStepCounter": "STEP {current} OF {total}",
+  "chatPreferencesBudgetMin": "Min: ${amount}",
+  "chatPreferencesBudgetValue": "${amount}",
+  "chatPreferencesBudgetMax": "Max: ${amount}",
+  "chatFindMyStyle": "Find my style",
+  "chatGenderMale": "Male",
+  "chatGenderFemale": "Female",
+  "chatGenderNonBinary": "Non-binary",
+  "chatGenderPreferNotSay": "Prefer not to say",
+  "chatOccasionOffice": "Office / Work",
+  "chatOccasionParty": "Party / Night Out",
+  "chatOccasionCasual": "Casual Day",
+  "chatOccasionSports": "Sports / Active",
+  "chatOccasionWedding": "Wedding / Formal",
+  "chatOccasionDateNight": "Date Night",
+  "chatSeasonSpring": "Spring",
+  "chatSeasonSummer": "Summer",
+  "chatSeasonAutumn": "Autumn",
+  "chatSeasonWinter": "Winter",
+  "requestCanceled": "Request canceled",
+  "sessionExpiredLoginAgain": "Your session has expired. Please log in again.",
+  "deleteAction": "Delete",
+  "editAction": "Edit",
+  "productFallbackLabel": "Product",
+  "helpCenterSubtitle": "Find answers to common questions",
+  "helpCenterBrowseByCategory": "Browse By Category",
+  "helpCenterPopularQuestions": "Popular Questions",
+  "helpCenterCategoryOrderTracking": "Order & Tracking",
+  "helpCenterCategoryShippingDelivery": "Shipping & Delivery",
+  "helpCenterCategoryAccountProfile": "Account & Profile",
+  "helpCenterCategoryAiStylingAssistance": "AI Styling Assistance",
+  "helpCenterQuestionTrackOrder": "How can I track my order?",
+  "helpCenterAnswerTrackOrder": "You can track your order from the 'My Orders' section under your profile. Real-time updates are available 24/7.",
+  "helpCenterQuestionDeliveryTime": "How long does delivery take?",
+  "helpCenterAnswerDeliveryTime": "Standard delivery usually takes 3-5 business days, while express shipping arrives within 1-2 business days.",
+  "helpCenterQuestionDeliveryAddress": "Can I change my delivery address?",
+  "helpCenterAnswerDeliveryAddress": "Yes. You can update your delivery address before the order is shipped from the 'My Orders' section.",
+  "helpCenterQuestionAiStyling": "What is DripTalk AI Styling?",
+  "helpCenterAnswerAiStyling": "DripTalk AI Styling gives you personalized outfit recommendations, styling tips, and fashion advice based on your preferences.",
+  "helpCenterQuestionReturns": "How do returns work?",
+  "helpCenterAnswerReturns": "You can request a return from your order details. Eligible items can be returned within the allowed return window.",
+  "helpCenterLoadFailed": "Unable to load help center.",
+  "helpCenterNoCategories": "No help categories available right now.",
+  "helpCenterNoQuestions": "No popular questions are available for this category yet.",
+  "privacyPolicyLoadFailed": "Unable to load privacy policy.",
+  "@privacyPolicyLoadFailed": {
+    "description": "Message shown when the privacy policy screen fails to load"
+  },
+  "privacyPolicyNoSections": "Privacy policy details are not available right now.",
+  "@privacyPolicyNoSections": {
+    "description": "Message shown when the privacy policy screen has no sections to display"
+  },
+  "privacyPolicyDefaultSubtitle": "Please review how we collect and protect your data.",
+  "@privacyPolicyDefaultSubtitle": {
+    "description": "Default subtitle shown below the privacy policy page title"
+  },
+  "returnPolicyLoadFailed": "Unable to load return policy.",
+  "returnPolicyNoSections": "Return policy details are not available right now.",
+  "returnPolicyDefaultSubtitle": "Return Guidelines & Timeline",
+  "returnPolicyDefaultHeading": "We offer a 7-day return policy for eligible items.",
+  "returnPolicyStartAction": "Start A Return",
+  "termsAndConditionsLoadFailed": "Unable to load terms & conditions.",
+  "@termsAndConditionsLoadFailed": {
+    "description": "Message shown when the terms and conditions screen fails to load"
+  },
+  "termsAndConditionsNoSections": "Terms & conditions details are not available right now.",
+  "@termsAndConditionsNoSections": {
+    "description": "Message shown when the terms and conditions screen has no sections to display"
+  },
+  "termsAndConditionsDefaultSubtitle": "Please review our terms carefully",
+  "@termsAndConditionsDefaultSubtitle": {
+    "description": "Default subtitle shown below the terms and conditions page title"
+  },
+  "reviewsDeleteTitle": "Delete Review",
+  "reviewsDeleteMessage": "Are you sure you want to delete this review? This action can't be undone.",
+  "reviewsWriteAction": "Add Review",
+  "reviewsWriteTitle": "Write Review",
+  "reviewsEditTitle": "Edit Review",
+  "reviewsRatingRequired": "Please select a rating",
+  "reviewsTextRequired": "Please share your review",
+  "reviewsInputHint": "Write your review here...",
+  "reviewsSubmitAction": "Submit Review",
+  "reviewsUpdateAction": "Update Review",
+  "reviewsDeliveredPrefix": "Delivered",
+  "reviewsReviewedPrefix": "Reviewed",
+  "reviewsPendingLabel": "Pending",
+  "reviewsFallbackComment": "No review added yet.",
+  "reviewsPromptComment": "Tell others what you liked or what could be better.",
+  "reviewsRecentlyLabel": "Recently",
+  "reviewsManageSubtitle": "Manage your ratings and feedback",
+  "reviewsStatTotal": "Total",
+  "reviewsStatAverage": "Average",
+  "reviewsStatPending": "Pending",
+  "reviewsFilterAll": "All",
+  "reviewsFilterFiveStars": "5 Stars",
+  "reviewsFilterFourStars": "4 Stars",
+  "reviewsFilterPending": "Pending",
+  "reviewsEmptyFilteredTitle": "No reviews match this filter",
+  "reviewsEmptyTitle": "No reviews yet",
+  "reviewsEmptyFilteredSubtitle": "Try another filter to see more of your reviews.",
+  "reviewsEmptySubtitle": "Your submitted reviews will appear here.",
+  "reviewsShowAllAction": "Show All",
+  "reviewsLoadFailed": "Unable to load reviews.",
+  "reviewsUpdateSuccess": "Review updated successfully.",
+  "reviewsUpdateFailed": "Unable to update review.",
+  "reviewsDeleteSuccess": "Review deleted successfully.",
+  "reviewsDeleteFailed": "Unable to delete review.",
+  "reviewSubmittedSuccess": "Review submitted successfully.",
+  "reviewSubmitFailed": "Unable to submit review.",
+  "aiStyleInsightsTitle": "AI Style Insights",
+  "aiStyleInsightsPerfectPairing": "Perfect Pairing",
+  "aiStyleInsightsPerfectPairingDescription": "Pair this piece with wide-leg trousers and a clean sneaker for a polished everyday look.",
+  "aiStyleInsightsStyleTip": "Style Tip",
+  "aiStyleInsightsStyleTipDescription": "Balance the silhouette with minimal accessories and let the statement piece stand out.",
+  "aiStyleInsightsTrendAlert": "Trend Alert",
+  "aiStyleInsightsTrendAlertDescription": "This look is trending for modern streetwear and elevated casual styling.",
+  "twoFactorTokenNotFound": "Two-factor verification token not found.",
+  "authTokenNotFound": "Authentication token not found.",
+  "logoutSuccessMessage": "Logged out successfully.",
+  "deleteAccountSuccessMessage": "Account deleted successfully.",
+  "unexpectedErrorOccurred": "An unexpected error occurred",
+  "twoFactorEnterAuthenticatorCode": "Enter the 6-digit code from your authenticator app.",
+  "twoFactorVerifiedSuccessMessage": "Two-factor authentication verified successfully.",
+  "twoFactorVerificationFailed": "Unable to verify two-factor authentication.",
+  "biometricInitializeFailed": "Failed to initialize biometric authentication.",
+  "biometricUnavailable": "Biometric authentication is not available on this device.",
+  "biometricAuthenticateReason": "Authenticate to sign in with biometrics.",
+  "biometricSignedInSuccess": "Signed in with biometrics.",
+  "biometricSessionExpired": "Your biometric session has expired. Please sign in again.",
+  "biometricAuthFailed": "Biometric authentication failed.",
+  "biometricVerifyEmailFirst": "Verify your email before enabling biometric login.",
+  "biometricRefreshSessionRequired": "Refresh your session before using biometric login.",
+  "biometricTokenMissingManualLogin": "Authentication token missing. Please log in manually.",
+  "biometricNoSavedSession": "No saved biometric session found.",
+  "editProfileLoadBeforeTwoFactorUpdate": "Load your profile before updating two-factor authentication.",
+  "editProfileTwoFactorEnabledSuccess": "Two-factor authentication enabled successfully.",
+  "editProfileTwoFactorDisabledSuccess": "Two-factor authentication disabled successfully.",
+  "editProfileLoadBeforeTwoFactorVerify": "Load your profile before verifying two-factor authentication.",
+  "editProfileBiometricDisabled": "Biometric login disabled.",
+  "editProfileBiometricUnavailable": "Biometric login is not available on this device.",
+  "editProfileBiometricReLogin": "Log in again before enabling biometric login.",
+  "editProfileBiometricPasswordLoginRequired": "Log in once with email and password before enabling biometric login.",
+  "editProfileBiometricEnabled": "Biometric login enabled.",
+  "backOnline": "Back online",
+  "searchCountryHint": "Search country",
+  "dashboardSearchHint": "Search...",
+  "navHome": "Home",
+  "navShop": "Shop",
+  "navChat": "Chat",
+  "navProfile": "Profile",
+  "navSearch": "Search",
+  "navFavorites": "Favorites",
+  "navSettings": "Settings",
+  "homeCategoryAiPicks": "AI Picks",
+  "homeCategoryTrending": "Trending",
+  "homeCategoryStreetwear": "Streetwear",
+  "homeCategoryLuxury": "Luxury",
+  "homeCategoryCasual": "Casual",
+  "profileGuestName": "DripTalk User",
+  "profileGuestInitials": "DT",
+  "forgotPasswordOtpSendFailed": "Unable to send OTP",
+  "resetPasswordFailed": "Unable to reset password",
+  "signupNetworkError": "Network Error",
+  "wishlistUpdateFailed": "Unable to update saved items",
+  "cartUpdateFailed": "Unable to update cart",
+  "profileSetupDialogTitle": "You're All Set!",
+  "profileSetupDialogDescription": "Your AI Stylist Is Now Trained And Ready To Help You Look Your Best.",
+  "profileSetupDialogAction": "Start Exploring",
+  "profileSetupLoadFailedMessage": "Unable to load your profile.",
+  "profileSetupSaveSuccessMessage": "Profile setup completed successfully.",
+  "profileSetupSaveFailedMessage": "Unable to save your profile.",
+  "profileSetupNoOptionsAvailable": "No options available yet.",
+  "profileSetupPreparing": "Preparing your profile setup...",
+  "profileSetupLoadFailureTitle": "Unable to load setup",
+  "profileSetupCompleteAction": "Complete Setup",
+  "profileSetupHeaderTitle": "Welcome To DripTalk",
+  "profileSetupHeaderSubtitle": "Let's Get To Know You First",
+  "profileSetupStepBasicsLabel": "Basics",
+  "profileSetupStepStyleLabel": "Styles",
+  "profileSetupStepBrandsLabel": "Brands",
+  "profileSetupStepTrainingLabel": "AI Training",
+  "profileSetupStepPhotosLabel": "Photos",
+  "profileSetupStepBasicsTitle": "Tell Us About You",
+  "profileSetupStepStyleTitle": "Your Style Identity",
+  "profileSetupStepBrandsTitle": "Colors & Brands",
+  "profileSetupStepTrainingTitle": "Train Your AI Stylist",
+  "profileSetupStepPhotosTitle": "Show Us Your Style",
+  "profileSetupStepBasicsSubtitle": "Let's Start With The Essentials",
+  "profileSetupStepStyleSubtitle": "Tell Us What You Love",
+  "profileSetupStepBrandsSubtitle": "Choose Your Favorites",
+  "profileSetupStepTrainingSubtitle": "Help Us Understand Your Taste",
+  "profileSetupStepPhotosSubtitle": "Upload Outfit Inspiration",
+  "profileSetupPhoneLabel": "Phone Number",
+  "profileSetupPhoneHint": "Enter your phone number",
+  "profileSetupGenderLabel": "Gender",
+  "profileSetupGenderHint": "Select gender",
+  "profileSetupDateOfBirthLabel": "Date of Birth",
+  "profileSetupDateOfBirthHint": "01/01/2000",
+  "profileSetupCountryLabel": "Country",
+  "profileSetupCountryHint": "Select country",
+  "profileSetupCityLabel": "City",
+  "profileSetupCityHint": "Select city",
+  "profileSetupBodyTypeLabel": "Body Type",
+  "profileSetupBodyTypeHint": "Select body type",
+  "profileSetupSkinToneLabel": "Skin Tone",
+  "profileSetupSkinToneHint": "Select skin tone",
+  "profileSetupPreferredStyleLabel": "Preferred Style",
+  "profileSetupBudgetMinLabel": "Minimum Budget",
+  "profileSetupBudgetMinHint": "5000",
+  "profileSetupBudgetMaxLabel": "Maximum Budget",
+  "profileSetupBudgetMaxHint": "15000",
+  "profileSetupBudgetCurrencySymbol": "$",
+  "profileSetupPreferredColorsLabel": "Preferred Colors",
+  "profileSetupPickColorsAction": "Pick Colors",
+  "profileSetupPreferredBrandsLabel": "Preferred Brands",
+  "profileSetupHeightLabel": "Height",
+  "profileSetupHeightHint": "5ft 7in",
+  "profileSetupWeightLabel": "Weight",
+  "profileSetupWeightHint": "40kg",
+  "profileSetupStyleInspirationsLabel": "Style Inspirations",
+  "profileSetupStyleInspirationsHint": "Brad Pitt, Timothee Chalamet",
+  "profileSetupAvoidedStylesLabel": "Avoided Styles",
+  "profileSetupAvoidedStylesHint": "Neon, Oversized, Loud Prints",
+  "profileSetupReplacePhotosLabel": "Replace existing stylist photos with this upload",
+  "profileSetupMemoryTitle": "Personalization Memory",
+  "profileSetupMemoryDescription": "These details help the stylist learn your taste over time",
+  "profileSetupChooseFiles": "Choose Files",
+  "profileSetupChooseFilesHint": "Tap to select photos from camera or gallery",
+  "profileSetupStatusTitle": "Profile Status: Complete",
+  "profileSetupStatusSummary": "{savedCount} saved / {wardrobeCount} wardrobe items",
+  "@profileSetupStatusSummary": {
+    "placeholders": {
+      "savedCount": {
+        "type": "int"
+      },
+      "wardrobeCount": {
+        "type": "int"
+      }
+    }
+  },
+  "profileSetupSelectGenderTitle": "Select Gender",
+  "profileSetupSelectCountryTitle": "Select Country",
+  "profileSetupSelectCityTitle": "Select City",
+  "profileSetupSelectBodyTypeTitle": "Select Body Type",
+  "profileSetupSelectSkinToneTitle": "Select Skin Tone",
+  "profileSetupSearchCountryHint": "Search country",
+  "profileSetupSearchCityHint": "Search city",
+  "profileSetupSearchBrandHint": "Search brands",
+  "profileSetupSearchNoResults": "No matching results found.",
+  "profileSetupSelectCountryFirst": "Select a country first.",
+  "profileSetupSeeMoreAction": "See More",
+  "profileSetupApplyAction": "Apply",
+  "profileSetupValidationPhone": "Phone number is required.",
+  "profileSetupValidationGender": "Select a gender.",
+  "profileSetupValidationDateOfBirth": "Select your date of birth.",
+  "profileSetupValidationCountry": "Select a country.",
+  "profileSetupValidationCity": "Select a city.",
+  "profileSetupValidationBodyType": "Select a body type.",
+  "profileSetupValidationSkinTone": "Select a skin tone.",
+  "profileSetupValidationStyle": "Choose at least one style.",
+  "profileSetupValidationBudgetMin": "Enter a valid minimum budget.",
+  "profileSetupValidationBudgetMax": "Enter a valid maximum budget.",
+  "profileSetupValidationBudgetRange": "Maximum budget must be greater than minimum budget.",
+  "profileSetupValidationColor": "Choose at least one color.",
+  "profileSetupValidationBrand": "Choose at least one brand.",
+  "profileSetupValidationHeight": "Height is required.",
+  "profileSetupValidationWeight": "Weight is required.",
+  "profileSetupValidationInspirations": "Add your style inspirations.",
+  "profileSetupValidationAvoidStyles": "Add the styles you want to avoid.",
+  "profileSetupOptionGenderMale": "Male",
+  "profileSetupOptionGenderFemale": "Female",
+  "profileSetupOptionGenderNonBinary": "Non-binary",
+  "profileSetupOptionBodyTypeAthletic": "Athletic",
+  "profileSetupOptionBodyTypeSlim": "Slim",
+  "profileSetupOptionBodyTypeRegular": "Regular",
+  "profileSetupOptionBodyTypeCurvy": "Curvy",
+  "profileSetupOptionBodyTypePlusSize": "Plus Size",
+  "profileSetupOptionSkinToneFair": "Fair",
+  "profileSetupOptionSkinToneLight": "Light",
+  "profileSetupOptionSkinToneMedium": "Medium",
+  "profileSetupOptionSkinToneOlive": "Olive",
+  "profileSetupOptionSkinToneBrown": "Brown",
+  "profileSetupOptionSkinToneDeep": "Deep",
+  "profileSetupOptionStyleFormal": "Formal",
+  "profileSetupOptionStyleStreetwear": "Streetwear",
+  "profileSetupOptionStyleCasual": "Casual",
+  "profileSetupOptionStyleLuxury": "Luxury",
+  "profileSetupOptionStyleVintage": "Vintage",
+  "profileSetupOptionStyleSporty": "Sporty",
+  "profileSetupOptionStyleBohemian": "Bohemian",
+  "profileSetupOptionStyleMinimalist": "Minimalist",
+  "profileSetupOptionColorBlue": "Blue",
+  "profileSetupOptionColorRed": "Red",
+  "profileSetupOptionColorBlack": "Black",
+  "profileSetupOptionColorWhite": "White",
+  "profileSetupOptionColorGreen": "Green",
+  "profileSetupOptionColorWine": "Wine",
+  "profileSetupOptionColorNavy": "Navy",
+  "profileSetupOptionColorBeige": "Beige",
+  "profileSetupOptionColorBrown": "Brown",
+  "profileSetupOptionColorGray": "Gray",
+  "profileSetupOptionColorPurple": "Purple",
+  "profileSetupOptionBrandNike": "Nike",
+  "profileSetupOptionBrandGucci": "Gucci",
+  "profileSetupOptionBrandPuma": "Puma",
+  "profileSetupOptionBrandPrada": "Prada",
+  "profileSetupOptionBrandZara": "Zara",
+  "profileSetupOptionBrandAdidas": "Adidas",
+  "profileSetupOptionBrandLouisVuitton": "Louis Vuitton",
+  "profileSetupOptionBrandBalenciaga": "Balenciaga",
+  "profileSetupOptionBrandHm": "H&M",
+  "profileSetupOptionCountryPakistan": "Pakistan",
+  "profileSetupOptionCountryUnitedStates": "United States",
+  "profileSetupOptionCountryUnitedKingdom": "United Kingdom",
+  "profileSetupOptionCountryUnitedArabEmirates": "United Arab Emirates",
+  "profileSetupOptionCountryCanada": "Canada",
+  "profileSetupOptionCityLahore": "Lahore",
+  "profileSetupOptionCityKarachi": "Karachi",
+  "profileSetupOptionCityIslamabad": "Islamabad",
+  "profileSetupOptionCityRawalpindi": "Rawalpindi",
+  "profileSetupOptionCityNewYork": "New York",
+  "profileSetupOptionCityLosAngeles": "Los Angeles",
+  "profileSetupOptionCityChicago": "Chicago",
+  "profileSetupOptionCityHouston": "Houston",
+  "profileSetupOptionCityLondon": "London",
+  "profileSetupOptionCityManchester": "Manchester",
+  "profileSetupOptionCityBirmingham": "Birmingham",
+  "profileSetupOptionCityLeeds": "Leeds",
+  "profileSetupOptionCityDubai": "Dubai",
+  "profileSetupOptionCityAbuDhabi": "Abu Dhabi",
+  "profileSetupOptionCitySharjah": "Sharjah",
+  "profileSetupOptionCityAjman": "Ajman",
+  "profileSetupOptionCityToronto": "Toronto",
+  "profileSetupOptionCityVancouver": "Vancouver",
+  "profileSetupOptionCityMontreal": "Montreal",
+  "profileSetupOptionCityCalgary": "Calgary"
 }

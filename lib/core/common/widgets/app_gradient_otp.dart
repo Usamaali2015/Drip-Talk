@@ -18,6 +18,41 @@ class GradientOtpInput extends StatelessWidget {
     this.previousFocus,
   });
 
+  static const Map<String, String> _localizedDigits = {
+    '٠': '0',
+    '١': '1',
+    '٢': '2',
+    '٣': '3',
+    '٤': '4',
+    '٥': '5',
+    '٦': '6',
+    '٧': '7',
+    '٨': '8',
+    '٩': '9',
+    '۰': '0',
+    '۱': '1',
+    '۲': '2',
+    '۳': '3',
+    '۴': '4',
+    '۵': '5',
+    '۶': '6',
+    '۷': '7',
+    '۸': '8',
+    '۹': '9',
+  };
+
+  String _normalizeOtpValue(String value) {
+    if (value.isEmpty) {
+      return '';
+    }
+
+    final normalized = value.characters
+        .map((char) => _localizedDigits[char] ?? char)
+        .join();
+
+    return normalized.characters.last;
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
@@ -33,28 +68,40 @@ class GradientOtpInput extends StatelessWidget {
           ),
           child: Container(
             height: AppSizes.s64,
-            width: AppSizes.s50,
+            width: AppSizes.s40,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: const Color(0xFF0F0F1A),
+              color: AppColors.otpFieldBackground,
               borderRadius: BorderRadius.circular(AppRadius.r12),
             ),
             child: TextField(
               controller: controller,
               focusNode: focusNode,
-              onTapOutside: (v){
+              textDirection: TextDirection.ltr,
+              onTapOutside: (v) {
                 focusNode.unfocus();
               },
               maxLength: 1,
               textAlign: TextAlign.center,
               keyboardType: TextInputType.number,
-              style: AppTextStyles.ts22(context,color: AppColors.white),
+              style: AppTextStyles.ts22(context, color: AppColors.pureWhite),
               decoration: const InputDecoration(
                 counterText: '',
                 border: InputBorder.none,
               ),
               onChanged: (value) {
-                if (value.isNotEmpty) {
+                final normalizedValue = _normalizeOtpValue(value);
+
+                if (controller.text != normalizedValue) {
+                  controller.value = TextEditingValue(
+                    text: normalizedValue,
+                    selection: TextSelection.collapsed(
+                      offset: normalizedValue.length,
+                    ),
+                  );
+                }
+
+                if (normalizedValue.isNotEmpty) {
                   if (nextFocus != null) {
                     nextFocus!.requestFocus();
                   } else {
@@ -62,7 +109,7 @@ class GradientOtpInput extends StatelessWidget {
                   }
                 }
 
-                if (value.isEmpty && previousFocus != null) {
+                if (normalizedValue.isEmpty && previousFocus != null) {
                   previousFocus!.requestFocus();
                 }
               },

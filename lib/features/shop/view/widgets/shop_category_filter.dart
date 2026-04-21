@@ -1,14 +1,11 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/constants/app_text_styles.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:drip_talk/features/shop/domain/shop_bloc.dart';
 import 'package:drip_talk/features/shop/domain/shop_event.dart';
 import 'package:drip_talk/features/shop/domain/shop_state.dart';
 import 'package:drip_talk/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class ShopCategoryFilter extends StatelessWidget {
   const ShopCategoryFilter({super.key});
@@ -44,7 +41,9 @@ class ShopCategoryFilter extends StatelessWidget {
                 onTap: isSelected
                     ? null
                     : () {
-                        context.read<ShopBloc>().add(SelectCategory(categoryId));
+                        context.read<ShopBloc>().add(
+                          SelectCategory(categoryId),
+                        );
                       },
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 180),
@@ -60,16 +59,19 @@ class ShopCategoryFilter extends StatelessWidget {
                         : null,
                     color: isSelected ? null : AppColors.darkBg,
                     border: Border.all(
-                      color: isSelected ? Colors.transparent : Colors.white24,
+                      color: isSelected
+                          ? AppColors.transparent
+                          : AppColors.pureWhite24,
                     ),
                   ),
                   child: AppText(
                     text: categoryName,
                     style: AppTextStyles.ts12(
                       context,
-                      color: Colors.white,
-                      fontWeight:
-                          isSelected ? FontWeight.bold : FontWeight.w400,
+                      color: AppColors.pureWhite,
+                      fontWeight: isSelected
+                          ? FontWeight.bold
+                          : FontWeight.w400,
                     ),
                   ),
                 ),

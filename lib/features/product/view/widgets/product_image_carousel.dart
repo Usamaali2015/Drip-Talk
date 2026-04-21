@@ -1,14 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_padding.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/widgets/app_cached_network_image.dart';
 import 'package:drip_talk/features/product/domain/bloc/product_bloc.dart';
 import 'package:drip_talk/features/product/domain/bloc/product_event.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class ProductImageCarousel extends StatefulWidget {
   const ProductImageCarousel({
@@ -46,7 +43,10 @@ class _ProductImageCarouselState extends State<ProductImageCarousel> {
       return;
     }
 
-    final targetIndex = widget.currentIndex.clamp(0, widget.imageUrls.length - 1);
+    final targetIndex = widget.currentIndex.clamp(
+      0,
+      widget.imageUrls.length - 1,
+    );
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       if (!mounted) {
         return;
@@ -66,94 +66,103 @@ class _ProductImageCarouselState extends State<ProductImageCarousel> {
   @override
   Widget build(BuildContext context) {
     if (widget.imageUrls.isEmpty) {
-      return Container(
-        height: AppSizes.s300,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(AppRadius.r30),
-          gradient: LinearGradient(
-            colors: [AppColors.secondary, AppColors.cyan, AppColors.primary],
+      return RepaintBoundary(
+        child: Container(
+          height: AppSizes.s300,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(AppRadius.r30),
+            gradient: const LinearGradient(
+              colors: [AppColors.secondary, AppColors.cyan, AppColors.primary],
+            ),
           ),
-        ),
-        child: Center(
-          child: Icon(
-            Icons.image_not_supported_outlined,
-            size: AppSizes.s56,
-            color: Colors.white.withValues(alpha: 0.9),
+          child: Center(
+            child: Icon(
+              Icons.image_not_supported_outlined,
+              size: AppSizes.s56,
+              color: AppColors.pureWhite.withValues(alpha: 0.9),
+            ),
           ),
         ),
       );
     }
 
-    return Stack(
-      alignment: Alignment.bottomCenter,
-      children: [
-        CarouselSlider(
-          carouselController: _carouselController,
-          options: CarouselOptions(
-            height: AppSizes.s300,
-            viewportFraction: 1.0,
-            enlargeCenterPage: true,
-            autoPlay: false,
-            initialPage: widget.currentIndex.clamp(0, widget.imageUrls.length - 1),
-            enableInfiniteScroll: widget.imageUrls.length > 1,
-            onPageChanged: (index, _) =>
-                context.read<ProductBloc>().add(ProductPageChanged(index)),
-          ),
-          items: widget.imageUrls.map((imageUrl) {
-            return Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(AppRadius.r30),
-                gradient: LinearGradient(
-                  colors: [
-                    AppColors.secondary,
-                    AppColors.cyan,
-                    AppColors.primary,
-                  ],
-                ),
+    return RepaintBoundary(
+      child: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          CarouselSlider(
+            carouselController: _carouselController,
+            options: CarouselOptions(
+              height: AppSizes.s300,
+              viewportFraction: 1.0,
+              enlargeCenterPage: true,
+              autoPlay: false,
+              initialPage: widget.currentIndex.clamp(
+                0,
+                widget.imageUrls.length - 1,
               ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(AppRadius.r30),
-                child: AppCachedNetworkImage(
-                  imageUrl: imageUrl,
-                  fit: BoxFit.cover,
-                  width: AppSizes.fitWidth,
-                  placeholder: Container(color: AppColors.lightBg),
-                  errorWidget: Container(
-                    color: AppColors.lightBg,
-                    alignment: Alignment.center,
-                    child: const Icon(
-                      Icons.broken_image_outlined,
-                      color: Colors.white54,
-                      size: AppSizes.s40,
+              enableInfiniteScroll: widget.imageUrls.length > 1,
+              onPageChanged: (index, _) =>
+                  context.read<ProductBloc>().add(ProductPageChanged(index)),
+            ),
+            items: widget.imageUrls.map((imageUrl) {
+              return RepaintBoundary(
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(AppRadius.r30),
+                    gradient: const LinearGradient(
+                      colors: [
+                        AppColors.secondary,
+                        AppColors.cyan,
+                        AppColors.primary,
+                      ],
+                    ),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(AppRadius.r30),
+                    child: AppCachedNetworkImage(
+                      imageUrl: imageUrl,
+                      fit: BoxFit.cover,
+                      width: AppSizes.fitWidth,
+                      placeholder: Container(color: AppColors.lightBg),
+                      errorWidget: Container(
+                        color: AppColors.lightBg,
+                        alignment: Alignment.center,
+                        child: const Icon(
+                          Icons.broken_image_outlined,
+                          color: AppColors.pureWhite54,
+                          size: AppSizes.s40,
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            );
-          }).toList(),
-        ),
-        if (widget.imageUrls.length > 1)
-          Padding(
-            padding: const EdgeInsets.only(bottom: AppSizes.s20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: widget.imageUrls.asMap().entries.map((entry) {
-                return AnimatedContainer(
-                  duration: const Duration(milliseconds: 300),
-                  width: widget.currentIndex == entry.key ? 20.0 : 8.0,
-                  height: 8.0,
-                  margin: AppPadding.horizontalExtraSmall,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4),
-                    color: widget.currentIndex == entry.key
-                        ? AppColors.secondary
-                        : AppColors.white,
-                  ),
-                );
-              }).toList(),
-            ),
+              );
+            }).toList(),
           ),
-      ],
+          if (widget.imageUrls.length > 1)
+            Padding(
+              padding: const EdgeInsets.only(bottom: AppSizes.s20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: widget.imageUrls.asMap().entries.map((entry) {
+                  return AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    width: widget.currentIndex == entry.key ? 20.0 : 8.0,
+                    height: 8.0,
+                    margin: AppPadding.horizontalExtraSmall,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(4),
+                      color: widget.currentIndex == entry.key
+                          ? AppColors.secondary
+                          : AppColors.pureWhite,
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+        ],
+      ),
     );
   }
 }

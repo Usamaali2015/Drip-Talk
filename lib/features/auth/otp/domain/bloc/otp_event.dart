@@ -1,3 +1,4 @@
+import 'package:drip_talk/features/auth/auth_repository/auth_otp_purpose.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class OtpEvent extends Equatable {
@@ -18,17 +19,20 @@ class OtpTimerTicked extends OtpEvent {
 class OtpSubmitted extends OtpEvent {
   final String email;
   final String otp;
-  final String type;
-  OtpSubmitted({required this.email, required this.otp, required this.type});
+  final AuthOtpPurpose purpose;
+
+  OtpSubmitted({required this.email, required this.otp, required this.purpose});
+
   @override
-  List<Object?> get props => [email, otp, type];
+  List<Object?> get props => [email, otp, purpose];
 }
 
 class OtpResent extends OtpEvent {
   final String email;
-  final String type;
-  OtpResent({required this.email, required this.type});
+  final AuthOtpPurpose purpose;
+
+  OtpResent({required this.email, required this.purpose});
 
   @override
-  List<Object?> get props => [email, type];
+  List<Object?> get props => [email, purpose];
 }

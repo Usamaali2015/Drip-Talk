@@ -1,12 +1,7 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_text_styles.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:flutter/material.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_text_field.dart';
 import 'package:drip_talk/l10n/app_localizations.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class SignUpForm extends StatelessWidget {
   final TextEditingController nameController;
@@ -31,7 +26,7 @@ class SignUpForm extends StatelessWidget {
           text: AppLocalizations.of(context)!.enterYourName,
           style: AppTextStyles.ts14(
             context,
-            color:AppColors.white,
+            color: AppColors.pureWhite,
             fontWeight: FontWeight.w400,
           ),
         ),
@@ -47,7 +42,7 @@ class SignUpForm extends StatelessWidget {
           text: AppLocalizations.of(context)!.enterYourEmail,
           style: AppTextStyles.ts14(
             context,
-            color:  AppColors.white,
+            color: AppColors.pureWhite,
             fontWeight: FontWeight.w400,
           ),
         ),
@@ -63,7 +58,7 @@ class SignUpForm extends StatelessWidget {
           text: AppLocalizations.of(context)!.enterYourPassword,
           style: AppTextStyles.ts14(
             context,
-            color:  AppColors.white,
+            color: AppColors.pureWhite,
             fontWeight: FontWeight.w400,
           ),
         ),
@@ -80,7 +75,7 @@ class SignUpForm extends StatelessWidget {
           text: AppLocalizations.of(context)!.confirmYourPassword,
           style: AppTextStyles.ts14(
             context,
-            color: AppColors.white,
+            color: AppColors.pureWhite,
             fontWeight: FontWeight.w400,
           ),
         ),

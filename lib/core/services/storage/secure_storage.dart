@@ -78,6 +78,10 @@ class SecureStorage {
     await writeString(StorageKeys.refreshToken, token);
   }
 
+  Future<String?> getRefreshToken() async {
+    return readString(StorageKeys.refreshToken);
+  }
+
   Future<void> saveUser(Map<String, dynamic> userJson) async {
     await writeJson(StorageKeys.user, userJson);
   }
@@ -115,6 +119,7 @@ class SecureStorage {
 
   Future<void> saveLocale(Locale locale) async {
     await writeString(StorageKeys.locale, locale.toLanguageTag());
+    await writeString(StorageKeys.lang, locale.languageCode.toLowerCase());
   }
 
   Future<Locale> getLocale() async {
@@ -123,6 +128,16 @@ class SecureStorage {
       return Locale.fromSubtags(languageCode: localeTag);
     }
     return const Locale('en');
+  }
+
+  Future<String> getLanguageCode() async {
+    final storedLang = await readString(StorageKeys.lang);
+    final normalizedLang = storedLang?.trim().toLowerCase();
+    if (normalizedLang != null && normalizedLang.isNotEmpty) {
+      return normalizedLang;
+    }
+
+    return (await getLocale()).languageCode.toLowerCase();
   }
 
   ///* -------------------------------------------------------------------------- */
@@ -136,7 +151,10 @@ class SecureStorage {
     await delete(StorageKeys.isLoggedIn);
     await delete(StorageKeys.emailVerifiedAt);
     await delete(StorageKeys.pendingVerificationEmail);
+    await delete(StorageKeys.chatSessionId);
+    await delete(StorageKeys.chatPreferences);
     await delete(StorageKeys.theme);
     await delete(StorageKeys.locale);
+    await delete(StorageKeys.lang);
   }
 }

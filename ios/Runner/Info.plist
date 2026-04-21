@@ -41,6 +41,9 @@
     <key>NSCameraUsageDescription</key>
     <string>Drip Talk needs access to the camera to take photos.</string>
 
+    <key>NSFaceIDUsageDescription</key>
+    <string>Drip Talk uses Face ID to let you sign in securely.</string>
+
     <!-- Photo library access (read) -->
     <key>NSPhotoLibraryUsageDescription</key>
     <string>Drip Talk needs access to your photo library to select images.</string>

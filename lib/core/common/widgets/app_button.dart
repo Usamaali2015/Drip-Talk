@@ -55,8 +55,8 @@ class AppButton extends StatelessWidget {
                 borderRadius: BorderRadius.circular(radius),
               ),
             ).copyWith(
-              backgroundColor: WidgetStateProperty.all(Colors.transparent),
-              shadowColor: WidgetStateProperty.all(Colors.transparent),
+              backgroundColor: WidgetStateProperty.all(AppColors.transparent),
+              shadowColor: WidgetStateProperty.all(AppColors.transparent),
             ),
         onPressed: isLoading ? null : onPressed,
         child: Container(
@@ -65,10 +65,7 @@ class AppButton extends StatelessWidget {
             color: backgroundColor,
             borderRadius: BorderRadius.circular(radius),
             border: borderColor != null
-                ? Border.all(
-                    color: borderColor!,
-                    width: borderWidth,
-                  )
+                ? Border.all(color: borderColor!, width: borderWidth)
                 : null,
           ),
           child: Container(
@@ -96,7 +93,7 @@ class AppButton extends StatelessWidget {
                     width: AppSizes.s20,
                     child: CircularProgressIndicator(
                       strokeWidth: AppSizes.s2,
-                      color: AppColors.white,
+                      color: AppColors.pureWhite,
                     ),
                   )
                 : Row(
@@ -111,7 +108,7 @@ class AppButton extends StatelessWidget {
                         text: text,
                         style: AppTextStyles.ts18(
                           context,
-                          color: textColor ?? AppColors.white,
+                          color: textColor ?? AppColors.pureWhite,
                           fontWeight: fontWeight ?? FontWeight.w700,
                         ).copyWith(fontSize: fontSize),
                       ),

@@ -7,12 +7,13 @@ abstract class ProductEvent extends Equatable {
 }
 
 class LoadProductDetails extends ProductEvent {
-  const LoadProductDetails(this.productId);
+  const LoadProductDetails(this.productId, {this.showLoader = true});
 
   final int productId;
+  final bool showLoader;
 
   @override
-  List<Object> get props => [productId];
+  List<Object> get props => [productId, showLoader];
 }
 
 class ProductPageChanged extends ProductEvent {

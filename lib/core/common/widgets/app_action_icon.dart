@@ -55,7 +55,7 @@ class AppActionIcon extends StatelessWidget {
                 child: Text(
                   badge!,
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: AppColors.pureWhite,
                     fontSize: 9,
                     fontWeight: FontWeight.w700,
                     height: 1,

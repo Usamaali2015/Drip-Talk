@@ -1,15 +1,10 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_padding.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/widgets/app_cached_network_image.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:drip_talk/core/utils/routes/app_routes.dart';
 import 'package:drip_talk/features/product/data/models/product_details_model.dart';
 import 'package:drip_talk/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class RecommendedSection extends StatelessWidget {
   const RecommendedSection({super.key, required this.relatedProducts});
@@ -74,7 +69,7 @@ class _RelatedProductCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(AppRadius.r20),
           gradient: LinearGradient(
             colors: [
-              Colors.white.withValues(alpha: 0.08),
+              AppColors.pureWhite.withValues(alpha: 0.08),
               AppColors.secondary.withValues(alpha: 0.55),
             ],
             begin: Alignment.topCenter,
@@ -104,7 +99,7 @@ class _RelatedProductCard extends StatelessWidget {
                       alignment: Alignment.center,
                       child: const Icon(
                         Icons.broken_image_outlined,
-                        color: Colors.white54,
+                        color: AppColors.pureWhite54,
                       ),
                     ),
                   ),
@@ -119,7 +114,7 @@ class _RelatedProductCard extends StatelessWidget {
                     //   AppText(
                     //     text: product.category!.name!,
                     //     variant: AppTextVariant.ts8,
-                    //     textColor: Colors.white54,
+                    //     textColor: AppColors.pureWhite54,
                     //     fontWeight: FontWeight.w600,
                     //     maxLines: 1,
                     //   ),
@@ -128,7 +123,7 @@ class _RelatedProductCard extends StatelessWidget {
                     AppText(
                       text: product.title ?? '--',
                       variant: AppTextVariant.ts12,
-                      textColor: AppColors.white,
+                      textColor: AppColors.pureWhite,
                       fontWeight: FontWeight.w600,
                       maxLines: 2,
                     ),
@@ -150,7 +145,7 @@ class _RelatedProductCard extends StatelessWidget {
                           currency: product.currency,
                         ),
                         variant: AppTextVariant.ts10,
-                        textColor: Colors.white38,
+                        textColor: AppColors.pureWhite38,
                         textDecoration: TextDecoration.lineThrough,
                       ),
                     ],

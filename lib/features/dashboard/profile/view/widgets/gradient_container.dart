@@ -1,12 +1,6 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_padding.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/constants/app_text_styles.dart';
-import 'package:drip_talk/core/common/widgets/app_asset_image.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:flutter/material.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 enum TrailingType { arrow, toggle, language }
 
@@ -142,7 +136,7 @@ class ListTileWidget extends StatelessWidget {
                     text: title ?? '',
                     style: AppTextStyles.ts18(
                       context,
-                      color:AppColors.white,
+                      color: AppColors.pureWhite,
                       fontWeight: FontWeight.w800,
                     ),
                   ),
@@ -176,7 +170,7 @@ class ListTileWidget extends StatelessWidget {
                     text: item.subtitle,
                     style: AppTextStyles.ts15(
                       context,
-                      color:AppColors.white,
+                      color: AppColors.pureWhite,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -202,7 +196,7 @@ class ListTileWidget extends StatelessWidget {
         return Container(
           height: AppSizes.s28,
           decoration: BoxDecoration(
-            color: AppColors.white,
+            color: AppColors.pureWhite,
             borderRadius: BorderRadius.circular(AppRadius.r8),
           ),
           child: Row(
@@ -216,14 +210,16 @@ class ListTileWidget extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: isSelected
                         ? AppColors.secondary
-                        : Colors.transparent,
+                        : AppColors.transparent,
                     borderRadius: BorderRadius.circular(AppRadius.r8),
                   ),
                   child: Center(
                     child: AppText(
                       text: lang,
                       style: TextStyle(
-                        color: isSelected ? Colors.white : Colors.grey,
+                        color: isSelected
+                            ? AppColors.pureWhite
+                            : AppColors.materialGrey,
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
                       ),
@@ -237,7 +233,7 @@ class ListTileWidget extends StatelessWidget {
       case TrailingType.arrow:
         return const Icon(
           Icons.arrow_forward_ios,
-          color: AppColors.white,
+          color: AppColors.pureWhite,
           size: 16,
         );
     }

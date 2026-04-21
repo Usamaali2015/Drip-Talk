@@ -83,7 +83,8 @@ class ShopState extends Equatable {
     final sizeValues = _dedupeStrings([
       filters.size,
       ...products.expand(
-        (product) => product.variants?.map((variant) => variant.size) ?? const [],
+        (product) =>
+            product.variants?.map((variant) => variant.size) ?? const [],
       ),
     ]);
 

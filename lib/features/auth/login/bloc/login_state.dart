@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:drip_talk/features/auth/two_factor/data/models/login_two_factor_challenge.dart';
 
 abstract class LoginState extends Equatable {
   @override
@@ -26,6 +27,16 @@ class LoginVerificationRequired extends LoginState {
 
   @override
   List<Object?> get props => [email, message];
+}
+
+class LoginTwoFactorRequired extends LoginState {
+  final LoginTwoFactorChallenge challenge;
+  final String? message;
+
+  LoginTwoFactorRequired({required this.challenge, this.message});
+
+  @override
+  List<Object?> get props => [challenge, message];
 }
 
 class LogoutSuccess extends LoginState {

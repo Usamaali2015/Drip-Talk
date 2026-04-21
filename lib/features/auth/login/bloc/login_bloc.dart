@@ -1,8 +1,12 @@
 import 'package:dio/dio.dart';
+import 'package:drip_talk/core/services/api/api_error_resolver.dart';
 import 'package:drip_talk/core/services/api/api_exceptions.dart';
 import 'package:drip_talk/core/services/api/dio_client.dart';
 import 'package:drip_talk/features/auth/auth_repository/auth_session_repository.dart';
 import 'package:drip_talk/features/auth/auth_repository/auth_repository.dart';
+import 'package:drip_talk/features/auth/biometric/data/repository/biometric_auth_repository.dart';
+import 'package:drip_talk/features/auth/two_factor/data/models/login_two_factor_challenge.dart';
+import 'package:drip_talk/core/utils/app_utils/app_localization_utils.dart';
 import 'package:drip_talk/core/utils/routes/auth_guard.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'login_event.dart';
@@ -12,9 +16,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final AuthRepository _authRepository;
   final AuthSessionRepository _authSessionRepository;
   final DioClient _dioClient;
+  final BiometricAuthRepository _biometricAuthRepository;
 
-  LoginBloc(this._authRepository, this._authSessionRepository, this._dioClient)
-    : super(LoginInitial()) {
+  LoginBloc(
+    this._authRepository,
+    this._authSessionRepository,
+    this._dioClient,
+    this._biometricAuthRepository,
+  ) : super(LoginInitial()) {
     on<LoginSubmitted>(_onLoginSubmitted);
     on<LogoutRequested>(_onLogoutRequested);
     on<DeleteAccountRequested>(_onDeleteAccountRequested);
@@ -45,6 +54,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           email: resolvedEmail,
           emailVerifiedAt: emailVerifiedAt,
         );
+        // Disable biometric login since verification is required
+        await _biometricAuthRepository.disableBiometricLogin();
         _dioClient.clearAuthToken();
         AuthGuard.logout();
 
@@ -57,12 +68,58 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         return;
       }
 
+      if (response.requiresTwoFactor) {
+        final twoFactorToken = response.twoFactorToken?.trim();
+        if (twoFactorToken == null || twoFactorToken.isEmpty) {
+          emit(
+            LoginError(
+              localizedString(
+                fallback: 'Two-factor verification token not found.',
+                select: (l10n) => l10n.twoFactorTokenNotFound,
+              ),
+            ),
+          );
+          return;
+        }
+
+        await _authSessionRepository.clearAuthenticatedSession();
+        // Disable biometric login since 2FA is required
+        await _biometricAuthRepository.disableBiometricLogin();
+        _dioClient.clearAuthToken();
+        AuthGuard.logout();
+
+        emit(
+          LoginTwoFactorRequired(
+            challenge: LoginTwoFactorChallenge(
+              email: resolvedEmail,
+              password: event.password.trim(),
+              twoFactorToken: twoFactorToken,
+            ),
+            message: response.message,
+          ),
+        );
+        return;
+      }
+
       final token = response.token;
       if (token != null && token.isNotEmpty) {
+        await _biometricAuthRepository.cacheManualLoginCredentials(
+          email: resolvedEmail,
+          password: event.password.trim(),
+        );
         await _authSessionRepository.saveAuthenticatedSession(
           token: token,
+          refreshToken: response.refreshToken,
           user: response.user?.toJson(),
           emailVerifiedAt: emailVerifiedAt,
+        );
+        await _biometricAuthRepository.refreshBiometricSessionIfEnabled(
+          token: token,
+          refreshToken: response.refreshToken,
+          user: response.user?.toJson(),
+          emailVerifiedAt: emailVerifiedAt,
+          email: resolvedEmail,
+          password: event.password.trim(),
         );
 
         _dioClient.setAuthToken(token);
@@ -70,7 +127,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
         emit(LoginSuccess(message: response.message));
       } else {
-        emit(LoginError('Authentication token not found.'));
+        emit(
+          LoginError(
+            localizedString(
+              fallback: 'Authentication token not found.',
+              select: (l10n) => l10n.authTokenNotFound,
+            ),
+          ),
+        );
       }
     } catch (e) {
       emit(LoginError(_resolveErrorMessage(e)));
@@ -84,26 +148,51 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     try {
       emit(LoginLoading());
 
+      final shouldPreserveBiometricSession =
+          await _shouldPreserveBiometricSessionOnLogout();
       final token = await _authSessionRepository.getAuthToken();
-      if (token != null && token.isNotEmpty) {
+      if (!shouldPreserveBiometricSession &&
+          token != null &&
+          token.isNotEmpty) {
         _dioClient.setAuthToken(token);
       }
 
-      final response = token == null || token.isEmpty
+      final response =
+          shouldPreserveBiometricSession || token == null || token.isEmpty
           ? null
           : await _authRepository.logout();
 
       await _authSessionRepository.clearPendingVerification();
       await _authSessionRepository.clearAuthenticatedSession();
+      if (!shouldPreserveBiometricSession) {
+        await _biometricAuthRepository.disableBiometricLogin();
+      }
       _dioClient.clearAuthToken();
       AuthGuard.logout();
 
       emit(
-        LogoutSuccess(message: response?.message ?? 'Logged out successfully.'),
+        LogoutSuccess(
+          message:
+              response?.message ??
+              localizedString(
+                fallback: 'Logged out successfully.',
+                select: (l10n) => l10n.logoutSuccessMessage,
+              ),
+        ),
       );
     } catch (e) {
       emit(LoginError(_resolveErrorMessage(e)));
     }
+  }
+
+  Future<bool> _shouldPreserveBiometricSessionOnLogout() async {
+    final biometricEnabled = await _biometricAuthRepository
+        .isBiometricLoginEnabled();
+    if (!biometricEnabled) {
+      return false;
+    }
+
+    return _biometricAuthRepository.hasEnabledBiometricSession();
   }
 
   Future<void> _onDeleteAccountRequested(
@@ -125,12 +214,18 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       await _authSessionRepository.clearPendingVerification();
       await _authSessionRepository.clearAuthenticatedSession();
+      await _biometricAuthRepository.disableBiometricLogin();
       _dioClient.clearAuthToken();
       AuthGuard.logout();
 
       emit(
         DeleteAccountSuccess(
-          message: response.message ?? 'Account deleted successfully.',
+          message:
+              response.message ??
+              localizedString(
+                fallback: 'Account deleted successfully.',
+                select: (l10n) => l10n.deleteAccountSuccessMessage,
+              ),
         ),
       );
     } catch (e) {
@@ -143,11 +238,13 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       if (error.error is ApiException) {
         return (error.error as ApiException).message;
       }
-
-      return error.message ?? 'Network Error';
     }
-
-    final message = error.toString().trim();
-    return message.isEmpty ? 'An unexpected error occurred' : message;
+    return resolveApiErrorMessage(
+      error,
+      fallback: localizedString(
+        fallback: 'An unexpected error occurred',
+        select: (l10n) => l10n.unexpectedErrorOccurred,
+      ),
+    );
   }
 }

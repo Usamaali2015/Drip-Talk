@@ -1,15 +1,10 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_radius.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
-import 'package:drip_talk/core/common/constants/app_text_styles.dart';
-import 'package:drip_talk/core/common/widgets/app_cached_network_image.dart';
-import 'package:drip_talk/core/common/widgets/app_gap.dart';
-import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:drip_talk/features/cart/data/models/cart_model.dart';
 import 'package:drip_talk/features/cart/view/widgets/cart_price_formatter.dart';
 import 'package:drip_talk/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
+import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 
 class CartItemCard extends StatelessWidget {
   const CartItemCard({
@@ -76,7 +71,7 @@ class CartItemCard extends StatelessWidget {
                           maxLines: 2,
                           style: AppTextStyles.ts18(
                             context,
-                            color: AppColors.white,
+                            color: AppColors.pureWhite,
                             fontWeight: FontWeight.w700,
                           ).copyWith(fontSize: 15),
                         ),
@@ -160,7 +155,7 @@ class _ItemMetaLine extends StatelessWidget {
                   text: '$label: ',
                   style: AppTextStyles.ts12(
                     context,
-                    color: AppColors.white.withValues(alpha: 0.86),
+                    color: AppColors.pureWhite.withValues(alpha: 0.86),
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -168,7 +163,7 @@ class _ItemMetaLine extends StatelessWidget {
                   text: value,
                   style: AppTextStyles.ts12(
                     context,
-                    color: AppColors.white.withValues(alpha: 0.68),
+                    color: AppColors.pureWhite.withValues(alpha: 0.68),
                     fontWeight: FontWeight.w400,
                   ),
                 ),
@@ -218,7 +213,7 @@ class _QuantityStepper extends StatelessWidget {
                 text: '$quantity',
                 style: AppTextStyles.ts14(
                   context,
-                  color: AppColors.white,
+                  color: AppColors.pureWhite,
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -250,8 +245,8 @@ class _StepperButton extends StatelessWidget {
           icon,
           size: AppSizes.s14,
           color: enabled
-              ? AppColors.white
-              : AppColors.white.withValues(alpha: 0.28),
+              ? AppColors.pureWhite
+              : AppColors.pureWhite.withValues(alpha: 0.28),
         ),
       ),
     );
@@ -275,9 +270,11 @@ class _IconActionButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppColors.secondary.withValues(alpha: 0.18),
           shape: BoxShape.circle,
-          border: Border.all(color: AppColors.white.withValues(alpha: 0.14)),
+          border: Border.all(
+            color: AppColors.pureWhite.withValues(alpha: 0.14),
+          ),
         ),
-        child: Icon(icon, color: AppColors.white, size: AppSizes.s16),
+        child: Icon(icon, color: AppColors.pureWhite, size: AppSizes.s16),
       ),
     );
   }
@@ -290,8 +287,8 @@ class _CartImagePlaceholder extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox.expand(
       child: Shimmer.fromColors(
-        baseColor: Colors.grey.shade700,
-        highlightColor: Colors.grey.shade500,
+        baseColor: AppColors.shimmerBase,
+        highlightColor: AppColors.shimmerHighlight,
         child: Container(color: AppColors.lightBg),
       ),
     );
