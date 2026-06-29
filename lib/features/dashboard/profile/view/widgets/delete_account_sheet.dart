@@ -104,6 +104,9 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final mediaQuery = MediaQuery.of(context);
+    final bottomInset = mediaQuery.viewInsets.bottom;
+    final maxSheetHeight = mediaQuery.size.height * 0.9;
 
     return BlocListener<LoginBloc, LoginState>(
       listenWhen: (previous, current) =>
@@ -124,317 +127,316 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
           ToastUtils.show(context, state.message, type: ToastType.error);
         }
       },
-      child: FractionallySizedBox(
-        heightFactor: 0.9,
-        child: Container(
-          padding: const EdgeInsets.only(top: 4),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(AppRadius.r30),
-              topRight: Radius.circular(AppRadius.r30),
-            ),
-
-            color: AppColors.secondary,
-          ),
-          child: Container(
-            decoration: BoxDecoration(
-              color: AppColors.lightBg,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(AppRadius.r30),
-                topRight: Radius.circular(AppRadius.r30),
+      child: SafeArea(
+        top: false,
+        child: AnimatedPadding(
+          duration: const Duration(milliseconds: 220),
+          curve: Curves.easeOutCubic,
+          padding: EdgeInsets.only(bottom: bottomInset),
+          child: ConstrainedBox(
+            constraints: BoxConstraints(maxHeight: maxSheetHeight),
+            child: Container(
+              padding: const EdgeInsets.only(top: 4),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(AppRadius.r30),
+                  topRight: Radius.circular(AppRadius.r30),
+                ),
+                color: AppColors.secondary,
               ),
-            ),
-            child: SafeArea(
-              top: false,
-              child: Column(
-                children: [
-                  Expanded(
-                    child: SingleChildScrollView(
-                      physics: const BouncingScrollPhysics(),
-                      padding: const EdgeInsets.all(AppSizes.s28),
-                      child: BlocBuilder<LoginBloc, LoginState>(
-                        builder: (context, state) {
-                          final isLoading = state is DeleteAccountLoading;
+              child: Container(
+                decoration: BoxDecoration(
+                  color: AppColors.lightBg,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(AppRadius.r30),
+                    topRight: Radius.circular(AppRadius.r30),
+                  ),
+                ),
+                child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  keyboardDismissBehavior:
+                      ScrollViewKeyboardDismissBehavior.onDrag,
+                  padding: const EdgeInsets.all(AppSizes.s28),
+                  child: BlocBuilder<LoginBloc, LoginState>(
+                    builder: (context, state) {
+                      final isLoading = state is DeleteAccountLoading;
 
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const SizedBox(height: AppSizes.s4),
-                              Center(
-                                child: AppAssetImage(
-                                  assetPath: Assets.deleteAccountIcon,
-                                ),
+                      return Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: AppSizes.s4),
+                          Center(
+                            child: AppAssetImage(
+                              assetPath: Assets.deleteAccountIcon,
+                            ),
+                          ),
+                          const SizedBox(height: AppSizes.s16),
+                          Center(
+                            child: AppText(
+                              text:
+                                  l10n.deleteAccountSheetTitle.toUpperCase(),
+                              textAlign: TextAlign.center,
+                              style: AppTextStyles.ts24(
+                                context,
+                                color: AppColors.secondary,
+                                fontWeight: FontWeight.w800,
                               ),
-                              const SizedBox(height: AppSizes.s16),
-                              Center(
-                                child: AppText(
-                                  text: l10n.deleteAccountSheetTitle
-                                      .toUpperCase(),
-                                  textAlign: TextAlign.center,
-                                  style: AppTextStyles.ts24(
-                                    context,
-                                    color: AppColors.secondary,
-                                    fontWeight: FontWeight.w800,
-                                  ),
-                                ),
+                            ),
+                          ),
+                          const SizedBox(height: AppSizes.s8),
+                          Center(
+                            child: ConstrainedBox(
+                              constraints: const BoxConstraints(
+                                maxWidth: AppSizes.s280,
                               ),
-                              const SizedBox(height: AppSizes.s8),
-                              Center(
-                                child: ConstrainedBox(
-                                  constraints: const BoxConstraints(
-                                    maxWidth: AppSizes.s280,
-                                  ),
-                                  child: AppText(
-                                    text: l10n.deleteAccountSheetSubtitle,
-                                    textAlign: TextAlign.center,
-                                    maxLines: 3,
-                                    style: AppTextStyles.ts14(
-                                      context,
-                                      color: AppColors.pureWhite,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: AppSizes.s20),
-                              Container(
-                                width: double.infinity,
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: AppSizes.s18,
-                                  vertical: AppSizes.s14,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: AppColors.secondary.withValues(
-                                    alpha: 0.08,
-                                  ),
-                                  borderRadius: BorderRadius.circular(
-                                    AppRadius.r16,
-                                  ),
-                                  border: Border.all(
-                                    color: AppColors.secondary.withValues(
-                                      alpha: 0.48,
-                                    ),
-                                  ),
-                                ),
-                                child: AppText(
-                                  text: l10n.deleteAccountWarningMessage,
-                                  textAlign: TextAlign.center,
-                                  maxLines: 3,
-                                  style: AppTextStyles.ts10(
-                                    context,
-                                    color: AppColors.pureWhite.withValues(
-                                      alpha: 0.82,
-                                    ),
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: AppSizes.s16),
-                              AppText(
-                                text: l10n.deleteAccountEmailLabel,
+                              child: AppText(
+                                text: l10n.deleteAccountSheetSubtitle,
+                                textAlign: TextAlign.center,
                                 maxLines: 3,
                                 style: AppTextStyles.ts14(
                                   context,
                                   color: AppColors.pureWhite,
-                                  fontWeight: FontWeight.w500,
+                                  fontWeight: FontWeight.w400,
                                 ),
                               ),
-                              const SizedBox(height: AppSizes.s10),
-                              _DeleteAccountFieldTheme(
-                                child: AppTextField(
-                                  controller: _emailController,
-                                  hintText: l10n.deleteAccountEmailHint,
-                                  keyboardType: TextInputType.emailAddress,
-                                  enabled: !isLoading,
-                                  borderRadius: AppRadius.r16,
-                                  onChanged: (_) {
-                                    if (_emailError != null) {
-                                      setState(() => _emailError = null);
-                                    }
+                            ),
+                          ),
+                          const SizedBox(height: AppSizes.s20),
+                          Container(
+                            width: double.infinity,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: AppSizes.s18,
+                              vertical: AppSizes.s14,
+                            ),
+                            decoration: BoxDecoration(
+                              color: AppColors.secondary.withValues(
+                                alpha: 0.08,
+                              ),
+                              borderRadius: BorderRadius.circular(
+                                AppRadius.r16,
+                              ),
+                              border: Border.all(
+                                color: AppColors.secondary.withValues(
+                                  alpha: 0.48,
+                                ),
+                              ),
+                            ),
+                            child: AppText(
+                              text: l10n.deleteAccountWarningMessage,
+                              textAlign: TextAlign.center,
+                              maxLines: 3,
+                              style: AppTextStyles.ts10(
+                                context,
+                                color: AppColors.pureWhite.withValues(
+                                  alpha: 0.82,
+                                ),
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: AppSizes.s16),
+                          AppText(
+                            text: l10n.deleteAccountEmailLabel,
+                            maxLines: 3,
+                            style: AppTextStyles.ts14(
+                              context,
+                              color: AppColors.pureWhite,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const SizedBox(height: AppSizes.s10),
+                          _DeleteAccountFieldTheme(
+                            child: AppTextField(
+                              controller: _emailController,
+                              hintText: l10n.deleteAccountEmailHint,
+                              keyboardType: TextInputType.emailAddress,
+                              enabled: !isLoading,
+                              borderRadius: AppRadius.r16,
+                              onChanged: (_) {
+                                if (_emailError != null) {
+                                  setState(() => _emailError = null);
+                                }
+                              },
+                            ),
+                          ),
+                          if (_emailError != null) ...[
+                            const SizedBox(height: AppSizes.s6),
+                            AppText(
+                              text: _emailError!,
+                              style: AppTextStyles.ts12(
+                                context,
+                                color: AppColors.secondary,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                          const SizedBox(height: AppSizes.s18),
+                          AppText(
+                            text: l10n.deleteAccountPasswordLabel,
+                            style: AppTextStyles.ts14(
+                              context,
+                              color: AppColors.pureWhite,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const SizedBox(height: AppSizes.s10),
+                          _DeleteAccountFieldTheme(
+                            child: AppTextField(
+                              controller: _passwordController,
+                              hintText: l10n.deleteAccountPasswordHint,
+                              obscureText: true,
+                              enabled: !isLoading,
+                              borderRadius: AppRadius.r16,
+                              onChanged: (_) {
+                                if (_passwordError != null) {
+                                  setState(() => _passwordError = null);
+                                }
+                              },
+                            ),
+                          ),
+                          if (_passwordError != null) ...[
+                            const SizedBox(height: AppSizes.s6),
+                            AppText(
+                              text: _passwordError!,
+                              style: AppTextStyles.ts12(
+                                context,
+                                color: AppColors.secondary,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                          const SizedBox(height: AppSizes.s18),
+                          InkWell(
+                            borderRadius: BorderRadius.circular(
+                              AppRadius.r16,
+                            ),
+                            onTap: isLoading
+                                ? null
+                                : () {
+                                    setState(() {
+                                      _isAcknowledged = !_isAcknowledged;
+                                      _acknowledgementError = null;
+                                    });
                                   },
+                            child: Container(
+                              width: double.infinity,
+                              padding: const EdgeInsets.all(AppSizes.s16),
+                              decoration: BoxDecoration(
+                                color: AppColors.secondary.withValues(
+                                  alpha: 0.12,
                                 ),
-                              ),
-                              if (_emailError != null) ...[
-                                const SizedBox(height: AppSizes.s6),
-                                AppText(
-                                  text: _emailError!,
-                                  style: AppTextStyles.ts12(
-                                    context,
-                                    color: AppColors.secondary,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                              const SizedBox(height: AppSizes.s18),
-                              AppText(
-                                text: l10n.deleteAccountPasswordLabel,
-                                style: AppTextStyles.ts14(
-                                  context,
-                                  color: AppColors.pureWhite,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              const SizedBox(height: AppSizes.s10),
-                              _DeleteAccountFieldTheme(
-                                child: AppTextField(
-                                  controller: _passwordController,
-                                  hintText: l10n.deleteAccountPasswordHint,
-                                  obscureText: true,
-                                  enabled: !isLoading,
-                                  borderRadius: AppRadius.r16,
-                                  onChanged: (_) {
-                                    if (_passwordError != null) {
-                                      setState(() => _passwordError = null);
-                                    }
-                                  },
-                                ),
-                              ),
-                              if (_passwordError != null) ...[
-                                const SizedBox(height: AppSizes.s6),
-                                AppText(
-                                  text: _passwordError!,
-                                  style: AppTextStyles.ts12(
-                                    context,
-                                    color: AppColors.secondary,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                              const SizedBox(height: AppSizes.s18),
-                              InkWell(
                                 borderRadius: BorderRadius.circular(
                                   AppRadius.r16,
                                 ),
-                                onTap: isLoading
-                                    ? null
-                                    : () {
-                                        setState(() {
-                                          _isAcknowledged = !_isAcknowledged;
-                                          _acknowledgementError = null;
-                                        });
-                                      },
-                                child: Container(
-                                  width: double.infinity,
-                                  padding: const EdgeInsets.all(AppSizes.s16),
-                                  decoration: BoxDecoration(
-                                    color: AppColors.secondary.withValues(
-                                      alpha: 0.12,
-                                    ),
-                                    borderRadius: BorderRadius.circular(
-                                      AppRadius.r16,
-                                    ),
-                                    border: Border.all(
-                                      color: AppColors.secondary.withValues(
-                                        alpha: 0.3,
-                                      ),
-                                    ),
-                                  ),
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      AnimatedContainer(
-                                        duration: const Duration(
-                                          milliseconds: 180,
-                                        ),
-                                        width: AppSizes.s16,
-                                        height: AppSizes.s16,
-                                        margin: const EdgeInsets.only(
-                                          top: AppSizes.s2,
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: _isAcknowledged
-                                              ? AppColors.secondary
-                                              : AppColors.transparent,
-                                          borderRadius: BorderRadius.circular(
-                                            AppRadius.r4,
-                                          ),
-                                          border: Border.all(
-                                            color: AppColors.secondary,
-                                          ),
-                                        ),
-                                        child: _isAcknowledged
-                                            ? const Icon(
-                                                Icons.check_rounded,
-                                                size: AppSizes.s12,
-                                                color: AppColors.pureWhite,
-                                              )
-                                            : null,
-                                      ),
-                                      const SizedBox(width: AppSizes.s10),
-                                      Expanded(
-                                        child: AppText(
-                                          text:
-                                              l10n.deleteAccountAcknowledgement,
-                                          textAlign: TextAlign.justify,
-                                          maxLines: 2,
-                                          style: AppTextStyles.ts12(
-                                            context,
-                                            color: AppColors.pureWhite
-                                                .withValues(alpha: 0.84),
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
+                                border: Border.all(
+                                  color: AppColors.secondary.withValues(
+                                    alpha: 0.3,
                                   ),
                                 ),
                               ),
-                              if (_acknowledgementError != null) ...[
-                                const SizedBox(height: AppSizes.s6),
-                                AppText(
-                                  text: _acknowledgementError!,
-                                  style: AppTextStyles.ts12(
-                                    context,
-                                    color: AppColors.secondary,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                              const SizedBox(height: AppSizes.s24),
-                              Row(
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Expanded(
-                                    child: AppButton(
-                                      text: l10n.cancel,
-                                      onPressed: isLoading
-                                          ? null
-                                          : () => Navigator.of(context).pop(),
-                                      height: AppSizes.s56,
-                                      fontSize: AppSizes.s16,
-                                      fontWeight: FontWeight.w700,
-                                      backgroundColor: AppColors.transparent,
-                                      borderColor: AppColors.secondary,
-                                      borderRadius: AppRadius.r16,
+                                  AnimatedContainer(
+                                    duration: const Duration(
+                                      milliseconds: 180,
                                     ),
+                                    width: AppSizes.s16,
+                                    height: AppSizes.s16,
+                                    margin: const EdgeInsets.only(
+                                      top: AppSizes.s2,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: _isAcknowledged
+                                          ? AppColors.secondary
+                                          : AppColors.transparent,
+                                      borderRadius: BorderRadius.circular(
+                                        AppRadius.r4,
+                                      ),
+                                      border: Border.all(
+                                        color: AppColors.secondary,
+                                      ),
+                                    ),
+                                    child: _isAcknowledged
+                                        ? const Icon(
+                                            Icons.check_rounded,
+                                            size: AppSizes.s12,
+                                            color: AppColors.pureWhite,
+                                          )
+                                        : null,
                                   ),
-                                  const SizedBox(width: AppSizes.s12),
+                                  const SizedBox(width: AppSizes.s10),
                                   Expanded(
-                                    child: AppButton(
-                                      text: l10n.deleteAccountConfirmAction,
-                                      onPressed: isLoading
-                                          ? null
-                                          : () => _submit(l10n),
-                                      isLoading: isLoading,
-                                      height: AppSizes.s56,
-                                      fontSize: AppSizes.s16,
-                                      fontWeight: FontWeight.w800,
-                                      gradientColors: const [
-                                        AppColors.secondary,
-                                        AppColors.deleteAccent,
-                                      ],
-                                      borderRadius: AppRadius.r16,
+                                    child: AppText(
+                                      text: l10n.deleteAccountAcknowledgement,
+                                      textAlign: TextAlign.justify,
+                                      maxLines: 2,
+                                      style: AppTextStyles.ts12(
+                                        context,
+                                        color: AppColors.pureWhite
+                                            .withValues(alpha: 0.84),
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                   ),
                                 ],
                               ),
+                            ),
+                          ),
+                          if (_acknowledgementError != null) ...[
+                            const SizedBox(height: AppSizes.s6),
+                            AppText(
+                              text: _acknowledgementError!,
+                              style: AppTextStyles.ts12(
+                                context,
+                                color: AppColors.secondary,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                          const SizedBox(height: AppSizes.s24),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: AppButton(
+                                  text: l10n.cancel,
+                                  onPressed: isLoading
+                                      ? null
+                                      : () => Navigator.of(context).pop(),
+                                  height: AppSizes.s56,
+                                  fontSize: AppSizes.s16,
+                                  fontWeight: FontWeight.w700,
+                                  backgroundColor: AppColors.transparent,
+                                  borderColor: AppColors.secondary,
+                                  borderRadius: AppRadius.r16,
+                                ),
+                              ),
+                              const SizedBox(width: AppSizes.s12),
+                              Expanded(
+                                child: AppButton(
+                                  text: l10n.deleteAccountConfirmAction,
+                                  onPressed: isLoading
+                                      ? null
+                                      : () => _submit(l10n),
+                                  isLoading: isLoading,
+                                  height: AppSizes.s56,
+                                  fontSize: AppSizes.s16,
+                                  fontWeight: FontWeight.w800,
+                                  gradientColors: const [
+                                    AppColors.secondary,
+                                    AppColors.deleteAccent,
+                                  ],
+                                  borderRadius: AppRadius.r16,
+                                ),
+                              ),
                             ],
-                          );
-                        },
-                      ),
-                    ),
+                          ),
+                        ],
+                      );
+                    },
                   ),
-                ],
+                ),
               ),
             ),
           ),

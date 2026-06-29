@@ -1120,6 +1120,65 @@
   "requestCanceled": "Request canceled",
   "sessionExpiredLoginAgain": "Your session has expired. Please log in again.",
   "deleteAction": "Delete",
+  "wardrobeUntitledTitle": "Untitled Wardrobe",
+  "wardrobeListHeaderLeading": "MY",
+  "wardrobeListHeaderAccent": "Wardrobes",
+  "wardrobeListHeaderSubtitle": "Your Fits, All In One Place",
+  "wardrobeListLoadFailed": "Unable to load wardrobes right now.",
+  "wardrobeListCreateAction": "Create Wardrobe",
+  "wardrobeListDeleteDialogTitle": "Delete wardrobe?",
+  "wardrobeListDeleteDialogMessage": "This will delete \"{wardrobeName}\" and every dress inside it.",
+  "wardrobeInWardrobeLabel": "In Wardrobe",
+  "wardrobeInLaundryLabel": "In Laundry",
+  "wardrobeEmptyTitle": "No Wardrobes Yet",
+  "wardrobeEmptySubtitle": "Add your first wardrobe to start organizing your style.",
+  "wardrobeEmptyAction": "Create your first wardrobe",
+  "wardrobeCreateHeaderLeading": "New",
+  "wardrobeCreateHeaderAccent": "Wardrobe",
+  "wardrobeCreateHeaderSubtitle": "Build Your Next Fit Collection",
+  "wardrobeNameHint": "Eg. Summer Collection",
+  "wardrobeNameLabel": "Wardrobe Name",
+  "wardrobeCreateAction": "Add to Wardrobe",
+  "wardrobeUploadTitle": "Tap To Add All Your Dresses",
+  "wardrobeUploadSubtitle": "Select as many as you want at once - all at one go",
+  "wardrobeUploadAction": "Choose Dress",
+  "wardrobeNameRequired": "Wardrobe name is required",
+  "wardrobeImageRequired": "Add at least one dress image",
+  "wardrobeCreatedSuccess": "Wardrobe created successfully",
+  "wardrobeCreateFailed": "Unable to create wardrobe",
+  "wardrobeDetailsLoadFailed": "Unable to load wardrobe",
+  "wardrobeDetailsTotalDressesSubtitle": "{count} Total Dresses",
+  "wardrobeMoveSelectedItemTitle": "Move Selected Item",
+  "wardrobeSendToAction": "Send To...",
+  "wardrobeSendToLaundryDialogAction": "Send to laundry",
+  "wardrobeSendToWardrobeDialogAction": "Send to wardrobe",
+  "wardrobeSaveAction": "Save",
+  "wardrobeSelectHint": "Tap to select",
+  "wardrobeClearAllAction": "Clear all",
+  "wardrobeSelectAllAction": "Select all",
+  "wardrobeRemoveFromLaundryAction": "Remove From Laundry",
+  "wardrobeSendToLaundryAction": "Send To Laundry",
+  "wardrobeWardrobeLabel": "Wardrobe",
+  "wardrobeLaundryLabel": "Laundry",
+  "wardrobeTotalLabel": "Total",
+  "wardrobeAllLabel": "All",
+  "wardrobeProcessingLabel": "AI processing",
+  "wardrobeNoDressesInWardrobe": "No dresses in this wardrobe yet.",
+  "wardrobeNoDressesInWardrobeFilter": "No dresses currently in wardrobe.",
+  "wardrobeNoDressesInLaundryFilter": "No dresses currently in laundry.",
+  "wardrobeNotFound": "Wardrobe not found",
+  "wardrobeDeleteSuccess": "Wardrobe deleted successfully",
+  "wardrobeDeleteFailed": "Unable to delete wardrobe",
+  "wardrobeItemsUpdatedSuccess": "Wardrobe items updated successfully",
+  "wardrobeItemsUpdateFailed": "Unable to update wardrobe items",
+  "wardrobeItemsDeletedSuccess": "Wardrobe items deleted successfully",
+  "wardrobeItemsDeleteFailed": "Unable to delete wardrobe items",
+  "wardrobeRenamedSuccess": "Wardrobe renamed successfully",
+  "wardrobeRenameFailed": "Unable to rename wardrobe",
+  "wardrobeAddedSuccess": "Dresses added to wardrobe successfully",
+  "wardrobeAddFailed": "Unable to add dresses",
+  "wardrobeCoverUpdatedSuccess": "Wardrobe cover updated successfully",
+  "wardrobeCoverUpdateFailed": "Unable to update wardrobe cover",
   "editAction": "Edit",
   "productFallbackLabel": "Product",
   "helpCenterSubtitle": "Find answers to common questions",
@@ -1266,6 +1325,147 @@
   "profileSetupDialogTitle": "You're All Set!",
   "profileSetupDialogDescription": "Your AI Stylist Is Now Trained And Ready To Help You Look Your Best.",
   "profileSetupDialogAction": "Start Exploring",
+  "recommendationsSheetTitle": "Personalize Your Feed",
+  "recommendationsSheetSubtitle": "Quick Selfie For Better Matches",
+  "recommendationsSelfieHeadlineLeading": "Let's See ",
+  "recommendationsSelfieHeadlineAccent": "You",
+  "recommendationsSelfieDescription": "A quick headshot helps us match outfits to your skin tone, hair, and features.",
+  "recommendationsTakePhotoAction": "Take Photo",
+  "recommendationsTakePhotoCaption": "Use Camera",
+  "recommendationsUploadPhotoAction": "Upload Photo",
+  "recommendationsUploadPhotoCaption": "From Gallery",
+  "recommendationsPrivacyNote": "Private & Secure. Used only for styling. Never shared.",
+  "recommendationsLoadingMessage": "Finding your best matches...",
+  "recommendationsPhotoRequiredMessage": "Add a photo to continue.",
+  "recommendationsLoadFailedMessage": "I could not load recommendations right now. Please try again.",
+  "recommendationsNoDataMessage": "No recommendations are available right now.",
+  "recommendationsReviewProgress": "Outfit {current} Of {total}",
+  "@recommendationsReviewProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "recommendationsLoveAction": "Love it",
+  "recommendationsReadyLabel": "Ready",
+  "recommendationsLookLabel": "Look {index}",
+  "@recommendationsLookLabel": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "recommendationsMatchLabel": "{score}% Match",
+  "@recommendationsMatchLabel": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "recommendationsPhotoReadyMessage": "Front-face photo ready. Continue to generate your looks.",
+  "recommendationsPhotoGuidanceMessage": "Use one clear front-face photo only. Side poses and group photos are not supported.",
+  "recommendationsPhotoValidationMessage": "Checking that the photo is front-facing...",
+  "recommendationsPhotoNoFaceMessage": "Use a clear front-facing photo with your full face visible.",
+  "@recommendationsPhotoNoFaceMessage": {
+    "description": "Validation message shown when the uploaded recommendations selfie does not contain a detectable face"
+  },
+  "recommendationsPhotoMultipleFacesMessage": "Upload a photo with one face only.",
+  "@recommendationsPhotoMultipleFacesMessage": {
+    "description": "Validation message shown when the uploaded recommendations selfie contains multiple faces"
+  },
+  "recommendationsPhotoVerificationFailedMessage": "I could not verify this photo. Try another clear front-face photo.",
+  "@recommendationsPhotoVerificationFailedMessage": {
+    "description": "Validation message shown when the recommendations selfie could not be verified as usable"
+  },
+  "recommendationsPhotoSidePoseMessage": "Use a straight front-face photo. Side poses are not supported.",
+  "@recommendationsPhotoSidePoseMessage": {
+    "description": "Validation message shown when the uploaded recommendations selfie is not front-facing enough"
+  },
+  "recommendationsTrainingTitle": "Train Your AI Stylist",
+  "recommendationsTrainingSubtitle": "Building your first outfit matches",
+  "recommendationsTrainingDescription": "We are turning your photo into a personalized look feed.",
+  "recommendationsStyleDnaTitle": "Your Style DNA",
+  "recommendationsLooksMatchedSubtitle": "{total} Looks Matched Your Taste",
+  "@recommendationsLooksMatchedSubtitle": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "recommendationsLovedLooksHeadline": "You Loved {count} Looks",
+  "@recommendationsLovedLooksHeadline": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recommendationsReviewedLooksHeadline": "You Reviewed {total} Looks",
+  "@recommendationsReviewedLooksHeadline": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "recommendationsSummaryLovedSubtitle": "Our AI has the vibe. Here's what made the cut.",
+  "recommendationsSummaryReviewedSubtitle": "Here's the full set of looks from your recommendation feed.",
+  "recommendationsVibeSignalTitle": "Your Vibe Signal",
+  "recommendationsTryOnEligibleMessage": "We will generate try-on looks from the {count} saved outfit images you liked.",
+  "@recommendationsTryOnEligibleMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recommendationsTryOnMissingImagesMessage": "Your liked looks are missing usable outfit images, so try-on can't start yet.",
+  "recommendationsRetrainAction": "Retrain",
+  "recommendationsGeneratingTitle": "Generating Your Looks",
+  "recommendationsGeneratingSubtitle": "AI try-on is matching your liked outfits",
+  "recommendationsProcessingLabel": "Processing",
+  "recommendationsBuildingTryOnTitle": "Building your try-on photos",
+  "recommendationsTryOnUploadTimeline": "Uploading your selfie and liked outfit images",
+  "recommendationsTryOnFitTimeline": "Generating outfit overlays and body fit",
+  "recommendationsTryOnRenderTimeline": "Rendering final try-on looks",
+  "recommendationsGeneratedTitle": "Your Try-On",
+  "recommendationsGeneratedSubtitle": "Generated from the looks you liked",
+  "recommendationsDoneAction": "Done",
+  "recommendationsNextLookAction": "Next look →",
+  "recommendationsContinueChatAction": "Continue With Chat →",
+  "recommendationsStyledLookFallback": "Styled Look",
+  "recommendationsStyleDescriptorFallback": "your current style",
+  "recommendationsStyleSignalEmpty": "We used your review to learn your taste. We'll keep refining your daily feed around {descriptor}.",
+  "@recommendationsStyleSignalEmpty": {
+    "placeholders": {
+      "descriptor": {
+        "type": "String"
+      }
+    }
+  },
+  "recommendationsStyleSignalLoved": "You lean toward {descriptor} aesthetics. We'll curate your daily feed around this.",
+  "@recommendationsStyleSignalLoved": {
+    "placeholders": {
+      "descriptor": {
+        "type": "String"
+      }
+    }
+  },
+  "recommendationsTryOnProgressFinal": "Final renders are being prepared. Your generated looks will open automatically when they are ready.",
+  "recommendationsTryOnProgressFitting": "Your selfie is being fitted against each liked outfit to create realistic try-on results.",
+  "recommendationsTryOnProgressPreparing": "We are pairing your face image with the outfits you liked and preparing the generation batch.",
+  "recommendationsTryOnProgressUploading": "Uploading your selected images and starting the AI try-on batch.",
+  "recommendationsTryOnLooksRequiredMessage": "Like at least one look to generate your try-on results.",
+  "recommendationsTryOnFailedMessage": "I could not generate your try-on looks right now. Please try again.",
+  "recommendationsTryOnEmptyResultMessage": "Your try-on finished without any generated looks. Please try again.",
+  "recommendationsTryOnTimeoutMessage": "Try-on generation is taking longer than expected. Please try again.",
   "profileSetupLoadFailedMessage": "Unable to load your profile.",
   "profileSetupSaveSuccessMessage": "Profile setup completed successfully.",
   "profileSetupSaveFailedMessage": "Unable to save your profile.",
@@ -1276,20 +1476,39 @@
   "profileSetupHeaderTitle": "Welcome To DripTalk",
   "profileSetupHeaderSubtitle": "Let's Get To Know You First",
   "profileSetupStepBasicsLabel": "Basics",
-  "profileSetupStepStyleLabel": "Styles",
+  "profileSetupStepBodyLabel": "Body",
+  "profileSetupStepSkinLabel": "Skin",
+  "profileSetupStepStyleLabel": "Style",
+  "profileSetupStepHeightLabel": "Height",
+  "profileSetupStepWeightLabel": "Weight",
   "profileSetupStepBrandsLabel": "Brands",
+  "profileSetupStepColorsLabel": "Colors",
+  "profileSetupStepAvoidsLabel": "Avoids",
   "profileSetupStepTrainingLabel": "AI Training",
-  "profileSetupStepPhotosLabel": "Photos",
+  "profileSetupStepPhotosLabel": "Photo",
   "profileSetupStepBasicsTitle": "Tell Us About You",
+  "profileSetupStepBodyTitle": "Your Body Shape",
+  "profileSetupStepSkinTitle": "Your Skin Tone",
   "profileSetupStepStyleTitle": "Your Style Identity",
-  "profileSetupStepBrandsTitle": "Colors & Brands",
+  "profileSetupStepHeightTitle": "Your Height",
+  "profileSetupStepWeightTitle": "Your Weight",
+  "profileSetupStepBrandsTitle": "Where Do You Like To Shop?",
+  "profileSetupStepColorsTitle": "What Colors Define Your Style?",
+  "profileSetupStepAvoidsTitle": "Styles To Avoid",
   "profileSetupStepTrainingTitle": "Train Your AI Stylist",
   "profileSetupStepPhotosTitle": "Show Us Your Style",
   "profileSetupStepBasicsSubtitle": "Let's Start With The Essentials",
+  "profileSetupStepBodySubtitle": "Help us tailor the perfect fit for you",
+  "profileSetupStepSkinSubtitle": "We'll find shades that flatter",
   "profileSetupStepStyleSubtitle": "Tell Us What You Love",
-  "profileSetupStepBrandsSubtitle": "Choose Your Favorites",
+  "profileSetupStepHeightSubtitle": "For perfectly proportioned styling",
+  "profileSetupStepWeightSubtitle": "Used only to refine your fit",
+  "profileSetupStepBrandsSubtitle": "Pick your vibe - we'll curate your feed",
+  "profileSetupStepColorsSubtitle": "Choose the shades you keep reaching for",
+  "profileSetupStepAvoidsSubtitle": "Tell us what's not your vibe",
   "profileSetupStepTrainingSubtitle": "Help Us Understand Your Taste",
   "profileSetupStepPhotosSubtitle": "Upload Outfit Inspiration",
+  "profileSetupBrandsLoadFailedMessage": "Unable to load brands right now.",
   "profileSetupPhoneLabel": "Phone Number",
   "profileSetupPhoneHint": "Enter your phone number",
   "profileSetupGenderLabel": "Gender",
@@ -1298,8 +1517,8 @@
   "profileSetupDateOfBirthHint": "01/01/2000",
   "profileSetupCountryLabel": "Country",
   "profileSetupCountryHint": "Select country",
-  "profileSetupCityLabel": "City",
-  "profileSetupCityHint": "Select city",
+  "profileSetupCityLabel": "State",
+  "profileSetupCityHint": "Select state",
   "profileSetupBodyTypeLabel": "Body Type",
   "profileSetupBodyTypeHint": "Select body type",
   "profileSetupSkinToneLabel": "Skin Tone",
@@ -1321,6 +1540,17 @@
   "profileSetupStyleInspirationsHint": "Brad Pitt, Timothee Chalamet",
   "profileSetupAvoidedStylesLabel": "Avoided Styles",
   "profileSetupAvoidedStylesHint": "Neon, Oversized, Loud Prints",
+  "profileSetupAvoidStylesEmptyTitle": "No exclusions yet",
+  "profileSetupAvoidStylesEmptySubtitle": "We'll filter these out of every recommendation",
+  "profileSetupAvoidStylesSelectedTitle": "{count} styles excluded",
+  "@profileSetupAvoidStylesSelectedTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "profileSetupAvoidStylesSelectedSubtitle": "We'll keep these out of every recommendation",
   "profileSetupReplacePhotosLabel": "Replace existing stylist photos with this upload",
   "profileSetupMemoryTitle": "Personalization Memory",
   "profileSetupMemoryDescription": "These details help the stylist learn your taste over time",
@@ -1340,12 +1570,23 @@
   },
   "profileSetupSelectGenderTitle": "Select Gender",
   "profileSetupSelectCountryTitle": "Select Country",
-  "profileSetupSelectCityTitle": "Select City",
+  "profileSetupSelectCityTitle": "Select State",
   "profileSetupSelectBodyTypeTitle": "Select Body Type",
   "profileSetupSelectSkinToneTitle": "Select Skin Tone",
   "profileSetupSearchCountryHint": "Search country",
-  "profileSetupSearchCityHint": "Search city",
+  "profileSetupSearchCityHint": "Search state",
   "profileSetupSearchBrandHint": "Search brands",
+  "profileSetupTapToSelectBrandsHint": "Tap to select multiple brands",
+  "profileSetupSelectedCountLabel": "{count} selected",
+  "@profileSetupSelectedCountLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "profileSetupColorAddHint": "Tap the add button to add this color.",
+  "profileSetupClearAllAction": "Clear all",
   "profileSetupSearchNoResults": "No matching results found.",
   "profileSetupSelectCountryFirst": "Select a country first.",
   "profileSetupSeeMoreAction": "See More",
@@ -1354,7 +1595,7 @@
   "profileSetupValidationGender": "Select a gender.",
   "profileSetupValidationDateOfBirth": "Select your date of birth.",
   "profileSetupValidationCountry": "Select a country.",
-  "profileSetupValidationCity": "Select a city.",
+  "profileSetupValidationCity": "Select a state.",
   "profileSetupValidationBodyType": "Select a body type.",
   "profileSetupValidationSkinTone": "Select a skin tone.",
   "profileSetupValidationStyle": "Choose at least one style.",
@@ -1375,12 +1616,49 @@
   "profileSetupOptionBodyTypeRegular": "Regular",
   "profileSetupOptionBodyTypeCurvy": "Curvy",
   "profileSetupOptionBodyTypePlusSize": "Plus Size",
-  "profileSetupOptionSkinToneFair": "Fair",
+  "profileSetupOptionBodyTypeAverage": "Average",
+  "profileSetupOptionBodyTypePlus": "Plus",
+  "profileSetupOptionBodyTypeMuscular": "Muscular",
+  "profileSetupOptionBodyTypeSlimDescription": "Lean & narrow",
+  "profileSetupOptionBodyTypeAthleticDescription": "Toned & V-shape",
+  "profileSetupOptionBodyTypeAverageDescription": "Balanced Build",
+  "profileSetupOptionBodyTypeCurvyDescription": "Hourglass Shape",
+  "profileSetupOptionBodyTypePlusDescription": "Fuller Figure",
+  "profileSetupOptionBodyTypeMuscularDescription": "Built & Strong",
+  "profileSetupOptionSkinTonePorcelain": "Porcelain",
+  "profileSetupOptionSkinToneIvory": "Ivory",
   "profileSetupOptionSkinToneLight": "Light",
-  "profileSetupOptionSkinToneMedium": "Medium",
-  "profileSetupOptionSkinToneOlive": "Olive",
-  "profileSetupOptionSkinToneBrown": "Brown",
-  "profileSetupOptionSkinToneDeep": "Deep",
+  "profileSetupOptionSkinToneBeige": "Beige",
+  "profileSetupOptionSkinToneHoney": "Honey",
+  "profileSetupOptionSkinToneCaramel": "Caramel",
+  "profileSetupOptionSkinToneMahogany": "Mahogany",
+  "profileSetupOptionSkinToneEspresso": "Espresso",
+  "profileSetupOptionSkinTonePorcelainDescription": "Cool Undertone",
+  "profileSetupOptionSkinToneIvoryDescription": "Warm Undertone",
+  "profileSetupOptionSkinToneLightDescription": "Neutral Undertone",
+  "profileSetupOptionSkinToneBeigeDescription": "Warm Undertone",
+  "profileSetupOptionSkinToneHoneyDescription": "Warm Undertone",
+  "profileSetupOptionSkinToneCaramelDescription": "Warm Undertone",
+  "profileSetupOptionSkinToneMahoganyDescription": "Warm Undertone",
+  "profileSetupOptionSkinToneEspressoDescription": "Warm Undertone",
+  "profileSetupSkinToneInfoMessage": "Your tone helps us suggest hues that complement, never clash.",
+  "profileSetupOptionAvoidStyleFormal": "Formal",
+  "profileSetupOptionAvoidStyleStreetwears": "Streetwears",
+  "profileSetupOptionAvoidStyleCasual": "Casual",
+  "profileSetupOptionAvoidStyleLuxury": "Luxury",
+  "profileSetupOptionAvoidStyleVintage": "Vintage",
+  "profileSetupOptionAvoidStyleSporty": "Sporty",
+  "profileSetupOptionAvoidStyleMinimalist": "Minimalist",
+  "profileSetupOptionAvoidStyleRomantic": "Romantic",
+  "profileSetupOptionAvoidStyleGothic": "Gothic",
+  "profileSetupOptionAvoidStyleBohemian": "Bohemian",
+  "profileSetupOptionAvoidStyleMaximalist": "Maximalist",
+  "profileSetupOptionAvoidStyleCottagecore": "Cottagecore",
+  "profileSetupOptionAvoidStyleAthleisure": "Athleisure",
+  "profileSetupOptionAvoidStylePreppy": "Preppy",
+  "profileSetupOptionAvoidStyleBeach": "Beach",
+  "profileSetupOptionAvoidStyleGrunge": "Grunge",
+  "profileSetupOptionAvoidStyleSoftGirl": "Soft Girl",
   "profileSetupOptionStyleFormal": "Formal",
   "profileSetupOptionStyleStreetwear": "Streetwear",
   "profileSetupOptionStyleCasual": "Casual",

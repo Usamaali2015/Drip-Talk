@@ -3,7 +3,7 @@ import 'package:drip_talk/core/services/get_it/service_locator.dart';
 import 'package:drip_talk/features/dashboard/barrels/dashboard_barrels.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'mobile_profile_view.dart';
+
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});

@@ -1120,6 +1120,65 @@
   "requestCanceled": "تم إلغاء الطلب",
   "sessionExpiredLoginAgain": "انتهت جلستك. يرجى تسجيل الدخول مرة أخرى.",
   "deleteAction": "حذف",
+  "wardrobeUntitledTitle": "خزانة غير معنونة",
+  "wardrobeListHeaderLeading": "خزانة",
+  "wardrobeListHeaderAccent": "ملابسي",
+  "wardrobeListHeaderSubtitle": "إطلالاتك كلها في مكان واحد",
+  "wardrobeListLoadFailed": "تعذر تحميل الخزائن الآن.",
+  "wardrobeListCreateAction": "إنشاء خزانة",
+  "wardrobeListDeleteDialogTitle": "حذف الخزانة؟",
+  "wardrobeListDeleteDialogMessage": "سيؤدي هذا إلى حذف \"{wardrobeName}\" وكل فستان بداخلها.",
+  "wardrobeInWardrobeLabel": "في الخزانة",
+  "wardrobeInLaundryLabel": "في الغسيل",
+  "wardrobeEmptyTitle": "لا توجد خزائن بعد",
+  "wardrobeEmptySubtitle": "أضف خزانتك الأولى لبدء تنظيم أسلوبك.",
+  "wardrobeEmptyAction": "أنشئ خزانتك الأولى",
+  "wardrobeCreateHeaderLeading": "خزانة",
+  "wardrobeCreateHeaderAccent": "جديدة",
+  "wardrobeCreateHeaderSubtitle": "أنشئ مجموعة إطلالاتك التالية",
+  "wardrobeNameHint": "مثال: مجموعة الصيف",
+  "wardrobeNameLabel": "اسم الخزانة",
+  "wardrobeCreateAction": "أضف إلى الخزانة",
+  "wardrobeUploadTitle": "اضغط لإضافة جميع فساتينك",
+  "wardrobeUploadSubtitle": "يمكنك اختيار عدة فساتين مرة واحدة - دفعة واحدة.",
+  "wardrobeUploadAction": "اختر فستانًا",
+  "wardrobeNameRequired": "اسم الخزانة مطلوب",
+  "wardrobeImageRequired": "أضف صورة فستان واحدة على الأقل",
+  "wardrobeCreatedSuccess": "تم إنشاء الخزانة بنجاح",
+  "wardrobeCreateFailed": "تعذر إنشاء الخزانة",
+  "wardrobeDetailsLoadFailed": "تعذر تحميل الخزانة",
+  "wardrobeDetailsTotalDressesSubtitle": "إجمالي الفساتين: {count}",
+  "wardrobeMoveSelectedItemTitle": "نقل العنصر المحدد",
+  "wardrobeSendToAction": "إرسال إلى...",
+  "wardrobeSendToLaundryDialogAction": "إرسال إلى الغسيل",
+  "wardrobeSendToWardrobeDialogAction": "إرسال إلى الخزانة",
+  "wardrobeSaveAction": "حفظ",
+  "wardrobeSelectHint": "اضغط للتحديد",
+  "wardrobeClearAllAction": "مسح الكل",
+  "wardrobeSelectAllAction": "تحديد الكل",
+  "wardrobeRemoveFromLaundryAction": "إزالة من الغسيل",
+  "wardrobeSendToLaundryAction": "إرسال إلى الغسيل",
+  "wardrobeWardrobeLabel": "الخزانة",
+  "wardrobeLaundryLabel": "الغسيل",
+  "wardrobeTotalLabel": "الإجمالي",
+  "wardrobeAllLabel": "الكل",
+  "wardrobeProcessingLabel": "معالجة الذكاء الاصطناعي",
+  "wardrobeNoDressesInWardrobe": "لا توجد فساتين في هذه الخزانة بعد.",
+  "wardrobeNoDressesInWardrobeFilter": "لا توجد فساتين حاليًا في الخزانة.",
+  "wardrobeNoDressesInLaundryFilter": "لا توجد فساتين حاليًا في الغسيل.",
+  "wardrobeNotFound": "الخزانة غير موجودة",
+  "wardrobeDeleteSuccess": "تم حذف الخزانة بنجاح",
+  "wardrobeDeleteFailed": "تعذر حذف الخزانة",
+  "wardrobeItemsUpdatedSuccess": "تم تحديث عناصر الخزانة بنجاح",
+  "wardrobeItemsUpdateFailed": "تعذر تحديث عناصر الخزانة",
+  "wardrobeItemsDeletedSuccess": "تم حذف عناصر الخزانة بنجاح",
+  "wardrobeItemsDeleteFailed": "تعذر حذف عناصر الخزانة",
+  "wardrobeRenamedSuccess": "تمت إعادة تسمية الخزانة بنجاح",
+  "wardrobeRenameFailed": "تعذر إعادة تسمية الخزانة",
+  "wardrobeAddedSuccess": "تمت إضافة الفساتين إلى الخزانة بنجاح",
+  "wardrobeAddFailed": "تعذر إضافة الفساتين",
+  "wardrobeCoverUpdatedSuccess": "تم تحديث غلاف الخزانة بنجاح",
+  "wardrobeCoverUpdateFailed": "تعذر تحديث غلاف الخزانة",
   "editAction": "تعديل",
   "productFallbackLabel": "المنتج",
   "helpCenterSubtitle": "اعثر على إجابات للأسئلة الشائعة",
@@ -1266,6 +1325,147 @@
   "profileSetupDialogTitle": "أنت جاهز بالكامل!",
   "profileSetupDialogDescription": "تم تدريب منسق الأزياء الذكي الخاص بك وأصبح جاهزًا لمساعدتك في الظهور بأفضل إطلالة.",
   "profileSetupDialogAction": "ابدأ الاستكشاف",
+  "recommendationsSheetTitle": "خصّص خلاصتك",
+  "recommendationsSheetSubtitle": "صورة سريعة لمطابقة أدق",
+  "recommendationsSelfieHeadlineLeading": "دعنا نرى ",
+  "recommendationsSelfieHeadlineAccent": "ملامحك",
+  "recommendationsSelfieDescription": "تساعدنا صورة سريعة على مطابقة الإطلالات مع لون بشرتك وشعرك وملامحك.",
+  "recommendationsTakePhotoAction": "التقط صورة",
+  "recommendationsTakePhotoCaption": "استخدم الكاميرا",
+  "recommendationsUploadPhotoAction": "ارفع صورة",
+  "recommendationsUploadPhotoCaption": "من المعرض",
+  "recommendationsPrivacyNote": "خاص وآمن. يُستخدم للتنسيق فقط ولا تتم مشاركته.",
+  "recommendationsLoadingMessage": "جارٍ العثور على أفضل الإطلالات لك...",
+  "recommendationsPhotoRequiredMessage": "أضف صورة للمتابعة.",
+  "recommendationsLoadFailedMessage": "تعذر تحميل التوصيات الآن. يرجى المحاولة مرة أخرى.",
+  "recommendationsNoDataMessage": "لا توجد توصيات متاحة الآن.",
+  "recommendationsReviewProgress": "الإطلالة {current} من {total}",
+  "@recommendationsReviewProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "recommendationsLoveAction": "أعجبني",
+  "recommendationsReadyLabel": "جاهز",
+  "recommendationsLookLabel": "إطلالة {index}",
+  "@recommendationsLookLabel": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "recommendationsMatchLabel": "تطابق {score}%",
+  "@recommendationsMatchLabel": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "recommendationsPhotoReadyMessage": "الصورة الأمامية جاهزة. تابع لإنشاء إطلالاتك.",
+  "recommendationsPhotoGuidanceMessage": "استخدم صورة أمامية واضحة واحدة فقط. اللقطات الجانبية وصور المجموعات غير مدعومة.",
+  "recommendationsPhotoValidationMessage": "جارٍ التحقق من أن الصورة أمامية...",
+  "recommendationsPhotoNoFaceMessage": "استخدم صورة أمامية واضحة يظهر فيها وجهك بالكامل.",
+  "@recommendationsPhotoNoFaceMessage": {
+    "description": "رسالة تحقق تظهر عندما لا تحتوي صورة السيلفي الخاصة بالتوصيات على وجه يمكن اكتشافه"
+  },
+  "recommendationsPhotoMultipleFacesMessage": "ارفع صورة تحتوي على وجه واحد فقط.",
+  "@recommendationsPhotoMultipleFacesMessage": {
+    "description": "رسالة تحقق تظهر عندما تحتوي صورة السيلفي الخاصة بالتوصيات على أكثر من وجه"
+  },
+  "recommendationsPhotoVerificationFailedMessage": "تعذر التحقق من هذه الصورة. جرّب صورة أمامية أوضح لوجهك.",
+  "@recommendationsPhotoVerificationFailedMessage": {
+    "description": "رسالة تحقق تظهر عندما يتعذر التأكد من صلاحية صورة السيلفي الخاصة بالتوصيات"
+  },
+  "recommendationsPhotoSidePoseMessage": "استخدم صورة أمامية مستقيمة. اللقطات الجانبية غير مدعومة.",
+  "@recommendationsPhotoSidePoseMessage": {
+    "description": "رسالة تحقق تظهر عندما لا تكون صورة السيلفي الخاصة بالتوصيات أمامية بما يكفي"
+  },
+  "recommendationsTrainingTitle": "درّب منسقك الذكي",
+  "recommendationsTrainingSubtitle": "إنشاء أول تطابقات الإطلالات لك",
+  "recommendationsTrainingDescription": "نحوّل صورتك إلى موجز إطلالات مخصص لك.",
+  "recommendationsStyleDnaTitle": "بصمتك الأسلوبية",
+  "recommendationsLooksMatchedSubtitle": "عدد {total} إطلالات وافقت ذوقك",
+  "@recommendationsLooksMatchedSubtitle": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "recommendationsLovedLooksHeadline": "أعجبتك {count} إطلالات",
+  "@recommendationsLovedLooksHeadline": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recommendationsReviewedLooksHeadline": "راجعت {total} إطلالات",
+  "@recommendationsReviewedLooksHeadline": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "recommendationsSummaryLovedSubtitle": "الذكاء اصطناعي التقط ذوقك. هذه هي الإطلالات التي نجحت.",
+  "recommendationsSummaryReviewedSubtitle": "هذه المجموعة الكاملة من الإطلالات من موجز التوصيات الخاص بك.",
+  "recommendationsVibeSignalTitle": "إشارة ذوقك",
+  "recommendationsTryOnEligibleMessage": "سننشئ لك إطلالات تجريبية من {count} صور أزياء أعجبتك.",
+  "@recommendationsTryOnEligibleMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recommendationsTryOnMissingImagesMessage": "الإطلالات التي أعجبتك لا تحتوي على صور مناسبة للتجربة الآن.",
+  "recommendationsRetrainAction": "أعد التدريب",
+  "recommendationsGeneratingTitle": "جارٍ إنشاء إطلالاتك",
+  "recommendationsGeneratingSubtitle": "التجربة الذكية تطابق الإطلالات التي أعجبتك",
+  "recommendationsProcessingLabel": "قيد المعالجة",
+  "recommendationsBuildingTryOnTitle": "جارٍ بناء صور التجربة",
+  "recommendationsTryOnUploadTimeline": "جارٍ رفع صورتك وصور الإطلالات التي أعجبتك",
+  "recommendationsTryOnFitTimeline": "جارٍ إنشاء محاكاة الملابس وتوافقها",
+  "recommendationsTryOnRenderTimeline": "جارٍ إخراج الإطلالات النهائية",
+  "recommendationsGeneratedTitle": "تجربتك الذكية",
+  "recommendationsGeneratedSubtitle": "تم إنشاؤها من الإطلالات التي أعجبتك",
+  "recommendationsDoneAction": "تم",
+  "recommendationsNextLookAction": "الإطلالة التالية ←",
+  "recommendationsContinueChatAction": "تابع إلى الدردشة ←",
+  "recommendationsStyledLookFallback": "إطلالة منسقة",
+  "recommendationsStyleDescriptorFallback": "أسلوبك الحالي",
+  "recommendationsStyleSignalEmpty": "استخدمنا مراجعتك لفهم ذوقك. سنواصل تحسين موجزك اليومي حول {descriptor}.",
+  "@recommendationsStyleSignalEmpty": {
+    "placeholders": {
+      "descriptor": {
+        "type": "String"
+      }
+    }
+  },
+  "recommendationsStyleSignalLoved": "تميل إلى أسلوب {descriptor}. سننسق موجزك اليومي حول هذا الذوق.",
+  "@recommendationsStyleSignalLoved": {
+    "placeholders": {
+      "descriptor": {
+        "type": "String"
+      }
+    }
+  },
+  "recommendationsTryOnProgressFinal": "جارٍ تجهيز اللقطات النهائية. ستُفتح الإطلالات المولدة تلقائيًا عند جاهزيتها.",
+  "recommendationsTryOnProgressFitting": "يجري الآن تركيب صورتك مع كل إطلالة أعجبتك لإنشاء نتائج واقعية.",
+  "recommendationsTryOnProgressPreparing": "نقوم الآن بربط صورة وجهك مع الإطلالات التي أعجبتك وتجهيز دفعة الإنشاء.",
+  "recommendationsTryOnProgressUploading": "جارٍ رفع الصور المختارة وبدء دفعة التجربة الذكية.",
+  "recommendationsTryOnLooksRequiredMessage": "أعجب بإطلالة واحدة على الأقل لإنشاء نتائج التجربة.",
+  "recommendationsTryOnFailedMessage": "تعذر إنشاء إطلالات التجربة الآن. يرجى المحاولة مرة أخرى.",
+  "recommendationsTryOnEmptyResultMessage": "انتهت التجربة دون أي إطلالات مولدة. يرجى المحاولة مرة أخرى.",
+  "recommendationsTryOnTimeoutMessage": "تستغرق تجربة الإطلالات وقتًا أطول من المتوقع. يرجى المحاولة مرة أخرى.",
   "profileSetupLoadFailedMessage": "تعذر تحميل ملفك الشخصي.",
   "profileSetupSaveSuccessMessage": "اكتمل إعداد الملف الشخصي بنجاح.",
   "profileSetupSaveFailedMessage": "تعذر حفظ ملفك الشخصي.",
@@ -1276,20 +1476,39 @@
   "profileSetupHeaderTitle": "مرحبًا بك في DripTalk",
   "profileSetupHeaderSubtitle": "دعنا نتعرف عليك أولاً",
   "profileSetupStepBasicsLabel": "الأساسيات",
-  "profileSetupStepStyleLabel": "الأنماط",
+  "profileSetupStepBodyLabel": "الجسم",
+  "profileSetupStepSkinLabel": "البشرة",
+  "profileSetupStepStyleLabel": "النمط",
+  "profileSetupStepHeightLabel": "الطول",
+  "profileSetupStepWeightLabel": "الوزن",
   "profileSetupStepBrandsLabel": "العلامات",
+  "profileSetupStepColorsLabel": "الألوان",
+  "profileSetupStepAvoidsLabel": "استبعاد",
   "profileSetupStepTrainingLabel": "تدريب الذكاء",
-  "profileSetupStepPhotosLabel": "الصور",
+  "profileSetupStepPhotosLabel": "صورة",
   "profileSetupStepBasicsTitle": "أخبرنا عنك",
+  "profileSetupStepBodyTitle": "شكل جسمك",
+  "profileSetupStepSkinTitle": "لون بشرتك",
   "profileSetupStepStyleTitle": "هوية أسلوبك",
-  "profileSetupStepBrandsTitle": "الألوان والعلامات",
+  "profileSetupStepHeightTitle": "طولك",
+  "profileSetupStepWeightTitle": "وزنك",
+  "profileSetupStepBrandsTitle": "أين تحب أن تتسوق؟",
+  "profileSetupStepColorsTitle": "ما الألوان التي تعبّر عن أسلوبك؟",
+  "profileSetupStepAvoidsTitle": "أنماط لا تفضلها",
   "profileSetupStepTrainingTitle": "درّب منسقك الذكي",
   "profileSetupStepPhotosTitle": "أرنا أسلوبك",
   "profileSetupStepBasicsSubtitle": "لنبدأ بالأساسيات",
+  "profileSetupStepBodySubtitle": "ساعدنا في تنسيق المقاس المثالي لك",
+  "profileSetupStepSkinSubtitle": "سنختار لك الدرجات التي تبرزك",
   "profileSetupStepStyleSubtitle": "أخبرنا بما تحبه",
-  "profileSetupStepBrandsSubtitle": "اختر مفضلاتك",
+  "profileSetupStepHeightSubtitle": "لضبط التناسق المثالي لإطلالاتك",
+  "profileSetupStepWeightSubtitle": "يُستخدم فقط لتحسين المقاس المناسب لك",
+  "profileSetupStepBrandsSubtitle": "اختر ذوقك وسننسق لك المحتوى",
+  "profileSetupStepColorsSubtitle": "اختر الدرجات التي تعود إليها دائمًا",
+  "profileSetupStepAvoidsSubtitle": "أخبرنا بما ليس على ذوقك",
   "profileSetupStepTrainingSubtitle": "ساعدنا على فهم ذوقك",
   "profileSetupStepPhotosSubtitle": "ارفع صور الإطلالات الملهمة",
+  "profileSetupBrandsLoadFailedMessage": "تعذر تحميل العلامات حاليًا.",
   "profileSetupPhoneLabel": "رقم الهاتف",
   "profileSetupPhoneHint": "أدخل رقم هاتفك",
   "profileSetupGenderLabel": "الجنس",
@@ -1298,8 +1517,8 @@
   "profileSetupDateOfBirthHint": "01/01/2000",
   "profileSetupCountryLabel": "الدولة",
   "profileSetupCountryHint": "اختر الدولة",
-  "profileSetupCityLabel": "المدينة",
-  "profileSetupCityHint": "اختر المدينة",
+  "profileSetupCityLabel": "الولاية",
+  "profileSetupCityHint": "اختر الولاية",
   "profileSetupBodyTypeLabel": "نوع الجسم",
   "profileSetupBodyTypeHint": "اختر نوع الجسم",
   "profileSetupSkinToneLabel": "لون البشرة",
@@ -1321,6 +1540,17 @@
   "profileSetupStyleInspirationsHint": "Brad Pitt, Timothee Chalamet",
   "profileSetupAvoidedStylesLabel": "الأنماط التي تتجنبها",
   "profileSetupAvoidedStylesHint": "Neon, Oversized, Loud Prints",
+  "profileSetupAvoidStylesEmptyTitle": "لا توجد استبعادات بعد",
+  "profileSetupAvoidStylesEmptySubtitle": "سنستبعد هذه الخيارات من كل توصية",
+  "profileSetupAvoidStylesSelectedTitle": "{count} أنماط مستبعدة",
+  "@profileSetupAvoidStylesSelectedTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "profileSetupAvoidStylesSelectedSubtitle": "سنبعد هذه الخيارات عن كل توصية",
   "profileSetupReplacePhotosLabel": "استبدال صور المنسق الحالية بهذا الرفع",
   "profileSetupMemoryTitle": "ذاكرة التخصيص",
   "profileSetupMemoryDescription": "تساعد هذه التفاصيل المنسق على تعلم ذوقك مع الوقت",
@@ -1340,12 +1570,23 @@
   },
   "profileSetupSelectGenderTitle": "اختر الجنس",
   "profileSetupSelectCountryTitle": "اختر الدولة",
-  "profileSetupSelectCityTitle": "اختر المدينة",
+  "profileSetupSelectCityTitle": "اختر الولاية",
   "profileSetupSelectBodyTypeTitle": "اختر نوع الجسم",
   "profileSetupSelectSkinToneTitle": "اختر لون البشرة",
   "profileSetupSearchCountryHint": "ابحث عن دولة",
-  "profileSetupSearchCityHint": "ابحث عن مدينة",
+  "profileSetupSearchCityHint": "ابحث عن ولاية",
   "profileSetupSearchBrandHint": "ابحث عن علامة",
+  "profileSetupTapToSelectBrandsHint": "اضغط لاختيار عدة علامات",
+  "profileSetupSelectedCountLabel": "{count} تم اختيارها",
+  "@profileSetupSelectedCountLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "profileSetupColorAddHint": "اضغط على زر الإضافة لإضافة هذا اللون.",
+  "profileSetupClearAllAction": "مسح الكل",
   "profileSetupSearchNoResults": "لا توجد نتائج مطابقة.",
   "profileSetupSelectCountryFirst": "اختر الدولة أولاً.",
   "profileSetupSeeMoreAction": "عرض المزيد",
@@ -1354,7 +1595,7 @@
   "profileSetupValidationGender": "اختر الجنس.",
   "profileSetupValidationDateOfBirth": "اختر تاريخ ميلادك.",
   "profileSetupValidationCountry": "اختر الدولة.",
-  "profileSetupValidationCity": "اختر المدينة.",
+  "profileSetupValidationCity": "اختر الولاية.",
   "profileSetupValidationBodyType": "اختر نوع الجسم.",
   "profileSetupValidationSkinTone": "اختر لون البشرة.",
   "profileSetupValidationStyle": "اختر أسلوبًا واحدًا على الأقل.",
@@ -1375,12 +1616,49 @@
   "profileSetupOptionBodyTypeRegular": "متوسط",
   "profileSetupOptionBodyTypeCurvy": "منحني",
   "profileSetupOptionBodyTypePlusSize": "مقاس كبير",
-  "profileSetupOptionSkinToneFair": "فاتح جدًا",
+  "profileSetupOptionBodyTypeAverage": "متناسق",
+  "profileSetupOptionBodyTypePlus": "ممتلئ",
+  "profileSetupOptionBodyTypeMuscular": "عضلي",
+  "profileSetupOptionBodyTypeSlimDescription": "نحيف وانسيابي",
+  "profileSetupOptionBodyTypeAthleticDescription": "مشدود وبنية على شكل V",
+  "profileSetupOptionBodyTypeAverageDescription": "بنية متوازنة",
+  "profileSetupOptionBodyTypeCurvyDescription": "قوام منحني",
+  "profileSetupOptionBodyTypePlusDescription": "قوام ممتلئ",
+  "profileSetupOptionBodyTypeMuscularDescription": "بنية قوية وعضلية",
+  "profileSetupOptionSkinTonePorcelain": "بورسلان",
+  "profileSetupOptionSkinToneIvory": "عاجي",
   "profileSetupOptionSkinToneLight": "فاتح",
-  "profileSetupOptionSkinToneMedium": "متوسط",
-  "profileSetupOptionSkinToneOlive": "قمحي",
-  "profileSetupOptionSkinToneBrown": "بني",
-  "profileSetupOptionSkinToneDeep": "داكن",
+  "profileSetupOptionSkinToneBeige": "بيج",
+  "profileSetupOptionSkinToneHoney": "عسلي",
+  "profileSetupOptionSkinToneCaramel": "كراميل",
+  "profileSetupOptionSkinToneMahogany": "ماهوجني",
+  "profileSetupOptionSkinToneEspresso": "إسبريسو",
+  "profileSetupOptionSkinTonePorcelainDescription": "أندرتون بارد",
+  "profileSetupOptionSkinToneIvoryDescription": "أندرتون دافئ",
+  "profileSetupOptionSkinToneLightDescription": "أندرتون محايد",
+  "profileSetupOptionSkinToneBeigeDescription": "أندرتون دافئ",
+  "profileSetupOptionSkinToneHoneyDescription": "أندرتون دافئ",
+  "profileSetupOptionSkinToneCaramelDescription": "أندرتون دافئ",
+  "profileSetupOptionSkinToneMahoganyDescription": "أندرتون دافئ",
+  "profileSetupOptionSkinToneEspressoDescription": "أندرتون دافئ",
+  "profileSetupSkinToneInfoMessage": "لون بشرتك يساعدنا على اقتراح درجات متناغمة لا تتعارض.",
+  "profileSetupOptionAvoidStyleFormal": "رسمي",
+  "profileSetupOptionAvoidStyleStreetwears": "أزياء الشارع",
+  "profileSetupOptionAvoidStyleCasual": "كاجوال",
+  "profileSetupOptionAvoidStyleLuxury": "فاخر",
+  "profileSetupOptionAvoidStyleVintage": "كلاسيكي",
+  "profileSetupOptionAvoidStyleSporty": "رياضي",
+  "profileSetupOptionAvoidStyleMinimalist": "بسيط",
+  "profileSetupOptionAvoidStyleRomantic": "رومانسي",
+  "profileSetupOptionAvoidStyleGothic": "قوطي",
+  "profileSetupOptionAvoidStyleBohemian": "بوهيمي",
+  "profileSetupOptionAvoidStyleMaximalist": "مبالغ",
+  "profileSetupOptionAvoidStyleCottagecore": "ريفي",
+  "profileSetupOptionAvoidStyleAthleisure": "رياضي أنيق",
+  "profileSetupOptionAvoidStylePreppy": "بريبي",
+  "profileSetupOptionAvoidStyleBeach": "شاطئي",
+  "profileSetupOptionAvoidStyleGrunge": "غرانج",
+  "profileSetupOptionAvoidStyleSoftGirl": "سوفت غيرل",
   "profileSetupOptionStyleFormal": "رسمي",
   "profileSetupOptionStyleStreetwear": "أزياء الشارع",
   "profileSetupOptionStyleCasual": "كاجوال",

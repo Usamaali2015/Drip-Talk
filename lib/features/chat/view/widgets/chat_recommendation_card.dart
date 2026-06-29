@@ -82,30 +82,26 @@ class ChatCatalogRecommendationCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final tags = <String>[
-      if (item.category?.name?.trim().isNotEmpty == true)
-        item.category!.name!.trim(),
-      if (item.freeDelivery == true) l10n.chatFreeDelivery,
-      if (item.isFeatured == true) l10n.chatFeatured,
-    ];
-
-    return _ChatRecommendationCardLayout(
+    return _ChatCatalogRecommendationCardLayout(
       imageUrl: item.thumbnail,
       title: item.title ?? l10n.chatCatalogProductFallbackTitle,
-      subtitle: item.category?.name ?? l10n.chatCatalogProductFallbackSubtitle,
-      priceLabel: item.priceLabel,
-      tags: tags,
-      outlineLabel: l10n.chatCatalogAction,
-      filledLabel: l10n.chatShopAction,
-      accentLabel: l10n.chatCatalogAction,
-      onOutlineTap: () => _openCatalogItem(context),
-      onFilledTap: () => _openCatalogItem(context),
+      onTap: () => _openCatalogItem(context),
     );
   }
 
   void _openCatalogItem(BuildContext context) {
     final productId = item.id;
-    if (productId == null) {
+    if (productId != null) {
+      context.pushNamed(
+        AppRoutes.products,
+        pathParameters: {'id': productId.toString()},
+      );
+      return;
+    }
+
+    final url = item.productUrl?.trim();
+    final uri = url == null || url.isEmpty ? null : Uri.tryParse(url);
+    if (uri == null) {
       ToastUtils.show(
         context,
         AppLocalizations.of(context)!.chatCatalogProductUnavailable,
@@ -114,9 +110,87 @@ class ChatCatalogRecommendationCard extends StatelessWidget {
       return;
     }
 
-    context.pushNamed(
-      AppRoutes.products,
-      pathParameters: {'id': productId.toString()},
+    _openCatalogExternally(context, uri);
+  }
+
+  Future<void> _openCatalogExternally(BuildContext context, Uri uri) async {
+    final launched = await launchUrl(uri, mode: LaunchMode.inAppBrowserView);
+    if (launched) {
+      return;
+    }
+
+    final fallbackLaunched = await launchUrl(
+      uri,
+      mode: LaunchMode.externalApplication,
+    );
+
+    if (!fallbackLaunched && context.mounted) {
+      ToastUtils.show(
+        context,
+        AppLocalizations.of(context)!.chatProductOpenFailed,
+        type: ToastType.error,
+      );
+    }
+  }
+}
+
+class _ChatCatalogRecommendationCardLayout extends StatelessWidget {
+  const _ChatCatalogRecommendationCardLayout({
+    required this.imageUrl,
+    required this.title,
+    required this.onTap,
+  });
+
+  final String? imageUrl;
+  final String title;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      clipBehavior: Clip.antiAlias,
+      margin: const EdgeInsets.only(top: AppSizes.s12),
+      decoration: BoxDecoration(
+        color: AppColors.lightBg,
+        borderRadius: BorderRadius.circular(AppRadius.r24),
+        border: Border.all(color: AppColors.secondary.withValues(alpha: 0.55)),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.pureBlack.withValues(alpha: 0.2),
+            blurRadius: 24,
+            offset: const Offset(0, 10),
+          ),
+        ],
+      ),
+      child: Material(
+        color: AppColors.transparent,
+        child: InkWell(
+          onTap: onTap,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: AppSizes.s176,
+                width: AppSizes.fitWidth,
+                child: AppCachedNetworkImage(
+                  imageUrl: imageUrl ?? '',
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(AppSizes.s14),
+                child: AppText(
+                  text: title,
+                  variant: AppTextVariant.ts14,
+                  textColor: AppColors.secondary,
+                  fontWeight: FontWeight.w700,
+                  maxLines: 3,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

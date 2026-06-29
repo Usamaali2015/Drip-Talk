@@ -31,6 +31,9 @@ class AppAssetImage extends StatelessWidget {
               width: width,
               height: height,
               fit: fit,
+              colorFilter: color == null
+                  ? null
+                  : ColorFilter.mode(color!, BlendMode.srcIn),
               errorBuilder: (_, _, _) {
                 return SizedBox(
                   width: width,

@@ -1,10 +1,9 @@
-
 import 'package:flutter/services.dart';
 import 'main_barrels.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  
   SystemUtils.setPortraitOnly();
 
   SystemUtils.setStatusBar(
@@ -32,7 +31,6 @@ class DripTalk extends StatelessWidget {
         BlocProvider<LocalizationBloc>(
           create: (_) => getIt<LocalizationBloc>(),
         ),
-
         // ── Auth ───────────────────────────────────────────────────────────
         BlocProvider<ResetPasswordBloc>(
           create: (_) => getIt<ResetPasswordBloc>(),
@@ -73,7 +71,10 @@ class _DripTalkBootstrapState extends State<_DripTalkBootstrap> {
   Future<void> _bootstrapStartupSession() async {
     await restoreStartupAuthSession();
     await AuthGuard.initialize();
-    if (!mounted || !AuthGuard.isLoggedIn.value) {
+    if (!mounted ||
+        !AuthGuard.isLoggedIn.value ||
+        AuthGuard.isProfileSetupRequired.value ||
+        AuthGuard.isRecommendationsFlowRequired.value) {
       return;
     }
 

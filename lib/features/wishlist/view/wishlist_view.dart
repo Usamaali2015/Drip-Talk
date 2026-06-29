@@ -5,9 +5,6 @@ import 'package:drip_talk/features/product/barrels/product_barrels.dart';
 import 'package:drip_talk/features/shop/barrels/shop_barrels.dart';
 import 'package:drip_talk/features/wishlist/barrels/wishlist_barrels.dart';
 import 'package:drip_talk/l10n/app_localizations.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 part 'widgets/wishlist_view_widgets.dart';
 
 class WishListView extends StatefulWidget {

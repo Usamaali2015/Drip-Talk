@@ -19,6 +19,9 @@ class AppRoutes {
   static const aiCuratedCollections = 'aiCuratedCollections';
   static const aiCuratedCollectionDetails = 'aiCuratedCollectionDetails';
   static const chat = 'chat';
+  static const wardrobes = 'wardrobes';
+  static const wardrobeCreate = 'wardrobeCreate';
+  static const wardrobeDetails = 'wardrobeDetails';
   static const contactSupport = 'contactSupport';
   static const helpCenter = 'helpCenter';
   static const returnPolicy = 'returnPolicy';

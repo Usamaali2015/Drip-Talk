@@ -1434,6 +1434,191 @@ class AppLocalizationsAr extends AppLocalizations {
   String get deleteAction => 'حذف';
 
   @override
+  String get wardrobeUntitledTitle => 'خزانة غير معنونة';
+
+  @override
+  String get wardrobeListHeaderLeading => 'خزانة';
+
+  @override
+  String get wardrobeListHeaderAccent => 'ملابسي';
+
+  @override
+  String get wardrobeListHeaderSubtitle => 'إطلالاتك كلها في مكان واحد';
+
+  @override
+  String get wardrobeListLoadFailed => 'تعذر تحميل الخزائن الآن.';
+
+  @override
+  String get wardrobeListCreateAction => 'إنشاء خزانة';
+
+  @override
+  String get wardrobeListDeleteDialogTitle => 'حذف الخزانة؟';
+
+  @override
+  String wardrobeListDeleteDialogMessage(Object wardrobeName) {
+    return 'سيؤدي هذا إلى حذف \"$wardrobeName\" وكل فستان بداخلها.';
+  }
+
+  @override
+  String get wardrobeInWardrobeLabel => 'في الخزانة';
+
+  @override
+  String get wardrobeInLaundryLabel => 'في الغسيل';
+
+  @override
+  String get wardrobeEmptyTitle => 'لا توجد خزائن بعد';
+
+  @override
+  String get wardrobeEmptySubtitle => 'أضف خزانتك الأولى لبدء تنظيم أسلوبك.';
+
+  @override
+  String get wardrobeEmptyAction => 'أنشئ خزانتك الأولى';
+
+  @override
+  String get wardrobeCreateHeaderLeading => 'خزانة';
+
+  @override
+  String get wardrobeCreateHeaderAccent => 'جديدة';
+
+  @override
+  String get wardrobeCreateHeaderSubtitle => 'أنشئ مجموعة إطلالاتك التالية';
+
+  @override
+  String get wardrobeNameHint => 'مثال: مجموعة الصيف';
+
+  @override
+  String get wardrobeNameLabel => 'اسم الخزانة';
+
+  @override
+  String get wardrobeCreateAction => 'أضف إلى الخزانة';
+
+  @override
+  String get wardrobeUploadTitle => 'اضغط لإضافة جميع فساتينك';
+
+  @override
+  String get wardrobeUploadSubtitle =>
+      'يمكنك اختيار عدة فساتين مرة واحدة - دفعة واحدة.';
+
+  @override
+  String get wardrobeUploadAction => 'اختر فستانًا';
+
+  @override
+  String get wardrobeNameRequired => 'اسم الخزانة مطلوب';
+
+  @override
+  String get wardrobeImageRequired => 'أضف صورة فستان واحدة على الأقل';
+
+  @override
+  String get wardrobeCreatedSuccess => 'تم إنشاء الخزانة بنجاح';
+
+  @override
+  String get wardrobeCreateFailed => 'تعذر إنشاء الخزانة';
+
+  @override
+  String get wardrobeDetailsLoadFailed => 'تعذر تحميل الخزانة';
+
+  @override
+  String wardrobeDetailsTotalDressesSubtitle(Object count) {
+    return 'إجمالي الفساتين: $count';
+  }
+
+  @override
+  String get wardrobeMoveSelectedItemTitle => 'نقل العنصر المحدد';
+
+  @override
+  String get wardrobeSendToAction => 'إرسال إلى...';
+
+  @override
+  String get wardrobeSendToLaundryDialogAction => 'إرسال إلى الغسيل';
+
+  @override
+  String get wardrobeSendToWardrobeDialogAction => 'إرسال إلى الخزانة';
+
+  @override
+  String get wardrobeSaveAction => 'حفظ';
+
+  @override
+  String get wardrobeSelectHint => 'اضغط للتحديد';
+
+  @override
+  String get wardrobeClearAllAction => 'مسح الكل';
+
+  @override
+  String get wardrobeSelectAllAction => 'تحديد الكل';
+
+  @override
+  String get wardrobeRemoveFromLaundryAction => 'إزالة من الغسيل';
+
+  @override
+  String get wardrobeSendToLaundryAction => 'إرسال إلى الغسيل';
+
+  @override
+  String get wardrobeWardrobeLabel => 'الخزانة';
+
+  @override
+  String get wardrobeLaundryLabel => 'الغسيل';
+
+  @override
+  String get wardrobeTotalLabel => 'الإجمالي';
+
+  @override
+  String get wardrobeAllLabel => 'الكل';
+
+  @override
+  String get wardrobeProcessingLabel => 'معالجة الذكاء الاصطناعي';
+
+  @override
+  String get wardrobeNoDressesInWardrobe =>
+      'لا توجد فساتين في هذه الخزانة بعد.';
+
+  @override
+  String get wardrobeNoDressesInWardrobeFilter =>
+      'لا توجد فساتين حاليًا في الخزانة.';
+
+  @override
+  String get wardrobeNoDressesInLaundryFilter =>
+      'لا توجد فساتين حاليًا في الغسيل.';
+
+  @override
+  String get wardrobeNotFound => 'الخزانة غير موجودة';
+
+  @override
+  String get wardrobeDeleteSuccess => 'تم حذف الخزانة بنجاح';
+
+  @override
+  String get wardrobeDeleteFailed => 'تعذر حذف الخزانة';
+
+  @override
+  String get wardrobeItemsUpdatedSuccess => 'تم تحديث عناصر الخزانة بنجاح';
+
+  @override
+  String get wardrobeItemsUpdateFailed => 'تعذر تحديث عناصر الخزانة';
+
+  @override
+  String get wardrobeItemsDeletedSuccess => 'تم حذف عناصر الخزانة بنجاح';
+
+  @override
+  String get wardrobeItemsDeleteFailed => 'تعذر حذف عناصر الخزانة';
+
+  @override
+  String get wardrobeRenamedSuccess => 'تمت إعادة تسمية الخزانة بنجاح';
+
+  @override
+  String get wardrobeRenameFailed => 'تعذر إعادة تسمية الخزانة';
+
+  @override
+  String get wardrobeAddedSuccess => 'تمت إضافة الفساتين إلى الخزانة بنجاح';
+
+  @override
+  String get wardrobeAddFailed => 'تعذر إضافة الفساتين';
+
+  @override
+  String get wardrobeCoverUpdatedSuccess => 'تم تحديث غلاف الخزانة بنجاح';
+
+  @override
+  String get wardrobeCoverUpdateFailed => 'تعذر تحديث غلاف الخزانة';
+
+  @override
   String get editAction => 'تعديل';
 
   @override
@@ -1856,6 +2041,242 @@ class AppLocalizationsAr extends AppLocalizations {
   String get profileSetupDialogAction => 'ابدأ الاستكشاف';
 
   @override
+  String get recommendationsSheetTitle => 'خصّص خلاصتك';
+
+  @override
+  String get recommendationsSheetSubtitle => 'صورة سريعة لمطابقة أدق';
+
+  @override
+  String get recommendationsSelfieHeadlineLeading => 'دعنا نرى ';
+
+  @override
+  String get recommendationsSelfieHeadlineAccent => 'ملامحك';
+
+  @override
+  String get recommendationsSelfieDescription =>
+      'تساعدنا صورة سريعة على مطابقة الإطلالات مع لون بشرتك وشعرك وملامحك.';
+
+  @override
+  String get recommendationsTakePhotoAction => 'التقط صورة';
+
+  @override
+  String get recommendationsTakePhotoCaption => 'استخدم الكاميرا';
+
+  @override
+  String get recommendationsUploadPhotoAction => 'ارفع صورة';
+
+  @override
+  String get recommendationsUploadPhotoCaption => 'من المعرض';
+
+  @override
+  String get recommendationsPrivacyNote =>
+      'خاص وآمن. يُستخدم للتنسيق فقط ولا تتم مشاركته.';
+
+  @override
+  String get recommendationsLoadingMessage =>
+      'جارٍ العثور على أفضل الإطلالات لك...';
+
+  @override
+  String get recommendationsPhotoRequiredMessage => 'أضف صورة للمتابعة.';
+
+  @override
+  String get recommendationsLoadFailedMessage =>
+      'تعذر تحميل التوصيات الآن. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get recommendationsNoDataMessage => 'لا توجد توصيات متاحة الآن.';
+
+  @override
+  String recommendationsReviewProgress(int current, int total) {
+    return 'الإطلالة $current من $total';
+  }
+
+  @override
+  String get recommendationsLoveAction => 'أعجبني';
+
+  @override
+  String get recommendationsReadyLabel => 'جاهز';
+
+  @override
+  String recommendationsLookLabel(int index) {
+    return 'إطلالة $index';
+  }
+
+  @override
+  String recommendationsMatchLabel(int score) {
+    return 'تطابق $score%';
+  }
+
+  @override
+  String get recommendationsPhotoReadyMessage =>
+      'الصورة الأمامية جاهزة. تابع لإنشاء إطلالاتك.';
+
+  @override
+  String get recommendationsPhotoGuidanceMessage =>
+      'استخدم صورة أمامية واضحة واحدة فقط. اللقطات الجانبية وصور المجموعات غير مدعومة.';
+
+  @override
+  String get recommendationsPhotoValidationMessage =>
+      'جارٍ التحقق من أن الصورة أمامية...';
+
+  @override
+  String get recommendationsPhotoNoFaceMessage =>
+      'استخدم صورة أمامية واضحة يظهر فيها وجهك بالكامل.';
+
+  @override
+  String get recommendationsPhotoMultipleFacesMessage =>
+      'ارفع صورة تحتوي على وجه واحد فقط.';
+
+  @override
+  String get recommendationsPhotoVerificationFailedMessage =>
+      'تعذر التحقق من هذه الصورة. جرّب صورة أمامية أوضح لوجهك.';
+
+  @override
+  String get recommendationsPhotoSidePoseMessage =>
+      'استخدم صورة أمامية مستقيمة. اللقطات الجانبية غير مدعومة.';
+
+  @override
+  String get recommendationsTrainingTitle => 'درّب منسقك الذكي';
+
+  @override
+  String get recommendationsTrainingSubtitle =>
+      'إنشاء أول تطابقات الإطلالات لك';
+
+  @override
+  String get recommendationsTrainingDescription =>
+      'نحوّل صورتك إلى موجز إطلالات مخصص لك.';
+
+  @override
+  String get recommendationsStyleDnaTitle => 'بصمتك الأسلوبية';
+
+  @override
+  String recommendationsLooksMatchedSubtitle(int total) {
+    return 'عدد $total إطلالات وافقت ذوقك';
+  }
+
+  @override
+  String recommendationsLovedLooksHeadline(int count) {
+    return 'أعجبتك $count إطلالات';
+  }
+
+  @override
+  String recommendationsReviewedLooksHeadline(int total) {
+    return 'راجعت $total إطلالات';
+  }
+
+  @override
+  String get recommendationsSummaryLovedSubtitle =>
+      'الذكاء اصطناعي التقط ذوقك. هذه هي الإطلالات التي نجحت.';
+
+  @override
+  String get recommendationsSummaryReviewedSubtitle =>
+      'هذه المجموعة الكاملة من الإطلالات من موجز التوصيات الخاص بك.';
+
+  @override
+  String get recommendationsVibeSignalTitle => 'إشارة ذوقك';
+
+  @override
+  String recommendationsTryOnEligibleMessage(int count) {
+    return 'سننشئ لك إطلالات تجريبية من $count صور أزياء أعجبتك.';
+  }
+
+  @override
+  String get recommendationsTryOnMissingImagesMessage =>
+      'الإطلالات التي أعجبتك لا تحتوي على صور مناسبة للتجربة الآن.';
+
+  @override
+  String get recommendationsRetrainAction => 'أعد التدريب';
+
+  @override
+  String get recommendationsGeneratingTitle => 'جارٍ إنشاء إطلالاتك';
+
+  @override
+  String get recommendationsGeneratingSubtitle =>
+      'التجربة الذكية تطابق الإطلالات التي أعجبتك';
+
+  @override
+  String get recommendationsProcessingLabel => 'قيد المعالجة';
+
+  @override
+  String get recommendationsBuildingTryOnTitle => 'جارٍ بناء صور التجربة';
+
+  @override
+  String get recommendationsTryOnUploadTimeline =>
+      'جارٍ رفع صورتك وصور الإطلالات التي أعجبتك';
+
+  @override
+  String get recommendationsTryOnFitTimeline =>
+      'جارٍ إنشاء محاكاة الملابس وتوافقها';
+
+  @override
+  String get recommendationsTryOnRenderTimeline =>
+      'جارٍ إخراج الإطلالات النهائية';
+
+  @override
+  String get recommendationsGeneratedTitle => 'تجربتك الذكية';
+
+  @override
+  String get recommendationsGeneratedSubtitle =>
+      'تم إنشاؤها من الإطلالات التي أعجبتك';
+
+  @override
+  String get recommendationsDoneAction => 'تم';
+
+  @override
+  String get recommendationsNextLookAction => 'الإطلالة التالية ←';
+
+  @override
+  String get recommendationsContinueChatAction => 'تابع إلى الدردشة ←';
+
+  @override
+  String get recommendationsStyledLookFallback => 'إطلالة منسقة';
+
+  @override
+  String get recommendationsStyleDescriptorFallback => 'أسلوبك الحالي';
+
+  @override
+  String recommendationsStyleSignalEmpty(String descriptor) {
+    return 'استخدمنا مراجعتك لفهم ذوقك. سنواصل تحسين موجزك اليومي حول $descriptor.';
+  }
+
+  @override
+  String recommendationsStyleSignalLoved(String descriptor) {
+    return 'تميل إلى أسلوب $descriptor. سننسق موجزك اليومي حول هذا الذوق.';
+  }
+
+  @override
+  String get recommendationsTryOnProgressFinal =>
+      'جارٍ تجهيز اللقطات النهائية. ستُفتح الإطلالات المولدة تلقائيًا عند جاهزيتها.';
+
+  @override
+  String get recommendationsTryOnProgressFitting =>
+      'يجري الآن تركيب صورتك مع كل إطلالة أعجبتك لإنشاء نتائج واقعية.';
+
+  @override
+  String get recommendationsTryOnProgressPreparing =>
+      'نقوم الآن بربط صورة وجهك مع الإطلالات التي أعجبتك وتجهيز دفعة الإنشاء.';
+
+  @override
+  String get recommendationsTryOnProgressUploading =>
+      'جارٍ رفع الصور المختارة وبدء دفعة التجربة الذكية.';
+
+  @override
+  String get recommendationsTryOnLooksRequiredMessage =>
+      'أعجب بإطلالة واحدة على الأقل لإنشاء نتائج التجربة.';
+
+  @override
+  String get recommendationsTryOnFailedMessage =>
+      'تعذر إنشاء إطلالات التجربة الآن. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get recommendationsTryOnEmptyResultMessage =>
+      'انتهت التجربة دون أي إطلالات مولدة. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get recommendationsTryOnTimeoutMessage =>
+      'تستغرق تجربة الإطلالات وقتًا أطول من المتوقع. يرجى المحاولة مرة أخرى.';
+
+  @override
   String get profileSetupLoadFailedMessage => 'تعذر تحميل ملفك الشخصي.';
 
   @override
@@ -1887,25 +2308,61 @@ class AppLocalizationsAr extends AppLocalizations {
   String get profileSetupStepBasicsLabel => 'الأساسيات';
 
   @override
-  String get profileSetupStepStyleLabel => 'الأنماط';
+  String get profileSetupStepBodyLabel => 'الجسم';
+
+  @override
+  String get profileSetupStepSkinLabel => 'البشرة';
+
+  @override
+  String get profileSetupStepStyleLabel => 'النمط';
+
+  @override
+  String get profileSetupStepHeightLabel => 'الطول';
+
+  @override
+  String get profileSetupStepWeightLabel => 'الوزن';
 
   @override
   String get profileSetupStepBrandsLabel => 'العلامات';
 
   @override
+  String get profileSetupStepColorsLabel => 'الألوان';
+
+  @override
+  String get profileSetupStepAvoidsLabel => 'استبعاد';
+
+  @override
   String get profileSetupStepTrainingLabel => 'تدريب الذكاء';
 
   @override
-  String get profileSetupStepPhotosLabel => 'الصور';
+  String get profileSetupStepPhotosLabel => 'صورة';
 
   @override
   String get profileSetupStepBasicsTitle => 'أخبرنا عنك';
 
   @override
+  String get profileSetupStepBodyTitle => 'شكل جسمك';
+
+  @override
+  String get profileSetupStepSkinTitle => 'لون بشرتك';
+
+  @override
   String get profileSetupStepStyleTitle => 'هوية أسلوبك';
 
   @override
-  String get profileSetupStepBrandsTitle => 'الألوان والعلامات';
+  String get profileSetupStepHeightTitle => 'طولك';
+
+  @override
+  String get profileSetupStepWeightTitle => 'وزنك';
+
+  @override
+  String get profileSetupStepBrandsTitle => 'أين تحب أن تتسوق؟';
+
+  @override
+  String get profileSetupStepColorsTitle => 'ما الألوان التي تعبّر عن أسلوبك؟';
+
+  @override
+  String get profileSetupStepAvoidsTitle => 'أنماط لا تفضلها';
 
   @override
   String get profileSetupStepTrainingTitle => 'درّب منسقك الذكي';
@@ -1917,16 +2374,41 @@ class AppLocalizationsAr extends AppLocalizations {
   String get profileSetupStepBasicsSubtitle => 'لنبدأ بالأساسيات';
 
   @override
+  String get profileSetupStepBodySubtitle =>
+      'ساعدنا في تنسيق المقاس المثالي لك';
+
+  @override
+  String get profileSetupStepSkinSubtitle => 'سنختار لك الدرجات التي تبرزك';
+
+  @override
   String get profileSetupStepStyleSubtitle => 'أخبرنا بما تحبه';
 
   @override
-  String get profileSetupStepBrandsSubtitle => 'اختر مفضلاتك';
+  String get profileSetupStepHeightSubtitle => 'لضبط التناسق المثالي لإطلالاتك';
+
+  @override
+  String get profileSetupStepWeightSubtitle =>
+      'يُستخدم فقط لتحسين المقاس المناسب لك';
+
+  @override
+  String get profileSetupStepBrandsSubtitle => 'اختر ذوقك وسننسق لك المحتوى';
+
+  @override
+  String get profileSetupStepColorsSubtitle =>
+      'اختر الدرجات التي تعود إليها دائمًا';
+
+  @override
+  String get profileSetupStepAvoidsSubtitle => 'أخبرنا بما ليس على ذوقك';
 
   @override
   String get profileSetupStepTrainingSubtitle => 'ساعدنا على فهم ذوقك';
 
   @override
   String get profileSetupStepPhotosSubtitle => 'ارفع صور الإطلالات الملهمة';
+
+  @override
+  String get profileSetupBrandsLoadFailedMessage =>
+      'تعذر تحميل العلامات حاليًا.';
 
   @override
   String get profileSetupPhoneLabel => 'رقم الهاتف';
@@ -1953,10 +2435,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get profileSetupCountryHint => 'اختر الدولة';
 
   @override
-  String get profileSetupCityLabel => 'المدينة';
+  String get profileSetupCityLabel => 'الولاية';
 
   @override
-  String get profileSetupCityHint => 'اختر المدينة';
+  String get profileSetupCityHint => 'اختر الولاية';
 
   @override
   String get profileSetupBodyTypeLabel => 'نوع الجسم';
@@ -2023,6 +2505,22 @@ class AppLocalizationsAr extends AppLocalizations {
   String get profileSetupAvoidedStylesHint => 'Neon, Oversized, Loud Prints';
 
   @override
+  String get profileSetupAvoidStylesEmptyTitle => 'لا توجد استبعادات بعد';
+
+  @override
+  String get profileSetupAvoidStylesEmptySubtitle =>
+      'سنستبعد هذه الخيارات من كل توصية';
+
+  @override
+  String profileSetupAvoidStylesSelectedTitle(int count) {
+    return '$count أنماط مستبعدة';
+  }
+
+  @override
+  String get profileSetupAvoidStylesSelectedSubtitle =>
+      'سنبعد هذه الخيارات عن كل توصية';
+
+  @override
   String get profileSetupReplacePhotosLabel =>
       'استبدال صور المنسق الحالية بهذا الرفع';
 
@@ -2055,7 +2553,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get profileSetupSelectCountryTitle => 'اختر الدولة';
 
   @override
-  String get profileSetupSelectCityTitle => 'اختر المدينة';
+  String get profileSetupSelectCityTitle => 'اختر الولاية';
 
   @override
   String get profileSetupSelectBodyTypeTitle => 'اختر نوع الجسم';
@@ -2067,10 +2565,25 @@ class AppLocalizationsAr extends AppLocalizations {
   String get profileSetupSearchCountryHint => 'ابحث عن دولة';
 
   @override
-  String get profileSetupSearchCityHint => 'ابحث عن مدينة';
+  String get profileSetupSearchCityHint => 'ابحث عن ولاية';
 
   @override
   String get profileSetupSearchBrandHint => 'ابحث عن علامة';
+
+  @override
+  String get profileSetupTapToSelectBrandsHint => 'اضغط لاختيار عدة علامات';
+
+  @override
+  String profileSetupSelectedCountLabel(int count) {
+    return '$count تم اختيارها';
+  }
+
+  @override
+  String get profileSetupColorAddHint =>
+      'اضغط على زر الإضافة لإضافة هذا اللون.';
+
+  @override
+  String get profileSetupClearAllAction => 'مسح الكل';
 
   @override
   String get profileSetupSearchNoResults => 'لا توجد نتائج مطابقة.';
@@ -2097,7 +2610,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get profileSetupValidationCountry => 'اختر الدولة.';
 
   @override
-  String get profileSetupValidationCity => 'اختر المدينة.';
+  String get profileSetupValidationCity => 'اختر الولاية.';
 
   @override
   String get profileSetupValidationBodyType => 'اختر نوع الجسم.';
@@ -2164,22 +2677,136 @@ class AppLocalizationsAr extends AppLocalizations {
   String get profileSetupOptionBodyTypePlusSize => 'مقاس كبير';
 
   @override
-  String get profileSetupOptionSkinToneFair => 'فاتح جدًا';
+  String get profileSetupOptionBodyTypeAverage => 'متناسق';
+
+  @override
+  String get profileSetupOptionBodyTypePlus => 'ممتلئ';
+
+  @override
+  String get profileSetupOptionBodyTypeMuscular => 'عضلي';
+
+  @override
+  String get profileSetupOptionBodyTypeSlimDescription => 'نحيف وانسيابي';
+
+  @override
+  String get profileSetupOptionBodyTypeAthleticDescription =>
+      'مشدود وبنية على شكل V';
+
+  @override
+  String get profileSetupOptionBodyTypeAverageDescription => 'بنية متوازنة';
+
+  @override
+  String get profileSetupOptionBodyTypeCurvyDescription => 'قوام منحني';
+
+  @override
+  String get profileSetupOptionBodyTypePlusDescription => 'قوام ممتلئ';
+
+  @override
+  String get profileSetupOptionBodyTypeMuscularDescription =>
+      'بنية قوية وعضلية';
+
+  @override
+  String get profileSetupOptionSkinTonePorcelain => 'بورسلان';
+
+  @override
+  String get profileSetupOptionSkinToneIvory => 'عاجي';
 
   @override
   String get profileSetupOptionSkinToneLight => 'فاتح';
 
   @override
-  String get profileSetupOptionSkinToneMedium => 'متوسط';
+  String get profileSetupOptionSkinToneBeige => 'بيج';
 
   @override
-  String get profileSetupOptionSkinToneOlive => 'قمحي';
+  String get profileSetupOptionSkinToneHoney => 'عسلي';
 
   @override
-  String get profileSetupOptionSkinToneBrown => 'بني';
+  String get profileSetupOptionSkinToneCaramel => 'كراميل';
 
   @override
-  String get profileSetupOptionSkinToneDeep => 'داكن';
+  String get profileSetupOptionSkinToneMahogany => 'ماهوجني';
+
+  @override
+  String get profileSetupOptionSkinToneEspresso => 'إسبريسو';
+
+  @override
+  String get profileSetupOptionSkinTonePorcelainDescription => 'أندرتون بارد';
+
+  @override
+  String get profileSetupOptionSkinToneIvoryDescription => 'أندرتون دافئ';
+
+  @override
+  String get profileSetupOptionSkinToneLightDescription => 'أندرتون محايد';
+
+  @override
+  String get profileSetupOptionSkinToneBeigeDescription => 'أندرتون دافئ';
+
+  @override
+  String get profileSetupOptionSkinToneHoneyDescription => 'أندرتون دافئ';
+
+  @override
+  String get profileSetupOptionSkinToneCaramelDescription => 'أندرتون دافئ';
+
+  @override
+  String get profileSetupOptionSkinToneMahoganyDescription => 'أندرتون دافئ';
+
+  @override
+  String get profileSetupOptionSkinToneEspressoDescription => 'أندرتون دافئ';
+
+  @override
+  String get profileSetupSkinToneInfoMessage =>
+      'لون بشرتك يساعدنا على اقتراح درجات متناغمة لا تتعارض.';
+
+  @override
+  String get profileSetupOptionAvoidStyleFormal => 'رسمي';
+
+  @override
+  String get profileSetupOptionAvoidStyleStreetwears => 'أزياء الشارع';
+
+  @override
+  String get profileSetupOptionAvoidStyleCasual => 'كاجوال';
+
+  @override
+  String get profileSetupOptionAvoidStyleLuxury => 'فاخر';
+
+  @override
+  String get profileSetupOptionAvoidStyleVintage => 'كلاسيكي';
+
+  @override
+  String get profileSetupOptionAvoidStyleSporty => 'رياضي';
+
+  @override
+  String get profileSetupOptionAvoidStyleMinimalist => 'بسيط';
+
+  @override
+  String get profileSetupOptionAvoidStyleRomantic => 'رومانسي';
+
+  @override
+  String get profileSetupOptionAvoidStyleGothic => 'قوطي';
+
+  @override
+  String get profileSetupOptionAvoidStyleBohemian => 'بوهيمي';
+
+  @override
+  String get profileSetupOptionAvoidStyleMaximalist => 'مبالغ';
+
+  @override
+  String get profileSetupOptionAvoidStyleCottagecore => 'ريفي';
+
+  @override
+  String get profileSetupOptionAvoidStyleAthleisure => 'رياضي أنيق';
+
+  @override
+  String get profileSetupOptionAvoidStylePreppy => 'بريبي';
+
+  @override
+  String get profileSetupOptionAvoidStyleBeach => 'شاطئي';
+
+  @override
+  String get profileSetupOptionAvoidStyleGrunge => 'غرانج';
+
+  @override
+  String get profileSetupOptionAvoidStyleSoftGirl => 'سوفت غيرل';
 
   @override
   String get profileSetupOptionStyleFormal => 'رسمي';

@@ -36,29 +36,15 @@ class DashboardSidebar extends StatelessWidget {
         children: [
           const AppGap(AppSizes.s40),
           _SidebarItem(
-            icon: Icons.home_outlined,
-            label: l10n.navHome,
-            index: 0,
-            shell: navigationShell,
-            onTap: _onTap,
-          ),
-          _SidebarItem(
-            icon: Icons.search,
-            label: l10n.navSearch,
-            index: 1,
-            shell: navigationShell,
-            onTap: _onTap,
-          ),
-          _SidebarItem(
-            icon: Icons.favorite,
-            label: l10n.navFavorites,
+            icon: Icons.checkroom_rounded,
+            label: 'Wardrobe',
             index: 2,
             shell: navigationShell,
             onTap: _onTap,
           ),
           _SidebarItem(
-            icon: Icons.settings,
-            label: l10n.navSettings,
+            icon: Icons.person_outline_rounded,
+            label: l10n.navProfile,
             index: 3,
             shell: navigationShell,
             onTap: _onTap,

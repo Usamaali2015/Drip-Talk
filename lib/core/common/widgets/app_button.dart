@@ -43,6 +43,14 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final radius = borderRadius ?? AppSizes.s12;
+    final isEnabled = !isLoading && onPressed != null;
+    final resolvedTextColor = isEnabled
+        ? (textColor ?? AppColors.pureWhite)
+        : (textColor ?? AppColors.pureWhite).withValues(alpha: 0.72);
+    final resolvedBackgroundColor = isEnabled
+        ? backgroundColor
+        : (backgroundColor ?? AppColors.primary).withValues(alpha: 0.32);
+    final resolvedGradient = isEnabled ? gradientColors : null;
 
     return SizedBox(
       height: height ?? AppSizes.s48,
@@ -58,11 +66,11 @@ class AppButton extends StatelessWidget {
               backgroundColor: WidgetStateProperty.all(AppColors.transparent),
               shadowColor: WidgetStateProperty.all(AppColors.transparent),
             ),
-        onPressed: isLoading ? null : onPressed,
+        onPressed: isEnabled ? onPressed : null,
         child: Container(
           padding: borderColor != null ? EdgeInsets.all(borderWidth) : null,
           decoration: BoxDecoration(
-            color: backgroundColor,
+            color: resolvedBackgroundColor,
             borderRadius: BorderRadius.circular(radius),
             border: borderColor != null
                 ? Border.all(color: borderColor!, width: borderWidth)
@@ -71,16 +79,14 @@ class AppButton extends StatelessWidget {
           child: Container(
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              gradient: gradientColors != null
+              gradient: resolvedGradient != null
                   ? LinearGradient(
-                      colors: gradientColors!,
+                      colors: resolvedGradient,
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     )
                   : null,
-              color: gradientColors == null
-                  ? (backgroundColor ?? AppColors.primary)
-                  : null,
+              color: resolvedGradient == null ? resolvedBackgroundColor : null,
               borderRadius: BorderRadius.circular(
                 borderColor != null
                     ? (radius - borderWidth).clamp(0, radius)
@@ -108,7 +114,7 @@ class AppButton extends StatelessWidget {
                         text: text,
                         style: AppTextStyles.ts18(
                           context,
-                          color: textColor ?? AppColors.pureWhite,
+                          color: resolvedTextColor,
                           fontWeight: fontWeight ?? FontWeight.w700,
                         ).copyWith(fontSize: fontSize),
                       ),

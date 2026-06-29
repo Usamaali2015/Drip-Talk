@@ -1,4 +1,5 @@
 import 'api_barrels.dart';
+import 'package:drip_talk/core/services/security/app_attestation_service.dart';
 import 'package:drip_talk/core/services/storage/secure_storage.dart';
 import 'package:drip_talk/features/auth/auth_repository/auth_session_repository.dart';
 import 'package:drip_talk/features/auth/biometric/data/repository/biometric_auth_repository.dart';
@@ -12,6 +13,7 @@ class DioClient {
   DioClient(
     this._authSessionRepository,
     BiometricAuthRepository biometricAuthRepository,
+    AppAttestationService appAttestationService,
   ) : dio = Dio(
         BaseOptions(
           baseUrl: ApiConstants.baseUrl,
@@ -45,6 +47,7 @@ class DioClient {
       DioInterceptors(
         authSessionRepository: _authSessionRepository,
         biometricAuthRepository: biometricAuthRepository,
+        appAttestationService: appAttestationService,
         refreshDio: _refreshDio,
         setAuthToken: setAuthToken,
         clearAuthToken: clearAuthToken,

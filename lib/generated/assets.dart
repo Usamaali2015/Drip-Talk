@@ -51,6 +51,8 @@ class Assets {
   static const String saved = 'assets/icons/saved.svg';
   static const String stars = 'assets/icons/stars.svg';
   static const String iconsStreetWear = 'assets/icons/street_wear.svg';
+  static const String wadrobe = 'assets/icons/wadrobe.svg';
+  static const String wadrobeUnfilled = 'assets/icons/wadrobe_unfilled.svg';
   static const String support = 'assets/icons/support.svg';
   static const String terms = 'assets/icons/terms.svg';
   static const String logout = 'assets/icons/logout.svg';
@@ -61,6 +63,9 @@ class Assets {
   static const String imagesOnboarding3 = 'assets/images/onboarding3.png';
   static const String productImage = 'assets/images/product_image.jpeg';
   static const String filterPink = "assets/icons/filter_pink.svg";
+  static const String moveIcon = "assets/icons/move_icon.svg";
+  static const String laundaryIcon = "assets/icons/laundary_machine.svg";
+
   static const String deleteAccountIcon =
       'assets/icons/Delete Account Icon.svg';
   static const String orderTracking = 'assets/icons/order_tracking.svg';
@@ -68,4 +73,10 @@ class Assets {
   static const String accountProfile = 'assets/icons/account_profile.svg';
   static const String aiChat = 'assets/icons/ai_chat.svg';
   static const String contactSupport = 'assets/icons/contact_support.svg';
+  static const String athletic = 'assets/icons/Athletic.png';
+  static const String average = 'assets/icons/Average.png';
+  static const String curvy = "assets/icons/Curvy.png";
+  static const String slim = "assets/icons/Slim.png";
+  static const String plus = "assets/icons/Plus.png";
+  static const String muscular = "assets/icons/Muscular.png";
 }

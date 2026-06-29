@@ -151,8 +151,9 @@ class SecureStorage {
     await delete(StorageKeys.isLoggedIn);
     await delete(StorageKeys.emailVerifiedAt);
     await delete(StorageKeys.pendingVerificationEmail);
+    await delete(StorageKeys.profileSetupRequired);
+    await delete(StorageKeys.recommendationsFlowRequired);
     await delete(StorageKeys.chatSessionId);
-    await delete(StorageKeys.chatPreferences);
     await delete(StorageKeys.theme);
     await delete(StorageKeys.locale);
     await delete(StorageKeys.lang);

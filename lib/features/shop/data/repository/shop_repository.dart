@@ -33,7 +33,7 @@ class ShopRepository {
       ApiEndpoints.collections,
       queryParameters: {
         'page': page,
-        if (perPage != null) 'per_page': perPage,
+        'per_page': ?perPage,
         if (searchQuery != null && searchQuery.trim().isNotEmpty)
           'search': searchQuery.trim(),
       },
@@ -53,7 +53,7 @@ class ShopRepository {
       ApiEndpoints.collectionDetails(collectionId),
       queryParameters: {
         'page': page,
-        if (perPage != null) 'per_page': perPage,
+        'per_page': ?perPage,
         if (searchQuery != null && searchQuery.trim().isNotEmpty)
           'search': searchQuery.trim(),
       },

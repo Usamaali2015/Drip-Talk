@@ -1445,6 +1445,194 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleteAction => 'Delete';
 
   @override
+  String get wardrobeUntitledTitle => 'Untitled Wardrobe';
+
+  @override
+  String get wardrobeListHeaderLeading => 'MY';
+
+  @override
+  String get wardrobeListHeaderAccent => 'Wardrobes';
+
+  @override
+  String get wardrobeListHeaderSubtitle => 'Your Fits, All In One Place';
+
+  @override
+  String get wardrobeListLoadFailed => 'Unable to load wardrobes right now.';
+
+  @override
+  String get wardrobeListCreateAction => 'Create Wardrobe';
+
+  @override
+  String get wardrobeListDeleteDialogTitle => 'Delete wardrobe?';
+
+  @override
+  String wardrobeListDeleteDialogMessage(Object wardrobeName) {
+    return 'This will delete \"$wardrobeName\" and every dress inside it.';
+  }
+
+  @override
+  String get wardrobeInWardrobeLabel => 'In Wardrobe';
+
+  @override
+  String get wardrobeInLaundryLabel => 'In Laundry';
+
+  @override
+  String get wardrobeEmptyTitle => 'No Wardrobes Yet';
+
+  @override
+  String get wardrobeEmptySubtitle =>
+      'Add your first wardrobe to start organizing your style.';
+
+  @override
+  String get wardrobeEmptyAction => 'Create your first wardrobe';
+
+  @override
+  String get wardrobeCreateHeaderLeading => 'New';
+
+  @override
+  String get wardrobeCreateHeaderAccent => 'Wardrobe';
+
+  @override
+  String get wardrobeCreateHeaderSubtitle => 'Build Your Next Fit Collection';
+
+  @override
+  String get wardrobeNameHint => 'Eg. Summer Collection';
+
+  @override
+  String get wardrobeNameLabel => 'Wardrobe Name';
+
+  @override
+  String get wardrobeCreateAction => 'Add to Wardrobe';
+
+  @override
+  String get wardrobeUploadTitle => 'Tap To Add All Your Dresses';
+
+  @override
+  String get wardrobeUploadSubtitle =>
+      'Select as many as you want at once - all at one go';
+
+  @override
+  String get wardrobeUploadAction => 'Choose Dress';
+
+  @override
+  String get wardrobeNameRequired => 'Wardrobe name is required';
+
+  @override
+  String get wardrobeImageRequired => 'Add at least one dress image';
+
+  @override
+  String get wardrobeCreatedSuccess => 'Wardrobe created successfully';
+
+  @override
+  String get wardrobeCreateFailed => 'Unable to create wardrobe';
+
+  @override
+  String get wardrobeDetailsLoadFailed => 'Unable to load wardrobe';
+
+  @override
+  String wardrobeDetailsTotalDressesSubtitle(Object count) {
+    return '$count Total Dresses';
+  }
+
+  @override
+  String get wardrobeMoveSelectedItemTitle => 'Move Selected Item';
+
+  @override
+  String get wardrobeSendToAction => 'Send To...';
+
+  @override
+  String get wardrobeSendToLaundryDialogAction => 'Send to laundry';
+
+  @override
+  String get wardrobeSendToWardrobeDialogAction => 'Send to wardrobe';
+
+  @override
+  String get wardrobeSaveAction => 'Save';
+
+  @override
+  String get wardrobeSelectHint => 'Tap to select';
+
+  @override
+  String get wardrobeClearAllAction => 'Clear all';
+
+  @override
+  String get wardrobeSelectAllAction => 'Select all';
+
+  @override
+  String get wardrobeRemoveFromLaundryAction => 'Remove From Laundry';
+
+  @override
+  String get wardrobeSendToLaundryAction => 'Send To Laundry';
+
+  @override
+  String get wardrobeWardrobeLabel => 'Wardrobe';
+
+  @override
+  String get wardrobeLaundryLabel => 'Laundry';
+
+  @override
+  String get wardrobeTotalLabel => 'Total';
+
+  @override
+  String get wardrobeAllLabel => 'All';
+
+  @override
+  String get wardrobeProcessingLabel => 'AI processing';
+
+  @override
+  String get wardrobeNoDressesInWardrobe => 'No dresses in this wardrobe yet.';
+
+  @override
+  String get wardrobeNoDressesInWardrobeFilter =>
+      'No dresses currently in wardrobe.';
+
+  @override
+  String get wardrobeNoDressesInLaundryFilter =>
+      'No dresses currently in laundry.';
+
+  @override
+  String get wardrobeNotFound => 'Wardrobe not found';
+
+  @override
+  String get wardrobeDeleteSuccess => 'Wardrobe deleted successfully';
+
+  @override
+  String get wardrobeDeleteFailed => 'Unable to delete wardrobe';
+
+  @override
+  String get wardrobeItemsUpdatedSuccess =>
+      'Wardrobe items updated successfully';
+
+  @override
+  String get wardrobeItemsUpdateFailed => 'Unable to update wardrobe items';
+
+  @override
+  String get wardrobeItemsDeletedSuccess =>
+      'Wardrobe items deleted successfully';
+
+  @override
+  String get wardrobeItemsDeleteFailed => 'Unable to delete wardrobe items';
+
+  @override
+  String get wardrobeRenamedSuccess => 'Wardrobe renamed successfully';
+
+  @override
+  String get wardrobeRenameFailed => 'Unable to rename wardrobe';
+
+  @override
+  String get wardrobeAddedSuccess => 'Dresses added to wardrobe successfully';
+
+  @override
+  String get wardrobeAddFailed => 'Unable to add dresses';
+
+  @override
+  String get wardrobeCoverUpdatedSuccess =>
+      'Wardrobe cover updated successfully';
+
+  @override
+  String get wardrobeCoverUpdateFailed => 'Unable to update wardrobe cover';
+
+  @override
   String get editAction => 'Edit';
 
   @override
@@ -1869,6 +2057,242 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileSetupDialogAction => 'Start Exploring';
 
   @override
+  String get recommendationsSheetTitle => 'Personalize Your Feed';
+
+  @override
+  String get recommendationsSheetSubtitle => 'Quick Selfie For Better Matches';
+
+  @override
+  String get recommendationsSelfieHeadlineLeading => 'Let\'s See ';
+
+  @override
+  String get recommendationsSelfieHeadlineAccent => 'You';
+
+  @override
+  String get recommendationsSelfieDescription =>
+      'A quick headshot helps us match outfits to your skin tone, hair, and features.';
+
+  @override
+  String get recommendationsTakePhotoAction => 'Take Photo';
+
+  @override
+  String get recommendationsTakePhotoCaption => 'Use Camera';
+
+  @override
+  String get recommendationsUploadPhotoAction => 'Upload Photo';
+
+  @override
+  String get recommendationsUploadPhotoCaption => 'From Gallery';
+
+  @override
+  String get recommendationsPrivacyNote =>
+      'Private & Secure. Used only for styling. Never shared.';
+
+  @override
+  String get recommendationsLoadingMessage => 'Finding your best matches...';
+
+  @override
+  String get recommendationsPhotoRequiredMessage => 'Add a photo to continue.';
+
+  @override
+  String get recommendationsLoadFailedMessage =>
+      'I could not load recommendations right now. Please try again.';
+
+  @override
+  String get recommendationsNoDataMessage =>
+      'No recommendations are available right now.';
+
+  @override
+  String recommendationsReviewProgress(int current, int total) {
+    return 'Outfit $current Of $total';
+  }
+
+  @override
+  String get recommendationsLoveAction => 'Love it';
+
+  @override
+  String get recommendationsReadyLabel => 'Ready';
+
+  @override
+  String recommendationsLookLabel(int index) {
+    return 'Look $index';
+  }
+
+  @override
+  String recommendationsMatchLabel(int score) {
+    return '$score% Match';
+  }
+
+  @override
+  String get recommendationsPhotoReadyMessage =>
+      'Front-face photo ready. Continue to generate your looks.';
+
+  @override
+  String get recommendationsPhotoGuidanceMessage =>
+      'Use one clear front-face photo only. Side poses and group photos are not supported.';
+
+  @override
+  String get recommendationsPhotoValidationMessage =>
+      'Checking that the photo is front-facing...';
+
+  @override
+  String get recommendationsPhotoNoFaceMessage =>
+      'Use a clear front-facing photo with your full face visible.';
+
+  @override
+  String get recommendationsPhotoMultipleFacesMessage =>
+      'Upload a photo with one face only.';
+
+  @override
+  String get recommendationsPhotoVerificationFailedMessage =>
+      'I could not verify this photo. Try another clear front-face photo.';
+
+  @override
+  String get recommendationsPhotoSidePoseMessage =>
+      'Use a straight front-face photo. Side poses are not supported.';
+
+  @override
+  String get recommendationsTrainingTitle => 'Train Your AI Stylist';
+
+  @override
+  String get recommendationsTrainingSubtitle =>
+      'Building your first outfit matches';
+
+  @override
+  String get recommendationsTrainingDescription =>
+      'We are turning your photo into a personalized look feed.';
+
+  @override
+  String get recommendationsStyleDnaTitle => 'Your Style DNA';
+
+  @override
+  String recommendationsLooksMatchedSubtitle(int total) {
+    return '$total Looks Matched Your Taste';
+  }
+
+  @override
+  String recommendationsLovedLooksHeadline(int count) {
+    return 'You Loved $count Looks';
+  }
+
+  @override
+  String recommendationsReviewedLooksHeadline(int total) {
+    return 'You Reviewed $total Looks';
+  }
+
+  @override
+  String get recommendationsSummaryLovedSubtitle =>
+      'Our AI has the vibe. Here\'s what made the cut.';
+
+  @override
+  String get recommendationsSummaryReviewedSubtitle =>
+      'Here\'s the full set of looks from your recommendation feed.';
+
+  @override
+  String get recommendationsVibeSignalTitle => 'Your Vibe Signal';
+
+  @override
+  String recommendationsTryOnEligibleMessage(int count) {
+    return 'We will generate try-on looks from the $count saved outfit images you liked.';
+  }
+
+  @override
+  String get recommendationsTryOnMissingImagesMessage =>
+      'Your liked looks are missing usable outfit images, so try-on can\'t start yet.';
+
+  @override
+  String get recommendationsRetrainAction => 'Retrain';
+
+  @override
+  String get recommendationsGeneratingTitle => 'Generating Your Looks';
+
+  @override
+  String get recommendationsGeneratingSubtitle =>
+      'AI try-on is matching your liked outfits';
+
+  @override
+  String get recommendationsProcessingLabel => 'Processing';
+
+  @override
+  String get recommendationsBuildingTryOnTitle => 'Building your try-on photos';
+
+  @override
+  String get recommendationsTryOnUploadTimeline =>
+      'Uploading your selfie and liked outfit images';
+
+  @override
+  String get recommendationsTryOnFitTimeline =>
+      'Generating outfit overlays and body fit';
+
+  @override
+  String get recommendationsTryOnRenderTimeline =>
+      'Rendering final try-on looks';
+
+  @override
+  String get recommendationsGeneratedTitle => 'Your Try-On';
+
+  @override
+  String get recommendationsGeneratedSubtitle =>
+      'Generated from the looks you liked';
+
+  @override
+  String get recommendationsDoneAction => 'Done';
+
+  @override
+  String get recommendationsNextLookAction => 'Next look →';
+
+  @override
+  String get recommendationsContinueChatAction => 'Continue With Chat →';
+
+  @override
+  String get recommendationsStyledLookFallback => 'Styled Look';
+
+  @override
+  String get recommendationsStyleDescriptorFallback => 'your current style';
+
+  @override
+  String recommendationsStyleSignalEmpty(String descriptor) {
+    return 'We used your review to learn your taste. We\'ll keep refining your daily feed around $descriptor.';
+  }
+
+  @override
+  String recommendationsStyleSignalLoved(String descriptor) {
+    return 'You lean toward $descriptor aesthetics. We\'ll curate your daily feed around this.';
+  }
+
+  @override
+  String get recommendationsTryOnProgressFinal =>
+      'Final renders are being prepared. Your generated looks will open automatically when they are ready.';
+
+  @override
+  String get recommendationsTryOnProgressFitting =>
+      'Your selfie is being fitted against each liked outfit to create realistic try-on results.';
+
+  @override
+  String get recommendationsTryOnProgressPreparing =>
+      'We are pairing your face image with the outfits you liked and preparing the generation batch.';
+
+  @override
+  String get recommendationsTryOnProgressUploading =>
+      'Uploading your selected images and starting the AI try-on batch.';
+
+  @override
+  String get recommendationsTryOnLooksRequiredMessage =>
+      'Like at least one look to generate your try-on results.';
+
+  @override
+  String get recommendationsTryOnFailedMessage =>
+      'I could not generate your try-on looks right now. Please try again.';
+
+  @override
+  String get recommendationsTryOnEmptyResultMessage =>
+      'Your try-on finished without any generated looks. Please try again.';
+
+  @override
+  String get recommendationsTryOnTimeoutMessage =>
+      'Try-on generation is taking longer than expected. Please try again.';
+
+  @override
   String get profileSetupLoadFailedMessage => 'Unable to load your profile.';
 
   @override
@@ -1900,25 +2324,61 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileSetupStepBasicsLabel => 'Basics';
 
   @override
-  String get profileSetupStepStyleLabel => 'Styles';
+  String get profileSetupStepBodyLabel => 'Body';
+
+  @override
+  String get profileSetupStepSkinLabel => 'Skin';
+
+  @override
+  String get profileSetupStepStyleLabel => 'Style';
+
+  @override
+  String get profileSetupStepHeightLabel => 'Height';
+
+  @override
+  String get profileSetupStepWeightLabel => 'Weight';
 
   @override
   String get profileSetupStepBrandsLabel => 'Brands';
 
   @override
+  String get profileSetupStepColorsLabel => 'Colors';
+
+  @override
+  String get profileSetupStepAvoidsLabel => 'Avoids';
+
+  @override
   String get profileSetupStepTrainingLabel => 'AI Training';
 
   @override
-  String get profileSetupStepPhotosLabel => 'Photos';
+  String get profileSetupStepPhotosLabel => 'Photo';
 
   @override
   String get profileSetupStepBasicsTitle => 'Tell Us About You';
 
   @override
+  String get profileSetupStepBodyTitle => 'Your Body Shape';
+
+  @override
+  String get profileSetupStepSkinTitle => 'Your Skin Tone';
+
+  @override
   String get profileSetupStepStyleTitle => 'Your Style Identity';
 
   @override
-  String get profileSetupStepBrandsTitle => 'Colors & Brands';
+  String get profileSetupStepHeightTitle => 'Your Height';
+
+  @override
+  String get profileSetupStepWeightTitle => 'Your Weight';
+
+  @override
+  String get profileSetupStepBrandsTitle => 'Where Do You Like To Shop?';
+
+  @override
+  String get profileSetupStepColorsTitle => 'What Colors Define Your Style?';
+
+  @override
+  String get profileSetupStepAvoidsTitle => 'Styles To Avoid';
 
   @override
   String get profileSetupStepTrainingTitle => 'Train Your AI Stylist';
@@ -1931,10 +2391,32 @@ class AppLocalizationsEn extends AppLocalizations {
       'Let\'s Start With The Essentials';
 
   @override
+  String get profileSetupStepBodySubtitle =>
+      'Help us tailor the perfect fit for you';
+
+  @override
+  String get profileSetupStepSkinSubtitle => 'We\'ll find shades that flatter';
+
+  @override
   String get profileSetupStepStyleSubtitle => 'Tell Us What You Love';
 
   @override
-  String get profileSetupStepBrandsSubtitle => 'Choose Your Favorites';
+  String get profileSetupStepHeightSubtitle =>
+      'For perfectly proportioned styling';
+
+  @override
+  String get profileSetupStepWeightSubtitle => 'Used only to refine your fit';
+
+  @override
+  String get profileSetupStepBrandsSubtitle =>
+      'Pick your vibe - we\'ll curate your feed';
+
+  @override
+  String get profileSetupStepColorsSubtitle =>
+      'Choose the shades you keep reaching for';
+
+  @override
+  String get profileSetupStepAvoidsSubtitle => 'Tell us what\'s not your vibe';
 
   @override
   String get profileSetupStepTrainingSubtitle =>
@@ -1942,6 +2424,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get profileSetupStepPhotosSubtitle => 'Upload Outfit Inspiration';
+
+  @override
+  String get profileSetupBrandsLoadFailedMessage =>
+      'Unable to load brands right now.';
 
   @override
   String get profileSetupPhoneLabel => 'Phone Number';
@@ -1968,10 +2454,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileSetupCountryHint => 'Select country';
 
   @override
-  String get profileSetupCityLabel => 'City';
+  String get profileSetupCityLabel => 'State';
 
   @override
-  String get profileSetupCityHint => 'Select city';
+  String get profileSetupCityHint => 'Select state';
 
   @override
   String get profileSetupBodyTypeLabel => 'Body Type';
@@ -2038,6 +2524,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileSetupAvoidedStylesHint => 'Neon, Oversized, Loud Prints';
 
   @override
+  String get profileSetupAvoidStylesEmptyTitle => 'No exclusions yet';
+
+  @override
+  String get profileSetupAvoidStylesEmptySubtitle =>
+      'We\'ll filter these out of every recommendation';
+
+  @override
+  String profileSetupAvoidStylesSelectedTitle(int count) {
+    return '$count styles excluded';
+  }
+
+  @override
+  String get profileSetupAvoidStylesSelectedSubtitle =>
+      'We\'ll keep these out of every recommendation';
+
+  @override
   String get profileSetupReplacePhotosLabel =>
       'Replace existing stylist photos with this upload';
 
@@ -2070,7 +2572,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileSetupSelectCountryTitle => 'Select Country';
 
   @override
-  String get profileSetupSelectCityTitle => 'Select City';
+  String get profileSetupSelectCityTitle => 'Select State';
 
   @override
   String get profileSetupSelectBodyTypeTitle => 'Select Body Type';
@@ -2082,10 +2584,26 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileSetupSearchCountryHint => 'Search country';
 
   @override
-  String get profileSetupSearchCityHint => 'Search city';
+  String get profileSetupSearchCityHint => 'Search state';
 
   @override
   String get profileSetupSearchBrandHint => 'Search brands';
+
+  @override
+  String get profileSetupTapToSelectBrandsHint =>
+      'Tap to select multiple brands';
+
+  @override
+  String profileSetupSelectedCountLabel(int count) {
+    return '$count selected';
+  }
+
+  @override
+  String get profileSetupColorAddHint =>
+      'Tap the add button to add this color.';
+
+  @override
+  String get profileSetupClearAllAction => 'Clear all';
 
   @override
   String get profileSetupSearchNoResults => 'No matching results found.';
@@ -2112,7 +2630,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileSetupValidationCountry => 'Select a country.';
 
   @override
-  String get profileSetupValidationCity => 'Select a city.';
+  String get profileSetupValidationCity => 'Select a state.';
 
   @override
   String get profileSetupValidationBodyType => 'Select a body type.';
@@ -2178,22 +2696,134 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileSetupOptionBodyTypePlusSize => 'Plus Size';
 
   @override
-  String get profileSetupOptionSkinToneFair => 'Fair';
+  String get profileSetupOptionBodyTypeAverage => 'Average';
+
+  @override
+  String get profileSetupOptionBodyTypePlus => 'Plus';
+
+  @override
+  String get profileSetupOptionBodyTypeMuscular => 'Muscular';
+
+  @override
+  String get profileSetupOptionBodyTypeSlimDescription => 'Lean & narrow';
+
+  @override
+  String get profileSetupOptionBodyTypeAthleticDescription => 'Toned & V-shape';
+
+  @override
+  String get profileSetupOptionBodyTypeAverageDescription => 'Balanced Build';
+
+  @override
+  String get profileSetupOptionBodyTypeCurvyDescription => 'Hourglass Shape';
+
+  @override
+  String get profileSetupOptionBodyTypePlusDescription => 'Fuller Figure';
+
+  @override
+  String get profileSetupOptionBodyTypeMuscularDescription => 'Built & Strong';
+
+  @override
+  String get profileSetupOptionSkinTonePorcelain => 'Porcelain';
+
+  @override
+  String get profileSetupOptionSkinToneIvory => 'Ivory';
 
   @override
   String get profileSetupOptionSkinToneLight => 'Light';
 
   @override
-  String get profileSetupOptionSkinToneMedium => 'Medium';
+  String get profileSetupOptionSkinToneBeige => 'Beige';
 
   @override
-  String get profileSetupOptionSkinToneOlive => 'Olive';
+  String get profileSetupOptionSkinToneHoney => 'Honey';
 
   @override
-  String get profileSetupOptionSkinToneBrown => 'Brown';
+  String get profileSetupOptionSkinToneCaramel => 'Caramel';
 
   @override
-  String get profileSetupOptionSkinToneDeep => 'Deep';
+  String get profileSetupOptionSkinToneMahogany => 'Mahogany';
+
+  @override
+  String get profileSetupOptionSkinToneEspresso => 'Espresso';
+
+  @override
+  String get profileSetupOptionSkinTonePorcelainDescription => 'Cool Undertone';
+
+  @override
+  String get profileSetupOptionSkinToneIvoryDescription => 'Warm Undertone';
+
+  @override
+  String get profileSetupOptionSkinToneLightDescription => 'Neutral Undertone';
+
+  @override
+  String get profileSetupOptionSkinToneBeigeDescription => 'Warm Undertone';
+
+  @override
+  String get profileSetupOptionSkinToneHoneyDescription => 'Warm Undertone';
+
+  @override
+  String get profileSetupOptionSkinToneCaramelDescription => 'Warm Undertone';
+
+  @override
+  String get profileSetupOptionSkinToneMahoganyDescription => 'Warm Undertone';
+
+  @override
+  String get profileSetupOptionSkinToneEspressoDescription => 'Warm Undertone';
+
+  @override
+  String get profileSetupSkinToneInfoMessage =>
+      'Your tone helps us suggest hues that complement, never clash.';
+
+  @override
+  String get profileSetupOptionAvoidStyleFormal => 'Formal';
+
+  @override
+  String get profileSetupOptionAvoidStyleStreetwears => 'Streetwears';
+
+  @override
+  String get profileSetupOptionAvoidStyleCasual => 'Casual';
+
+  @override
+  String get profileSetupOptionAvoidStyleLuxury => 'Luxury';
+
+  @override
+  String get profileSetupOptionAvoidStyleVintage => 'Vintage';
+
+  @override
+  String get profileSetupOptionAvoidStyleSporty => 'Sporty';
+
+  @override
+  String get profileSetupOptionAvoidStyleMinimalist => 'Minimalist';
+
+  @override
+  String get profileSetupOptionAvoidStyleRomantic => 'Romantic';
+
+  @override
+  String get profileSetupOptionAvoidStyleGothic => 'Gothic';
+
+  @override
+  String get profileSetupOptionAvoidStyleBohemian => 'Bohemian';
+
+  @override
+  String get profileSetupOptionAvoidStyleMaximalist => 'Maximalist';
+
+  @override
+  String get profileSetupOptionAvoidStyleCottagecore => 'Cottagecore';
+
+  @override
+  String get profileSetupOptionAvoidStyleAthleisure => 'Athleisure';
+
+  @override
+  String get profileSetupOptionAvoidStylePreppy => 'Preppy';
+
+  @override
+  String get profileSetupOptionAvoidStyleBeach => 'Beach';
+
+  @override
+  String get profileSetupOptionAvoidStyleGrunge => 'Grunge';
+
+  @override
+  String get profileSetupOptionAvoidStyleSoftGirl => 'Soft Girl';
 
   @override
   String get profileSetupOptionStyleFormal => 'Formal';

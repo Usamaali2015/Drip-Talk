@@ -1,7 +1,6 @@
 import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 import 'package:drip_talk/features/auth/barrels/reset_password_barrels.dart';
 import 'package:flutter/material.dart';
-import 'mobile_reset_password_view.dart';
 
 class ResetPasswordView extends StatelessWidget {
   final String email;

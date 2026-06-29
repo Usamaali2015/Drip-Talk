@@ -61,7 +61,17 @@ class _SplashViewState extends State<SplashView> {
     }
 
     if (token != null && token.isNotEmpty) {
-      context.go(RoutePaths.home);
+      if (AuthGuard.isProfileSetupRequired.value) {
+        context.go(RoutePaths.profileSetup);
+        return;
+      }
+
+      if (AuthGuard.isRecommendationsFlowRequired.value) {
+        context.go(RoutePaths.chat);
+        return;
+      }
+
+      context.go(RoutePaths.wardrobes);
     } else {
       context.go(RoutePaths.onboarding);
     }

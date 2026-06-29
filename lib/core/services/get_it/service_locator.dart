@@ -1,3 +1,4 @@
+import 'package:drip_talk/core/services/security/app_attestation_service.dart';
 import 'package:drip_talk/features/auth/auth_repository/auth_repository.dart';
 import 'package:drip_talk/features/auth/auth_repository/auth_session_repository.dart';
 import 'package:drip_talk/features/auth/biometric/data/repository/biometric_auth_repository.dart';
@@ -5,6 +6,7 @@ import 'package:drip_talk/features/auth/biometric/domain/bloc/biometric_auth_blo
 import 'package:drip_talk/features/auth/forgot/view/domain/bloc/forgot_password_bloc.dart';
 import 'package:drip_talk/features/auth/login/bloc/login_bloc.dart';
 import 'package:drip_talk/features/auth/profile_setup/domain/bloc/profile_setup_bloc.dart';
+import 'package:drip_talk/features/auth/profile_setup/data/repository/profile_setup_brands_repository.dart';
 import 'package:drip_talk/features/auth/otp/domain/bloc/otp_bloc.dart';
 import 'package:drip_talk/features/auth/reset/bloc/reset_password_bloc.dart';
 import 'package:drip_talk/features/auth/signup/domain/bloc/sign_up_bloc.dart';
@@ -16,6 +18,7 @@ import 'package:drip_talk/features/cart/data/repository/cart_repository.dart';
 import 'package:drip_talk/features/cart/domain/bloc/cart_bloc.dart';
 import 'package:drip_talk/features/chat/data/chat_repository.dart';
 import 'package:drip_talk/features/chat/data/chat_session_repository.dart';
+import 'package:drip_talk/features/chat/data/services/chat_generation_realtime_service.dart';
 import 'package:drip_talk/features/chat/domain/chat_bloc.dart';
 import 'package:drip_talk/features/contact_support/data/repository/contact_support_repository.dart';
 import 'package:drip_talk/features/contact_support/domain/bloc/contact_support_bloc.dart';
@@ -29,6 +32,10 @@ import 'package:drip_talk/features/payment_methods/domain/bloc/payment_methods_b
 import 'package:drip_talk/features/product/data/repository/product_preferences_repository.dart';
 import 'package:drip_talk/features/product/data/repository/product_repository.dart';
 import 'package:drip_talk/features/product/domain/bloc/product_bloc.dart';
+import 'package:drip_talk/features/recommendations/data/repository/recommendations_repository.dart';
+import 'package:drip_talk/features/recommendations/data/services/try_on_realtime_service.dart';
+import 'package:drip_talk/features/recommendations/domain/bloc/recommendations_bloc.dart';
+import 'package:drip_talk/features/recommendations/domain/services/recommendations_photo_validator.dart';
 import 'package:drip_talk/features/return_policy/data/repository/return_policy_repository.dart';
 import 'package:drip_talk/features/return_policy/domain/bloc/return_policy_bloc.dart';
 import 'package:drip_talk/features/reviews/data/repository/review_repository.dart';
@@ -37,6 +44,11 @@ import 'package:drip_talk/features/reviews/domain/bloc/product_review_bloc.dart'
 import 'package:drip_talk/features/shop/data/repository/shop_repository.dart';
 import 'package:drip_talk/features/shop/domain/ai_curated_collection_details_bloc.dart';
 import 'package:drip_talk/features/shop/domain/shop_bloc.dart';
+import 'package:drip_talk/features/wardrobe/data/repository/wardrobe_repository.dart';
+import 'package:drip_talk/features/wardrobe/domain/bloc/create_wardrobe_bloc.dart';
+import 'package:drip_talk/features/wardrobe/domain/bloc/wardrobe_details_bloc.dart';
+import 'package:drip_talk/features/wardrobe/domain/bloc/wardrobe_list_bloc.dart';
+import 'package:drip_talk/features/wardrobe/domain/wardrobe_sync_notifier.dart';
 import 'package:drip_talk/features/wishlist/data/repository/wishlist_repository.dart';
 import 'package:drip_talk/features/wishlist/domain/bloc/wishlist_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -55,10 +67,14 @@ Future<void> setupServices() async {
   getIt.registerLazySingleton<BiometricAuthRepository>(
     () => BiometricAuthRepository(SecureStorage.instance),
   );
+  getIt.registerLazySingleton<AppAttestationService>(
+    () => MethodChannelAppAttestationService(),
+  );
   getIt.registerLazySingleton<DioClient>(
     () => DioClient(
       getIt<AuthSessionRepository>(),
       getIt<BiometricAuthRepository>(),
+      getIt<AppAttestationService>(),
     ),
   );
   await getIt<DioClient>().restoreLanguageCode();
@@ -154,6 +170,12 @@ Future<void> setupServices() async {
   getIt.registerLazySingleton<ChatRepository>(
     () => ChatRepository(getIt<ApiService>()),
   );
+  getIt.registerLazySingleton<ChatGenerationRealtimeService>(
+    () => ChatGenerationRealtimeService(
+      getIt<DioClient>(),
+      getIt<AuthSessionRepository>(),
+    ),
+  );
   getIt.registerLazySingleton<ContactSupportRepository>(
     () => ContactSupportRepository(getIt<ApiService>()),
   );
@@ -162,6 +184,18 @@ Future<void> setupServices() async {
   );
   getIt.registerLazySingleton<ProfileRepository>(
     () => ProfileRepository(getIt<ApiService>()),
+  );
+  getIt.registerLazySingleton<ProfileSetupBrandsRepository>(
+    () => ProfileSetupBrandsRepository(getIt<ApiService>()),
+  );
+  getIt.registerLazySingleton<RecommendationsRepository>(
+    () => RecommendationsRepository(getIt<ApiService>()),
+  );
+  getIt.registerLazySingleton<TryOnRealtimeService>(
+    () => TryOnRealtimeService(
+      getIt<DioClient>(),
+      getIt<AuthSessionRepository>(),
+    ),
   );
   getIt.registerLazySingleton<ReviewRepository>(
     () => ReviewRepository(getIt<ApiService>()),
@@ -181,13 +215,24 @@ Future<void> setupServices() async {
   getIt.registerLazySingleton<ChatSessionRepository>(
     () => ChatSessionRepository(SecureStorage.instance),
   );
+  getIt.registerLazySingleton<WardrobeRepository>(
+    () => WardrobeRepository(getIt<ApiService>()),
+  );
+  getIt.registerLazySingleton<WardrobeSyncNotifier>(
+    () => WardrobeSyncNotifier(),
+  );
 
   getIt.registerFactory<ShopBloc>(() => ShopBloc(getIt<ShopRepository>()));
   getIt.registerFactory<AiCuratedCollectionDetailsBloc>(
     () => AiCuratedCollectionDetailsBloc(getIt<ShopRepository>()),
   );
   getIt.registerFactory<ChatBloc>(
-    () => ChatBloc(getIt<ChatRepository>(), getIt<ChatSessionRepository>()),
+    () => ChatBloc(
+      getIt<ChatRepository>(),
+      getIt<ChatSessionRepository>(),
+      getIt<AuthSessionRepository>(),
+      getIt<ChatGenerationRealtimeService>(),
+    ),
   );
   getIt.registerFactory<AddAddressBloc>(
     () => AddAddressBloc(getIt<AddressRepository>()),
@@ -207,12 +252,34 @@ Future<void> setupServices() async {
   getIt.registerFactory<ProfileSetupBloc>(
     () => ProfileSetupBloc(
       getIt<ProfileRepository>(),
+      getIt<ProfileSetupBrandsRepository>(),
       getIt<AuthSessionRepository>(),
       getIt<DioClient>(),
     ),
   );
+  getIt.registerFactory<RecommendationsBloc>(
+    () => RecommendationsBloc(
+      getIt<RecommendationsRepository>(),
+      getIt<AuthSessionRepository>(),
+      getIt<DioClient>(),
+      getIt<TryOnRealtimeService>(),
+      RecommendationsPhotoValidator(),
+    ),
+  );
   getIt.registerFactory<MyReviewsBloc>(
     () => MyReviewsBloc(getIt<ReviewRepository>()),
+  );
+  getIt.registerFactory<WardrobeListBloc>(
+    () => WardrobeListBloc(getIt<WardrobeRepository>()),
+  );
+  getIt.registerFactory<WardrobeDetailsBloc>(
+    () => WardrobeDetailsBloc(
+      getIt<WardrobeRepository>(),
+      getIt<WardrobeSyncNotifier>(),
+    ),
+  );
+  getIt.registerFactory<CreateWardrobeBloc>(
+    () => CreateWardrobeBloc(getIt<WardrobeRepository>()),
   );
   getIt.registerFactory<ProductReviewBloc>(
     () => ProductReviewBloc(getIt<ReviewRepository>()),

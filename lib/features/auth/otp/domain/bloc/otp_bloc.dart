@@ -75,6 +75,8 @@ class OtpBloc extends Bloc<OtpEvent, OtpState> {
         );
         final authResponse = AuthResponseModel.fromResponse(response.data);
         final token = authResponse.token?.trim();
+        final shouldCollectProfile =
+            event.purpose == AuthOtpPurpose.signupVerification;
         var hasAuthenticatedSession = false;
 
         if (token != null && token.isNotEmpty) {
@@ -83,6 +85,8 @@ class OtpBloc extends Bloc<OtpEvent, OtpState> {
             refreshToken: authResponse.refreshToken,
             user: authResponse.user?.toJson(),
             emailVerifiedAt: authResponse.user?.emailVerifiedAt,
+            profileSetupRequired: shouldCollectProfile,
+            recommendationsFlowRequired: shouldCollectProfile,
           );
           _dioClient.setAuthToken(token);
           hasAuthenticatedSession = true;
@@ -91,6 +95,8 @@ class OtpBloc extends Bloc<OtpEvent, OtpState> {
               .promotePendingVerificationSession(
                 emailVerifiedAt: authResponse.user?.emailVerifiedAt,
                 user: authResponse.user?.toJson(),
+                profileSetupRequired: shouldCollectProfile,
+                recommendationsFlowRequired: shouldCollectProfile,
               );
 
           if (hasAuthenticatedSession) {
@@ -108,7 +114,10 @@ class OtpBloc extends Bloc<OtpEvent, OtpState> {
         }
 
         if (hasAuthenticatedSession) {
-          AuthGuard.login();
+          AuthGuard.login(
+            profileSetupRequired: shouldCollectProfile ? true : null,
+            recommendationsFlowRequired: shouldCollectProfile ? true : null,
+          );
         }
 
         emit(
@@ -117,8 +126,7 @@ class OtpBloc extends Bloc<OtpEvent, OtpState> {
             isLoading: false,
             hasAuthenticatedSession: hasAuthenticatedSession,
             shouldCollectProfile:
-                hasAuthenticatedSession &&
-                event.purpose == AuthOtpPurpose.signupVerification,
+                hasAuthenticatedSession && shouldCollectProfile,
           ),
         );
       }

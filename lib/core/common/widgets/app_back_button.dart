@@ -1,5 +1,4 @@
-import 'package:drip_talk/core/common/constants/app_colors.dart';
-import 'package:drip_talk/core/common/constants/app_sizes.dart';
+import 'package:drip_talk/core/common/constants/constants_barrels.dart';
 import 'package:drip_talk/core/utils/routes/routes_barrels.dart';
 import 'package:flutter/material.dart';
 
@@ -13,16 +12,25 @@ class AppBackButton extends StatelessWidget {
         context.pop();
       },
       child: Container(
-        height: AppSizes.s40,
-        width: AppSizes.s40,
+        padding: EdgeInsets.all(1),
         decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: AppColors.pureWhite,
+          borderRadius: BorderRadius.circular(AppRadius.r10),
+
+          gradient: AppColors.buttonGradient,
         ),
-        child: Icon(
-          Icons.arrow_back,
-          color: AppColors.pureBlack,
-          size: AppSizes.s20,
+        child: Container(
+          height: AppSizes.s40,
+          width: AppSizes.s40,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(AppRadius.r10),
+
+            color: AppColors.supportCardBackground,
+          ),
+          child: Icon(
+            Icons.arrow_back,
+            color: AppColors.white,
+            size: AppSizes.s20,
+          ),
         ),
       ),
     );

@@ -117,6 +117,7 @@ class AppDialog extends StatelessWidget {
 
           if (content != null) ...[const AppGap(AppSizes.s24), content!],
 
+          const AppGap(AppSizes.s24),
           Row(
             children: [
               if (secondaryButtonText != null) ...[
@@ -124,11 +125,14 @@ class AppDialog extends StatelessWidget {
                   child: AppButton(
                     text: secondaryButtonText ?? "",
                     onPressed: onSecondaryPressed,
+                    borderRadius: AppRadius.circular,
+                    backgroundColor: AppColors.pureWhite,
+                    textColor: AppColors.primaryDark,
+                    borderColor: AppColors.primary.withValues(alpha: 0.18),
                   ),
                 ),
-                AppGap(AppSizes.s10),
+                const AppGap(AppSizes.s10, axis: Axis.horizontal),
               ],
-
               Expanded(
                 child: AppButton(
                   text: primaryButtonText,
