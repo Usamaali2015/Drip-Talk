@@ -12,9 +12,12 @@ class AppSizes {
   static const double s16 = 16;
   static const double s18 = 18;
   static const double s20 = 20;
+  static const double s22 = 22;
   static const double s24 = 24;
   static const double s28 = 28;
+  static const double s30 = 30;
   static const double s32 = 32;
+  static const double s34 = 34;
   static const double s36 = 36;
   static const double s38 = 38;
   static const double s40 = 40;
@@ -28,14 +31,19 @@ class AppSizes {
   static const double s64 = 64;
   static const double s72 = 72;
   static const double s80 = 80;
+  static const double s86 = 86;
+  static const double s90 = 90;
   static const double s96 = 96;
   static const double s100 = 100;
+  static const double s106 = 106;
+  static const double s118 = 118;
   static const double s120 = 120;
 
   static const double s150 = 150;
   static const double s128 = 128;
   static const double s160 = 160;
   static const double s168 = 168;
+  static const double s170 = 170;
   static const double s176 = 176;
   static const double s180 = 180;
   static const double s192 = 192;

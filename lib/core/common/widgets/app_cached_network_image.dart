@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drip_talk/core/common/constants/app_colors.dart';
 import 'package:drip_talk/core/common/constants/app_sizes.dart';
+import 'package:shimmer/shimmer.dart';
 
 class AppCachedNetworkImage extends StatelessWidget {
   final String imageUrl;
@@ -49,10 +50,13 @@ class AppCachedNetworkImage extends StatelessWidget {
         filterQuality: FilterQuality.low,
         placeholder: (_, _) =>
             placeholder ??
-            const Center(
-              child: CircularProgressIndicator(
-                strokeWidth: 2,
-                color: AppColors.primary,
+            Shimmer.fromColors(
+              baseColor: AppColors.primary.withValues(alpha: 0.2),
+              highlightColor: AppColors.primary.withValues(alpha: 0.4),
+              child: Container(
+                width: width,
+                height: height,
+                color: AppColors.primary.withValues(alpha: 0.15),
               ),
             ),
         errorWidget: (_, _, _) =>

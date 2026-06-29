@@ -17,6 +17,9 @@ class StorageKeys {
   static const String pendingVerificationRefreshToken =
       'pending_verification_refresh_token';
   static const String pendingVerificationUser = 'pending_verification_user';
+  static const String profileSetupRequired = 'profile_setup_required';
+  static const String recommendationsFlowRequired =
+      'recommendations_flow_required';
   static const String biometricLoginEnabled = 'biometric_login_enabled';
   static const String biometricAuthToken = 'biometric_auth_token';
   static const String biometricRefreshToken = 'biometric_refresh_token';
@@ -25,5 +28,4 @@ class StorageKeys {
   static const String biometricLoginEmail = 'biometric_login_email';
   static const String biometricLoginPassword = 'biometric_login_password';
   static const String chatSessionId = 'chat_session_id';
-  static const String chatPreferences = 'chat_preferences';
 }

@@ -176,10 +176,27 @@ class AppColors {
   static const Color starGold = Color(0xFFFFC857);
   static const Color roseSurface = Color(0xFFFFF7FB);
   static const Color ratingBackground = Color(0xFF5E4722);
+  static const Color recommendationsGradientAccent = Color(0xFFFF2E93);
+  static const Color recommendationsActionAccent = Color(0xFFFF0D80);
+  static const Color recommendationsIntroGradientTop = Color(0xFF321743);
+  static const Color recommendationsIntroGradientBottom = Color(0xFF1A1230);
+  static const Color recommendationsOverlaySoft = Color(0x10000000);
+  static const Color recommendationsOverlayLight = Color(0x11000000);
+  static const Color recommendationsOverlayMedium = Color(0x22000000);
+  static const Color recommendationsOverlayMediumStrong = Color(0x26000000);
+  static const Color recommendationsOverlayHeavy = Color(0xDD000000);
+  static const Color recommendationsOverlayStrong = Color(0xE6000000);
+  static const Color recommendationsFallbackStart = Color(0xFF302D38);
+  static const Color recommendationsFallbackEnd = Color(0xFF121216);
 
   static const buttonGradient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: [primary, secondary],
+  );
+  static const textGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [secondary, white],
   );
 }

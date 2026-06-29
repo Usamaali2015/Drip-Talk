@@ -2786,6 +2786,360 @@ abstract class AppLocalizations {
   /// **'Delete'**
   String get deleteAction;
 
+  /// No description provided for @wardrobeUntitledTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Untitled Wardrobe'**
+  String get wardrobeUntitledTitle;
+
+  /// No description provided for @wardrobeListHeaderLeading.
+  ///
+  /// In en, this message translates to:
+  /// **'MY'**
+  String get wardrobeListHeaderLeading;
+
+  /// No description provided for @wardrobeListHeaderAccent.
+  ///
+  /// In en, this message translates to:
+  /// **'Wardrobes'**
+  String get wardrobeListHeaderAccent;
+
+  /// No description provided for @wardrobeListHeaderSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Fits, All In One Place'**
+  String get wardrobeListHeaderSubtitle;
+
+  /// No description provided for @wardrobeListLoadFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to load wardrobes right now.'**
+  String get wardrobeListLoadFailed;
+
+  /// No description provided for @wardrobeListCreateAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Wardrobe'**
+  String get wardrobeListCreateAction;
+
+  /// No description provided for @wardrobeListDeleteDialogTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete wardrobe?'**
+  String get wardrobeListDeleteDialogTitle;
+
+  /// No description provided for @wardrobeListDeleteDialogMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This will delete \"{wardrobeName}\" and every dress inside it.'**
+  String wardrobeListDeleteDialogMessage(Object wardrobeName);
+
+  /// No description provided for @wardrobeInWardrobeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'In Wardrobe'**
+  String get wardrobeInWardrobeLabel;
+
+  /// No description provided for @wardrobeInLaundryLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'In Laundry'**
+  String get wardrobeInLaundryLabel;
+
+  /// No description provided for @wardrobeEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No Wardrobes Yet'**
+  String get wardrobeEmptyTitle;
+
+  /// No description provided for @wardrobeEmptySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your first wardrobe to start organizing your style.'**
+  String get wardrobeEmptySubtitle;
+
+  /// No description provided for @wardrobeEmptyAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your first wardrobe'**
+  String get wardrobeEmptyAction;
+
+  /// No description provided for @wardrobeCreateHeaderLeading.
+  ///
+  /// In en, this message translates to:
+  /// **'New'**
+  String get wardrobeCreateHeaderLeading;
+
+  /// No description provided for @wardrobeCreateHeaderAccent.
+  ///
+  /// In en, this message translates to:
+  /// **'Wardrobe'**
+  String get wardrobeCreateHeaderAccent;
+
+  /// No description provided for @wardrobeCreateHeaderSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Build Your Next Fit Collection'**
+  String get wardrobeCreateHeaderSubtitle;
+
+  /// No description provided for @wardrobeNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Eg. Summer Collection'**
+  String get wardrobeNameHint;
+
+  /// No description provided for @wardrobeNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Wardrobe Name'**
+  String get wardrobeNameLabel;
+
+  /// No description provided for @wardrobeCreateAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Wardrobe'**
+  String get wardrobeCreateAction;
+
+  /// No description provided for @wardrobeUploadTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap To Add All Your Dresses'**
+  String get wardrobeUploadTitle;
+
+  /// No description provided for @wardrobeUploadSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Select as many as you want at once - all at one go'**
+  String get wardrobeUploadSubtitle;
+
+  /// No description provided for @wardrobeUploadAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Dress'**
+  String get wardrobeUploadAction;
+
+  /// No description provided for @wardrobeNameRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Wardrobe name is required'**
+  String get wardrobeNameRequired;
+
+  /// No description provided for @wardrobeImageRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Add at least one dress image'**
+  String get wardrobeImageRequired;
+
+  /// No description provided for @wardrobeCreatedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Wardrobe created successfully'**
+  String get wardrobeCreatedSuccess;
+
+  /// No description provided for @wardrobeCreateFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to create wardrobe'**
+  String get wardrobeCreateFailed;
+
+  /// No description provided for @wardrobeDetailsLoadFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to load wardrobe'**
+  String get wardrobeDetailsLoadFailed;
+
+  /// No description provided for @wardrobeDetailsTotalDressesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} Total Dresses'**
+  String wardrobeDetailsTotalDressesSubtitle(Object count);
+
+  /// No description provided for @wardrobeMoveSelectedItemTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Move Selected Item'**
+  String get wardrobeMoveSelectedItemTitle;
+
+  /// No description provided for @wardrobeSendToAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Send To...'**
+  String get wardrobeSendToAction;
+
+  /// No description provided for @wardrobeSendToLaundryDialogAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Send to laundry'**
+  String get wardrobeSendToLaundryDialogAction;
+
+  /// No description provided for @wardrobeSendToWardrobeDialogAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Send to wardrobe'**
+  String get wardrobeSendToWardrobeDialogAction;
+
+  /// No description provided for @wardrobeSaveAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get wardrobeSaveAction;
+
+  /// No description provided for @wardrobeSelectHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to select'**
+  String get wardrobeSelectHint;
+
+  /// No description provided for @wardrobeClearAllAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear all'**
+  String get wardrobeClearAllAction;
+
+  /// No description provided for @wardrobeSelectAllAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Select all'**
+  String get wardrobeSelectAllAction;
+
+  /// No description provided for @wardrobeRemoveFromLaundryAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove From Laundry'**
+  String get wardrobeRemoveFromLaundryAction;
+
+  /// No description provided for @wardrobeSendToLaundryAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Send To Laundry'**
+  String get wardrobeSendToLaundryAction;
+
+  /// No description provided for @wardrobeWardrobeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Wardrobe'**
+  String get wardrobeWardrobeLabel;
+
+  /// No description provided for @wardrobeLaundryLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Laundry'**
+  String get wardrobeLaundryLabel;
+
+  /// No description provided for @wardrobeTotalLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get wardrobeTotalLabel;
+
+  /// No description provided for @wardrobeAllLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get wardrobeAllLabel;
+
+  /// No description provided for @wardrobeProcessingLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'AI processing'**
+  String get wardrobeProcessingLabel;
+
+  /// No description provided for @wardrobeNoDressesInWardrobe.
+  ///
+  /// In en, this message translates to:
+  /// **'No dresses in this wardrobe yet.'**
+  String get wardrobeNoDressesInWardrobe;
+
+  /// No description provided for @wardrobeNoDressesInWardrobeFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'No dresses currently in wardrobe.'**
+  String get wardrobeNoDressesInWardrobeFilter;
+
+  /// No description provided for @wardrobeNoDressesInLaundryFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'No dresses currently in laundry.'**
+  String get wardrobeNoDressesInLaundryFilter;
+
+  /// No description provided for @wardrobeNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Wardrobe not found'**
+  String get wardrobeNotFound;
+
+  /// No description provided for @wardrobeDeleteSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Wardrobe deleted successfully'**
+  String get wardrobeDeleteSuccess;
+
+  /// No description provided for @wardrobeDeleteFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to delete wardrobe'**
+  String get wardrobeDeleteFailed;
+
+  /// No description provided for @wardrobeItemsUpdatedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Wardrobe items updated successfully'**
+  String get wardrobeItemsUpdatedSuccess;
+
+  /// No description provided for @wardrobeItemsUpdateFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to update wardrobe items'**
+  String get wardrobeItemsUpdateFailed;
+
+  /// No description provided for @wardrobeItemsDeletedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Wardrobe items deleted successfully'**
+  String get wardrobeItemsDeletedSuccess;
+
+  /// No description provided for @wardrobeItemsDeleteFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to delete wardrobe items'**
+  String get wardrobeItemsDeleteFailed;
+
+  /// No description provided for @wardrobeRenamedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Wardrobe renamed successfully'**
+  String get wardrobeRenamedSuccess;
+
+  /// No description provided for @wardrobeRenameFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to rename wardrobe'**
+  String get wardrobeRenameFailed;
+
+  /// No description provided for @wardrobeAddedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Dresses added to wardrobe successfully'**
+  String get wardrobeAddedSuccess;
+
+  /// No description provided for @wardrobeAddFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to add dresses'**
+  String get wardrobeAddFailed;
+
+  /// No description provided for @wardrobeCoverUpdatedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Wardrobe cover updated successfully'**
+  String get wardrobeCoverUpdatedSuccess;
+
+  /// No description provided for @wardrobeCoverUpdateFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to update wardrobe cover'**
+  String get wardrobeCoverUpdateFailed;
+
   /// No description provided for @editAction.
   ///
   /// In en, this message translates to:
@@ -3554,6 +3908,384 @@ abstract class AppLocalizations {
   /// **'Start Exploring'**
   String get profileSetupDialogAction;
 
+  /// No description provided for @recommendationsSheetTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Personalize Your Feed'**
+  String get recommendationsSheetTitle;
+
+  /// No description provided for @recommendationsSheetSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick Selfie For Better Matches'**
+  String get recommendationsSheetSubtitle;
+
+  /// No description provided for @recommendationsSelfieHeadlineLeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s See '**
+  String get recommendationsSelfieHeadlineLeading;
+
+  /// No description provided for @recommendationsSelfieHeadlineAccent.
+  ///
+  /// In en, this message translates to:
+  /// **'You'**
+  String get recommendationsSelfieHeadlineAccent;
+
+  /// No description provided for @recommendationsSelfieDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'A quick headshot helps us match outfits to your skin tone, hair, and features.'**
+  String get recommendationsSelfieDescription;
+
+  /// No description provided for @recommendationsTakePhotoAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Take Photo'**
+  String get recommendationsTakePhotoAction;
+
+  /// No description provided for @recommendationsTakePhotoCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Camera'**
+  String get recommendationsTakePhotoCaption;
+
+  /// No description provided for @recommendationsUploadPhotoAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload Photo'**
+  String get recommendationsUploadPhotoAction;
+
+  /// No description provided for @recommendationsUploadPhotoCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'From Gallery'**
+  String get recommendationsUploadPhotoCaption;
+
+  /// No description provided for @recommendationsPrivacyNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Private & Secure. Used only for styling. Never shared.'**
+  String get recommendationsPrivacyNote;
+
+  /// No description provided for @recommendationsLoadingMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Finding your best matches...'**
+  String get recommendationsLoadingMessage;
+
+  /// No description provided for @recommendationsPhotoRequiredMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a photo to continue.'**
+  String get recommendationsPhotoRequiredMessage;
+
+  /// No description provided for @recommendationsLoadFailedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'I could not load recommendations right now. Please try again.'**
+  String get recommendationsLoadFailedMessage;
+
+  /// No description provided for @recommendationsNoDataMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'No recommendations are available right now.'**
+  String get recommendationsNoDataMessage;
+
+  /// No description provided for @recommendationsReviewProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Outfit {current} Of {total}'**
+  String recommendationsReviewProgress(int current, int total);
+
+  /// No description provided for @recommendationsLoveAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Love it'**
+  String get recommendationsLoveAction;
+
+  /// No description provided for @recommendationsReadyLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready'**
+  String get recommendationsReadyLabel;
+
+  /// No description provided for @recommendationsLookLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Look {index}'**
+  String recommendationsLookLabel(int index);
+
+  /// No description provided for @recommendationsMatchLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'{score}% Match'**
+  String recommendationsMatchLabel(int score);
+
+  /// No description provided for @recommendationsPhotoReadyMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Front-face photo ready. Continue to generate your looks.'**
+  String get recommendationsPhotoReadyMessage;
+
+  /// No description provided for @recommendationsPhotoGuidanceMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Use one clear front-face photo only. Side poses and group photos are not supported.'**
+  String get recommendationsPhotoGuidanceMessage;
+
+  /// No description provided for @recommendationsPhotoValidationMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking that the photo is front-facing...'**
+  String get recommendationsPhotoValidationMessage;
+
+  /// Validation message shown when the uploaded recommendations selfie does not contain a detectable face
+  ///
+  /// In en, this message translates to:
+  /// **'Use a clear front-facing photo with your full face visible.'**
+  String get recommendationsPhotoNoFaceMessage;
+
+  /// Validation message shown when the uploaded recommendations selfie contains multiple faces
+  ///
+  /// In en, this message translates to:
+  /// **'Upload a photo with one face only.'**
+  String get recommendationsPhotoMultipleFacesMessage;
+
+  /// Validation message shown when the recommendations selfie could not be verified as usable
+  ///
+  /// In en, this message translates to:
+  /// **'I could not verify this photo. Try another clear front-face photo.'**
+  String get recommendationsPhotoVerificationFailedMessage;
+
+  /// Validation message shown when the uploaded recommendations selfie is not front-facing enough
+  ///
+  /// In en, this message translates to:
+  /// **'Use a straight front-face photo. Side poses are not supported.'**
+  String get recommendationsPhotoSidePoseMessage;
+
+  /// No description provided for @recommendationsTrainingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Train Your AI Stylist'**
+  String get recommendationsTrainingTitle;
+
+  /// No description provided for @recommendationsTrainingSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Building your first outfit matches'**
+  String get recommendationsTrainingSubtitle;
+
+  /// No description provided for @recommendationsTrainingDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'We are turning your photo into a personalized look feed.'**
+  String get recommendationsTrainingDescription;
+
+  /// No description provided for @recommendationsStyleDnaTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Style DNA'**
+  String get recommendationsStyleDnaTitle;
+
+  /// No description provided for @recommendationsLooksMatchedSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{total} Looks Matched Your Taste'**
+  String recommendationsLooksMatchedSubtitle(int total);
+
+  /// No description provided for @recommendationsLovedLooksHeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'You Loved {count} Looks'**
+  String recommendationsLovedLooksHeadline(int count);
+
+  /// No description provided for @recommendationsReviewedLooksHeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'You Reviewed {total} Looks'**
+  String recommendationsReviewedLooksHeadline(int total);
+
+  /// No description provided for @recommendationsSummaryLovedSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Our AI has the vibe. Here\'s what made the cut.'**
+  String get recommendationsSummaryLovedSubtitle;
+
+  /// No description provided for @recommendationsSummaryReviewedSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Here\'s the full set of looks from your recommendation feed.'**
+  String get recommendationsSummaryReviewedSubtitle;
+
+  /// No description provided for @recommendationsVibeSignalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Vibe Signal'**
+  String get recommendationsVibeSignalTitle;
+
+  /// No description provided for @recommendationsTryOnEligibleMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'We will generate try-on looks from the {count} saved outfit images you liked.'**
+  String recommendationsTryOnEligibleMessage(int count);
+
+  /// No description provided for @recommendationsTryOnMissingImagesMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your liked looks are missing usable outfit images, so try-on can\'t start yet.'**
+  String get recommendationsTryOnMissingImagesMessage;
+
+  /// No description provided for @recommendationsRetrainAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Retrain'**
+  String get recommendationsRetrainAction;
+
+  /// No description provided for @recommendationsGeneratingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Generating Your Looks'**
+  String get recommendationsGeneratingTitle;
+
+  /// No description provided for @recommendationsGeneratingSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'AI try-on is matching your liked outfits'**
+  String get recommendationsGeneratingSubtitle;
+
+  /// No description provided for @recommendationsProcessingLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Processing'**
+  String get recommendationsProcessingLabel;
+
+  /// No description provided for @recommendationsBuildingTryOnTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Building your try-on photos'**
+  String get recommendationsBuildingTryOnTitle;
+
+  /// No description provided for @recommendationsTryOnUploadTimeline.
+  ///
+  /// In en, this message translates to:
+  /// **'Uploading your selfie and liked outfit images'**
+  String get recommendationsTryOnUploadTimeline;
+
+  /// No description provided for @recommendationsTryOnFitTimeline.
+  ///
+  /// In en, this message translates to:
+  /// **'Generating outfit overlays and body fit'**
+  String get recommendationsTryOnFitTimeline;
+
+  /// No description provided for @recommendationsTryOnRenderTimeline.
+  ///
+  /// In en, this message translates to:
+  /// **'Rendering final try-on looks'**
+  String get recommendationsTryOnRenderTimeline;
+
+  /// No description provided for @recommendationsGeneratedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Try-On'**
+  String get recommendationsGeneratedTitle;
+
+  /// No description provided for @recommendationsGeneratedSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Generated from the looks you liked'**
+  String get recommendationsGeneratedSubtitle;
+
+  /// No description provided for @recommendationsDoneAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get recommendationsDoneAction;
+
+  /// No description provided for @recommendationsNextLookAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Next look →'**
+  String get recommendationsNextLookAction;
+
+  /// No description provided for @recommendationsContinueChatAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue With Chat →'**
+  String get recommendationsContinueChatAction;
+
+  /// No description provided for @recommendationsStyledLookFallback.
+  ///
+  /// In en, this message translates to:
+  /// **'Styled Look'**
+  String get recommendationsStyledLookFallback;
+
+  /// No description provided for @recommendationsStyleDescriptorFallback.
+  ///
+  /// In en, this message translates to:
+  /// **'your current style'**
+  String get recommendationsStyleDescriptorFallback;
+
+  /// No description provided for @recommendationsStyleSignalEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'We used your review to learn your taste. We\'ll keep refining your daily feed around {descriptor}.'**
+  String recommendationsStyleSignalEmpty(String descriptor);
+
+  /// No description provided for @recommendationsStyleSignalLoved.
+  ///
+  /// In en, this message translates to:
+  /// **'You lean toward {descriptor} aesthetics. We\'ll curate your daily feed around this.'**
+  String recommendationsStyleSignalLoved(String descriptor);
+
+  /// No description provided for @recommendationsTryOnProgressFinal.
+  ///
+  /// In en, this message translates to:
+  /// **'Final renders are being prepared. Your generated looks will open automatically when they are ready.'**
+  String get recommendationsTryOnProgressFinal;
+
+  /// No description provided for @recommendationsTryOnProgressFitting.
+  ///
+  /// In en, this message translates to:
+  /// **'Your selfie is being fitted against each liked outfit to create realistic try-on results.'**
+  String get recommendationsTryOnProgressFitting;
+
+  /// No description provided for @recommendationsTryOnProgressPreparing.
+  ///
+  /// In en, this message translates to:
+  /// **'We are pairing your face image with the outfits you liked and preparing the generation batch.'**
+  String get recommendationsTryOnProgressPreparing;
+
+  /// No description provided for @recommendationsTryOnProgressUploading.
+  ///
+  /// In en, this message translates to:
+  /// **'Uploading your selected images and starting the AI try-on batch.'**
+  String get recommendationsTryOnProgressUploading;
+
+  /// No description provided for @recommendationsTryOnLooksRequiredMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Like at least one look to generate your try-on results.'**
+  String get recommendationsTryOnLooksRequiredMessage;
+
+  /// No description provided for @recommendationsTryOnFailedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'I could not generate your try-on looks right now. Please try again.'**
+  String get recommendationsTryOnFailedMessage;
+
+  /// No description provided for @recommendationsTryOnEmptyResultMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your try-on finished without any generated looks. Please try again.'**
+  String get recommendationsTryOnEmptyResultMessage;
+
+  /// No description provided for @recommendationsTryOnTimeoutMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Try-on generation is taking longer than expected. Please try again.'**
+  String get recommendationsTryOnTimeoutMessage;
+
   /// No description provided for @profileSetupLoadFailedMessage.
   ///
   /// In en, this message translates to:
@@ -3614,17 +4346,53 @@ abstract class AppLocalizations {
   /// **'Basics'**
   String get profileSetupStepBasicsLabel;
 
+  /// No description provided for @profileSetupStepBodyLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Body'**
+  String get profileSetupStepBodyLabel;
+
+  /// No description provided for @profileSetupStepSkinLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Skin'**
+  String get profileSetupStepSkinLabel;
+
   /// No description provided for @profileSetupStepStyleLabel.
   ///
   /// In en, this message translates to:
-  /// **'Styles'**
+  /// **'Style'**
   String get profileSetupStepStyleLabel;
+
+  /// No description provided for @profileSetupStepHeightLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Height'**
+  String get profileSetupStepHeightLabel;
+
+  /// No description provided for @profileSetupStepWeightLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight'**
+  String get profileSetupStepWeightLabel;
 
   /// No description provided for @profileSetupStepBrandsLabel.
   ///
   /// In en, this message translates to:
   /// **'Brands'**
   String get profileSetupStepBrandsLabel;
+
+  /// No description provided for @profileSetupStepColorsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Colors'**
+  String get profileSetupStepColorsLabel;
+
+  /// No description provided for @profileSetupStepAvoidsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Avoids'**
+  String get profileSetupStepAvoidsLabel;
 
   /// No description provided for @profileSetupStepTrainingLabel.
   ///
@@ -3635,7 +4403,7 @@ abstract class AppLocalizations {
   /// No description provided for @profileSetupStepPhotosLabel.
   ///
   /// In en, this message translates to:
-  /// **'Photos'**
+  /// **'Photo'**
   String get profileSetupStepPhotosLabel;
 
   /// No description provided for @profileSetupStepBasicsTitle.
@@ -3644,17 +4412,53 @@ abstract class AppLocalizations {
   /// **'Tell Us About You'**
   String get profileSetupStepBasicsTitle;
 
+  /// No description provided for @profileSetupStepBodyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Body Shape'**
+  String get profileSetupStepBodyTitle;
+
+  /// No description provided for @profileSetupStepSkinTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Skin Tone'**
+  String get profileSetupStepSkinTitle;
+
   /// No description provided for @profileSetupStepStyleTitle.
   ///
   /// In en, this message translates to:
   /// **'Your Style Identity'**
   String get profileSetupStepStyleTitle;
 
+  /// No description provided for @profileSetupStepHeightTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Height'**
+  String get profileSetupStepHeightTitle;
+
+  /// No description provided for @profileSetupStepWeightTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Weight'**
+  String get profileSetupStepWeightTitle;
+
   /// No description provided for @profileSetupStepBrandsTitle.
   ///
   /// In en, this message translates to:
-  /// **'Colors & Brands'**
+  /// **'Where Do You Like To Shop?'**
   String get profileSetupStepBrandsTitle;
+
+  /// No description provided for @profileSetupStepColorsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What Colors Define Your Style?'**
+  String get profileSetupStepColorsTitle;
+
+  /// No description provided for @profileSetupStepAvoidsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Styles To Avoid'**
+  String get profileSetupStepAvoidsTitle;
 
   /// No description provided for @profileSetupStepTrainingTitle.
   ///
@@ -3674,17 +4478,53 @@ abstract class AppLocalizations {
   /// **'Let\'s Start With The Essentials'**
   String get profileSetupStepBasicsSubtitle;
 
+  /// No description provided for @profileSetupStepBodySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Help us tailor the perfect fit for you'**
+  String get profileSetupStepBodySubtitle;
+
+  /// No description provided for @profileSetupStepSkinSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'ll find shades that flatter'**
+  String get profileSetupStepSkinSubtitle;
+
   /// No description provided for @profileSetupStepStyleSubtitle.
   ///
   /// In en, this message translates to:
   /// **'Tell Us What You Love'**
   String get profileSetupStepStyleSubtitle;
 
+  /// No description provided for @profileSetupStepHeightSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'For perfectly proportioned styling'**
+  String get profileSetupStepHeightSubtitle;
+
+  /// No description provided for @profileSetupStepWeightSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Used only to refine your fit'**
+  String get profileSetupStepWeightSubtitle;
+
   /// No description provided for @profileSetupStepBrandsSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Choose Your Favorites'**
+  /// **'Pick your vibe - we\'ll curate your feed'**
   String get profileSetupStepBrandsSubtitle;
+
+  /// No description provided for @profileSetupStepColorsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose the shades you keep reaching for'**
+  String get profileSetupStepColorsSubtitle;
+
+  /// No description provided for @profileSetupStepAvoidsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell us what\'s not your vibe'**
+  String get profileSetupStepAvoidsSubtitle;
 
   /// No description provided for @profileSetupStepTrainingSubtitle.
   ///
@@ -3697,6 +4537,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Upload Outfit Inspiration'**
   String get profileSetupStepPhotosSubtitle;
+
+  /// No description provided for @profileSetupBrandsLoadFailedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to load brands right now.'**
+  String get profileSetupBrandsLoadFailedMessage;
 
   /// No description provided for @profileSetupPhoneLabel.
   ///
@@ -3749,13 +4595,13 @@ abstract class AppLocalizations {
   /// No description provided for @profileSetupCityLabel.
   ///
   /// In en, this message translates to:
-  /// **'City'**
+  /// **'State'**
   String get profileSetupCityLabel;
 
   /// No description provided for @profileSetupCityHint.
   ///
   /// In en, this message translates to:
-  /// **'Select city'**
+  /// **'Select state'**
   String get profileSetupCityHint;
 
   /// No description provided for @profileSetupBodyTypeLabel.
@@ -3884,6 +4730,30 @@ abstract class AppLocalizations {
   /// **'Neon, Oversized, Loud Prints'**
   String get profileSetupAvoidedStylesHint;
 
+  /// No description provided for @profileSetupAvoidStylesEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No exclusions yet'**
+  String get profileSetupAvoidStylesEmptyTitle;
+
+  /// No description provided for @profileSetupAvoidStylesEmptySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'ll filter these out of every recommendation'**
+  String get profileSetupAvoidStylesEmptySubtitle;
+
+  /// No description provided for @profileSetupAvoidStylesSelectedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} styles excluded'**
+  String profileSetupAvoidStylesSelectedTitle(int count);
+
+  /// No description provided for @profileSetupAvoidStylesSelectedSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'ll keep these out of every recommendation'**
+  String get profileSetupAvoidStylesSelectedSubtitle;
+
   /// No description provided for @profileSetupReplacePhotosLabel.
   ///
   /// In en, this message translates to:
@@ -3941,7 +4811,7 @@ abstract class AppLocalizations {
   /// No description provided for @profileSetupSelectCityTitle.
   ///
   /// In en, this message translates to:
-  /// **'Select City'**
+  /// **'Select State'**
   String get profileSetupSelectCityTitle;
 
   /// No description provided for @profileSetupSelectBodyTypeTitle.
@@ -3965,7 +4835,7 @@ abstract class AppLocalizations {
   /// No description provided for @profileSetupSearchCityHint.
   ///
   /// In en, this message translates to:
-  /// **'Search city'**
+  /// **'Search state'**
   String get profileSetupSearchCityHint;
 
   /// No description provided for @profileSetupSearchBrandHint.
@@ -3973,6 +4843,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Search brands'**
   String get profileSetupSearchBrandHint;
+
+  /// No description provided for @profileSetupTapToSelectBrandsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to select multiple brands'**
+  String get profileSetupTapToSelectBrandsHint;
+
+  /// No description provided for @profileSetupSelectedCountLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} selected'**
+  String profileSetupSelectedCountLabel(int count);
+
+  /// No description provided for @profileSetupColorAddHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the add button to add this color.'**
+  String get profileSetupColorAddHint;
+
+  /// No description provided for @profileSetupClearAllAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear all'**
+  String get profileSetupClearAllAction;
 
   /// No description provided for @profileSetupSearchNoResults.
   ///
@@ -4025,7 +4919,7 @@ abstract class AppLocalizations {
   /// No description provided for @profileSetupValidationCity.
   ///
   /// In en, this message translates to:
-  /// **'Select a city.'**
+  /// **'Select a state.'**
   String get profileSetupValidationCity;
 
   /// No description provided for @profileSetupValidationBodyType.
@@ -4148,11 +5042,71 @@ abstract class AppLocalizations {
   /// **'Plus Size'**
   String get profileSetupOptionBodyTypePlusSize;
 
-  /// No description provided for @profileSetupOptionSkinToneFair.
+  /// No description provided for @profileSetupOptionBodyTypeAverage.
   ///
   /// In en, this message translates to:
-  /// **'Fair'**
-  String get profileSetupOptionSkinToneFair;
+  /// **'Average'**
+  String get profileSetupOptionBodyTypeAverage;
+
+  /// No description provided for @profileSetupOptionBodyTypePlus.
+  ///
+  /// In en, this message translates to:
+  /// **'Plus'**
+  String get profileSetupOptionBodyTypePlus;
+
+  /// No description provided for @profileSetupOptionBodyTypeMuscular.
+  ///
+  /// In en, this message translates to:
+  /// **'Muscular'**
+  String get profileSetupOptionBodyTypeMuscular;
+
+  /// No description provided for @profileSetupOptionBodyTypeSlimDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Lean & narrow'**
+  String get profileSetupOptionBodyTypeSlimDescription;
+
+  /// No description provided for @profileSetupOptionBodyTypeAthleticDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Toned & V-shape'**
+  String get profileSetupOptionBodyTypeAthleticDescription;
+
+  /// No description provided for @profileSetupOptionBodyTypeAverageDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Balanced Build'**
+  String get profileSetupOptionBodyTypeAverageDescription;
+
+  /// No description provided for @profileSetupOptionBodyTypeCurvyDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Hourglass Shape'**
+  String get profileSetupOptionBodyTypeCurvyDescription;
+
+  /// No description provided for @profileSetupOptionBodyTypePlusDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Fuller Figure'**
+  String get profileSetupOptionBodyTypePlusDescription;
+
+  /// No description provided for @profileSetupOptionBodyTypeMuscularDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Built & Strong'**
+  String get profileSetupOptionBodyTypeMuscularDescription;
+
+  /// No description provided for @profileSetupOptionSkinTonePorcelain.
+  ///
+  /// In en, this message translates to:
+  /// **'Porcelain'**
+  String get profileSetupOptionSkinTonePorcelain;
+
+  /// No description provided for @profileSetupOptionSkinToneIvory.
+  ///
+  /// In en, this message translates to:
+  /// **'Ivory'**
+  String get profileSetupOptionSkinToneIvory;
 
   /// No description provided for @profileSetupOptionSkinToneLight.
   ///
@@ -4160,29 +5114,191 @@ abstract class AppLocalizations {
   /// **'Light'**
   String get profileSetupOptionSkinToneLight;
 
-  /// No description provided for @profileSetupOptionSkinToneMedium.
+  /// No description provided for @profileSetupOptionSkinToneBeige.
   ///
   /// In en, this message translates to:
-  /// **'Medium'**
-  String get profileSetupOptionSkinToneMedium;
+  /// **'Beige'**
+  String get profileSetupOptionSkinToneBeige;
 
-  /// No description provided for @profileSetupOptionSkinToneOlive.
+  /// No description provided for @profileSetupOptionSkinToneHoney.
   ///
   /// In en, this message translates to:
-  /// **'Olive'**
-  String get profileSetupOptionSkinToneOlive;
+  /// **'Honey'**
+  String get profileSetupOptionSkinToneHoney;
 
-  /// No description provided for @profileSetupOptionSkinToneBrown.
+  /// No description provided for @profileSetupOptionSkinToneCaramel.
   ///
   /// In en, this message translates to:
-  /// **'Brown'**
-  String get profileSetupOptionSkinToneBrown;
+  /// **'Caramel'**
+  String get profileSetupOptionSkinToneCaramel;
 
-  /// No description provided for @profileSetupOptionSkinToneDeep.
+  /// No description provided for @profileSetupOptionSkinToneMahogany.
   ///
   /// In en, this message translates to:
-  /// **'Deep'**
-  String get profileSetupOptionSkinToneDeep;
+  /// **'Mahogany'**
+  String get profileSetupOptionSkinToneMahogany;
+
+  /// No description provided for @profileSetupOptionSkinToneEspresso.
+  ///
+  /// In en, this message translates to:
+  /// **'Espresso'**
+  String get profileSetupOptionSkinToneEspresso;
+
+  /// No description provided for @profileSetupOptionSkinTonePorcelainDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Cool Undertone'**
+  String get profileSetupOptionSkinTonePorcelainDescription;
+
+  /// No description provided for @profileSetupOptionSkinToneIvoryDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Warm Undertone'**
+  String get profileSetupOptionSkinToneIvoryDescription;
+
+  /// No description provided for @profileSetupOptionSkinToneLightDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Neutral Undertone'**
+  String get profileSetupOptionSkinToneLightDescription;
+
+  /// No description provided for @profileSetupOptionSkinToneBeigeDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Warm Undertone'**
+  String get profileSetupOptionSkinToneBeigeDescription;
+
+  /// No description provided for @profileSetupOptionSkinToneHoneyDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Warm Undertone'**
+  String get profileSetupOptionSkinToneHoneyDescription;
+
+  /// No description provided for @profileSetupOptionSkinToneCaramelDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Warm Undertone'**
+  String get profileSetupOptionSkinToneCaramelDescription;
+
+  /// No description provided for @profileSetupOptionSkinToneMahoganyDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Warm Undertone'**
+  String get profileSetupOptionSkinToneMahoganyDescription;
+
+  /// No description provided for @profileSetupOptionSkinToneEspressoDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Warm Undertone'**
+  String get profileSetupOptionSkinToneEspressoDescription;
+
+  /// No description provided for @profileSetupSkinToneInfoMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your tone helps us suggest hues that complement, never clash.'**
+  String get profileSetupSkinToneInfoMessage;
+
+  /// No description provided for @profileSetupOptionAvoidStyleFormal.
+  ///
+  /// In en, this message translates to:
+  /// **'Formal'**
+  String get profileSetupOptionAvoidStyleFormal;
+
+  /// No description provided for @profileSetupOptionAvoidStyleStreetwears.
+  ///
+  /// In en, this message translates to:
+  /// **'Streetwears'**
+  String get profileSetupOptionAvoidStyleStreetwears;
+
+  /// No description provided for @profileSetupOptionAvoidStyleCasual.
+  ///
+  /// In en, this message translates to:
+  /// **'Casual'**
+  String get profileSetupOptionAvoidStyleCasual;
+
+  /// No description provided for @profileSetupOptionAvoidStyleLuxury.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxury'**
+  String get profileSetupOptionAvoidStyleLuxury;
+
+  /// No description provided for @profileSetupOptionAvoidStyleVintage.
+  ///
+  /// In en, this message translates to:
+  /// **'Vintage'**
+  String get profileSetupOptionAvoidStyleVintage;
+
+  /// No description provided for @profileSetupOptionAvoidStyleSporty.
+  ///
+  /// In en, this message translates to:
+  /// **'Sporty'**
+  String get profileSetupOptionAvoidStyleSporty;
+
+  /// No description provided for @profileSetupOptionAvoidStyleMinimalist.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimalist'**
+  String get profileSetupOptionAvoidStyleMinimalist;
+
+  /// No description provided for @profileSetupOptionAvoidStyleRomantic.
+  ///
+  /// In en, this message translates to:
+  /// **'Romantic'**
+  String get profileSetupOptionAvoidStyleRomantic;
+
+  /// No description provided for @profileSetupOptionAvoidStyleGothic.
+  ///
+  /// In en, this message translates to:
+  /// **'Gothic'**
+  String get profileSetupOptionAvoidStyleGothic;
+
+  /// No description provided for @profileSetupOptionAvoidStyleBohemian.
+  ///
+  /// In en, this message translates to:
+  /// **'Bohemian'**
+  String get profileSetupOptionAvoidStyleBohemian;
+
+  /// No description provided for @profileSetupOptionAvoidStyleMaximalist.
+  ///
+  /// In en, this message translates to:
+  /// **'Maximalist'**
+  String get profileSetupOptionAvoidStyleMaximalist;
+
+  /// No description provided for @profileSetupOptionAvoidStyleCottagecore.
+  ///
+  /// In en, this message translates to:
+  /// **'Cottagecore'**
+  String get profileSetupOptionAvoidStyleCottagecore;
+
+  /// No description provided for @profileSetupOptionAvoidStyleAthleisure.
+  ///
+  /// In en, this message translates to:
+  /// **'Athleisure'**
+  String get profileSetupOptionAvoidStyleAthleisure;
+
+  /// No description provided for @profileSetupOptionAvoidStylePreppy.
+  ///
+  /// In en, this message translates to:
+  /// **'Preppy'**
+  String get profileSetupOptionAvoidStylePreppy;
+
+  /// No description provided for @profileSetupOptionAvoidStyleBeach.
+  ///
+  /// In en, this message translates to:
+  /// **'Beach'**
+  String get profileSetupOptionAvoidStyleBeach;
+
+  /// No description provided for @profileSetupOptionAvoidStyleGrunge.
+  ///
+  /// In en, this message translates to:
+  /// **'Grunge'**
+  String get profileSetupOptionAvoidStyleGrunge;
+
+  /// No description provided for @profileSetupOptionAvoidStyleSoftGirl.
+  ///
+  /// In en, this message translates to:
+  /// **'Soft Girl'**
+  String get profileSetupOptionAvoidStyleSoftGirl;
 
   /// No description provided for @profileSetupOptionStyleFormal.
   ///

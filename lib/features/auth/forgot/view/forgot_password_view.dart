@@ -1,8 +1,6 @@
 import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 import 'package:drip_talk/features/auth/barrels/forgot_password_barrels.dart';
 import 'package:flutter/material.dart';
-import 'mobile_forgot_password_view.dart';
-
 class ForgotPasswordView extends StatelessWidget {
   final String? initialEmail;
   final PasswordResetSource source;

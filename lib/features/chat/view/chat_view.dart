@@ -1,9 +1,14 @@
 import 'package:drip_talk/core/common/constants/constants_barrels.dart';
 import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
+import 'package:drip_talk/core/services/get_it/service_locator.dart';
 import 'package:drip_talk/core/utils/app_utils/toast_utils.dart';
 import 'package:drip_talk/core/utils/responsive/responsive_extensions.dart';
 import 'package:drip_talk/core/utils/routes/route_paths.dart';
+import 'package:drip_talk/core/utils/routes/auth_guard.dart';
+import 'package:drip_talk/features/auth/auth_repository/auth_session_repository.dart';
 import 'package:drip_talk/features/chat/barrels/chat_barrels.dart';
+import 'package:drip_talk/features/recommendations/view/widgets/recommendations_flow_sheet.dart';
+import 'package:drip_talk/features/recommendations/view/widgets/recommendations_photo_upload_sheet.dart';
 import 'package:drip_talk/generated/assets.dart';
 import 'package:drip_talk/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +26,8 @@ class ChatView extends StatefulWidget {
 class _ChatViewState extends State<ChatView> {
   late final TextEditingController _controller;
   late final FocusNode _inputFocusNode;
-  bool _isSessionChoiceSheetOpen = false;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  bool _isRecommendationsFlowOpen = false;
 
   @override
   void initState() {
@@ -44,10 +50,10 @@ class _ChatViewState extends State<ChatView> {
       return;
     }
 
-    context.go(RoutePaths.home);
+    context.go(RoutePaths.wardrobes);
   }
 
-  Future<void> _handleAttachImages() async {
+  Future<void> _handlePickImages() async {
     final bloc = context.read<ChatBloc>();
     if (bloc.state.isBusy) {
       return;
@@ -82,6 +88,46 @@ class _ChatViewState extends State<ChatView> {
     );
   }
 
+  Future<void> _handleSelectMode() async {
+    final bloc = context.read<ChatBloc>();
+    final selectedMode = await showModalBottomSheet<ChatComposerMode>(
+      context: context,
+      backgroundColor: AppColors.transparent,
+      builder: (sheetContext) =>
+          _ComposerModeSheet(selectedMode: bloc.state.selectedMode),
+    );
+
+    if (!mounted || selectedMode == null) {
+      return;
+    }
+
+    bloc.add(ChatComposerModeChanged(mode: selectedMode));
+  }
+
+  void _resetComposer() {
+    _controller.clear();
+    _inputFocusNode.unfocus();
+    FocusScope.of(context).unfocus();
+  }
+
+  void _openSessionsDrawer() {
+    final bloc = context.read<ChatBloc>();
+    bloc.add(ChatSessionsRequested(silent: bloc.state.hasSessions));
+    _scaffoldKey.currentState?.openDrawer();
+  }
+
+  void _startNewChat() {
+    _resetComposer();
+    context.read<ChatBloc>().add(const StartNewChatRequested());
+  }
+
+  void _openSession(int sessionId) {
+    _resetComposer();
+    context.read<ChatBloc>().add(
+      ChatSessionOpenedRequested(sessionId: sessionId),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
@@ -94,19 +140,36 @@ class _ChatViewState extends State<ChatView> {
           _handleBackPressed();
         }
       },
-      child: BlocListener<ChatBloc, ChatState>(
-        listenWhen: (previous, current) =>
-            previous.launchSheetMode != current.launchSheetMode &&
-            current.launchSheetMode != ChatLaunchSheetMode.hidden,
-        listener: (context, state) =>
-            _showSessionChoiceSheet(state.launchSheetMode),
-        child: AppResponsivePageLayout(
-          mobileMaxWidth: 460,
-          tabletMaxWidth: 760,
-          tabletLargeMaxWidth: 900,
-          desktopMaxWidth: 980,
-          useSafeArea: false,
-          showHeaderDivider: false,
+      child: MultiBlocListener(
+        listeners: [
+          BlocListener<ChatBloc, ChatState>(
+            listenWhen: (previous, current) =>
+                previous.requiresStartupRecommendations !=
+                    current.requiresStartupRecommendations &&
+                current.requiresStartupRecommendations,
+            listener: (context, state) => _showStartupRecommendationsFlow(),
+          ),
+          BlocListener<ChatBloc, ChatState>(
+            listenWhen: (previous, current) =>
+                previous.sessionActionErrorMessage !=
+                    current.sessionActionErrorMessage &&
+                current.sessionActionErrorMessage != null,
+            listener: (context, state) => ToastUtils.show(
+              context,
+              state.sessionActionErrorMessage!,
+              type: ToastType.error,
+            ),
+          ),
+        ],
+        child: Scaffold(
+          key: _scaffoldKey,
+          extendBody: true,
+          extendBodyBehindAppBar: true,
+          backgroundColor: AppColors.transparent,
+          drawer: _ChatSessionsDrawer(
+            onNewChatRequested: _startNewChat,
+            onSessionSelected: _openSession,
+          ),
           appBar: AppBar(
             backgroundColor: AppColors.transparent,
             centerTitle: true,
@@ -135,7 +198,7 @@ class _ChatViewState extends State<ChatView> {
             actions: [
               GradientBorder(
                 padding: AppPadding.allExtraSmall,
-                onTap: () {},
+                onTap: _openSessionsDrawer,
                 enableShadow: false,
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -143,7 +206,7 @@ class _ChatViewState extends State<ChatView> {
                 borderRadius: AppRadius.r12,
                 colors: const [AppColors.primary, AppColors.secondary],
                 child: const Icon(
-                  Icons.auto_awesome_rounded,
+                  Icons.menu_rounded,
                   color: AppColors.surface,
                   size: AppSizes.s20,
                 ),
@@ -151,18 +214,28 @@ class _ChatViewState extends State<ChatView> {
               const AppGap(AppSizes.s8, axis: Axis.horizontal),
             ],
           ),
-          pageBuilder: (context, _) => SafeArea(
-            bottom: false,
-            child: Column(
-              children: [
-                Expanded(child: const _ChatMessagesSection()),
-                _InputArea(
-                  controller: _controller,
-                  focusNode: _inputFocusNode,
-                  onAttachImages: _handleAttachImages,
-                  onSend: _handleSend,
-                ),
-              ],
+          body: AppResponsivePageLayout(
+            mobileMaxWidth: 460,
+            tabletMaxWidth: 760,
+            tabletLargeMaxWidth: 900,
+            desktopMaxWidth: 980,
+            useSafeArea: false,
+            showHeaderDivider: false,
+            wrapWithScaffold: false,
+            pageBuilder: (context, _) => SafeArea(
+              bottom: false,
+              child: Column(
+                children: [
+                  Expanded(child: const _ChatMessagesSection()),
+                  _InputArea(
+                    controller: _controller,
+                    focusNode: _inputFocusNode,
+                    onSelectMode: _handleSelectMode,
+                    onAttachImages: _handlePickImages,
+                    onSend: _handleSend,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -170,36 +243,43 @@ class _ChatViewState extends State<ChatView> {
     );
   }
 
-  Future<void> _showSessionChoiceSheet(ChatLaunchSheetMode mode) async {
-    if (_isSessionChoiceSheetOpen || !mounted) {
+  Future<void> _showStartupRecommendationsFlow() async {
+    if (_isRecommendationsFlowOpen || !mounted) {
       return;
     }
 
-    _isSessionChoiceSheetOpen = true;
+    _isRecommendationsFlowOpen = true;
     _inputFocusNode.unfocus();
     FocusScope.of(context).unfocus();
 
-    final action = await ChatSessionChoiceSheet.show(context, mode: mode);
-    _isSessionChoiceSheetOpen = false;
+    final action = await showRecommendationsFlowSheet(
+      context,
+      showCompletionStep: true,
+    );
+    _isRecommendationsFlowOpen = false;
 
-    if (!mounted || action == null) {
+    if (!mounted || action != RecommendationsFlowAction.openChat) {
       return;
     }
 
-    switch (action) {
-      case ChatSessionChoiceAction.startNewChat:
-        context.read<ChatBloc>().add(const StartNewChatRequested());
-        break;
-      case ChatSessionChoiceAction.continueOldChat:
-        context.read<ChatBloc>().add(const ContinueOldChatRequested());
-        break;
+    final authSessionRepository = getIt<AuthSessionRepository>();
+    await authSessionRepository.setRecommendationsFlowRequired(false);
+    AuthGuard.completeRecommendationsFlow();
+    if (!mounted) {
+      return;
     }
+
+    _startNewChat();
   }
 
   Future<void> _handleSend() async {
     final bloc = context.read<ChatBloc>();
     final state = bloc.state;
     final draftMessage = _controller.text.trim();
+    final requestMessage =
+        draftMessage.isEmpty && state.selectedMode == ChatComposerMode.generate
+        ? 'Show me how this looks on me.'
+        : draftMessage;
     if (draftMessage.isEmpty && !state.hasComposerAttachments) {
       ToastUtils.show(
         context,
@@ -216,32 +296,10 @@ class _ChatViewState extends State<ChatView> {
     _inputFocusNode.unfocus();
     FocusScope.of(context).unfocus();
 
-    final messageHints = const AiChatUserPreferences().withDerivedValues(
-      draftMessage,
-    );
-    final resolvedPreferences = messageHints.mergeFallbacks(
-      state.lastUsedPreferences,
-    );
-
-    AiChatUserPreferences? selectedPreferences;
-
-    if (state.hasSavedPreferences) {
-      selectedPreferences = resolvedPreferences;
-    } else {
-      selectedPreferences = await ChatPreferencesSheet.show(
-        context,
-        initialPreferences: resolvedPreferences,
-      );
-    }
-
-    if (!mounted || selectedPreferences == null) {
-      return;
-    }
-
     bloc.add(
       SendMessageRequested(
-        message: draftMessage,
-        preferences: selectedPreferences,
+        message: requestMessage,
+        mode: state.selectedMode,
       ),
     );
     _controller.clear();

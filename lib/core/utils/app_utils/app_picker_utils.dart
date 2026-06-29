@@ -9,6 +9,7 @@ class AppPickerUtils {
     bool multiple = false,
     ImageSource source = ImageSource.gallery,
     int imageQuality = 85,
+    CameraDevice preferredCameraDevice = CameraDevice.rear,
   }) async {
     try {
       if (multiple && source == ImageSource.gallery) {
@@ -21,6 +22,7 @@ class AppPickerUtils {
       final XFile? image = await _imagePicker.pickImage(
         source: source,
         imageQuality: imageQuality,
+        preferredCameraDevice: preferredCameraDevice,
       );
 
       return image != null ? [File(image.path)] : [];

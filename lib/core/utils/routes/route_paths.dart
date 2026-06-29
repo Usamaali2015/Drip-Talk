@@ -17,6 +17,9 @@ class RoutePaths {
   static const aiCuratedCollections = '/shop/ai-curated-collections';
   static const aiCuratedCollectionDetails = '/shop/ai-curated-collections/:id';
   static const chat = '/Chat';
+  static const wardrobes = '/wardrobes';
+  static const wardrobeCreate = '/wardrobes/new';
+  static const wardrobeDetails = '/wardrobes/:id';
   static const contactSupport = '/contact-support';
   static const helpCenter = '/help-center';
   static const returnPolicy = '/return-policy';

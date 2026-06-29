@@ -63,9 +63,14 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
           refreshToken: response.refreshToken,
           user: response.user?.toJson(),
           emailVerifiedAt: emailVerifiedAt,
+          profileSetupRequired: true,
+          recommendationsFlowRequired: true,
         );
         _dioClient.setAuthToken(token);
-        AuthGuard.login();
+        AuthGuard.login(
+          profileSetupRequired: true,
+          recommendationsFlowRequired: true,
+        );
         hasAuthenticatedSession = true;
       }
 

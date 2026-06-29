@@ -3,8 +3,6 @@ import 'package:drip_talk/core/common/constants/constants_barrels.dart';
 import 'package:drip_talk/core/common/widgets/widgets_barrels.dart';
 import 'package:drip_talk/features/shop/barrels/shop_barrels.dart';
 import 'package:drip_talk/l10n/app_localizations.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
 part 'widgets/ai_curated_collection_details_view_widgets.dart';
 

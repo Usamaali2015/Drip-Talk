@@ -11,7 +11,6 @@ import 'package:drip_talk/core/common/widgets/app_gradient_background.dart';
 import 'package:drip_talk/core/common/widgets/app_gradient_border.dart';
 import 'package:drip_talk/core/common/widgets/app_text.dart';
 import 'package:drip_talk/core/services/get_it/service_locator.dart';
-
 import 'package:drip_talk/core/utils/responsive/break_points.dart';
 import 'package:drip_talk/core/utils/routes/app_routes.dart';
 import 'package:drip_talk/core/utils/routes/route_paths.dart';
@@ -168,10 +167,12 @@ class _DashboardShellState extends State<DashboardShell> {
     return LayoutBuilder(
       builder: (_, constraints) {
         final isDesktop = constraints.maxWidth >= Breakpoints.desktop;
-        final isProfileBranch = widget.navigationShell.currentIndex == 2;
+        final isWardrobeBranch = widget.navigationShell.currentIndex == 2;
+        final isProfileBranch = widget.navigationShell.currentIndex == 3;
         final isShopRootRoute = widget.currentLocation == RoutePaths.shop;
         final isCartRoute = widget.currentLocation == RoutePaths.cart;
-        final showShellAppBar = !isDesktop && !isProfileBranch && !isCartRoute;
+        final showShellAppBar =
+            !isDesktop && !isProfileBranch && !isWardrobeBranch && !isCartRoute;
 
         return BlocProvider.value(
           value: _shopBloc,
@@ -283,7 +284,7 @@ class _DashboardShellState extends State<DashboardShell> {
                             ),
                           ] else ...[
                             GradientBorder(
-                              onTap: () => widget.navigationShell.goBranch(2),
+                              onTap: () => widget.navigationShell.goBranch(3),
                               enableShadow: false,
                               backgroundColor: _profileImageUrl != null
                                   ? AppColors.transparent
@@ -393,27 +394,29 @@ class _DashboardShellState extends State<DashboardShell> {
 
   Widget _buildBottomNavBar(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    const int wardrobeBranchIndex = 2;
+    const int profileBranchIndex = 3;
+
     final items = [
-      {
-        'icon': Assets.homeLight,
-        'active': Assets.homeWhite,
-        'label': l10n.navHome,
-      },
-      {
-        'icon': Assets.shopLight,
-        'active': Assets.shopWhite,
-        'label': l10n.navShop,
-      },
-      {
-        'icon': Assets.chatLight,
-        'active': Assets.chatWhite,
-        'label': l10n.navChat,
-      },
-      {
-        'icon': Assets.profileLight,
-        'active': Assets.profileWhite,
-        'label': l10n.navProfile,
-      },
+      _DashboardNavItem.asset(
+        icon: Assets.chatLight,
+        activeIcon: Assets.chatWhite,
+        label: l10n.navChat,
+      ),
+      const _DashboardNavItem.asset(
+        icon: Assets.wadrobeUnfilled,
+        activeIcon: Assets.wadrobe,
+        label: 'Wardrobe',
+        branchIndex: wardrobeBranchIndex,
+        inactiveTint: AppColors.pureWhite70,
+        activeTint: AppColors.pureWhite,
+      ),
+      _DashboardNavItem.asset(
+        icon: Assets.profileLight,
+        activeIcon: Assets.profileWhite,
+        label: l10n.navProfile,
+        branchIndex: profileBranchIndex,
+      ),
     ];
 
     return Container(
@@ -428,20 +431,27 @@ class _DashboardShellState extends State<DashboardShell> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: List.generate(items.length, (index) {
           final shellIndex = widget.navigationShell.currentIndex;
-          final isSelected = (index == 2)
-              ? false
-              : (index < 2 ? shellIndex == index : shellIndex == index - 1);
+          final item = items[index];
+
+          // ── Check if this nav item is selected ──────────────────────────
+          // For branch items: check branch index
+          // For Chat: check if current location is the chat route
+          final isSelected = item.branchIndex != null
+              ? shellIndex == item.branchIndex
+              : widget.currentLocation == RoutePaths.chat;
 
           return Material(
             color: AppColors.transparent,
             child: InkWell(
               borderRadius: BorderRadius.circular(AppRadius.circular),
               onTap: () {
-                if (index == 2) {
+                if (item.branchIndex == null) {
+                  if (widget.navigationShell.currentIndex == profileBranchIndex) {
+                    widget.navigationShell.goBranch(wardrobeBranchIndex);
+                  }
                   context.pushNamed(AppRoutes.chat);
                 } else {
-                  final targetBranch = index > 2 ? index - 1 : index;
-                  widget.navigationShell.goBranch(targetBranch);
+                  widget.navigationShell.goBranch(item.branchIndex!);
                 }
               },
               child: AnimatedContainer(
@@ -456,18 +466,28 @@ class _DashboardShellState extends State<DashboardShell> {
                   borderRadius: BorderRadius.circular(AppRadius.circular),
                 ),
                 child: Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     SvgPicture.asset(
-                      isSelected
-                          ? items[index]['active']!
-                          : items[index]['icon']!,
+                      isSelected ? item.activeIcon : item.icon,
                       height: AppSizes.s24,
                       width: AppSizes.s24,
+                      colorFilter:
+                          (isSelected ? item.activeTint : item.inactiveTint) !=
+                              null
+                          ? ColorFilter.mode(
+                              isSelected
+                                  ? item.activeTint!
+                                  : item.inactiveTint!,
+                              BlendMode.srcIn,
+                            )
+                          : null,
                     ),
-                    if (isSelected) ...[
+                    // ── Show label only for items with branchIndex (not Chat) ────
+                    if (item.branchIndex != null && isSelected) ...[
                       const AppGap(AppSizes.s8, axis: Axis.horizontal),
                       AppText(
-                        text: items[index]['label']!,
+                        text: item.label,
                         style: AppTextStyles.ts12(
                           context,
                           color: AppColors.pureWhite,
@@ -484,4 +504,22 @@ class _DashboardShellState extends State<DashboardShell> {
       ),
     );
   }
+}
+
+class _DashboardNavItem {
+  const _DashboardNavItem.asset({
+    required this.icon,
+    required this.activeIcon,
+    required this.label,
+    this.branchIndex,
+    this.inactiveTint,
+    this.activeTint,
+  });
+
+  final String icon;
+  final String activeIcon;
+  final String label;
+  final int? branchIndex;
+  final Color? inactiveTint;
+  final Color? activeTint;
 }

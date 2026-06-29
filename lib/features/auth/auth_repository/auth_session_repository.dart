@@ -34,6 +34,8 @@ class AuthSessionRepository {
     String? refreshToken,
     Map<String, dynamic>? user,
     required String? emailVerifiedAt,
+    bool? profileSetupRequired,
+    bool? recommendationsFlowRequired,
   }) async {
     await _storage.saveAuthToken(token);
     final normalizedRefreshToken = _normalize(refreshToken);
@@ -44,6 +46,12 @@ class AuthSessionRepository {
       await _storage.saveUser(user);
     }
     await _saveEmailVerifiedAt(emailVerifiedAt);
+    if (profileSetupRequired != null) {
+      await setProfileSetupRequired(profileSetupRequired);
+    }
+    if (recommendationsFlowRequired != null) {
+      await setRecommendationsFlowRequired(recommendationsFlowRequired);
+    }
     await _storage.delete(StorageKeys.pendingVerificationEmail);
     await _clearPendingVerificationSessionData();
   }
@@ -91,6 +99,8 @@ class AuthSessionRepository {
   Future<bool> promotePendingVerificationSession({
     String? emailVerifiedAt,
     Map<String, dynamic>? user,
+    bool? profileSetupRequired,
+    bool? recommendationsFlowRequired,
   }) async {
     final token = _normalize(
       await _storage.readString(StorageKeys.pendingVerificationAuthToken),
@@ -111,6 +121,8 @@ class AuthSessionRepository {
       refreshToken: refreshToken,
       user: user ?? pendingUser,
       emailVerifiedAt: emailVerifiedAt,
+      profileSetupRequired: profileSetupRequired,
+      recommendationsFlowRequired: recommendationsFlowRequired,
     );
 
     return true;
@@ -121,6 +133,9 @@ class AuthSessionRepository {
     await _storage.delete(StorageKeys.refreshToken);
     await _storage.delete(StorageKeys.user);
     await _storage.delete(StorageKeys.isLoggedIn);
+    await _storage.delete(StorageKeys.profileSetupRequired);
+    await _storage.delete(StorageKeys.recommendationsFlowRequired);
+    await _storage.delete(StorageKeys.chatSessionId);
   }
 
   Future<String?> getAuthToken() async {
@@ -133,6 +148,11 @@ class AuthSessionRepository {
 
   Future<Map<String, dynamic>?> getAuthenticatedUser() async {
     return _storage.getUser();
+  }
+
+  Future<String?> getAuthenticatedUserId() async {
+    final user = await getAuthenticatedUser();
+    return _normalize(user?['id']?.toString());
   }
 
   Future<void> markEmailVerified({String? emailVerifiedAt}) async {
@@ -156,6 +176,32 @@ class AuthSessionRepository {
   Future<bool> hasPendingEmailVerification() async {
     final pendingEmail = await getPendingVerificationEmail();
     return pendingEmail != null && await getEmailVerifiedAt() == null;
+  }
+
+  Future<void> setProfileSetupRequired(bool isRequired) async {
+    if (isRequired) {
+      await _storage.writeBool(StorageKeys.profileSetupRequired, true);
+      return;
+    }
+
+    await _storage.delete(StorageKeys.profileSetupRequired);
+  }
+
+  Future<bool> isProfileSetupRequired() {
+    return _storage.readBool(StorageKeys.profileSetupRequired);
+  }
+
+  Future<void> setRecommendationsFlowRequired(bool isRequired) async {
+    if (isRequired) {
+      await _storage.writeBool(StorageKeys.recommendationsFlowRequired, true);
+      return;
+    }
+
+    await _storage.delete(StorageKeys.recommendationsFlowRequired);
+  }
+
+  Future<bool> isRecommendationsFlowRequired() {
+    return _storage.readBool(StorageKeys.recommendationsFlowRequired);
   }
 
   Future<void> clearPendingVerification() async {

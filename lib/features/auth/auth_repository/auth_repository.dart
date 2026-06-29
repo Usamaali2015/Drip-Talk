@@ -22,6 +22,7 @@ class AuthRepository {
         'password': password,
         'password_confirmation': passwordConfirmation,
       },
+      requiresAppAttestation: true,
     );
 
     return AuthResponseModel.fromResponse(response.data);
@@ -34,6 +35,7 @@ class AuthRepository {
     return await _apiService.post(
       ApiEndpoints.verifyOtp,
       data: {'email': email, 'otp': otp},
+      requiresAppAttestation: true,
     );
   }
 
@@ -44,6 +46,7 @@ class AuthRepository {
     final response = await _apiService.post(
       ApiEndpoints.login,
       data: {'email': email, 'password': password},
+      requiresAppAttestation: true,
     );
 
     return AuthResponseModel.fromResponse(response.data);
@@ -56,6 +59,7 @@ class AuthRepository {
     final response = await _apiService.post(
       ApiEndpoints.verifyTwoFactor,
       data: {'two_factor_token': twoFactorToken, 'code': code},
+      requiresAppAttestation: true,
     );
 
     return AuthResponseModel.fromResponse(response.data);
@@ -88,6 +92,7 @@ class AuthRepository {
     final response = await _apiService.delete(
       ApiEndpoints.deleteAccountWithCredentials,
       data: {'email': email, 'password': password},
+      requiresAppAttestation: true,
     );
 
     return AuthResponseModel.fromResponse(response.data);
@@ -97,6 +102,7 @@ class AuthRepository {
     return await _apiService.post(
       ApiEndpoints.sendForgotPasswordOtp,
       data: {'email': email},
+      requiresAppAttestation: true,
     );
   }
 
@@ -107,6 +113,7 @@ class AuthRepository {
     return await _apiService.post(
       ApiEndpoints.forgotPasswordVerifyOtp,
       data: {'email': email, 'otp': otp},
+      requiresAppAttestation: true,
     );
   }
 
@@ -114,6 +121,7 @@ class AuthRepository {
     return await _apiService.post(
       ApiEndpoints.resendOtp,
       data: {'email': email},
+      requiresAppAttestation: true,
     );
   }
 
@@ -131,6 +139,7 @@ class AuthRepository {
         'password': password,
         'password_confirmation': passwordConfirmation,
       },
+      requiresAppAttestation: true,
     );
   }
 }

@@ -19,6 +19,7 @@ class ApiEndpoints {
   static const String addresses = '$version/addresses';
   static const String profile = '$version/profile';
   static const String accountUpdate = '$version/profile/update';
+  static const String brands = '$version/brands';
   static const String verifyTwoFactor = '$version/auth/verify-2fa';
   static const String cart = '$version/cart';
   static const String cartAdd = '$cart/add';
@@ -28,6 +29,12 @@ class ApiEndpoints {
   static const String wishlistToggle = '$wishlist/toggle';
   static const String reviews = '$version/reviews';
   static const String pages = '$version/pages';
+  static const String recommendations = '$version/recommendations';
+  static const String wardrobes = '$version/wardrobes';
+  static const String wardrobeItems = '$version/wardrobe-items';
+  static const String tryOnGenerate = '$version/try-on/generate';
+  static const String tryOnResult = '$version/tryon/result';
+  static const String chatSessions = '$chat/sessions';
   static const String privacyPolicyPage = '$pages/privacy-policy';
   static const String termsAndConditionsPage = '$pages/terms-and-conditions';
   static const String returnPolicyPage = '$pages/return-policy';
@@ -41,6 +48,8 @@ class ApiEndpoints {
   static String deleteAddress(int addressId) => '$addresses/$addressId';
   static String updateReview(int reviewId) => '$reviews/$reviewId/update';
   static String deleteReview(int reviewId) => '$reviews/$reviewId';
+  static String wardrobe(int wardrobeId) => '$wardrobes/$wardrobeId';
   static String chatSessionMessages(int sessionId) =>
       '$chat/sessions/$sessionId/messages';
+  static String chatSession(int sessionId) => '$chat/sessions/$sessionId';
 }
