@@ -143,13 +143,6 @@ class MobileProfileView extends StatelessWidget {
                   listTitle: l10n.settings,
                   items: [
                     GradientListItem(
-                      subtitle: l10n.notifications,
-                      iconPath: Assets.notification,
-                      trailingType: TrailingType.toggle,
-                      switchValue: true,
-                      onToggle: (val) {},
-                    ),
-                    GradientListItem(
                       subtitle: l10n.privacyPolicy,
                       iconPath: Assets.password,
                       onTap: () => context.pushNamed(AppRoutes.privacyPolicy),

@@ -3,7 +3,7 @@ import 'main_barrels.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   SystemUtils.setPortraitOnly();
 
   SystemUtils.setStatusBar(

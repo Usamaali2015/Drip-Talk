@@ -52,11 +52,14 @@ class LegalPageData {
 
   factory LegalPageData.fromJson(Map<String, dynamic>? json) {
     final source = _asMap(json);
-    final sectionsSource =
-        source?['sections'] ??
-        source?['items'] ??
-        source?['blocks'] ??
-        source?['content_items'];
+    final id = _asString(source?['id']);
+    final isPrivacyPolicy = id == 'privacy-policy';
+    final sectionsSource = isPrivacyPolicy
+        ? null
+        : (source?['sections'] ??
+              source?['items'] ??
+              source?['blocks'] ??
+              source?['content_items']);
     final sections =
         _asListOfMaps(sectionsSource)
             .map(LegalPageSection.fromJson)
@@ -77,8 +80,9 @@ class LegalPageData {
       ]),
     );
 
-    if (sections.isEmpty && standaloneContent != null) {
-      sections.add(
+    if (standaloneContent != null) {
+      sections.insert(
+        0,
         LegalPageSection(
           title: _firstString([
             source?['heading'],
@@ -92,7 +96,7 @@ class LegalPageData {
             source?['iconName'],
           ]),
           htmlContent: standaloneContent,
-          sortOrder: 0,
+          sortOrder: -1000,
         ),
       );
     }
