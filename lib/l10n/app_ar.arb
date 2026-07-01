@@ -364,7 +364,7 @@
   "@permissionStorageStorage": {
     "description": "معلومات التخزين لإذن المعرض"
   },
-  "permissionAccept": "موافق ومتابعة",
+  "permissionAccept": "موافق",
   "@permissionAccept": {
     "description": "نص زر الموافقة في نافذة الإفصاح"
   },

@@ -573,7 +573,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Storage & Sharing: Processed securely, stored on our safe servers, and never shared.';
 
   @override
-  String get permissionAccept => 'Agree & Continue';
+  String get permissionAccept => 'Agree';
 
   @override
   String get permissionDeny => 'Not Now';

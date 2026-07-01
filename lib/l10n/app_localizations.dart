@@ -1157,7 +1157,7 @@ abstract class AppLocalizations {
   /// Accept button text in permission disclosure dialog
   ///
   /// In en, this message translates to:
-  /// **'Agree & Continue'**
+  /// **'Agree'**
   String get permissionAccept;
 
   /// Deny button text in permission disclosure dialog

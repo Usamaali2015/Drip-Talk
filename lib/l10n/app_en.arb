@@ -364,7 +364,7 @@
   "@permissionStorageStorage": {
     "description": "Storage info for gallery permission"
   },
-  "permissionAccept": "Agree & Continue",
+  "permissionAccept": "Agree",
   "@permissionAccept": {
     "description": "Accept button text in permission disclosure dialog"
   },

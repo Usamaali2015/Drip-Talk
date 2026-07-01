@@ -111,13 +111,29 @@ class ProminentDisclosureDialog extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _buildDisclosureRow(context, Icons.info_outline_rounded, dataCollected),
+                    _buildDisclosureRow(
+                      context,
+                      Icons.info_outline_rounded,
+                      dataCollected,
+                    ),
                     const AppGap(AppSizes.s12),
-                    _buildDisclosureRow(context, Icons.help_outline_rounded, purpose),
+                    _buildDisclosureRow(
+                      context,
+                      Icons.help_outline_rounded,
+                      purpose,
+                    ),
                     const AppGap(AppSizes.s12),
-                    _buildDisclosureRow(context, Icons.settings_suggest_rounded, usage),
+                    _buildDisclosureRow(
+                      context,
+                      Icons.settings_suggest_rounded,
+                      usage,
+                    ),
                     const AppGap(AppSizes.s12),
-                    _buildDisclosureRow(context, Icons.security_rounded, storageInfo),
+                    _buildDisclosureRow(
+                      context,
+                      Icons.security_rounded,
+                      storageInfo,
+                    ),
                   ],
                 ),
               ),
@@ -132,10 +148,13 @@ class ProminentDisclosureDialog extends StatelessWidget {
                       text: l10n.permissionDeny,
                       onPressed: onDeny,
                       borderRadius: AppRadius.r20,
-                      backgroundColor: AppColors.pureWhite.withValues(alpha: 0.04),
+                      backgroundColor: AppColors.pureWhite.withValues(
+                        alpha: 0.04,
+                      ),
                       borderColor: AppColors.pureWhite.withValues(alpha: 0.12),
                       textColor: AppColors.pureWhite.withValues(alpha: 0.8),
                       height: AppSizes.s48,
+                      fontSize: AppSizes.s14,
                     ),
                   ),
                   const AppGap(AppSizes.s12, axis: Axis.horizontal),
@@ -144,8 +163,12 @@ class ProminentDisclosureDialog extends StatelessWidget {
                       text: l10n.permissionAccept,
                       onPressed: onAccept,
                       borderRadius: AppRadius.r20,
-                      gradientColors: const [AppColors.secondary, AppColors.primary],
+                      gradientColors: const [
+                        AppColors.secondary,
+                        AppColors.primary,
+                      ],
                       height: AppSizes.s48,
+                      fontSize: AppSizes.s14,
                     ),
                   ),
                 ],
@@ -161,11 +184,7 @@ class ProminentDisclosureDialog extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Icon(
-          icon,
-          color: AppColors.cyan,
-          size: AppSizes.s18,
-        ),
+        Icon(icon, color: AppColors.cyan, size: AppSizes.s18),
         const AppGap(AppSizes.s10, axis: Axis.horizontal),
         Expanded(
           child: AppText(

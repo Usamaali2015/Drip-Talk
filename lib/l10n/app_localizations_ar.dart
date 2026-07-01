@@ -573,7 +573,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'التخزين والمشاركة: تُعالج بشكل آمن، وتُخزن على خوادمنا الآمنة، ولا تُشارك أبدًا.';
 
   @override
-  String get permissionAccept => 'موافق ومتابعة';
+  String get permissionAccept => 'موافق';
 
   @override
   String get permissionDeny => 'ليس الآن';
