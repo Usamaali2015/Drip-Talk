@@ -324,6 +324,66 @@
   "@editProfilePhotoGalleryAction": {
     "description": "Gallery action label in the photo source sheet on the edit profile screen"
   },
+  "permissionCameraTitle": "Camera Access Required",
+  "@permissionCameraTitle": {
+    "description": "Title for camera permission disclosure dialog"
+  },
+  "permissionCameraDataCollected": "Data Collected: Images captured via camera",
+  "@permissionCameraDataCollected": {
+    "description": "Information about data collected for camera"
+  },
+  "permissionCameraPurpose": "Purpose: To capture photos for your profile and styling scans.",
+  "@permissionCameraPurpose": {
+    "description": "Purpose of camera permission"
+  },
+  "permissionCameraUsage": "Usage: Used to update your avatar and analyze your clothing selections.",
+  "@permissionCameraUsage": {
+    "description": "Usage of camera permission"
+  },
+  "permissionCameraStorage": "Storage & Sharing: Processed securely, stored on our safe servers, and never shared.",
+  "@permissionCameraStorage": {
+    "description": "Storage info for camera permission"
+  },
+  "permissionStorageTitle": "Gallery Access Required",
+  "@permissionStorageTitle": {
+    "description": "Title for storage/gallery permission disclosure dialog"
+  },
+  "permissionStorageDataCollected": "Data Collected: Photos selected from your gallery",
+  "@permissionStorageDataCollected": {
+    "description": "Information about data collected for gallery"
+  },
+  "permissionStoragePurpose": "Purpose: To upload photos for profile setup and virtual wardrobe.",
+  "@permissionStoragePurpose": {
+    "description": "Purpose of gallery permission"
+  },
+  "permissionStorageUsage": "Usage: Used to update your avatar and build your virtual outfit collections.",
+  "@permissionStorageUsage": {
+    "description": "Usage of gallery permission"
+  },
+  "permissionStorageStorage": "Storage & Sharing: Processed securely, stored on our safe servers, and never shared.",
+  "@permissionStorageStorage": {
+    "description": "Storage info for gallery permission"
+  },
+  "permissionAccept": "Agree & Continue",
+  "@permissionAccept": {
+    "description": "Accept button text in permission disclosure dialog"
+  },
+  "permissionDeny": "Not Now",
+  "@permissionDeny": {
+    "description": "Deny button text in permission disclosure dialog"
+  },
+  "permissionSettingsTitle": "Permission Required",
+  "@permissionSettingsTitle": {
+    "description": "Title for permission permanently denied dialog"
+  },
+  "permissionSettingsMessage": "This feature requires camera or gallery access. Please enable the permission in your device Settings.",
+  "@permissionSettingsMessage": {
+    "description": "Explanation for permission permanently denied dialog"
+  },
+  "permissionSettingsOpen": "Open Settings",
+  "@permissionSettingsOpen": {
+    "description": "Open settings button text"
+  },
   "editProfileChangePasswordUnavailable": "Change password is not available yet.",
   "@editProfileChangePasswordUnavailable": {
     "description": "Toast shown when the user taps the change password tile before the feature is implemented"

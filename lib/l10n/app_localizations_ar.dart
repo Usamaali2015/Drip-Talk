@@ -535,6 +535,60 @@ class AppLocalizationsAr extends AppLocalizations {
   String get editProfilePhotoGalleryAction => 'المعرض';
 
   @override
+  String get permissionCameraTitle => 'مطلوب الإذن بالوصول إلى الكاميرا';
+
+  @override
+  String get permissionCameraDataCollected =>
+      'البيانات التي نجمعها: الصور الملتقطة بواسطة الكاميرا';
+
+  @override
+  String get permissionCameraPurpose =>
+      'الغرض: لالتقاط صور لملفك الشخصي وعمليات مسح تنسيق الملابس.';
+
+  @override
+  String get permissionCameraUsage =>
+      'الاستخدام: تُستخدم لتحديث صورتك الرمزية وتحليل اختيارات ملابسك.';
+
+  @override
+  String get permissionCameraStorage =>
+      'التخزين والمشاركة: تُعالج بشكل آمن، وتُخزن على خوادمنا الآمنة، ولا تُشارك أبدًا.';
+
+  @override
+  String get permissionStorageTitle => 'مطلوب الإذن بالوصول إلى المعرض';
+
+  @override
+  String get permissionStorageDataCollected =>
+      'البيانات التي نجمعها: الصور المحددة من معرض الصور الخاص بك';
+
+  @override
+  String get permissionStoragePurpose =>
+      'الغرض: لتحميل الصور لإعداد الملف الشخصي وخزانة الملابس الافتراضية.';
+
+  @override
+  String get permissionStorageUsage =>
+      'الاستخدام: تُستخدم لتحديث صورتك الرمزية وبناء مجموعات ملابسك الافتراضية.';
+
+  @override
+  String get permissionStorageStorage =>
+      'التخزين والمشاركة: تُعالج بشكل آمن، وتُخزن على خوادمنا الآمنة، ولا تُشارك أبدًا.';
+
+  @override
+  String get permissionAccept => 'موافق ومتابعة';
+
+  @override
+  String get permissionDeny => 'ليس الآن';
+
+  @override
+  String get permissionSettingsTitle => 'الإذن مطلوب';
+
+  @override
+  String get permissionSettingsMessage =>
+      'تتطلب هذه الميزة إمكانية الوصول إلى الكاميرا أو المعرض. يرجى تمكين الإذن من إعدادات جهازك.';
+
+  @override
+  String get permissionSettingsOpen => 'افتح الإعدادات';
+
+  @override
   String get editProfileChangePasswordUnavailable =>
       'تغيير كلمة المرور غير متاح حاليًا.';
 

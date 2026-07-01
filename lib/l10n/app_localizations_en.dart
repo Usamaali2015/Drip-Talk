@@ -535,6 +535,60 @@ class AppLocalizationsEn extends AppLocalizations {
   String get editProfilePhotoGalleryAction => 'Gallery';
 
   @override
+  String get permissionCameraTitle => 'Camera Access Required';
+
+  @override
+  String get permissionCameraDataCollected =>
+      'Data Collected: Images captured via camera';
+
+  @override
+  String get permissionCameraPurpose =>
+      'Purpose: To capture photos for your profile and styling scans.';
+
+  @override
+  String get permissionCameraUsage =>
+      'Usage: Used to update your avatar and analyze your clothing selections.';
+
+  @override
+  String get permissionCameraStorage =>
+      'Storage & Sharing: Processed securely, stored on our safe servers, and never shared.';
+
+  @override
+  String get permissionStorageTitle => 'Gallery Access Required';
+
+  @override
+  String get permissionStorageDataCollected =>
+      'Data Collected: Photos selected from your gallery';
+
+  @override
+  String get permissionStoragePurpose =>
+      'Purpose: To upload photos for profile setup and virtual wardrobe.';
+
+  @override
+  String get permissionStorageUsage =>
+      'Usage: Used to update your avatar and build your virtual outfit collections.';
+
+  @override
+  String get permissionStorageStorage =>
+      'Storage & Sharing: Processed securely, stored on our safe servers, and never shared.';
+
+  @override
+  String get permissionAccept => 'Agree & Continue';
+
+  @override
+  String get permissionDeny => 'Not Now';
+
+  @override
+  String get permissionSettingsTitle => 'Permission Required';
+
+  @override
+  String get permissionSettingsMessage =>
+      'This feature requires camera or gallery access. Please enable the permission in your device Settings.';
+
+  @override
+  String get permissionSettingsOpen => 'Open Settings';
+
+  @override
   String get editProfileChangePasswordUnavailable =>
       'Change password is not available yet.';
 

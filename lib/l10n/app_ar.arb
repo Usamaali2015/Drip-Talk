@@ -324,6 +324,66 @@
   "@editProfilePhotoGalleryAction": {
     "description": "نص إجراء المعرض في نافذة اختيار مصدر الصورة"
   },
+  "permissionCameraTitle": "مطلوب الإذن بالوصول إلى الكاميرا",
+  "@permissionCameraTitle": {
+    "description": "عنوان نافذة الإفصاح عن إذن الكاميرا"
+  },
+  "permissionCameraDataCollected": "البيانات التي نجمعها: الصور الملتقطة بواسطة الكاميرا",
+  "@permissionCameraDataCollected": {
+    "description": "معلومات عن البيانات المجمعة للكاميرا"
+  },
+  "permissionCameraPurpose": "الغرض: لالتقاط صور لملفك الشخصي وعمليات مسح تنسيق الملابس.",
+  "@permissionCameraPurpose": {
+    "description": "الغرض من إذن الكاميرا"
+  },
+  "permissionCameraUsage": "الاستخدام: تُستخدم لتحديث صورتك الرمزية وتحليل اختيارات ملابسك.",
+  "@permissionCameraUsage": {
+    "description": "الاستخدام لإذن الكاميرا"
+  },
+  "permissionCameraStorage": "التخزين والمشاركة: تُعالج بشكل آمن، وتُخزن على خوادمنا الآمنة، ولا تُشارك أبدًا.",
+  "@permissionCameraStorage": {
+    "description": "معلومات التخزين لإذن الكاميرا"
+  },
+  "permissionStorageTitle": "مطلوب الإذن بالوصول إلى المعرض",
+  "@permissionStorageTitle": {
+    "description": "عنوان نافذة الإفصاح عن إذن المعرض/التخزين"
+  },
+  "permissionStorageDataCollected": "البيانات التي نجمعها: الصور المحددة من معرض الصور الخاص بك",
+  "@permissionStorageDataCollected": {
+    "description": "معلومات عن البيانات المجمعة للمعرض"
+  },
+  "permissionStoragePurpose": "الغرض: لتحميل الصور لإعداد الملف الشخصي وخزانة الملابس الافتراضية.",
+  "@permissionStoragePurpose": {
+    "description": "الغرض من إذن المعرض"
+  },
+  "permissionStorageUsage": "الاستخدام: تُستخدم لتحديث صورتك الرمزية وبناء مجموعات ملابسك الافتراضية.",
+  "@permissionStorageUsage": {
+    "description": "الاستخدام لإذن المعرض"
+  },
+  "permissionStorageStorage": "التخزين والمشاركة: تُعالج بشكل آمن، وتُخزن على خوادمنا الآمنة، ولا تُشارك أبدًا.",
+  "@permissionStorageStorage": {
+    "description": "معلومات التخزين لإذن المعرض"
+  },
+  "permissionAccept": "موافق ومتابعة",
+  "@permissionAccept": {
+    "description": "نص زر الموافقة في نافذة الإفصاح"
+  },
+  "permissionDeny": "ليس الآن",
+  "@permissionDeny": {
+    "description": "نص زر الرفض في نافذة الإفصاح"
+  },
+  "permissionSettingsTitle": "الإذن مطلوب",
+  "@permissionSettingsTitle": {
+    "description": "عنوان نافذة طلب الإذن من الإعدادات"
+  },
+  "permissionSettingsMessage": "تتطلب هذه الميزة إمكانية الوصول إلى الكاميرا أو المعرض. يرجى تمكين الإذن من إعدادات جهازك.",
+  "@permissionSettingsMessage": {
+    "description": "شرح نافذة طلب الإذن من الإعدادات"
+  },
+  "permissionSettingsOpen": "افتح الإعدادات",
+  "@permissionSettingsOpen": {
+    "description": "نص زر فتح الإعدادات"
+  },
   "editProfileChangePasswordUnavailable": "تغيير كلمة المرور غير متاح حاليًا.",
   "@editProfileChangePasswordUnavailable": {
     "description": "رسالة تنبيه عند الضغط على تغيير كلمة المرور قبل تنفيذ الميزة"

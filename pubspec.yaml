@@ -1,15 +1,12 @@
 name: drip_talk
-description: "Your Personal AI Stylist That Remembers Your Taste – Chat,
-Get Inspired, Shop Smart"
+description: "Your Personal AI Stylist That Remembers Your Taste – Chat, Get Inspired, Shop Smart"
 
-publish_to: 'none'
-
+publish_to: "none"
 
 version: 1.0.0+1
 
 environment:
   sdk: ^3.10.4
-
 
 dependencies:
   flutter:
@@ -33,6 +30,7 @@ dependencies:
   flutter_svg: ^2.2.3
   change_app_package_name: ^1.5.0
   image_picker: ^1.2.1
+  permission_handler: ^11.3.1
   shimmer: ^3.0.0
   flutter_html: ^3.0.0
   url_launcher: ^6.3.2
@@ -43,22 +41,16 @@ dependencies:
   google_mlkit_face_detection: ^0.13.2
   web_socket_channel: ^3.0.3
 
-
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
   flutter_lints: ^6.0.0
   flutter_launcher_icons: ^0.14.4
-
-
 
 flutter:
   generate: true
   uses-material-design: true
-
 
   assets:
     - assets/images/
@@ -67,13 +59,11 @@ flutter:
     - assets/lotties/
     - assets/logo/
 
-
-
   fonts:
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins.ttf
-        
+
     - family: Tajawal
       fonts:
         - asset: assets/fonts/Tajawal.ttf

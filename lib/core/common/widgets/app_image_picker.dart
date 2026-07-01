@@ -22,6 +22,7 @@ class AppImagePicker extends StatelessWidget {
 
   Future<void> _pick(BuildContext context, ImageSource source) async {
     final files = await AppPickerUtils.pickImages(
+      context: context,
       multiple: multiple,
       source: source,
     );

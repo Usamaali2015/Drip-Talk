@@ -51,6 +51,7 @@ import 'package:drip_talk/features/wardrobe/domain/bloc/wardrobe_list_bloc.dart'
 import 'package:drip_talk/features/wardrobe/domain/wardrobe_sync_notifier.dart';
 import 'package:drip_talk/features/wishlist/data/repository/wishlist_repository.dart';
 import 'package:drip_talk/features/wishlist/domain/bloc/wishlist_bloc.dart';
+import 'package:drip_talk/features/permission/domain/bloc/permission_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:drip_talk/l10n/bloc/localization_bloc.dart';
 import 'package:drip_talk/core/services/storage/secure_storage.dart';
@@ -299,6 +300,7 @@ Future<void> setupServices() async {
   getIt.registerLazySingleton<WishlistBloc>(
     () => WishlistBloc(getIt<WishlistRepository>()),
   );
+  getIt.registerFactory<PermissionBloc>(() => PermissionBloc());
 }
 
 Future<void> restoreStartupAuthSession() {

@@ -1094,6 +1094,96 @@ abstract class AppLocalizations {
   /// **'Gallery'**
   String get editProfilePhotoGalleryAction;
 
+  /// Title for camera permission disclosure dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Camera Access Required'**
+  String get permissionCameraTitle;
+
+  /// Information about data collected for camera
+  ///
+  /// In en, this message translates to:
+  /// **'Data Collected: Images captured via camera'**
+  String get permissionCameraDataCollected;
+
+  /// Purpose of camera permission
+  ///
+  /// In en, this message translates to:
+  /// **'Purpose: To capture photos for your profile and styling scans.'**
+  String get permissionCameraPurpose;
+
+  /// Usage of camera permission
+  ///
+  /// In en, this message translates to:
+  /// **'Usage: Used to update your avatar and analyze your clothing selections.'**
+  String get permissionCameraUsage;
+
+  /// Storage info for camera permission
+  ///
+  /// In en, this message translates to:
+  /// **'Storage & Sharing: Processed securely, stored on our safe servers, and never shared.'**
+  String get permissionCameraStorage;
+
+  /// Title for storage/gallery permission disclosure dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Gallery Access Required'**
+  String get permissionStorageTitle;
+
+  /// Information about data collected for gallery
+  ///
+  /// In en, this message translates to:
+  /// **'Data Collected: Photos selected from your gallery'**
+  String get permissionStorageDataCollected;
+
+  /// Purpose of gallery permission
+  ///
+  /// In en, this message translates to:
+  /// **'Purpose: To upload photos for profile setup and virtual wardrobe.'**
+  String get permissionStoragePurpose;
+
+  /// Usage of gallery permission
+  ///
+  /// In en, this message translates to:
+  /// **'Usage: Used to update your avatar and build your virtual outfit collections.'**
+  String get permissionStorageUsage;
+
+  /// Storage info for gallery permission
+  ///
+  /// In en, this message translates to:
+  /// **'Storage & Sharing: Processed securely, stored on our safe servers, and never shared.'**
+  String get permissionStorageStorage;
+
+  /// Accept button text in permission disclosure dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Agree & Continue'**
+  String get permissionAccept;
+
+  /// Deny button text in permission disclosure dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Not Now'**
+  String get permissionDeny;
+
+  /// Title for permission permanently denied dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Permission Required'**
+  String get permissionSettingsTitle;
+
+  /// Explanation for permission permanently denied dialog
+  ///
+  /// In en, this message translates to:
+  /// **'This feature requires camera or gallery access. Please enable the permission in your device Settings.'**
+  String get permissionSettingsMessage;
+
+  /// Open settings button text
+  ///
+  /// In en, this message translates to:
+  /// **'Open Settings'**
+  String get permissionSettingsOpen;
+
   /// Toast shown when the user taps the change password tile before the feature is implemented
   ///
   /// In en, this message translates to:

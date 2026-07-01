@@ -181,6 +181,7 @@ class _RecommendationsPhotoStep extends StatelessWidget {
 
   Future<void> _pickPhoto(BuildContext context, ImageSource source) async {
     final files = await AppPickerUtils.pickImages(
+      context: context,
       multiple: false,
       source: source,
       preferredCameraDevice: CameraDevice.front,

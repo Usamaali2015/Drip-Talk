@@ -537,6 +537,7 @@ class EditProfileView extends StatelessWidget {
   ) async {
     final navigator = Navigator.of(sheetContext);
     final files = await AppPickerUtils.pickImages(
+      context: context,
       multiple: false,
       source: source,
       imageQuality: 85,

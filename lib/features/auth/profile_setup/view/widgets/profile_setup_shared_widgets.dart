@@ -645,6 +645,7 @@ class ProfileSetupUploadPickerSheet extends StatelessWidget {
 
   Future<void> _pickImages(BuildContext context, ImageSource source) async {
     final files = await AppPickerUtils.pickImages(
+      context: context,
       multiple: true,
       source: source,
     );

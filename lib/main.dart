@@ -1,4 +1,5 @@
 import 'package:flutter/services.dart';
+import 'package:drip_talk/features/permission/domain/bloc/permission_bloc.dart';
 import 'main_barrels.dart';
 
 void main() async {
@@ -46,6 +47,7 @@ class DripTalk extends StatelessWidget {
         BlocProvider<HomeBloc>(create: (_) => getIt<HomeBloc>()),
         BlocProvider<CartBloc>(create: (_) => getIt<CartBloc>()),
         BlocProvider<WishlistBloc>(create: (_) => getIt<WishlistBloc>()),
+        BlocProvider<PermissionBloc>(create: (_) => getIt<PermissionBloc>()),
       ],
       child: const _DripTalkBootstrap(),
     );
